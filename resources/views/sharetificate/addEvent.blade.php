@@ -34,5 +34,17 @@
             </a>
         </div>
     </nav>
+
+    <div class="add-event-container flex flex-col mt-24">
+        <div class="m-auto my-2">
+            <img src="/assets/addEvent-icon.png" alt="Add Event Icon">
+        </div>
+        <div class="text-green-new text-3xl font-semibold m-auto my-3">
+            You don't have any event yet!
+        </div>
+        <button class="bg-yellow-new hover:bg-yellow-500 text-dark-blue-new text-2xl font-bold px-10 py-4 rounded-full m-auto my-10 shadow-md">
+            + Add Event
+        </button>
+    </div>
 </body>
 </html>
