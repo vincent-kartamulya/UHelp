@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/addEvent', function () {
+    return view('sharetificate.addEvent');
+});
+
+Route::get('/createEvent', function () {
+    return view('sharetificate.createEvent');
 });
