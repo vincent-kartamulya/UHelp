@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/addEvent', function() {
+Route::get('/addEvent', function () {
     return view('sharetificate.addEvent');
+});
+
+Route::get('/createEvent', function () {
+    return view('sharetificate.createEvent');
 });
