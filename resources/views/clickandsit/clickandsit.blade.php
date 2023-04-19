@@ -5,11 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   @vite('resources/css/app.css')
+  <title>Click and Sit</title>
 </head>
 <body>
 
     <div id="navbar">
-        {{-- BELUM ADA ISI NYA --}}
+        <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new shadow-lg">
+            <div class="logo-container absolute left-6">
+                <a href="#">
+                    <img class="logo-pict w-44" src="/assets/logo.jpg" alt="UHelp Logo">
+                </a>
+            </div>
+            <div class="features-container w-1/5 m-auto">
+                <ul class="flex flex-row justify-around text-green-new text-2xl text-center">
+                    <li class="hover:font-medium w-2/5 hover:underline drop-shadow">
+                        <a href="#">Click and Sit</a>
+                    </li>
+                    <li class="hover:font-medium w-2/5 hover:underline drop-shadow">
+                        <a href="#">Sharetificate</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="profile-container absolute right-8">
+                <a href="#">
+                    <img class="logo-pict w-16 rounded-full" src="/assets/profil.jpg" alt="Profile Picture">
+                </a>
+            </div>
+        </nav>
     </div>
 
 
