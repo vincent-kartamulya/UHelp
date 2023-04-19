@@ -25,3 +25,11 @@ Route::get('/addEvent', function () {
 Route::get('/createEvent', function () {
     return view('sharetificate.createEvent');
 });
+
+Route::get('/clickandsit', function () {
+    return view('clickandsit.clickandsit');
+});
+
+Route::get('/createTemplate', function () {
+    return view('clickandsit.createTemplate');
+});
