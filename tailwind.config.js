@@ -14,9 +14,14 @@ module.exports = {
             'green-new': '#539064',
             'dark-blue-new': '#3F487F',
         },
+        fontFamily: {
+            'font-poppins': ['"Poppins"', 'sans-serif'],
+        },
     },
   },
   plugins: [
-    require('flowbite/plugin')
+    // require('flowbite/plugin')
   ],
 }
+
+
