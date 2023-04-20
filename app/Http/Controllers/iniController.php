@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 
+
 class iniController extends Controller
 {
     public function routingawal(){
-        $host = 'http://localhost:1234/wd/hub'; // Selenium server URL
+        $host = 'http://localhost:4444/wd/hub'; // Selenium server URL
         $capabilities = DesiredCapabilities::chrome();
         $driver = RemoteWebDriver::create($host, $capabilities);
 
