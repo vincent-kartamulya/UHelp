@@ -36,3 +36,5 @@ Route::get('/clickandsit', function () {
 Route::get('/createTemplate', function () {
     return view('clickandsit.createTemplate');
 });
+
+Route::get('/Sele',[iniController::class,'routingAwal']);

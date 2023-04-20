@@ -13,7 +13,7 @@ class iniController extends Controller
         $capabilities = DesiredCapabilities::chrome();
         $driver = RemoteWebDriver::create($host, $capabilities);
 
-        $driver->get('https://www.example.com');
+        $driver->get('https://forms.gle/dKcynjUvbwggiQdx5');
         $title = $driver->getTitle();
         echo $title;
         $driver->quit();
