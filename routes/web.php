@@ -29,8 +29,12 @@ Route::get('/createEvent', function () {
     return view('sharetificate.createEvent');
 });
 
-Route::get('/clickandsit', function () {
-    return view('clickandsit.clickandsit');
+Route::get('/clickandsit/empty', function () {
+    return view('clickandsit.clickandsit-empty');
+});
+
+Route::get('/clickandsit/fill', function () {
+    return view('clickandsit.clickandsit-fill');
 });
 
 Route::get('/createTemplate', function () {

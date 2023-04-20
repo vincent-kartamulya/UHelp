@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   @vite('resources/css/app.css')
-  <title>Create Template</title>
+  <title>U-Help | Create Template</title>
+  <link rel="icon" type="image/gif" href="/assets/logo.png">
 </head>
 <body>
 
@@ -34,8 +35,8 @@
         </nav>
     </div>
 
-    <div id="content" class="flex">
 
+    <div id="content" class="flex">
         <div id="ornament">
             <div class="absolute z-10">
                 <img class="ml-[72vw]" src="/assets/clickandsit/createTemplate/circleOrnament.png">
@@ -53,7 +54,6 @@
                 <img class="mt-[16vw] ml-[7vw]" src="/assets/clickandsit/createTemplate/circleOrnament.png">
             </div>
         </div>
-
 
         <div id="form" class="absolute w-full max-w-[68vw] p-4 bg-white border border-[#F7C04B] rounded-lg shadow sm:p-6 md:p-[3vw] ml-[14vw] mt-[5vw]">
             <div id="header setting">
@@ -146,7 +146,6 @@
                 <button type="submit" class="mt-[4vw] mb-[5vw] ml-[25vw] w-[12vw] h-[3vw] text-[#3F487F] text-[1.2vw] border bg-[#F7C04B] hover:bg-white hover:border-[#F7C04B] font-font-poppins font-bold rounded-[5vw] text-sm px-[2vw] py-[1vw] text-center">Save</button>
             </div>
         </div>
-
     </div>
 
 
