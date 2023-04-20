@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class iniController extends Controller
 {
-    //
+    public function routingawal(){
+        
+    }
 }
