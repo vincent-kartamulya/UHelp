@@ -14,7 +14,7 @@
 <body>
     <script src="..path/to/flowbite/dist/flowbite.min.js"></script>
     <script src="..path/to/flowbite/dist/datepicker.js"></script>
-
+ 
     <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new shadow-lg">
         <div class="logo-container absolute left-6">
             <a href="#">
