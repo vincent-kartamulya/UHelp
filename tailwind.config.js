@@ -15,7 +15,7 @@ module.exports = {
             'dark-blue-new': '#3F487F',
         },
         fontFamily: {
-            'font-poppins': ['"Poppins"', 'sans-serif'],
+            'font-poppins': ['Poppins', 'sans-serif'],
         },
     },
   },
