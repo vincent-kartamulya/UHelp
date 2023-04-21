@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  @vite('resources/css/app.css')
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
   <title>U-Help | Create Template</title>
   <link rel="icon" type="image/gif" href="/assets/logo.png">
 </head>
 <body>
 
     <div id="navbar">
-        <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new shadow-lg">
+        <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg">
             <div class="logo-container absolute left-6">
                 <a href="#">
                     <img class="logo-pict w-44" src="/assets/logo.jpg" alt="UHelp Logo">
