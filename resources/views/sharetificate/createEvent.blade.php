@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <form action="">
+    <form action="post">
         <div class="event-form w-5/12 mt-10 m-auto px-10 py-5 border-2 rounded-2xl shadow-2xl bg-white">
             <div class="event-title flex flex-col">
                 <label for="event_name" class="text-green-new text-xl font-semibold mt-7 mb-4">Title *</label>
