@@ -18,6 +18,9 @@ class RecipientFactory extends Factory
     {
         return [
             //
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'position' => 'Participant'
         ];
     }
 }

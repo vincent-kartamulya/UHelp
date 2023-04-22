@@ -2,7 +2,7 @@
 
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EventController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +38,4 @@ Route::get('/createTemplate', function () {
     return view('clickandsit.createTemplate');
 });
 
+Route::resource('/events', EventController::class);

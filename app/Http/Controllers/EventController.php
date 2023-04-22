@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use App\Http\Requests\StoreEventRequest;
-use App\Http\Requests\UpdateEventRequest;
+use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
@@ -31,12 +30,15 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreEventRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEventRequest $request)
+    public function store(Request $request)
     {
         //
+        $request->file("event_participants")->store("excel");
+        $request->file("event_certificate")->store("template");
+        // return $request;
     }
 
     /**
@@ -64,11 +66,11 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateEventRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateEventRequest $request, Event $event)
+    public function update(Request $request, Event $event)
     {
         //
     }

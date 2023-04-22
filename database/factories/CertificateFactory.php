@@ -16,8 +16,15 @@ class CertificateFactory extends Factory
      */
     public function definition()
     {
+        $issuingDate = $this->faker->date();
+        $expiredDate = date('Y-m-d', strtotime($issuingDate . ' + 5 years'));
+
         return [
-            //
+            'user_id' => mt_rand(1, 3),
+            'event_id' => mt_rand(1, 3),
+            'recipient_id' => mt_rand(1, 20),
+            'issuing_date' => $issuingDate,
+            'expired_date' => $expiredDate,
         ];
     }
 }
