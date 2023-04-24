@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\iniController;
 use App\Http\Controllers\EventController;
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +47,5 @@ Route::get('/createTemplate', function () {
     return view('clickandsit.createTemplate');
 });
 
+Route::get('/Sele',[iniController::class,'routingawal']);
 Route::resource('/events', EventController::class);
