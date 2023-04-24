@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\iniController;
 use App\Http\Controllers\EventController;
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,10 @@ use App\Http\Controllers\EventController;
 
 Route::get('/', function () {
     return view('test');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
 });
 
 Route::get('/addEvent', function () {
@@ -34,8 +39,13 @@ Route::get('/clickandsit/fill', function () {
     return view('clickandsit.clickandsit-fill');
 });
 
+Route::get('/history', function () {
+    return view('clickandsit.history');
+});
+
 Route::get('/createTemplate', function () {
     return view('clickandsit.createTemplate');
 });
 
+Route::get('/Sele',[iniController::class,'routingawal']);
 Route::resource('/events', EventController::class);
