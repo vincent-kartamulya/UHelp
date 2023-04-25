@@ -47,5 +47,9 @@ Route::get('/createTemplate', function () {
     return view('clickandsit.createTemplate');
 });
 
+Route::get('/generatedCertificate', function () {
+    return view('sharetificate.generatedCertificate');
+});
+
 Route::get('/Sele',[iniController::class,'routingawal']);
 Route::resource('/events', EventController::class);
