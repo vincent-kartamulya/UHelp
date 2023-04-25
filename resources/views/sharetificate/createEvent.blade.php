@@ -56,12 +56,8 @@
     </div>
 
     <div class="form-title flex flex-col m-auto w-1/2 pt-36">
-        <div class="m-auto text-4xl font-bold text-dark-blue-new mb-4">
-            Create New Event
-        </div>
-        <div class="m-auto">
-            <img src="/assets/Divider.png" alt="Divider">
-        </div>
+        <p class="text-center text-4xl font-bold text-dark-blue-new mb-2">Create New Event</p>
+        <img src="/assets/sharetificate/divider-blue.png" alt="Divider Blue">
     </div>
 
     <form method="POST" action="/events" enctype="multipart/form-data">
