@@ -14,7 +14,7 @@
 <body class="bg-slate-100 font-font-poppins">
     <header>
         <div id="navbar">
-            <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg fixed z-50">
+            <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg top-0 fixed z-50">
                 <div class="logo-container absolute left-6">
                     <a href="#">
                         <img class="logo-pict w-44" src="/assets/logo.jpg" alt="UHelp Logo">
@@ -23,15 +23,15 @@
                 <div class="features-container w-1/5 m-auto">
                     <ul class="flex flex-row justify-around text-green-new text-2xl text-center">
                         <li class="hover:font-medium w-2/5 hover:underline drop-shadow">
-                            <a href="#">Click and Sit</a>
+                            <a href="/clickandsit/empty">Click and Sit</a>
                         </li>
                         <li class="hover:font-medium w-2/5 hover:underline drop-shadow">
-                            <a href="#">Sharetificate</a>
+                            <a href="/addEvent">Sharetificate</a>
                         </li>
                     </ul>
                 </div>
                 <div class="profile-container absolute right-8">
-                    <a href="#">
+                    <a href="/profile">
                         <img class="logo-pict w-16 rounded-full" src="/assets/profil.jpg" alt="Profile Picture">
                     </a>
                 </div>
@@ -40,7 +40,24 @@
     </header>
 
     <main>
-        <div id="content" class="flex flex-row">
+        <div id="delete" class="justify-center items-center flex">
+            <div class="w-[20vw] h-[11vw] bg-white rounded-[0.75vw] top-[20vw] shadow-xl border border-yellow-new fixed z-10">
+                <h5 class="text-green-new font-semibold px-[2vw] py-[1.5vw] text-[1vw] justify-center text-center">Are you sure want to delete account?</h5>
+                <div id="yes and cancel button" class="flex flex-row mt-[1vw] items-center justify-center">
+                    <a href="/profile">
+                        <div id="yes" class="bg-yellow-new w-[6vw] h-[2vw] font-medium rounded-[1vw] shadow-md uppercase text-green-new flex items-center justify-center">
+                            Yes
+                        </div>
+                    </a>
+                    <a href="/profile">
+                        <div id="cancel" class="bg-white text-yellow-new font-medium w-[6vw] h-[2vw] rounded-[1vw] shadow-md uppercase text-black flex items-center justify-center ml-[1.5vw]">
+                            Cancel
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="flex flex-row blur-[0.1vw] bg-fixed">
             <div id="left content" class="ml-[17vw] fixed">
                 <div id="profile" class="w-full max-w-[12vw] h-[13vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[8vw]">
                     <div id="profile" class="flex flex-col items-center pb-10">
