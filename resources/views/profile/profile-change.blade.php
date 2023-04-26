@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>U-Help | Click and Sit</title>
+    <title>U-Help | Profile</title>
     <link rel="icon" type="image/gif" href="/assets/logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,136 +40,112 @@
     </header>
 
     <main>
-        <div id="content" class="pt-[5vw]">
-            <div id="ornament">
-                <div id="right ornament" class="absolute z-10 right-[0vw] top-[7vw]">
-                    <img src="/assets/clickandsit/clickandsit/fill/rightOrnament.png">
-                </div>
-
-                <div id="left ornament" class="absolute z-10 top-[5vw]">
-                    <img src="/assets/clickandsit/clickandsit/fill/leftOrnament.png">
-                </div>
-
-                <div id="history button" class="absolute z-10 right-[0vw] top-[20vw]">
-                    <a href="/history">
-                        <img src="/assets/clickandsit/clickandsit/fill/historyButton.png">
+        <div id="change" class="justify-center items-center flex">
+            <div class="w-[17vw] h-[9vw] bg-white rounded-[0.75vw] top-[20vw] shadow-xl border border-yellow-new fixed z-10">
+                <h5 class="text-green-new font-semibold px-[2vw] mt-[1.5vw] text-[1vw] justify-center text-center">Profile already changed</h5>
+                <div id="ok button" class="flex items-center justify-center px-[2vw] py-[1.5vw]">
+                    <a href="/profile">
+                        <div id="ok" class="bg-yellow-new w-[6vw] h-[2vw] mt-[0.5vw] font-medium rounded-[1vw] shadow-md uppercase text-green-new flex items-center justify-center ">
+                            Ok
+                        </div>
                     </a>
                 </div>
             </div>
-
-            <div id="header available template" class="w-full m-auto sm:p-[1.25vw] md:p-[3vw]">
-                <h1 class="font-semibold text-[2.5vw] text-dark-blue-new text-center">Available Template</h1>
-            </div>
-
-            <div id="card template 1" class="flex flex-row w-1/2 m-auto bg-yellow-new rounded-[2vw] shadow sm:p-[1.25vw] md:p-[2.5vw] mb-[3vw]">
-                <div id="left (destination. time, day, icon)">
-                    <div id="text and icon" class="flex flex-row">
-                        <div>
-                            <label for="destination title" class="block mb-[0.75vw] font-font-poppins font-bold text-[1.5vw] text-[#3F487F]">Anggrek - Grand Indonesia</label>
-                            <h5 class="mb-[1.5vw] font-font-poppins font-semibold text-[1vw] text-[#3F487F]">16:30 WIB - 18:15 WIB </h5>
-                        </div>
-
-                        <div id="edit icon" class="mt-[0.35vw] ml-[0.75vw]">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                class="w-[1.5vw] h-[1.5vw] fill-[#3F487F] opacity-75">
-                                    <path
-                                        d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
-                                    <path
-                                        d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div id="schedule" class="inline-flex rounded-md shadow-sm" role="group">
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Mon</a>
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Tue</a>
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Wed</a>
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Thr</a>
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Fri</a>
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Sat</a>
+        </div>
+        <div id="content" class="flex flex-row blur-[0.1vw] bg-fixed">
+            <div id="left content" class="ml-[17vw] fixed">
+                <div id="profile" class="w-full max-w-[12vw] h-[13vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[8vw]">
+                    <div id="profile" class="flex flex-col items-center pb-10">
+                        <img class="w-[6vw] h-[6vw] mb-3 rounded-full shadow-lg mt-[1vw] border-[0.2vw] border-slate-100" src="/assets/profile/profile.png" alt="Profile Picture"/>
+                        <h5 class="mb-1 text-[0.75vw] font-medium text-gray-900">@anderies_senpai</h5>
+                        <hr class="w-[11.5vw] h-[0.2vw] mx-auto my-4 bg-slate-100 border-0 rounded shadow-inner">
                     </div>
                 </div>
-
-                <div id="right (toggle)">
-                    <label for="themeSwitcherTwo" class="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center left-[12vw] top-[2.5vw]">
-                        <input type="checkbox" name="themeSwitcherTwo" id="themeSwitcherTwo" class="sr-only">
-                        <span class="label flex items-center text-[1.3vw] font-semibold text-dark-blue-new">
-                        Off
-                        </span>
-                        <span class="slider mx-[0.83vw] flex h-[2.92vw] w-[5.47vw] items-center rounded-full bg-[#AFB1B6] p-[0.2vw] duration-200">
-                        <span class="dot h-[2.1875vw] w-[2.1875vw] rounded-full bg-white duration-200"></span>
-                        </span>
-                    </label>
-                </div>
-            </div>
-
-            <div id="card template 2" class="flex flex-row w-1/2 m-auto bg-yellow-new rounded-[2vw] shadow sm:p-[1.25vw] md:p-[2.5vw] mb-[3vw]">
-                <div id="left (destination. time, day, icon)">
-                    <div id="text and icon" class="flex flex-row">
-                        <div>
-                            <label for="destination title" class="block mb-[0.75vw] font-font-poppins font-bold text-[1.5vw] text-[#3F487F]">Madara - Uchiha</label>
-                            <h5 class="mb-[1.5vw] font-font-poppins font-semibold text-[1vw] text-[#3F487F]">15:30 WIB - 16:15 WIB </h5>
-                        </div>
-
-                        <div id="edit icon" class="mt-[0.35vw] ml-[0.75vw]">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                class="w-[1.5vw] h-[1.5vw] fill-[#3F487F] opacity-75">
-                                    <path
-                                        d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
-                                    <path
-                                        d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
-                            </svg>
-                        </div>
+                <a href="">
+                    <div id="delete account" class="flex justify-center items-center w-[12vw] h-[2.5vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[1vw]">
+                        <h5 class="text-[1vw] font-semibold text-red-600">Delete Account</h5>
                     </div>
-
-                    <div id="schedule" class="inline-flex rounded-md shadow-sm" role="group">
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Mon</a>
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Tue</a>
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Wed</a>
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Thr</a>
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Fri</a>
-                        <a class="text-[#539064] font-semibold text-[1vw] py-1 w-[3vw] h-[2vw] text-center bg-white border-[0.15vw] border-[#539064] rounded-lg shadow hover:bg-[#539064] mr-[1vw]">Sat</a>
-                    </div>
-                </div>
-
-                <div id="right (toggle)">
-                    <label for="themeSwitcherTwo" class="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center left-[12vw] top-[2.5vw]">
-                        <input type="checkbox" name="themeSwitcherTwo" id="themeSwitcherTwo" class="sr-only">
-                        <span class="label flex items-center text-[1.3vw] font-semibold text-dark-blue-new">
-                        Off
-                        </span>
-                        <span class="slider mx-[0.83vw] flex h-[2.92vw] w-[5.47vw] items-center rounded-full bg-[#AFB1B6] p-[0.2vw] duration-200">
-                        <span class="dot h-[2.1875vw] w-[2.1875vw] rounded-full bg-white duration-200"></span>
-                        </span>
-                    </label>
-                </div>
-            </div>
-
-            <div id="add schedule" class="flex justify-center">
-                <a href="/createTemplate">
-                    <button class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-[15vw] py-[0.83vw] rounded-full m-auto shadow-md">
-                        + Add Schedule
-                    </button>
                 </a>
+            </div>
+            <div id="right content" class="bg-white rounded-[0.5vw] shadow mt-[8vw] w-[50vw] h-[64vw] ml-[31.5vw] px-[3.5vw] py-[3vw]">
+                <div id="connect section">
+                    <h5 class="text-[1.5vw] font-semibold mb-[1vw]">Connect</h5>
+                    <div id="connect button" class="flex flex-row mb-[5vw]">
+                        <a href="">
+                            <div id="facebook" class="bg-[#3F487F] w-[21vw] h-[3vw] rounded-[0.25vw] shadow uppercase text-white flex items-center justify-center">
+                                CONNECT WITH FACEBOOK
+                            </div>
+                        </a>
+                        <a href="">
+                            <div id="facebook" class="bg-[#DAA55A] w-[21vw] h-[3vw] rounded-[0.25vw] shadow uppercase text-black flex items-center justify-center ml-[1vw]">
+                                REGISTERED WITH GOOGLE
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div id="account data">
+                    <h5 class="text-[1.5vw] font-semibold mb-[1.5vw]">Account Data</h5>
+                    <div id="username" class="w-[28vw] mb-[2vw]">
+                        <h5 class="absolute ml-[0.75vw] top-[25.4vw] bg-white text-[#3F487F] w-[4.75vw] flex justify-center">Username</h5>
+                        <input type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="anderies_notanto" required>
+                    </div>
+                    <div id="username" class="w-[28vw] mb-[2vw]">
+                        <h5 class="absolute ml-[0.75vw] top-[30.4vw] bg-white text-[#3F487F] w-[2.75vw] flex justify-center">Email</h5>
+                        <input type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="anderies_senpai@gmail.com" required>
+                    </div>
+                    <div id="real name" class="w-[28vw] mb-[5vw]">
+                        <h5 class="absolute ml-[0.75vw] top-[35.4vw] bg-white text-[#3F487F] w-[5vw] flex justify-center">Real Name</h5>
+                        <input type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="Anderies Notanto" required>
+                    </div>
+                </div>
+                <div id="notification">
+                    <h5 class="text-[1.5vw] font-semibold mb-[1vw]">Notification</h5>
+                    <div id="card" class="mb-[3vw]">
+                        <div id="notification" class="bg-white w-[43vw] h-[3vw] rounded-[0.25vw] shadow text-black flex items-center border border-[#B8BBBA]">
+                            <p class="ml-[0.75vw]">Receive newsletters, promotions, and news from U-Help Comapny</p>
+                            <div id="right (toggle)">
+                                <label for="themeSwitcherTwo" class="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center left-[9.5vw] top-[0.1vw]">
+                                    <input type="checkbox" name="themeSwitcherTwo" id="themeSwitcherTwo" class="sr-only">
+                                    <span class="slider mx-[0.83vw] flex h-[1.46vw] w-[2.73vw] items-center rounded-full bg-[#AFB1B6] p-[0.2vw] duration-200">
+                                        <span class="dot h-[1.093vw] w-[1.093vw] rounded-full bg-white duration-200"></span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="text" class="text-justify mb-[5vw]">
+                    <span class=" text-black sm:text-center">U-Help will process your data to send you information about our products and services, promotions, surveys, rafffles, based on our legitimate interest, and updates from the creators you follow, if you have consented to this. Your data will not be disclosed to third parties. They will be communicated outside the EU under the terms of the
+                        <a href="" class="text-[#3F487F] font-semibold hover:underline">Privacy policy.</a>
+                        You can opt out of our notifications with the first slider.
+                        <a href="" class="text-[#3F487F] font-semibold hover:underline">More information</a>
+                    </span>
+                </div>
+                <div id="cancel and save button" class="flex flex-row ml-[26vw]">
+                    <a href="">
+                        <div id="facebook" class="bg-white w-[7vw] h-[2.75vw] rounded-[0.25vw] shadow text-black flex items-center justify-center border-[0.2vw] border-[#CFD9E0]">
+                            Cancel
+                        </div>
+                    </a>
+                    <a href="">
+                        <div id="facebook" class="bg-[#3F487F] w-[9vw] h-[2.75vw] rounded-[0.25vw] shadow text-white flex items-center justify-center ml-[1vw] border border-[#CFD9E0]">
+                            Save Changes
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </main>
 
     <footer class="bg-[#92AA68]">
-        <div id="footer" class="mx-auto w-full p-4 py-6 pt-[3vw] max-w-screen-2xl mt-[10vw]">
+        <div id="footer" class="mx-auto w-full p-4 py-6 pt-[3vw] max-w-screen-2xl mt-[4.75vw]">
             <h5 class="self-center text-[1.5vw] font-semibold whitespace-nowrap text-yellow-new font-shadow mb-3 ">U-Help</h5>
             <div id="upper white line" class="md:flex md:justify-between">
-                <div class="mb-6 md:mb-0">
+                <div id="left" class="mb-6 md:mb-0">
                     <h5 class="w-[18vw] text-white text-[1vw]">Thoughful marketing for growing dental practices.</h5>
                 </div>
 
-                <div class="grid gap-8 sm:gap-6 sm:grid-cols-2 ml-[4vw]">
+                <div id="center" class="grid gap-8 sm:gap-6 sm:grid-cols-2 ml-[4vw]">
                     <form method="POST" action="" enctype="multipart/form-data">
                         <div class="event-title flex flex-col">
                             <h5 class="w-[28vw] text-[1vw] text-white mb-[1vw]">DENTAL MARKETING INSIGHTS FOR CLEVER DENTISTS DIRECT TO YOUR INBOX</h5>
@@ -181,7 +157,7 @@
                     </form>
                 </div>
 
-                <div class="grid gap-8 sm:gap-6 sm:grid-cols-2">
+                <div id="right" class="grid gap-8 sm:gap-6 sm:grid-cols-2">
                     <div class="w-[16vw]">
                         <h2 class="mb-6 text-[1vw] font-semibold text-white uppercase">FOLLOW US</h2>
                         <ul class="text-white font-medium text-[0.8vw]">
@@ -245,10 +221,3 @@
     </footer>
 </body>
 </html>
-
-
-
-
-
-
-

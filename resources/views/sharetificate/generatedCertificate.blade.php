@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body class="bg-slate-100 font-font-poppins">
-    <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg fixed z-50">
+    <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg top-0 fixed z-50">
         <div class="logo-container absolute left-6">
             <a href="#">
                 <img class="logo-pict w-44" src="/assets/logo.jpg" alt="UHelp Logo">
@@ -22,15 +22,15 @@
         <div class="features-container w-1/5 m-auto">
             <ul class="flex flex-row justify-around text-green-new text-2xl text-center">
                 <li class="hover:font-medium w-2/5 hover:underline drop-shadow">
-                    <a href="#">Click and Sit</a>
+                    <a href="/clickandsit/empty">Click and Sit</a>
                 </li>
                 <li class="hover:font-medium w-2/5 hover:underline drop-shadow">
-                    <a href="#">Sharetificate</a>
+                    <a href="/addEvent">Sharetificate</a>
                 </li>
             </ul>
         </div>
         <div class="profile-container absolute right-8">
-            <a href="#">
+            <a href="/profile">
                 <img class="logo-pict w-16 rounded-full" src="/assets/profil.jpg" alt="Profile Picture">
             </a>
         </div>
