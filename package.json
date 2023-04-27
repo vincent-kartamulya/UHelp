@@ -16,6 +16,7 @@
     "dependencies": {
         "flowbite": "^1.6.5",
         "flowbite-datepicker": "^1.2.2",
+        "jquery": "^3.6.4",
         "selenium-webdriver": "^4.8.2"
     }
 }

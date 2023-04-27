@@ -19,8 +19,20 @@ Route::get('/', function () {
     return view('test');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
 Route::get('/profile', function () {
-    return view('profile');
+    return view('profile.profile');
+});
+
+Route::get('/profile/delete', function () {
+    return view('profile.profile-delete');
+});
+
+Route::get('/profile/change', function () {
+    return view('profile.profile-change');
 });
 
 Route::get('/addEvent', function () {
@@ -29,6 +41,18 @@ Route::get('/addEvent', function () {
 
 Route::get('/createEvent', function () {
     return view('sharetificate.createEvent');
+});
+
+Route::get('/generatedCertificate', function () {
+    return view('sharetificate.generatedCertificate');
+});
+
+Route::get('/seeCertificate', function () {
+    return view('sharetificate.seeCertificate');
+});
+
+Route::get('/seeCertificate/download', function () {
+    return view('sharetificate.seeCertificate-download');
 });
 
 Route::get('/clickandsit/empty', function () {
@@ -47,9 +71,6 @@ Route::get('/createTemplate', function () {
     return view('clickandsit.createTemplate');
 });
 
-Route::get('/generatedCertificate', function () {
-    return view('sharetificate.generatedCertificate');
-});
 
 Route::get('/Sele',[iniController::class,'routingawal']);
 Route::resource('/events', EventController::class);
