@@ -17,7 +17,7 @@
         <div id="navbar">
             <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg fixed top-0 z-50">
                 <div class="logo-container absolute left-6">
-                    <a href="#">
+                    <a href="/home">
                         <img class="logo-pict w-44" src="/assets/logo.jpg" alt="UHelp Logo">
                     </a>
                 </div>
@@ -160,7 +160,7 @@
 
             <hr class="my-6 border-white sm:mx-auto mt-[3vw]" />
             <div id="under white line" class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-[1vw] text-white sm:text-center">© 2023 <a href="" class="hover:underline">U-Help</a>. Education Lecture Helper, Bogor. All Rights Reserved.</span>
+                <span class="text-[1vw] text-white sm:text-center">© 2023 <a href="/home" class="hover:underline">U-Help</a>. Education Lecture Helper, Bogor. All Rights Reserved.</span>
                 <div id="right bottom text" class="flex space-x-6 sm:justify-center sm:mt-0 text-[1vw] text-white">
                     <a href="" class="hover:underline uppercase">PRIVACY POLICY</a>
                     <a href="" class="hover:underline uppercase">TERMS & CONDITIONS</a>
