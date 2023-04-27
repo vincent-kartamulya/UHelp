@@ -1,4 +1,4 @@
-import './bootstrap';
+// import './bootstrap';
 
-import jQuery from 'jquery';
-window.$ = jQuery;
+// import jQuery from 'jquery';
+// window.$ = window.jQuery = require('jquery');
