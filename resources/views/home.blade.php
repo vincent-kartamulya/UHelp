@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>U-Help | Click and Sit</title>
+    <title>U-Help | Home</title>
     <link rel="icon" type="image/gif" href="/assets/logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slate-100 font-font-poppins">
+<body class="font-font-poppins">
     <header>
         <div id="navbar">
-            <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg top-0 fixed z-50">
+            <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg fixed top-0 z-50">
                 <div class="logo-container absolute left-6">
                     <a href="/home">
                         <img class="logo-pict w-44" src="/assets/logo.jpg" alt="UHelp Logo">
@@ -40,44 +40,73 @@
     </header>
 
     <main>
-        <div id="ornament" class="flex flex-row">
-            <div id="center ornament" class="pt-[5vw] m-auto">
-                <img src="/assets/clickandsit/clickandsit/empty/centerOrnament.png" alt="Center Ornament">
+        <div id="content">
+            <div id="section 1" class="flex flex-row bg-slate-100 h-[40vw] w-full absolute z-20 top-[0vw]">
+                <div id="left">
+                    <h1 class="font-semibold text-[3.75vw] mt-[10vw] ml-[12vw] w-[31vw]">Make Your Daily Activity Easier</h1>
+                    <p class="text-[1.25vw] w-[35vw] ml-[12vw] mt-[1.5vw]">Streamline your form filling and certificate generation with our website's innovative features</p>
+                    <p class="text-[1.25vw] ml-[12vw] w-[30vw]">- Save time, stay secure!</p>
+                   <a href="">
+                       <div class="bg-yellow-new shadow-md rounded-[1vw] mt-[1vw] ml-[12vw] w-[8vw] h-[2.5vw] flex text-center justify-center items-center">
+                           <h5 class="text-[1.1vw] font-semibold">Start</h5>
+                       </div>
+                   </a>
+                </div>
+                <div id="right">
+                    <img class="z-10 ml-[17vw] mt-[5vw]" src="/assets/home/section1/rightOrnament.png" alt="Right Ornament">
+                    <img class="z-10 ml-[17vw] top-[20vw] absolute" src="/assets/home/section1/binus.png" alt="Binus">
+                </div>
             </div>
-
-            <div id="left ornament" class="absolute mt-[8vw] -z-10">
-                <img src="/assets/clickandsit/clickandsit/empty/leftOrnament.png" alt="Left Ornament">
+            <img class="w-full absolute top-[30vw] z-10" src="/assets/home/section1/bottomOrnament.png" alt="">
+            <div id="section 2">
+                <div>
+                    <img class="absolute z-10 top-[58vw] w-screen" src="/assets/home/section2/background.png" alt="">
+                </div>
             </div>
-
-            <div id="right ornament" class="absolute right-[0vw] mt-[5vw] -z-10">
-                <img src="/assets/clickandsit/clickandsit/empty/rightOrnament.png" alt="Right Ornament">
+            <div id="section 3" class="mt-[95vw] ml-[18vw] flex flex-row">
+                <div id="left">
+                    <img src="/assets/home/section3/clickandsitImage.png" alt="">
+                </div>
+                <div id="right" class="ml-[10vw] w-[30vw]">
+                    <h5 class="mt-[3vw] text-green-new font-bold text-[2.5vw]">Click and Sit</h5>
+                    <p class="mt-[1vw] text-[1.2vw]">Easily fill out shuttle forms in seconds with our automated feature </p>
+                    <p class="text-[1.2vw]">- Say goodbye to manual data entry and save time! Try it now!</p>
+                    <a href="">
+                        <div class="bg-yellow-new shadow-md rounded-[1vw] mt-[1vw] w-[6.75vw] h-[2.2vw] flex text-center justify-center items-center">
+                            <h5 class="text-[1.1vw] font-semibold">Start</h5>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
-
-        <div id="text and button" class="flex flex-col pt-[3vw]">
-            <div id="text" class="text-green-new text-3xl font-semibold m-auto my-3">
-                You don't have any schedule yet!
+            <div id="section 4" class="mt-[10vw] ml-[27.5vw] mb-[15vw] flex flex-row">
+                <div id="left" class="mr-[8vw] w-[25vw] text-right">
+                    <h5 class=" text-green-new font-bold text-[2.5vw] ">Sharetificate</h5>
+                    <p class="mt-[1vw] text-[1.2vw]">Create and manage secure certificates with ease using our QR validation feature - Save time and stay organized!</p>
+                    <a href="">
+                        <div class="bg-yellow-new shadow-md rounded-[1vw] mt-[2vw] w-[6.75vw] h-[2.2vw] flex text-center justify-center items-center ml-[18vw]">
+                            <h5 class="text-[1.1vw] font-semibold">Start</h5>
+                        </div>
+                    </a>
+                </div>
+                <div id="right">
+                    <img class="h-[15vw]" src="/assets/home/section4/sharetificateImage.png" alt="">
+                </div>
             </div>
-
-            <div id="button" class="m-auto my-10">
-                <a href="/createTemplate">
-                    <button class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-60 py-4 rounded-full shadow-md">
-                        + Add Schedule
-                    </button>
-                </a>
+            <div id="section 5" class="absolute z-10 top-[140.9vw] w-full">
+                <img class="w-full" src="/assets/home/section5/frameFooter.png" alt="">
             </div>
         </div>
     </main>
 
     <footer class="bg-[#92AA68]">
-        <div id="footer" class="mx-auto w-full p-4 py-6 pt-[3vw] max-w-screen-2xl mt-[10vw]">
+        <div id="footer" class="mx-auto w-full p-4 py-6 pt-[3vw] max-w-screen-2xl">
             <h5 class="self-center text-[1.5vw] font-semibold whitespace-nowrap text-yellow-new font-shadow mb-3 ">U-Help</h5>
             <div id="upper white line" class="md:flex md:justify-between">
-                <div class="mb-6 md:mb-0">
+                <div id="left" class="mb-6 md:mb-0">
                     <h5 class="w-[18vw] text-white text-[1vw]">Thoughful marketing for growing dental practices.</h5>
                 </div>
 
-                <div class="grid gap-8 sm:gap-6 sm:grid-cols-2 ml-[4vw]">
+                <div id="center" class="grid gap-8 sm:gap-6 sm:grid-cols-2 ml-[4vw]">
                     <form method="POST" action="" enctype="multipart/form-data">
                         <div class="event-title flex flex-col">
                             <h5 class="w-[28vw] text-[1vw] text-white mb-[1vw]">DENTAL MARKETING INSIGHTS FOR CLEVER DENTISTS DIRECT TO YOUR INBOX</h5>
@@ -89,7 +118,7 @@
                     </form>
                 </div>
 
-                <div class="grid gap-8 sm:gap-6 sm:grid-cols-2">
+                <div id="right" class="grid gap-8 sm:gap-6 sm:grid-cols-2">
                     <div class="w-[16vw]">
                         <h2 class="mb-6 text-[1vw] font-semibold text-white uppercase">FOLLOW US</h2>
                         <ul class="text-white font-medium text-[0.8vw]">
@@ -153,6 +182,4 @@
     </footer>
 </body>
 </html>
-
-
 
