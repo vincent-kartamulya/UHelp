@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class EventController extends Controller
 {
@@ -35,10 +37,35 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        Validator::extend('excel_has_columns', function ($attribute, $value, $parameters, $validator) {
+            $file = $value->getRealPath();
+            $columns = $parameters;
+
+            $reader = IOFactory::createReaderForFile($file);
+            $spreadsheet = $reader->load($file);
+            $worksheet = $spreadsheet->getActiveSheet();
+            $headers = $worksheet->toArray()[0];
+
+            foreach ($columns as $column_name) {
+                if (!in_array($column_name, $headers)) {
+                    return false;
+                }
+            }
+            return true;
+        });
+
         //
-        $request->file("event_participants")->store("excel");
-        $request->file("event_certificate")->store("template");
-        // return $request;
+        // $request->file("event_participants")->store("excel");
+        // $request->file("event_certificate")->store("template");
+        $validatedData = $request->validate([
+            'event_name' => 'required|max:1',
+            'event_location' => 'required|max:255',
+            'event_date' => 'required|before_or_equal:today',
+            'event_participants' => 'bail|required|max:10240|file|mimes:xlsx,xls|excel_has_columns:name,position,email',
+            'event_certificate' => 'required|max:5120|image|file'
+        ]);
+
+
     }
 
     /**

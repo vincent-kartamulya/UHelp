@@ -112,22 +112,13 @@
                         <input type="file" name="event_certificate" id="event_certificate" class="form-control text-lg rounded-lg text-gray-500 border mb-1" data-parsley-group="block1" required>
                     </div>
                     <div id="certificate-display" class="my-4">
-                        <img class="w-4/5 m-auto border-2" src="/assets/sharetificate/certificate-empty.png" alt="Certificate Image">
+                        <img class="w-4/5 m-auto border-2" src="/assets/sharetificate/certificate-empty.png" alt="Certificate Image" draggable="false">
 
                         <!-- Add the name template -->
-                        <div id="name-template" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-300">
-                            <span id="name-placeholder" class="absolute top-0 left-0 text-xl font-semibold bg-white border-2 text-black text-center w-[26vw] h-16" draggable="true"></span>
+                        <div id="name-template">
+                            <span id="name-placeholder" draggable="true">Hai</span>
                         </div>
                     </div>
-                    {{-- Generate input nama di sertifikat template --}}
-                    <form id="generate-name">
-                        <div class="the-input mx-20 flex justify-around">
-                            <input type="text" name="name" class="w-4/5 border-yellow-new rounded-lg focus:ring-green-new focus:border-green-new mr-1" placeholder="Enter your name..." required>
-                            <input type="hidden" name="x">
-                            <input type="hidden" name="y">
-                            <button type="submit" class="px-4 rounded-lg text-white bg-green-new bg-opacity-80 hover:bg-green-new">Generate</button>
-                        </div>
-                    </form>
                 </div>
                 <div class="form-navigation mt-10 mb-24">
                     <button type="button" class="previous-btn float-left bg-yellow-new hover:bg-yellow-hover text-white text-xl font-bold w-44 py-4 rounded-full shadow-lg">
@@ -278,36 +269,26 @@
             }
         });
 
-        // // Submit the form using AJAX
-        // $("#generate-name").submit(function(event) {
-        //     event.preventDefault();
+        // Submit the form using AJAX
+        $("#generate-name").submit(function(event) {
+            event.preventDefault();
 
-        //     // Send the form data to the server
-        //     $.ajax({
-        //         url: "generate_certificate.php",
-        //         method: "POST",
-        //         data: $(this).serialize(),
-        //         success: function(response) {
-        //             // Display the generated certificate
-        //             $("#certificate-display").html("<img src='" + response + "'>");
-        //         }
-        //     });
-        // });
-
-        // // Display the generated certificate
-        // $("#certificate-display").html("<img src='" + response + "'>");
-
-        // $.ajax({
-        //     success: function(response) {
-        //         // Display the generated certificate
-        //         $("#certificate-display").html("<img src='" + response + "'>");
-        //     }
-        // });
+            // Send the form data to the server
+            $.ajax({
+                url: "generate_certificate.php",
+                method: "POST",
+                data: $(this).serialize(),
+                success: function(response) {
+                    // Display the generated certificate
+                    $("#certificate-display").html("<img src='" + response + "'>");
+                }
+            });
+        });
 
         // Update the name template when the user types in their name
-        $("#generate-name input[name='name']").on("input", function() {
+        $("#generate-name .the-input input[name='name']").on("input", function() {
             var input_name = $(this).val();
-
+            console.log("berhasil");
             // Update the name placeholder text
             $("#name-placeholder").text(input_name);
         });

@@ -73,4 +73,5 @@ Route::get('/createTemplate', function () {
 
 
 Route::get('/Sele',[iniController::class,'routingawal']);
+
 Route::resource('/events', EventController::class);
