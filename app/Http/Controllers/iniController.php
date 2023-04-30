@@ -36,10 +36,14 @@ class iniController extends Controller
             WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
         );
         $nextButton2->click();
-        // $nextButton2 = $wait->until(
-        //     WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::className('l4V7wb'))
+        $tanggalan = $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('input[type="date"].whsOnd.zHQkBf'))
+        );
+        $tanggalan->sendKeys('10-05-2022');
+         // $nextButton3 = $wait->until(
+        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
         // );
-        // $nextButton2->click();
+        // $nextButton3->click();
         // $driver->quit();
     }
 }
