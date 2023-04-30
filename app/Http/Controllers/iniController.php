@@ -19,24 +19,27 @@ class iniController extends Controller
         $session_id = uniqid(); // generate a unique session ID
         $driver = RemoteWebDriver::create($host, $capabilities, 5000, 5000, null, null, null, ['session_id' => $session_id]);
         $driver->get('https://forms.gle/dKcynjUvbwggiQdx5');
-        $wait = new WebDriverWait($driver, 20);
-        echo "Matako";
+        $wait = new WebDriverWait($driver, 60);
         $element = $wait->until(
-            WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::className('whsOnd'))
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('whsOnd'))
         );
         $element->sendKeys("Alogha@gmail.com");
         $nextButton = $wait->until(
-            WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::className('NPEfkd'))
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('NPEfkd'))
         );
         $nextButton->click();
         $woke = $wait->until(
-            WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::className('AB7Lab'))
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('docssharedWizToggleLabeledContainer'))
         );
         $woke->click();
         $nextButton2 = $wait->until(
-            WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::className('NPEfkd'))
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
         );
         $nextButton2->click();
+        // $nextButton2 = $wait->until(
+        //     WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::className('l4V7wb'))
+        // );
+        // $nextButton2->click();
         // $driver->quit();
     }
 }
