@@ -40,10 +40,50 @@ class iniController extends Controller
             WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('input[type="date"].whsOnd.zHQkBf'))
         );
         $tanggalan->sendKeys('10-05-2022');
-         // $nextButton3 = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
-        // );
-        // $nextButton3->click();
+        $nextButton3 = $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
+        );
+        $nextButton3->click();
+        $BinusianId = $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[1]'))
+        );
+        $BinusianId->sendKeys("Aloha America");
+        $Namaku = $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[2]'))
+        );
+        $Namaku->sendKeys("Kaneki ken");
+        $Unit= $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[3]'))
+        );
+        $Unit->sendKeys("Beban Binus");
+        $option1= $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="W gabut"]'))
+        );
+        $option1->click();
+        $telpon= $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[5]'))
+        );
+        $telpon->sendKeys("088888888");
+        $harinya= $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Senin"]'))
+        );
+        $harinya->click();
+        $nextButton4 = $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
+        );
+        $nextButton4->click();
+        $jam1= $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Jam 2"]'))
+        );
+        $jam1->click();
+        $turundi= $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Binus Alsut"]'))
+        );
+        $turundi->click();
+        $Finish = $wait->until(
+            WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Kirim')]"))
+        );
+        $Finish->click();
         // $driver->quit();
     }
 }
