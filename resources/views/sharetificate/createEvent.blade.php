@@ -90,25 +90,25 @@
                 <div class="form-input">
                     <div class="event-title flex flex-col">
                         <label for="event_name" class="text-green-new text-xl font-semibold mb-3">Title *</label>
-                        <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's name " data-parsley-group="block0" required>
+                        <input type="text" name="event_name" id="event_name" value="{{old("event_name")}}" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's name " data-parsley-group="block0">
                         @error('event_name')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                         @enderror
                     </div>
                     <div class="loc-and-date flex justify-between">
                         <div class="event-loc flex flex-col w-1/2">
                             <label for="event_location" class="text-green-new text-xl font-semibold mt-12 mb-3">Location *</label>
-                            <input type="text" name="event_location" id="event_location" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's location " data-parsley-group="block0" required>
+                            <input type="text" name="event_location" id="event_location" value="{{old("event_location")}}" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's location " data-parsley-group="block0">
                             @error('event_location')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                             @enderror
                         </div>
                         <div class="event-date flex flex-col w-2/5">
                             <label for="event_date" class="text-green-new text-xl font-semibold mt-12 mb-3">Date *</label>
                             <div class="flex flex-col">
-                                <input datepicker type="text" datepicker-format="yyyy-mm-dd" name="event_date" id="event_date" class="form-control relative w-full border border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Select a date " data-parsley-group="block0" required>
+                                <input datepicker type="text" datepicker-format="yyyy-mm-dd" name="event_date" id="event_date" value="{{old("event_date")}}" class="form-control relative w-full border border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Select a date " data-parsley-group="block0">
                                 @error('event_date')
-                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                                 @enderror
                                 <div class="absolute ml-72 mt-3 items-center">
                                     <svg class="text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="currentColor" d="M12 14q-.425 0-.713-.288T11 13q0-.425.288-.713T12 12q.425 0 .713.288T13 13q0 .425-.288.713T12 14Zm-4 0q-.425 0-.713-.288T7 13q0-.425.288-.713T8 12q.425 0 .713.288T9 13q0 .425-.288.713T8 14Zm8 0q-.425 0-.713-.288T15 13q0-.425.288-.713T16 12q.425 0 .713.288T17 13q0 .425-.288.713T16 14Zm-4 4q-.425 0-.713-.288T11 17q0-.425.288-.713T12 16q.425 0 .713.288T13 17q0 .425-.288.713T12 18Zm-4 0q-.425 0-.713-.288T7 17q0-.425.288-.713T8 16q.425 0 .713.288T9 17q0 .425-.288.713T8 18Zm8 0q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16q.425 0 .713.288T17 17q0 .425-.288.713T16 18ZM5 22q-.825 0-1.413-.588T3 20V6q0-.825.588-1.413T5 4h1V3q0-.425.288-.713T7 2q.425 0 .713.288T8 3v1h8V3q0-.425.288-.713T17 2q.425 0 .713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.588 1.413T19 22H5Zm0-2h14V10H5v10Z"/></svg>
@@ -118,27 +118,31 @@
                     </div>
                     <div class="participants-data flex flex-col w-1/2">
                         <label for="event_participants" class="text-green-new text-xl font-semibold mt-12 mb-3">Upload Participant Data *</label>
-                        <input type="file" name="event_participants" id="event_participants" class="form-control text-lg bg-gray-50 rounded-lg text-gray-500 border mb-1" data-parsley-group="block0" required>
+                        <input type="file" name="event_participants" id="event_participants" value="{{old("event_participants")}}" class="form-control text-lg bg-gray-50 rounded-lg text-gray-500 border mb-1" data-parsley-group="block0">
                         @error('event_participants')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                         @enderror
                     </div>
                 </div>
                 <div class="form-input">
                     <div class="certificate-template flex flex-col w-1/2">
                         <label for="event_certificate" class="text-green-new text-xl font-semibold mb-3">Upload Certificate Template *</label>
-                        <input type="file" name="event_certificate" id="event_certificate" class="form-control text-lg rounded-lg text-gray-500 border mb-1" data-parsley-group="block1" required>
+                        <input type="file" name="event_certificate" id="event_certificate" value= "{{old("event_certficicate")}}" class="form-control text-lg rounded-lg text-gray-500 border mb-1" data-parsley-group="block1">
                         @error('event_certificate')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+
                         @enderror
                     </div>
                     <div id="certificate-display" class="my-4">
-                        <img class="w-4/5 m-auto border-2" src="/assets/sharetificate/certificate-empty.png" alt="Certificate Image" draggable="false">
+                        <img class="w-4/5 m-auto border-2" id="template" src="/assets/sharetificate/certificate-empty.png" alt="Certificate Image" draggable="false">
 
                         <!-- Add the name template -->
-                        <div id="name-template">
-                            <span id="name-placeholder" draggable="true">Hai</span>
+                        <div id="name-template" class="flex items-center justify-center">
+                            <span id="name-placeholder" class="border-dashed border-4 border-amber-500 p-1.5 text-lg text-green-600 font-bold"draggable="true">Drag_Me_This_Is_A_Example_Name</span>
                         </div>
+
+                        <input type="hidden" name="nameX" id="nameX">
+                        <input type="hidden" name="nameY" id="nameY">
                     </div>
                 </div>
                 <div class="form-navigation mt-10 mb-24">
@@ -169,7 +173,7 @@
                         <div class="event-title flex flex-col">
                             <h5 class="w-[28vw] text-[1vw] text-white mb-[1vw]">DENTAL MARKETING INSIGHTS FOR CLEVER DENTISTS DIRECT TO YOUR INBOX</h5>
                             <div class="flex flex-row w-[28vw]">
-                                <input type="text" class="placeholder-white placeholder-opacity-75 border px-3 w-[18vw] border-white bg-transparent rounded-lg text-[0.8vw] focus:ring-yellow-new focus:border-yellow-new text-white" placeholder="YOUR EMAIL " required>
+                                <input type="text" class="placeholder-white placeholder-opacity-75 border px-3 w-[18vw] border-white bg-transparent rounded-lg text-[0.8vw] focus:ring-yellow-new focus:border-yellow-new text-white" placeholder="YOUR EMAIL ">
                                 <button class="px-5 ml-[1vw] bg-yellow-new rounded-lg text-white shadow-lg">SUBSCRIBE </button>
                             </div>
                         </div>
@@ -240,7 +244,6 @@
     </footer>
 
     <script>
-
         $(function() {
             var $sections = $('.form-input');
 
@@ -282,39 +285,21 @@
         $("#name-placeholder").draggable({
             stop: function(event, ui) {
                 // Get the position of the drop event
-                var x_axis = ui.position.left;
-                var y_axis = ui.position.top;
+                var x = ui.position.left;
+                var y = -1 * ui.position.top;
+                var img = document.getElementById("template");
 
-                // Set the position of the hidden inputs
-                $("#generate-name input[name='x']").val(x_axis);
-                $("#generate-name input[name='y']").val(y_axis);
+                // Get the scale factor of the certificate image
+                var scale = img.width / img.naturalWidth;
+
+                // Calculate the position of the name template relative to the certificate template
+                var positionX = Math.round(x / scale);
+                var positionY = Math.round(y / scale);
+
+                document.getElementById("nameX").value = positionX;
+                document.getElementById("nameY").value = positionY;
             }
         });
-
-        // Submit the form using AJAX
-        $("#generate-name").submit(function(event) {
-            event.preventDefault();
-
-            // Send the form data to the server
-            $.ajax({
-                url: "generate_certificate.php",
-                method: "POST",
-                data: $(this).serialize(),
-                success: function(response) {
-                    // Display the generated certificate
-                    $("#certificate-display").html("<img src='" + response + "'>");
-                }
-            });
-        });
-
-        // Update the name template when the user types in their name
-        $("#generate-name .the-input input[name='name']").on("input", function() {
-            var input_name = $(this).val();
-            console.log("berhasil");
-            // Update the name placeholder text
-            $("#name-placeholder").text(input_name);
-        });
-
     </script>
 
     <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>

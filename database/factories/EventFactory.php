@@ -25,6 +25,8 @@ class EventFactory extends Factory
             'user_id' => mt_rand(1, 3),
             'slug' => $this->faker->slug(),
             'template' => $this->faker->imageUrl(480, 480),
+            'nameX' => $this->faker->randomNumber(3, false),
+            'nameY' => $this->faker->randomNumber(3, false)
         ];
     }
 }

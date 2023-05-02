@@ -22,6 +22,8 @@ return new class extends Migration
             $table->date('date');
             $table->string('participant');
             $table->string('template');
+            $table->integer('nameX');
+            $table->integer('nameY');
             $table->timestamps();
         });
     }

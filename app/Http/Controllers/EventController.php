@@ -60,10 +60,6 @@ class EventController extends Controller
         // $request->file("event_participants")->store("excel");
         // $request->file("event_certificate")->store("template");
 
-        $validatedData['user_id'] = 1;
-
-
-
         $validatedData = $request->validate([
             'event_name' => 'required|max:255',
             'event_location' => 'required|max:255',
@@ -79,7 +75,9 @@ class EventController extends Controller
             'date' => $validatedData['event_date'],
             'participant' => $validatedData['event_participants'],
             'template' => $validatedData['event_certificate'],
-            'slug' => $validatedData['slug']
+            'slug' => $validatedData['slug'],
+            'nameX' => $request['nameX'],
+            'nameY' => $request['nameY']
         ]);
 
 
