@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->default(1);
             $table->string('slug')->unique();
             $table->string('title');
             $table->string('location');
             $table->date('date');
-            $table->string('image')->nullable();
+            $table->string('participant');
             $table->string('template');
             $table->timestamps();
         });

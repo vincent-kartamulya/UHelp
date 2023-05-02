@@ -21,7 +21,7 @@ class EventFactory extends Factory
             'title' => $this->faker->sentence(mt_rand(2, 8)),
             'location' => $this->faker->randomElement(['Online', 'Offline']),
             'date' => $this->faker->date(),
-            'image' => $this->faker->imageUrl(480, 480),
+            'participant' => $this->faker->imageUrl(480, 480),
             'user_id' => mt_rand(1, 3),
             'slug' => $this->faker->slug(),
             'template' => $this->faker->imageUrl(480, 480),
