@@ -56,9 +56,8 @@ class EventController extends Controller
             return true;
         });
 
-        //
-        // $request->file("event_participants")->store("excel");
-        // $request->file("event_certificate")->store("template");
+        $request->file("event_participants")->store("excel");
+        $request->file("event_certificate")->store("template");
 
         $validatedData = $request->validate([
             'event_name' => 'required|max:255',
@@ -81,7 +80,7 @@ class EventController extends Controller
         ]);
 
 
-        return redirect('/createEvent')->with('success', 'Your event has been added');
+        return redirect('/createEvent')->with('success' => 'Your event has been added',);
     }
 
     /**
