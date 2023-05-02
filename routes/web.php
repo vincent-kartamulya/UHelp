@@ -15,10 +15,6 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/', function () {
-    return view('test');
-});
-
 Route::get('/home', function () {
     return view('home');
 });
