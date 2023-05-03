@@ -134,7 +134,7 @@
                         @enderror
                     </div>
                     <div id="certificate-display" class="my-4">
-                        <img class="w-4/5 m-auto border-2" id="template" src= {{{{ asset('storage/'.) }}}} alt="Certificate Image" draggable="false">
+                        <img class="w-4/5 m-auto border-2" id="template" src = "public\assets\sharetificate\certificate-empty.png" alt="Certificate Image" draggable="false">
 
                         <!-- Add the name template -->
                         <div id="name-template" class="flex items-center justify-center">

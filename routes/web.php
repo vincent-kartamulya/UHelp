@@ -15,12 +15,12 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/home', function () {
-    return view('home');
-});
-
 Route::get('/profile', function () {
     return view('profile.profile');
+});
+
+Route::get('/', function () {
+    return view('test');
 });
 
 Route::get('/profile/delete', function () {

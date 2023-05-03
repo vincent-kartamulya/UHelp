@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\RecipientImport;
 use App\Models\Event;
+use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -56,31 +59,37 @@ class EventController extends Controller
             return true;
         });
 
-        $request->file("event_participants")->store("excel");
-        $request->file("event_certificate")->store("template");
-
         $validatedData = $request->validate([
             'event_name' => 'required|max:255',
             'event_location' => 'required|max:255',
             'event_date' => 'required|before_or_equal:today',
-            'event_participants' => 'bail|required|max:10240|file|mimes:xlsx,xls|excel_has_columns:name,position,email',
+            'event_participants' => 'bail|required|max:10240|file|mimes:csv,xlsx,xls|excel_has_columns:name,position,email',
             'event_certificate' => 'required|max:5120|image|file'
         ]);
+
+        $pathExcel = $request->file("event_participants")->store("recipientData");
+        $pathTemplate = $request->file("event_certificate")->store("template");
+
         $limitedTitle = Str::limit(strip_tags($request->event_name), 20);
         $validatedData['slug'] = SlugService::createSlug(Event::class, 'slug', $limitedTitle);
+
         Event::create([
             'title' => $validatedData['event_name'],
             'location' => $validatedData['event_location'],
             'date' => $validatedData['event_date'],
-            'participant' => $validatedData['event_participants'],
-            'template' => $validatedData['event_certificate'],
+            'participant' => $pathExcel,
+            'template' => $pathTemplate,
             'slug' => $validatedData['slug'],
             'nameX' => $request['nameX'],
             'nameY' => $request['nameY']
         ]);
 
+        $namaFile = basename($pathExcel);
+        Excel::import(new RecipientImport, \public_path('/storage/recipientData/'.$namaFile));
+        
+        return \redirect()->back();
 
-        return redirect('/createEvent')->with('success' => 'Your event has been added',);
+
     }
 
     /**
