@@ -18,5 +18,8 @@ class Certificate extends Model
     {
         return $this->belongsTo(Recipient::class);
     }
-
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

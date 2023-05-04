@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Imports\RecipientImport;
 use App\Models\Event;
+use App\Models\Recipient;
 use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,6 +12,9 @@ use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Ramsey\Uuid\Uuid;
+// use SimpleSoftwareIO\QrCode\Facades\QrCode;
+// use PhpOffice\PhpSpreadsheet\Calculation\TextData\Format;
 
 class EventController extends Controller
 {
@@ -67,13 +71,17 @@ class EventController extends Controller
             'event_certificate' => 'required|max:5120|image|file'
         ]);
 
-        $pathExcel = $request->file("event_participants")->store("recipientData");
-        $pathTemplate = $request->file("event_certificate")->store("template");
+        // Store participant data file
+        $pathExcel = $request->file('event_participants')->store('participantData');
+
+        // Store certificate template file
+        $pathTemplate = $request->file('event_certificate')->store('templateCertificate');
 
         $limitedTitle = Str::limit(strip_tags($request->event_name), 20);
         $validatedData['slug'] = SlugService::createSlug(Event::class, 'slug', $limitedTitle);
 
-        Event::create([
+        // Create new event
+        $event = Event::create([
             'title' => $validatedData['event_name'],
             'location' => $validatedData['event_location'],
             'date' => $validatedData['event_date'],
@@ -84,12 +92,26 @@ class EventController extends Controller
             'nameY' => $request['nameY']
         ]);
 
-        $namaFile = basename($pathExcel);
-        Excel::import(new RecipientImport, \public_path('/storage/recipientData/'.$namaFile));
-        
-        return \redirect()->back();
+        // Import recipient data
+        $recipientImport = new RecipientImport();
+        $recipients = Excel::toCollection($recipientImport, $pathExcel)[0];
 
+        foreach ($recipients as $row) {
+            $recipient = Recipient::firstOrCreate([
+                'name' => $row['name'],
+                'position' => $row['position'],
+                'email' => $row['email']
+            ]);
 
+            Certificate::create([
+                'user_id' => 2,
+                'event_id' => $event->id,
+                'recipient_id' => $recipient->id,
+                'uuid' => Uuid::uuid4()->toString(),
+                'issuing_date' => now()->format('Y-m-d'), // set issuing date to null for now
+                'expired_date' => now()->addYears(5)->format('Y-m-d')// set expired date to null for now
+            ]);
+        }
     }
 
     /**

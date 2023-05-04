@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(3)->create();
-        Certificate::factory(20)->create();
+        Certificate::factory(10)->create();
         Event::factory(3)->create();
-        Recipient::factory(20)->create();
+        Recipient::factory(10)->create();
     }
 }
