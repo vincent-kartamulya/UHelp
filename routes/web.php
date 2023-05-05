@@ -15,16 +15,12 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', function () {
-    return view('home');
-});
-
 Route::get('/profile', function () {
     return view('profile.profile');
+});
+
+Route::get('/', function () {
+    return view('test');
 });
 
 Route::get('/profile/delete', function () {
@@ -73,4 +69,5 @@ Route::get('/createTemplate', function () {
 
 
 Route::get('/Sele',[iniController::class,'routingawal']);
+
 Route::resource('/events', EventController::class);
