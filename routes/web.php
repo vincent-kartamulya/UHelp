@@ -15,11 +15,11 @@ use App\Http\Controllers\EventController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/profile', function () {
+Route::get('/', function () {
     return view('profile');
 });
 
@@ -49,6 +49,10 @@ Route::get('/createTemplate', function () {
 
 Route::get('/generatedCertificate', function () {
     return view('sharetificate.generatedCertificate');
+});
+
+Route::get('/eventList', function () {
+    return view('sharetificate.eventList');
 });
 
 Route::get('/Sele',[iniController::class,'routingawal']);
