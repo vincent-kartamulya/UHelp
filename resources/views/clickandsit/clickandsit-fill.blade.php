@@ -14,24 +14,24 @@
 <body class="bg-slate-100 font-font-poppins">
     <header>
         <div id="navbar">
-            <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg fixed z-50">
+            <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg top-0 fixed z-50">
                 <div class="logo-container absolute left-6">
-                    <a href="#">
+                    <a href="/home">
                         <img class="logo-pict w-44" src="/assets/logo.jpg" alt="UHelp Logo">
                     </a>
                 </div>
                 <div class="features-container w-1/5 m-auto">
                     <ul class="flex flex-row justify-around text-green-new text-2xl text-center">
                         <li class="hover:font-medium w-2/5 hover:underline drop-shadow">
-                            <a href="#">Click and Sit</a>
+                            <a href="/clickandsit/empty">Click and Sit</a>
                         </li>
                         <li class="hover:font-medium w-2/5 hover:underline drop-shadow">
-                            <a href="#">Sharetificate</a>
+                            <a href="/addEvent">Sharetificate</a>
                         </li>
                     </ul>
                 </div>
                 <div class="profile-container absolute right-8">
-                    <a href="#">
+                    <a href="/profile">
                         <img class="logo-pict w-16 rounded-full" src="/assets/profil.jpg" alt="Profile Picture">
                     </a>
                 </div>
@@ -235,7 +235,7 @@
 
             <hr class="my-6 border-white sm:mx-auto mt-[3vw]" />
             <div id="under white line" class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-[1vw] text-white sm:text-center">© 2023 <a href="" class="hover:underline">U-Help</a>. Education Lecture Helper, Bogor. All Rights Reserved.</span>
+                <span class="text-[1vw] text-white sm:text-center">© 2023 <a href="/home" class="hover:underline">U-Help</a>. Education Lecture Helper, Bogor. All Rights Reserved.</span>
                 <div id="right bottom text" class="flex space-x-6 sm:justify-center sm:mt-0 text-[1vw] text-white">
                     <a href="" class="hover:underline uppercase">PRIVACY POLICY</a>
                     <a href="" class="hover:underline uppercase">TERMS & CONDITIONS</a>
