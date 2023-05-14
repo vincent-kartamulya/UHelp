@@ -56,26 +56,27 @@
     </div>
 
     <div class="flex flex-col mx-auto mt-4">
-        <p class="text-center text-5xl font-semibold text-green-new mb-2">Generated Certificates</p>
+        <p class="text-center text-4xl font-semibold text-green-new mb-2">Generated Certificates</p>
         <div class="divider-container">
             <img class="w-4/5 m-auto" src="/assets/sharetificate/divider-yellow.svg" alt="Divider Yellow">
         </div>
     </div>
 
-    <div class="list-certificates-container mx-auto my-20 w-[90%]">
+    <div class="list-certificates-container mx-auto my-20 w-[90%] border">
         <form>
-            <div class="flex w-3/12 float-right mr-24">
-                <input type="search" id="default-search" class="block w-10/12 pl-6 py-3 text-lg text-dark-blue-new border border-dark-blue-new border-opacity-60 rounded-l-full bg-[#FFD272] bg-opacity-[0.15] focus:ring-dark-blue-new focus:border-dark-blue-new placeholder:text-dark-blue-new placeholder:text-opacity-[0.6]" placeholder="Search certificate..." required>
-                <button type="submit" class="absolute right-52 bg-[#FFD272] bg-opacity-80 hover:bg-[#FFD272] border border-dark-blue-new border-opacity-60 rounded-r-full p-[14px] pl-[18px]">
-                    <div class="inset-y-0 flex items-center pointer-events-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg>
-                    </div>
-                </button>
+            <div class="relative flex float-right w-[22%] mr-[5vw]">
+                <div class="absolute inset-3 px-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg>
+                </div>
+                <input
+                    type="search"
+                    class="relative block flex-auto rounded-full border border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] outline-none pl-12 text-lg text-dark-blue-new font-normal transition duration-100 ease-in-out focus:z-[3] focus:ring-dark-blue-new focus:outline-none focus:border-dark-blue-new focus:text-dark-blue-new placeholder:text-dark-blue-new placeholder:text-opacity-[0.6]"
+                    placeholder="Search certificate..."
+                    aria-label="Search"
+                    aria-describedby="button-search" />
             </div>
         </form>
-
     </div>
-
     <footer class="bg-[#92AA68]">
         <div id="footer" class="mx-auto w-full p-4 py-6 pt-[3vw] max-w-screen-2xl mt-[10vw]">
             <h5 class="self-center text-[1.5vw] font-semibold whitespace-nowrap text-yellow-new font-shadow mb-3 ">U-Help</h5>
