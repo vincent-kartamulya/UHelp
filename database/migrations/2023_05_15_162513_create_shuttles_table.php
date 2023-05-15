@@ -13,7 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('User_Order', function (Blueprint $table) {
+        Schema::create('shuttles', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->default(1);
             $table->date('tanggalpesan');
             $table->string('sumtanggal');
             $table->string('keperluan');
@@ -22,7 +24,6 @@ return new class extends Migration
             $table->string('TurunDi');
             $table->string('JamAlsut');
             $table->string('NaikDi');
-            $table->id();
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('User_Order');
+        Schema::dropIfExists('shuttles');
     }
 };
