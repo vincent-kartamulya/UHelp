@@ -4,34 +4,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>U-Help | Profile</title>
+    <title>U-Help | Home</title>
     <link rel="icon" type="image/gif" href="/assets/logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slate-100 font-font-poppins">
+<body class="font-font-poppins">
     <header>
         <div id="navbar">
-            <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg fixed z-50">
+            <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg fixed top-0 z-50">
                 <div class="logo-container absolute left-6">
-                    <a href="#">
+                    <a href="/home">
                         <img class="logo-pict w-44" src="/assets/logo.jpg" alt="UHelp Logo">
                     </a>
                 </div>
                 <div class="features-container w-1/5 m-auto">
                     <ul class="flex flex-row justify-around text-green-new text-2xl text-center">
                         <li class="hover:font-medium w-2/5 hover:underline drop-shadow">
-                            <a href="#">Click and Sit</a>
+                            <a href="/clickandsit/empty">Click and Sit</a>
                         </li>
                         <li class="hover:font-medium w-2/5 hover:underline drop-shadow">
-                            <a href="#">Sharetificate</a>
+                            <a href="/addEvent">Sharetificate</a>
                         </li>
                     </ul>
                 </div>
                 <div class="profile-container absolute right-8">
-                    <a href="#">
+                    <a href="/profile">
                         <img class="logo-pict w-16 rounded-full" src="/assets/profil.jpg" alt="Profile Picture">
                     </a>
                 </div>
@@ -40,93 +40,66 @@
     </header>
 
     <main>
-        <div id="content" class="flex flex-row">
-            <div id="left content" class="ml-[17vw] fixed">
-                <div id="profile" class="w-full max-w-[12vw] h-[13vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[8vw]">
-                    <div id="profile" class="flex flex-col items-center pb-10">
-                        <img class="w-[6vw] h-[6vw] mb-3 rounded-full shadow-lg mt-[1vw] border-[0.2vw] border-slate-100" src="/assets/profile/profile.png" alt="Profile Picture"/>
-                        <h5 class="mb-1 text-[0.75vw] font-medium text-gray-900">@anderies_senpai</h5>
-                        <hr class="w-[11.5vw] h-[0.2vw] mx-auto my-4 bg-slate-100 border-0 rounded shadow-inner">
-                    </div>
+        <div id="content">
+            <div id="section 1" class="flex flex-row bg-slate-100 h-[40vw] w-full absolute z-20 top-[0vw]">
+                <div id="left">
+                    <h1 class="font-semibold text-[3.75vw] mt-[10vw] ml-[12vw] w-[31vw]">Make Your Daily Activity Easier</h1>
+                    <p class="text-[1.25vw] w-[35vw] ml-[12vw] mt-[1.5vw]">Streamline your form filling and certificate generation with our website's innovative features</p>
+                    <p class="text-[1.25vw] ml-[12vw] w-[30vw]">- Save time, stay secure!</p>
+                   <a href="">
+                       <div class="bg-yellow-new shadow-md rounded-[1vw] mt-[1vw] ml-[12vw] w-[8vw] h-[2.5vw] flex text-center justify-center items-center">
+                           <h5 class="text-[1.1vw] font-semibold">Start</h5>
+                       </div>
+                   </a>
                 </div>
-                <a href="">
-                    <div id="delete account" class="flex justify-center items-center w-[12vw] h-[2.5vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[1vw]">
-                        <h5 class="text-[1vw] font-semibold text-red-600">Delete Account</h5>
-                    </div>
-                </a>
+                <div id="right">
+                    <img class="z-10 ml-[17vw] mt-[5vw]" src="/assets/home/section1/rightOrnament.png" alt="Right Ornament">
+                    <img class="z-10 ml-[17vw] top-[20vw] absolute" src="/assets/home/section1/binus.png" alt="Binus">
+                </div>
             </div>
-            <div id="right content" class="bg-white rounded-[0.5vw] shadow mt-[8vw] w-[50vw] h-[64vw] ml-[31.5vw] px-[3.5vw] py-[3vw]">
-                <div id="connect section">
-                    <h5 class="text-[1.5vw] font-semibold mb-[1vw]">Connect</h5>
-                    <div id="connect button" class="flex flex-row mb-[5vw]">
-                        <a href="">
-                            <div id="facebook" class="bg-[#3F487F] w-[21vw] h-[3vw] rounded-[0.25vw] shadow uppercase text-white flex items-center justify-center">
-                                CONNECT WITH FACEBOOK
-                            </div>
-                        </a>
-                        <a href="">
-                            <div id="facebook" class="bg-[#DAA55A] w-[21vw] h-[3vw] rounded-[0.25vw] shadow uppercase text-black flex items-center justify-center ml-[1vw]">
-                                REGISTERED WITH GOOGLE
-                            </div>
-                        </a>
-                    </div>
+            <img class="w-full absolute top-[30vw] z-10" src="/assets/home/section1/bottomOrnament.png" alt="">
+            <div id="section 2">
+                <div>
+                    <img class="absolute z-10 top-[58vw] w-screen" src="/assets/home/section2/background.png" alt="">
                 </div>
-                <div id="account data">
-                    <h5 class="text-[1.5vw] font-semibold mb-[1.5vw]">Account Data</h5>
-                    <div id="username" class="w-[28vw] mb-[2vw]">
-                        <h5 class="absolute ml-[0.75vw] top-[25.4vw] bg-white text-[#3F487F] w-[4.75vw] flex justify-center">Username</h5>
-                        <input type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="anderies_notanto" required>
-                    </div>
-                    <div id="username" class="w-[28vw] mb-[2vw]">
-                        <h5 class="absolute ml-[0.75vw] top-[30.4vw] bg-white text-[#3F487F] w-[2.75vw] flex justify-center">Email</h5>
-                        <input type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="anderies_senpai@gmail.com" required>
-                    </div>
-                    <div id="real name" class="w-[28vw] mb-[5vw]">
-                        <h5 class="absolute ml-[0.75vw] top-[35.4vw] bg-white text-[#3F487F] w-[5vw] flex justify-center">Real Name</h5>
-                        <input type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="Anderies Notanto" required>
-                    </div>
+            </div>
+            <div id="section 3" class="mt-[95vw] ml-[18vw] flex flex-row">
+                <div id="left">
+                    <img src="/assets/home/section3/clickandsitImage.png" alt="">
                 </div>
-                <div id="notification">
-                    <h5 class="text-[1.5vw] font-semibold mb-[1vw]">Notification</h5>
-                    <div id="card" class="mb-[3vw]">
-                        <div id="notification" class="bg-white w-[43vw] h-[3vw] rounded-[0.25vw] shadow text-black flex items-center border border-[#B8BBBA]">
-                            <p class="ml-[0.75vw]">Receive newsletters, promotions, and news from U-Help Comapny</p>
-                            <div id="right (toggle)">
-                                <label for="themeSwitcherTwo" class="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center left-[9.5vw] top-[0.1vw]">
-                                    <input type="checkbox" name="themeSwitcherTwo" id="themeSwitcherTwo" class="sr-only">
-                                    <span class="slider mx-[0.83vw] flex h-[1.46vw] w-[2.73vw] items-center rounded-full bg-[#AFB1B6] p-[0.2vw] duration-200">
-                                        <span class="dot h-[1.093vw] w-[1.093vw] rounded-full bg-white duration-200"></span>
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="text" class="text-justify mb-[5vw]">
-                    <span class=" text-black sm:text-center">U-Help will process your data to send you information about our products and services, promotions, surveys, rafffles, based on our legitimate interest, and updates from the creators you follow, if you have consented to this. Your data will not be disclosed to third parties. They will be communicated outside the EU under the terms of the
-                        <a href="" class="text-[#3F487F] font-semibold hover:underline">Privacy policy.</a>
-                        You can opt out of our notifications with the first slider.
-                        <a href="" class="text-[#3F487F] font-semibold hover:underline">More information</a>
-                    </span>
-                </div>
-                <div id="cancel and save button" class="flex flex-row ml-[26vw]">
+                <div id="right" class="ml-[10vw] w-[30vw]">
+                    <h5 class="mt-[3vw] text-green-new font-bold text-[2.5vw]">Click and Sit</h5>
+                    <p class="mt-[1vw] text-[1.2vw]">Easily fill out shuttle forms in seconds with our automated feature </p>
+                    <p class="text-[1.2vw]">- Say goodbye to manual data entry and save time! Try it now!</p>
                     <a href="">
-                        <div id="facebook" class="bg-white w-[7vw] h-[2.75vw] rounded-[0.25vw] shadow text-black flex items-center justify-center border-[0.2vw] border-[#CFD9E0]">
-                            Cancel
-                        </div>
-                    </a>
-                    <a href="">
-                        <div id="facebook" class="bg-[#3F487F] w-[9vw] h-[2.75vw] rounded-[0.25vw] shadow text-white flex items-center justify-center ml-[1vw] border border-[#CFD9E0]">
-                            Save Changes
+                        <div class="bg-yellow-new shadow-md rounded-[1vw] mt-[1vw] w-[6.75vw] h-[2.2vw] flex text-center justify-center items-center">
+                            <h5 class="text-[1.1vw] font-semibold">Start</h5>
                         </div>
                     </a>
                 </div>
+            </div>
+            <div id="section 4" class="mt-[10vw] ml-[27.5vw] mb-[15vw] flex flex-row">
+                <div id="left" class="mr-[8vw] w-[25vw] text-right">
+                    <h5 class=" text-green-new font-bold text-[2.5vw] ">Sharetificate</h5>
+                    <p class="mt-[1vw] text-[1.2vw]">Create and manage secure certificates with ease using our QR validation feature - Save time and stay organized!</p>
+                    <a href="">
+                        <div class="bg-yellow-new shadow-md rounded-[1vw] mt-[2vw] w-[6.75vw] h-[2.2vw] flex text-center justify-center items-center ml-[18vw]">
+                            <h5 class="text-[1.1vw] font-semibold">Start</h5>
+                        </div>
+                    </a>
+                </div>
+                <div id="right">
+                    <img class="h-[15vw]" src="/assets/home/section4/sharetificateImage.png" alt="">
+                </div>
+            </div>
+            <div id="section 5" class="absolute z-10 top-[140.9vw] w-full">
+                <img class="w-full" src="/assets/home/section5/frameFooter.png" alt="">
             </div>
         </div>
     </main>
 
     <footer class="bg-[#92AA68]">
-        <div id="footer" class="mx-auto w-full p-4 py-6 pt-[3vw] max-w-screen-2xl mt-[4.75vw]">
+        <div id="footer" class="mx-auto w-full p-4 py-6 pt-[3vw] max-w-screen-2xl">
             <h5 class="self-center text-[1.5vw] font-semibold whitespace-nowrap text-yellow-new font-shadow mb-3 ">U-Help</h5>
             <div id="upper white line" class="md:flex md:justify-between">
                 <div id="left" class="mb-6 md:mb-0">
@@ -199,7 +172,7 @@
 
             <hr class="my-6 border-white sm:mx-auto mt-[3vw]" />
             <div id="under white line" class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-[1vw] text-white sm:text-center">© 2023 <a href="" class="hover:underline">U-Help</a>. Education Lecture Helper, Bogor. All Rights Reserved.</span>
+                <span class="text-[1vw] text-white sm:text-center">© 2023 <a href="/home" class="hover:underline">U-Help</a>. Education Lecture Helper, Bogor. All Rights Reserved.</span>
                 <div id="right bottom text" class="flex space-x-6 sm:justify-center sm:mt-0 text-[1vw] text-white">
                     <a href="" class="hover:underline uppercase">PRIVACY POLICY</a>
                     <a href="" class="hover:underline uppercase">TERMS & CONDITIONS</a>
@@ -209,3 +182,4 @@
     </footer>
 </body>
 </html>
+

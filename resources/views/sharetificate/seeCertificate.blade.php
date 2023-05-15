@@ -1,10 +1,11 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>U-Help | Click and Sit</title>
+    <title>U-Help | See Certificate</title>
     <link rel="icon" type="image/gif" href="/assets/logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +15,7 @@
 <body class="bg-slate-100 font-font-poppins">
     <header>
         <div id="navbar">
-            <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg top-0 fixed z-50">
+            <nav class="w-full h-24 flex items-center border-b-4 border-yellow-new bg-white shadow-lg fixed top-0 z-50">
                 <div class="logo-container absolute left-6">
                     <a href="/home">
                         <img class="logo-pict w-44" src="/assets/logo.jpg" alt="UHelp Logo">
@@ -40,44 +41,60 @@
     </header>
 
     <main>
-        <div id="ornament" class="flex flex-row">
-            <div id="center ornament" class="pt-[5vw] m-auto">
-                <img src="/assets/clickandsit/clickandsit/empty/centerOrnament.png" alt="Center Ornament">
+        <div id="content">
+            <div id="before blue line" class="flex flex-col mt-[8.5vw]">
+                <div class="flex flex-row">
+                    <div class="items-center justify-center flex ml-[40vw]">
+                        <h5 class="text-center text-4xl font-bold text-black mb-[2vw] ">Certificate Verified</h5>
+                        <img class="mb-[2vw] ml-[1vw] items-center justify-center" src="/assets/sharetificate/verified.svg" alt="Certificate Verified">
+                    </div>
+                </div>
+                <div>
+                    <img class="w-4/5 m-auto" src="/assets/sharetificate/divider-blue.svg" alt="Divider Blue">
+                </div>
             </div>
-
-            <div id="left ornament" class="absolute mt-[8vw] -z-10">
-                <img src="/assets/clickandsit/clickandsit/empty/leftOrnament.png" alt="Left Ornament">
-            </div>
-
-            <div id="right ornament" class="absolute right-[0vw] mt-[5vw] -z-10">
-                <img src="/assets/clickandsit/clickandsit/empty/rightOrnament.png" alt="Right Ornament">
-            </div>
-        </div>
-
-        <div id="text and button" class="flex flex-col pt-[3vw]">
-            <div id="text" class="text-green-new text-3xl font-semibold m-auto my-3">
-                You don't have any schedule yet!
-            </div>
-
-            <div id="button" class="m-auto my-10">
-                <a href="/createTemplate">
-                    <button class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-60 py-4 rounded-full shadow-md">
-                        + Add Schedule
-                    </button>
-                </a>
+            <div id="after blue line" class="flex flex-row">
+                <div id="left content" class="justify-center items-center flex flex-col">
+                    <img class="shadow-xl ml-[14.5vw] mt-[3vw] w-[35vw]" src="/assets/sharetificate/certificate.png" alt="certificate">
+                    <a href="/seeCertificate/download">
+                        <div id="download button" class="shadow-lg w-[12vw] h-[3vw] mt-[2.5vw] ml-[14.5vw] bg-yellow-new rounded-[2vw] justify-center items-center flex flex-row">
+                            <h5 class="font-semibold text-[1vw] text-dark-blue-new">Download</h5>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24"
+                                stroke-width="2.5"
+                                class="w-[1.1vw] h-[1.1vw] ml-[0.4vw] stroke-dark-blue-new">
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <div id="right content" class="w-[30vw] h-[28vw] mt-[3vw] ml-[5vw] bg-white shadow-lg rounded-[0.5vw] px-[2.5vw] py-[2.5vw]">
+                    <h3 class="text-[1.3vw] font-medium">This certificate was issued by</h3>
+                    <h5 class="text-[1.3vw] font-light opacity-50">Bina Nusantara University</h5>
+                    <h3 class="text-[1.3vw] font-medium mt-[2vw]">Name of Recipient</h3>
+                    <h5 class="text-[1.3vw] font-light opacity-50">Anderies</h5>
+                    <h3 class="text-[1.3vw] font-medium mt-[2vw]">Issue Date</h3>
+                    <h5 class="text-[1.3vw] font-light opacity-50">09-04-2023</h5>
+                    <h3 class="text-[1.3vw] font-medium mt-[2vw]">Certificate ID</h3>
+                    <h5 class="text-[1.3vw] font-light opacity-50">BN-2502040524</h5>
+                </div>
             </div>
         </div>
     </main>
 
     <footer class="bg-[#92AA68]">
-        <div id="footer" class="mx-auto w-full p-4 py-6 pt-[3vw] max-w-screen-2xl mt-[10vw]">
+        <div id="footer" class="mx-auto w-full p-4 py-6 pt-[3vw] max-w-screen-2xl mt-[4.75vw]">
             <h5 class="self-center text-[1.5vw] font-semibold whitespace-nowrap text-yellow-new font-shadow mb-3 ">U-Help</h5>
             <div id="upper white line" class="md:flex md:justify-between">
-                <div class="mb-6 md:mb-0">
+                <div id="left" class="mb-6 md:mb-0">
                     <h5 class="w-[18vw] text-white text-[1vw]">Thoughful marketing for growing dental practices.</h5>
                 </div>
 
-                <div class="grid gap-8 sm:gap-6 sm:grid-cols-2 ml-[4vw]">
+                <div id="center" class="grid gap-8 sm:gap-6 sm:grid-cols-2 ml-[4vw]">
                     <form method="POST" action="" enctype="multipart/form-data">
                         <div class="event-title flex flex-col">
                             <h5 class="w-[28vw] text-[1vw] text-white mb-[1vw]">DENTAL MARKETING INSIGHTS FOR CLEVER DENTISTS DIRECT TO YOUR INBOX</h5>
@@ -89,7 +106,7 @@
                     </form>
                 </div>
 
-                <div class="grid gap-8 sm:gap-6 sm:grid-cols-2">
+                <div id="right" class="grid gap-8 sm:gap-6 sm:grid-cols-2">
                     <div class="w-[16vw]">
                         <h2 class="mb-6 text-[1vw] font-semibold text-white uppercase">FOLLOW US</h2>
                         <ul class="text-white font-medium text-[0.8vw]">
@@ -153,6 +170,3 @@
     </footer>
 </body>
 </html>
-
-
-

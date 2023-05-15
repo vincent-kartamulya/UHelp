@@ -23,8 +23,9 @@ class CertificateFactory extends Factory
             'user_id' => mt_rand(1, 3),
             'event_id' => mt_rand(1, 3),
             'recipient_id' => mt_rand(1, 20),
+            'uuid' => $this->faker->uuid(),
             'issuing_date' => $issuingDate,
-            'expired_date' => $expiredDate,
+            'expired_date' => $expiredDate
         ];
     }
 }
