@@ -21,13 +21,10 @@ use App\Http\Controllers\EventController;
 
 Route::get('/', function () {
     return view('profile');
+});
 
 Route::get('/profile', function () {
     return view('profile.profile');
-});
-
-Route::get('/', function () {
-    return view('test');
 });
 
 Route::get('/profile/delete', function () {

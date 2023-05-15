@@ -26,6 +26,10 @@ class EventController extends Controller
     public function index()
     {
         //
+        return view('sharetificate.eventList', [
+            "events" => Event::latest()->paginate(10)
+        ]);
+
     }
 
     /**
@@ -112,6 +116,8 @@ class EventController extends Controller
                 'expired_date' => now()->addYears(5)->format('Y-m-d')// set expired date to null for now
             ]);
         }
+
+        return redirect('/events');
     }
 
     /**
