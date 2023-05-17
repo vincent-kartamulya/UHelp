@@ -65,7 +65,7 @@
                 </div>
 
                 <div id="destination, departure time, schedule" class="px-[0.83vw]">
-                    <form class="space-y-[2vw]" action="#">
+                    <form method="POST" class="space-y-[2vw]" action="#">
                         <div id="destination">
                             <label for="destination" class="block mb-2 text-green-new text-2xl font-semibold">Destination</label>
                             <div class="flex">

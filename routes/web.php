@@ -21,8 +21,9 @@ use App\Http\Controllers\EventController;
 
 Route::get('/', function () {
     return view('profile');
+});
 
-Route::get('/profile', function () {
+Route::get('/profile', function() {
     return view('profile.profile');
 });
 

@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shuttle extends Model
 {
+    protected $value
     use HasFactory;
 }
