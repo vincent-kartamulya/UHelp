@@ -126,6 +126,26 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
+
+
+    public function read(){
+        return view("sharetificate.eventAjax", ["events" => Event::latest()->paginate(10)]);
+    }
+
+    public function ajax(Request $request){
+        $name = $request->name;
+        $result = Event::where('title', 'like', "%".$name."%")->get();
+
+        if(count($result) > 0){
+            return view("sharetificate.eventAjax", [
+                "events" => $result
+            ]);
+        }else{
+            return '<p>Sorry, data not found.</p>';
+        }
+    }
+
+
     public function show(Event $event)
     {
         //

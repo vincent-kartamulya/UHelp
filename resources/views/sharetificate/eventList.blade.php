@@ -45,7 +45,6 @@
 
     <div id="search-filter-add" class="flex relative m-auto py-[0.625vw] w-10/12 gap-[1.042vw]">
         {{-- Search Bar --}}
-        <form>
             <div class="relative flex w-[20vw] items-center z-10">
                 <div class="absolute inset-3 px-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg>
@@ -53,11 +52,11 @@
                 <input
                     type="search"
                     class="relative block flex-auto rounded-full border border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] outline-none pl-12 text-lg text-dark-blue-new font-normal transition duration-100 ease-in-out focus:z-[3] focus:bg-opacity-30 focus:ring-dark-blue-new focus:outline-none focus:border-dark-blue-new focus:text-dark-blue-new placeholder:text-dark-blue-new placeholder:text-opacity-[0.6]"
-                    placeholder="Search certificate..."
+                    placeholder="Search event..."
                     aria-label="Search"
-                    aria-describedby="button-search" />
+                    aria-describedby="button-search"
+                    id="input"/>
             </div>
-        </form>
         {{-- Filter --}}
         <form class="w-[12%] z-10" action="">
             <button id="dropdownFilterButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="w-full h-full text-dark-blue-new text-opacity-60 rounded-full border border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] transition duration-100 ease-in-out hover:bg-[#FFD272] hover:bg-opacity-30 hover:ring-1 hover:ring-dark-blue-new hover:border-dark-blue-new focus:ring-1 focus:outline-none focus:ring-dark-blue-new font-normal text-lg px-4 inline-flex items-center" type="button">
@@ -91,21 +90,8 @@
         </form>
     </div>
 
-    <div class="grid grid-cols-2 gap-[4.167vw] p-[0.833vw] m-auto mt-[2.083vw] w-10/12">
-        @foreach ($events as $event)
-        <a href="#">
-            <div class="relative h-[11.667vw] flex flex-row rounded-[1.25vw] bg-white shadow-2xl hover:scale-[1.02] transition duration-100 ease-in-out">
-                <img class="w-5/12 rounded-[1.25vw]" src="/assets/sharetificate/seminar_img_list.jpeg" alt="Seminar Image">
-                <div class="flex flex-col p-[1.250vw] gap-y-[0.625vw]">
-                    <h5 class="font-bold text-dark-blue-new text-[1.25vw]">{{$event->title}}</h5>
-                    <p class="font-semibold text-green-new text-[1.042vw]">{{$event->date->format('d F Y')}}</p>
-                </div>
-                <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="button">
-                    <svg class="absolute right-[1.250vw] bottom-[1.250vw]" xmlns="http://www.w3.org/2000/svg" width="1.458vw" height="1.458vw" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M5 23.7q-.825 0-1.413-.587T3 21.7v-14q0-.825.588-1.413T5 5.7h8.925l-2 2H5v14h14v-6.95l2-2v8.95q0 .825-.588 1.413T19 23.7H5Zm7-9Zm4.175-8.425l1.425 1.4l-6.6 6.6V15.7h1.4l6.625-6.625l1.425 1.4l-6.625 6.625q-.275.275-.638.438t-.762.162H10q-.425 0-.713-.288T9 16.7v-2.425q0-.4.15-.763t.425-.637l6.6-6.6Zm4.275 4.2l-4.275-4.2l2.5-2.5q.6-.6 1.438-.6t1.412.6l1.4 1.425q.575.575.575 1.4T22.925 8l-2.475 2.475Z"/></svg>
-                </button>
-            </div>
-        </a>
-        @endforeach
+    <div id="read" class="grid grid-cols-2 gap-[4.167vw] p-[0.833vw] m-auto mt-[2.083vw] w-10/12">
+
     </div>
 
     <div class="relative flex bg-red-300">
@@ -267,5 +253,33 @@
 
     <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
     <script src="/node_modules/flowbite/dist/datepicker.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            readData();
+            $("#input").keyup(function(){
+                var strcari = $("#input").val();
+                if(strcari != ""){
+                    $.ajax({
+                        url: "{{ url('ajax') }}",
+                        type:"GET",
+                        data: "name=" + strcari,
+                        success: function(data){
+                            $("#read").html(data);
+                        }
+                    });
+                }else{
+                    readData();
+                }
+
+            })
+        })
+
+        function readData() {
+            $.get("{{url('read')}}", {}, function(data, status) {
+                $("#read").html(data);
+            });
+        }
+    </script>
 </body>
 </html>
