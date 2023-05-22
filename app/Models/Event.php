@@ -11,7 +11,7 @@ class Event extends Model
     use HasFactory;
     use Sluggable;
     protected $guarded = ['id'];
-
+    protected $dates = ['date'];
     public function user()
     {
         return $this->belongsTo(User::class);

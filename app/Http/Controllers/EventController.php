@@ -26,6 +26,10 @@ class EventController extends Controller
     public function index()
     {
         //
+        return view('sharetificate.eventList', [
+            "events" => Event::latest()->paginate(10)
+        ]);
+
     }
 
     /**
@@ -112,6 +116,8 @@ class EventController extends Controller
                 'expired_date' => now()->addYears(5)->format('Y-m-d')// set expired date to null for now
             ]);
         }
+
+        return redirect('/events');
     }
 
     /**
@@ -120,6 +126,21 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
+
+    public function ajax(Request $request){
+        $name = $request->name;
+        $result = Event::where('title', 'like', "%".$name."%")->get();
+
+        if(count($result) > 0){
+            return view("sharetificate.eventAjax", [
+                "events" => $result
+            ])->render();
+        }else{
+            return '<p>Sorry, data not found.</p>';
+        }
+    }
+
+
     public function show(Event $event)
     {
         //
