@@ -20,7 +20,7 @@ use App\Http\Controllers\EventController;
 // });
 
 Route::get('/', function () {
-    return view('profile');
+    return view('profile.profile');
 });
 
 Route::get('/profile', function () {
