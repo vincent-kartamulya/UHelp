@@ -80,4 +80,3 @@ Route::get('/Sele',[iniController::class,'routingawal']);
 
 Route::resource('/events', EventController::class);
 Route::get('/ajax', [EventController::class,'ajax']);
-Route::get('/read', [EventController::class,'read']);

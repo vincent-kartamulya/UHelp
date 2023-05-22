@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(3)->create();
         Certificate::factory(10)->create();
-        Event::factory(3)->create();
+        Event::factory(100)->create();
         Recipient::factory(10)->create();
     }
 }
