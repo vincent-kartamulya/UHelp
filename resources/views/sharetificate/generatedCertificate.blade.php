@@ -43,9 +43,9 @@
         </div>
         <div class="flex flex-col right-content w-1/2">
             <div class="certificate-info space-y-1">
-                <h1 class="seminar-title text-4xl font-bold text-dark-blue-new my-3 break-normal">Online Webinar for Business Workshop by Wardiere Inc.</h1>
-                <p class="seminar-date text-2xl font-semibold text-green-new">Wednesday, April 05th 2023</p>
-                <p class="seminar-location text-xl font-semibold text-yellow-new">BINUS University</p>
+                <h1 class="seminar-title text-4xl font-bold text-dark-blue-new my-3 break-normal">{{$event->title}}</h1>
+                <p class="seminar-date text-2xl font-semibold text-green-new">{{$event->date->format('l, F dS Y')}}</p>
+                <p class="seminar-location text-xl font-semibold text-yellow-new">{{$event->location}}</p>
             </div>
             <div class="absolute mt-60">
                 <button class="flex justify-around bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-xl font-bold w-60 px-6 py-4 rounded-full shadow-lg">
@@ -104,15 +104,17 @@
             </div>
 
             {{-- Data 1 --}}
+            <?php $i=0; ?>
+            @foreach ($participants as $participant)
             <div id="row-data" class="w-full">
                 <div id="the-data" class="flex flex-row text-dark-blue-new text-opacity-70 font-normal text-[1.042vw] my-[0.521vw] items-center">
                     <div class="flex justify-center items-center w-[3.125vw]">
                         <input id="default-checkbox" type="checkbox" value="" class="w-[1.042vw] h-[1.042vw] text-green-new border-green-new rounded focus:ring-green-new focus:ring-1 hover:bg-green-new transition duration-200 ease-in-out">
                     </div>
-                    <p class="w-[5.208vw]">0001</p>
-                    <p class="w-[33.854vw]">Nandatama Bagus Adisaka</p>
-                    <p class="w-[10.417vw]">Participant</p>
-                    <p class="w-[29.167vw]">bagusadisaka.lec@gmail.com</p>
+                    <p class="w-[5.208vw]"> {{ str_pad($i++, 3, '0', STR_PAD_LEFT) }} </p>
+                    <p class="w-[33.854vw]">{{$participant->name}}</p>
+                    <p class="w-[10.417vw]">{{$participant->position}}</p>
+                    <p class="w-[29.167vw]">{{$participant->email}}</p>
                     <div class="flex justify-center items-center w-[3.125vw]">
                         <button data-modal-target="popup-modal-update1" data-modal-toggle="popup-modal-update1" type="button" class="hover:bg-yellow-400 hover:bg-opacity-30 rounded-[0.417vw] p-[0.208vw] transition duration-200 ease-in-out">
                             <svg class="p-[0.104vw]" xmlns="http://www.w3.org/2000/svg" width="1.458vw" height="1.458vw" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M5 23.7q-.825 0-1.413-.587T3 21.7v-14q0-.825.588-1.413T5 5.7h8.925l-2 2H5v14h14v-6.95l2-2v8.95q0 .825-.588 1.413T19 23.7H5Zm7-9Zm4.175-8.425l1.425 1.4l-6.6 6.6V15.7h1.4l6.625-6.625l1.425 1.4l-6.625 6.625q-.275.275-.638.438t-.762.162H10q-.425 0-.713-.288T9 16.7v-2.425q0-.4.15-.763t.425-.637l6.6-6.6Zm4.275 4.2l-4.275-4.2l2.5-2.5q.6-.6 1.438-.6t1.412.6l1.4 1.425q.575.575.575 1.4T22.925 8l-2.475 2.475Z"/></svg>
@@ -121,63 +123,7 @@
                 </div>
                 <div class="border-[0.052vw] border-yellow-new"></div>
             </div>
-
-            {{-- Data 2 --}}
-            <div id="row-data" class="w-full">
-                <div id="the-data" class="flex flex-row text-dark-blue-new text-opacity-70 font-normal text-[1.042vw] my-[0.521vw] items-center">
-                    <div class="flex justify-center items-center w-[3.125vw]">
-                        <input id="default-checkbox" type="checkbox" value="" class="w-[1.042vw] h-[1.042vw] text-green-new border-green-new rounded focus:ring-green-new focus:ring-1 hover:bg-green-new transition duration-200 ease-in-out">
-                    </div>
-                    <p class="w-[5.208vw]">0002</p>
-                    <p class="w-[33.854vw]">Ni Putu Intan Paramitha Marchila Audy Dewi</p>
-                    <p class="w-[10.417vw]">Participant</p>
-                    <p class="w-[29.167vw]">intanparamitha33@gmail.com</p>
-                    <div class="flex justify-center items-center w-[3.125vw]">
-                        <button data-modal-target="popup-modal-update2" data-modal-toggle="popup-modal-update2" type="button" class="hover:bg-yellow-400 hover:bg-opacity-30 rounded-[0.417vw] p-[0.208vw] transition duration-200 ease-in-out">
-                            <svg class="p-[0.104vw]" xmlns="http://www.w3.org/2000/svg" width="1.458vw" height="1.458vw" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M5 23.7q-.825 0-1.413-.587T3 21.7v-14q0-.825.588-1.413T5 5.7h8.925l-2 2H5v14h14v-6.95l2-2v8.95q0 .825-.588 1.413T19 23.7H5Zm7-9Zm4.175-8.425l1.425 1.4l-6.6 6.6V15.7h1.4l6.625-6.625l1.425 1.4l-6.625 6.625q-.275.275-.638.438t-.762.162H10q-.425 0-.713-.288T9 16.7v-2.425q0-.4.15-.763t.425-.637l6.6-6.6Zm4.275 4.2l-4.275-4.2l2.5-2.5q.6-.6 1.438-.6t1.412.6l1.4 1.425q.575.575.575 1.4T22.925 8l-2.475 2.475Z"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="border-[0.052vw] border-yellow-new"></div>
-            </div>
-
-            {{-- Data 3 --}}
-            <div id="row-data" class="w-full">
-                <div id="the-data" class="flex flex-row text-dark-blue-new text-opacity-70 font-normal text-[1.042vw] my-[0.521vw] items-center">
-                    <div class="flex justify-center items-center w-[3.125vw]">
-                        <input id="default-checkbox" type="checkbox" value="" class="w-[1.042vw] h-[1.042vw] text-green-new border-green-new rounded focus:ring-green-new focus:ring-1 hover:bg-green-new transition duration-200 ease-in-out">
-                    </div>
-                    <p class="w-[5.208vw]">0003</p>
-                    <p class="w-[33.854vw]">Vincent Kartamulya Santoso</p>
-                    <p class="w-[10.417vw]">Participant</p>
-                    <p class="w-[29.167vw]">vincent.santoso03@gmail.com</p>
-                    <div class="flex justify-center items-center w-[3.125vw]">
-                        <button data-modal-target="popup-modal-update3" data-modal-toggle="popup-modal-update3" type="button" class="hover:bg-yellow-400 hover:bg-opacity-30 rounded-[0.417vw] p-[0.208vw] transition duration-200 ease-in-out">
-                            <svg class="p-[0.104vw]" xmlns="http://www.w3.org/2000/svg" width="1.458vw" height="1.458vw" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M5 23.7q-.825 0-1.413-.587T3 21.7v-14q0-.825.588-1.413T5 5.7h8.925l-2 2H5v14h14v-6.95l2-2v8.95q0 .825-.588 1.413T19 23.7H5Zm7-9Zm4.175-8.425l1.425 1.4l-6.6 6.6V15.7h1.4l6.625-6.625l1.425 1.4l-6.625 6.625q-.275.275-.638.438t-.762.162H10q-.425 0-.713-.288T9 16.7v-2.425q0-.4.15-.763t.425-.637l6.6-6.6Zm4.275 4.2l-4.275-4.2l2.5-2.5q.6-.6 1.438-.6t1.412.6l1.4 1.425q.575.575.575 1.4T22.925 8l-2.475 2.475Z"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="border-[0.052vw] border-yellow-new"></div>
-            </div>
-
-            {{-- Data 4 --}}
-            <div id="row-data" class="w-full">
-                <div id="the-data" class="flex flex-row text-dark-blue-new text-opacity-70 font-normal text-[1.042vw] my-[0.521vw] items-center">
-                    <div class="flex justify-center items-center w-[3.125vw]">
-                        <input id="default-checkbox" type="checkbox" value="" class="w-[1.042vw] h-[1.042vw] text-green-new border-green-new rounded focus:ring-green-new focus:ring-1 hover:bg-green-new transition duration-200 ease-in-out">
-                    </div>
-                    <p class="w-[5.208vw]">0004</p>
-                    <p class="w-[33.854vw]">Zakaria Berlam Pragusma</p>
-                    <p class="w-[10.417vw]">Participant</p>
-                    <p class="w-[29.167vw]">zberlam@gmail.com</p>
-                    <div class="flex justify-center items-center w-[3.125vw]">
-                        <button data-modal-target="popup-modal-update4" data-modal-toggle="popup-modal-update4" type="button" class="hover:bg-yellow-400 hover:bg-opacity-30 rounded-[0.417vw] p-[0.208vw] transition duration-200 ease-in-out">
-                            <svg class="p-[0.104vw]" xmlns="http://www.w3.org/2000/svg" width="1.458vw" height="1.458vw" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M5 23.7q-.825 0-1.413-.587T3 21.7v-14q0-.825.588-1.413T5 5.7h8.925l-2 2H5v14h14v-6.95l2-2v8.95q0 .825-.588 1.413T19 23.7H5Zm7-9Zm4.175-8.425l1.425 1.4l-6.6 6.6V15.7h1.4l6.625-6.625l1.425 1.4l-6.625 6.625q-.275.275-.638.438t-.762.162H10q-.425 0-.713-.288T9 16.7v-2.425q0-.4.15-.763t.425-.637l6.6-6.6Zm4.275 4.2l-4.275-4.2l2.5-2.5q.6-.6 1.438-.6t1.412.6l1.4 1.425q.575.575.575 1.4T22.925 8l-2.475 2.475Z"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="border-[0.052vw] border-yellow-new"></div>
-            </div>
+            @endforeach
         </div>
     </div>
 

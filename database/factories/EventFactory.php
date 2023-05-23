@@ -23,6 +23,7 @@ class EventFactory extends Factory
             'date' => $this->faker->date(),
             'participant' => $this->faker->imageUrl(480, 480),
             'user_id' => mt_rand(1, 3),
+            'uuid' => $this->faker->uuid(),
             'slug' => $this->faker->slug(),
             'template' => $this->faker->imageUrl(480, 480),
             'nameX' => $this->faker->randomNumber(3, false),

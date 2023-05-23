@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('location');
             $table->date('date');
+            $table->string('uuid')->unique();
             $table->string('participant');
             $table->string('template');
             $table->integer('nameX')->nullable();

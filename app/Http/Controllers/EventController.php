@@ -23,13 +23,24 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        return view('sharetificate.eventList', [
-            "events" => Event::latest()->paginate(10)
-        ]);
+        $filterOption = $request->query('filterOption');
 
+        // Apply the filtering logic based on the selected option
+        if ($filterOption == 'latest') {
+            $events = Event::orderBy('date', 'desc')->paginate(10);
+        } elseif ($filterOption == 'earliest') {
+            $events = Event::orderBy('date', 'asc')->paginate(10);
+        } else {
+            $events = Event::paginate(10);
+        }
+
+        // Pass the filtered results to the view
+        return view('sharetificate.eventList', [
+            'filterOption' => $filterOption,
+            "events" => $events
+        ]);
     }
 
     /**
@@ -91,6 +102,7 @@ class EventController extends Controller
             'date' => $validatedData['event_date'],
             'participant' => $pathExcel,
             'template' => $pathTemplate,
+            'uuid' => Uuid::uuid4()->toString(),
             'slug' => $validatedData['slug'],
             'nameX' => $request['nameX'],
             'nameY' => $request['nameY']
@@ -141,9 +153,14 @@ class EventController extends Controller
     }
 
 
-    public function show(Event $event)
+    public function show($uuid)
     {
-        //
+        $event = Event::where('uuid', $uuid)->firstOrFail();
+        $participants = Certificate::where('event_id', $event->id)->get()->map(function ($certificate) {
+            return $certificate->Recipient;
+        });
+        return view('sharetificate.generatedCertificate', ['event' => $event, 'participants' => $participants]);
+
     }
 
     /**

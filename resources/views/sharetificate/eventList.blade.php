@@ -58,27 +58,38 @@
                     id="input"/>
             </div>
         {{-- Filter --}}
-        <form class="w-[12%] z-10" action="">
-            <button id="dropdownFilterButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="w-full h-full text-dark-blue-new text-opacity-60 rounded-full border border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] transition duration-100 ease-in-out hover:bg-[#FFD272] hover:bg-opacity-30 hover:ring-1 hover:ring-dark-blue-new hover:border-dark-blue-new focus:ring-1 focus:outline-none focus:ring-dark-blue-new font-normal text-lg px-4 inline-flex items-center" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M11 20q-.425 0-.713-.288T10 19v-6L4.2 5.6q-.375-.5-.113-1.05T5 4h14q.65 0 .913.55T19.8 5.6L14 13v6q0 .425-.288.713T13 20h-2Z"/></svg>
-                <p class="w-4/5 flex pl-[0.417vw]">None</p>
-                <svg class="w-[0.833vw] h-[0.833vw]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <!-- Dropdown Menu -->
-            <div id="dropdownHover" class="z-10 hidden bg-[#FFD272] rounded-lg shadow w-[9.167vw]">
-                <ul class="py-1 text-lg text-gray-700" aria-labelledby="dropdownHoverButton">
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-yellow-new hover:text-white">None</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-yellow-new hover:text-white">Latest</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-yellow-new hover:text-white">Earliest</a>
-                    </li>
-                </ul>
+        <form class="w-[12%] z-10" action="/events" method="GET" id="filterForm">
+            <div class="relative">
+                <button id="dropdownFilterButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="w-full h-full text-dark-blue-new text-opacity-60 rounded-full border border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] transition duration-100 ease-in-out hover:bg-[#FFD272] hover:bg-opacity-30 hover:ring-1 hover:ring-dark-blue-new hover:border-dark-blue-new focus:ring-1 focus:outline-none focus:ring-dark-blue-new font-normal text-lg px-4 inline-flex items-center" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M11 20q-.425 0-.713-.288T10 19v-6L4.2 5.6q-.375-.5-.113-1.05T5 4h14q.65 0 .913.55T19.8 5.6L14 13v6q0 .425-.288.713T13 20h-2Z"/></svg>
+                    <p class="w-4/5 flex pl-[0.417vw]">
+                        @if($filterOption == 'latest')
+                            Latest
+                        @elseif($filterOption == 'earliest')
+                            Earliest
+                        @else
+                            None
+                        @endif
+                    </p>
+                    <svg class="w-[0.833vw] h-[0.833vw]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <!-- Dropdown Menu -->
+                <div id="dropdownHover" class="z-10 hidden bg-[#FFD272] rounded-lg shadow w-[9.167vw] absolute mt-1">
+                    <ul class="py-1 text-lg text-gray-700" aria-labelledby="dropdownHoverButton">
+                        <li>
+                            <a href="/events" class="block px-4 py-2 hover:bg-yellow-new hover:text-white">None</a>
+                        </li>
+                        <li>
+                            <a href="/events?filterOption=latest" class="block px-4 py-2 hover:bg-yellow-new hover:text-white">Latest</a>
+                        </li>
+                        <li>
+                            <a href="/events?filterOption=earliest" class="block px-4 py-2 hover:bg-yellow-new hover:text-white">Earliest</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </form>
+
         {{-- Add Event Button --}}
         <form action="">
             <div class="absolute flex inset-0 justify-end">
@@ -93,7 +104,7 @@
     <div id="allData">
         <div class="grid grid-cols-2 gap-[4.167vw] p-[0.833vw] m-auto mt-[2.083vw] w-10/12">
             @foreach ($events as $event)
-            <a href="#">
+            <a href="/events/{{$event->uuid}}">
                 <div class="relative h-[11.667vw] flex flex-row rounded-[1.25vw] bg-white shadow-2xl hover:scale-[1.02] transition duration-100 ease-in-out">
                     <img class="w-5/12 rounded-[1.25vw]" src="/assets/sharetificate/seminar_img_list.jpeg" alt="Seminar Image">
                     <div class="flex flex-col p-[1.250vw] gap-y-[0.625vw]">
@@ -240,6 +251,24 @@
     <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
     <script src="/node_modules/flowbite/dist/datepicker.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var dropdownButton = document.getElementById('dropdownFilterButton');
+            dropdownButton.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevent form submission
+                var dropdownMenu = document.getElementById('dropdownHover');
+                dropdownMenu.classList.toggle('hidden');
+            });
+
+            // Hide dropdown menu when clicking outside
+            document.addEventListener('click', function(event) {
+                var dropdownMenu = document.getElementById('dropdownHover');
+                if (!dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
     <script>
         $(document).ready(function(){
             $("#input").keyup(function(){
