@@ -7,6 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shuttle extends Model
 {
-    protected $fillable = ['name', 'age', 'year'];
     use HasFactory;
 }

@@ -15,15 +15,6 @@ return new class extends Migration
     {
         Schema::create('shuttles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->default(1);
-            $table->date('tanggalpesan');
-            $table->string('sumtanggal');
-            $table->string('keperluan');
-            $table->string('hari');
-            $table->string('JamAnggrek');
-            $table->string('TurunDi');
-            $table->string('JamAlsut');
-            $table->string('NaikDi');
             $table->timestamps();
         });
     }
