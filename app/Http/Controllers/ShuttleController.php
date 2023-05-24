@@ -13,6 +13,23 @@ use Facebook\WebDriver\WebDriverWait;
 
 class ShuttleController extends Controller
 {
+    public function savedata(Request $request){
+        $destinationFrom = $request->input('destination_from');
+        $destinationTo = $request->input('destination_to');
+        $departureTime = $request->input('departure_time');
+
+         // Create a new instance of your model and set the attributes
+        $model = new Shuttle(); // Replace 'YourModel' with the actual model name
+        $model->destination_from = $destinationFrom;
+        $model->destination_to = $destinationTo;
+        $model->departure_time = $departureTime;
+
+    // Save the model to the database
+        $model->save();
+    }
+
+
+
     public function routingawal()
     {
         $host = 'http://localhost:4444/wd/hub'; // Selenium server URL

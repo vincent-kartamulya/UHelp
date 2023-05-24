@@ -67,6 +67,7 @@
                 <div id="destination, departure time, schedule" class="px-[0.83vw]">
                     <div class="flex flex-row">
                         <form id="destination_from" class="space-y-[2vw]" action="">
+                            @csrf
                             <div id="destination" class="mb-[2vw]">
                                 <label for="destination" class="block mb-2 text-green-new text-2xl font-semibold">Destination</label>
                                 <div class="flex">
