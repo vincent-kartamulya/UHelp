@@ -148,7 +148,9 @@ class EventController extends Controller
                 "events" => $result
             ])->render();
         }else{
-            return '<p>Sorry, data not found.</p>';
+                return response()->json([
+                'empty' => true
+            ]);
         }
     }
 
