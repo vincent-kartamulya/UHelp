@@ -66,6 +66,7 @@
 
                 <div id="destination, departure time, schedule" class="px-[0.83vw]">
                     <form method="POST" class="space-y-[2vw]" action="#">
+                        @csrf
                         <div id="destination">
                             <label for="destination" class="block mb-2 text-green-new text-2xl font-semibold">Destination</label>
                             <div class="flex">
@@ -75,10 +76,10 @@
                                     <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                                         <ul class="py-[0.42vw] text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                                         <li>
-                                            <a href="#" data-value="kebayoran" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kebayoran</a>
+                                            <a href="#" name="Kebayoran" data-value="kebayoran" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kebayoran</a>
                                         </li>
                                         <li>
-                                            <a href="#" data-value="sentul" class="block px-[0.83vw] py-[0.42vw]2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sentul</a>
+                                            <a href="#" name="Sentul" data-value="sentul" class="block px-[0.83vw] py-[0.42vw]2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sentul</a>
                                         </li>
                                         </ul>
                                     </div>
