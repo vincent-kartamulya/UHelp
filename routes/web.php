@@ -20,15 +20,11 @@ use App\Http\Controllers\EventController;
 // });
 
 Route::get('/', function () {
-    return view('profile');
+    return view('home');
 });
 
-Route::get('/profile', function() {
+Route::get('/profile', function () {
     return view('profile.profile');
-});
-
-Route::get('/', function () {
-    return view('test');
 });
 
 Route::get('/profile/delete', function () {
@@ -83,3 +79,5 @@ Route::get('/eventList', function () {
 Route::get('/Sele',[iniController::class,'routingawal']);
 
 Route::resource('/events', EventController::class);
+
+Route::get('/ajax', [EventController::class,'ajax']);

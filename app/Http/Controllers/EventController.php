@@ -23,9 +23,24 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $filterOption = $request->query('filterOption');
+
+        // Apply the filtering logic based on the selected option
+        if ($filterOption == 'latest') {
+            $events = Event::orderBy('date', 'desc')->paginate(10);
+        } elseif ($filterOption == 'earliest') {
+            $events = Event::orderBy('date', 'asc')->paginate(10);
+        } else {
+            $events = Event::paginate(10);
+        }
+
+        // Pass the filtered results to the view
+        return view('sharetificate.eventList', [
+            'filterOption' => $filterOption,
+            "events" => $events
+        ]);
     }
 
     /**
@@ -87,6 +102,7 @@ class EventController extends Controller
             'date' => $validatedData['event_date'],
             'participant' => $pathExcel,
             'template' => $pathTemplate,
+            'uuid' => Uuid::uuid4()->toString(),
             'slug' => $validatedData['slug'],
             'nameX' => $request['nameX'],
             'nameY' => $request['nameY']
@@ -112,6 +128,8 @@ class EventController extends Controller
                 'expired_date' => now()->addYears(5)->format('Y-m-d')// set expired date to null for now
             ]);
         }
+
+        return redirect('/events');
     }
 
     /**
@@ -120,9 +138,31 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+
+    public function ajax(Request $request){
+        $name = $request->name;
+        $result = Event::where('title', 'like', "%".$name."%")->get();
+
+        if(count($result) > 0){
+            return view("sharetificate.eventAjax", [
+                "events" => $result
+            ])->render();
+        }else{
+                return response()->json([
+                'empty' => true
+            ]);
+        }
+    }
+
+
+    public function show($uuid)
     {
-        //
+        $event = Event::where('uuid', $uuid)->firstOrFail();
+        $participants = Certificate::where('event_id', $event->id)->get()->map(function ($certificate) {
+            return $certificate->Recipient;
+        });
+        return view('sharetificate.generatedCertificate', ['event' => $event, 'participants' => $participants]);
+
     }
 
     /**
