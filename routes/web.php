@@ -4,6 +4,8 @@ use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\iniController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ShuttleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,7 +78,7 @@ Route::get('/eventList', function () {
     return view('sharetificate.eventList');
 });
 
-Route::get('/Sele',[iniController::class,'routingawal']);
+Route::get('/Sele',[ShuttleController::class,'routingawal']);
 
 Route::resource('/events', EventController::class);
 
