@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div id="form" class="w-1/2 m-auto border-[0.15vw] bg-white border-yellow-new rounded-[0.85vw] shadow sm:p-[1.25vw] md:p-[3vw] mt-[4vw]">
+            <div id="formBox" class="w-1/2 m-auto border-[0.15vw] bg-white border-yellow-new rounded-[0.85vw] shadow sm:p-[1.25vw] md:p-[3vw] mt-[4vw]">
                 <div id="header setting">
                     <h1 class="mb-[2vw] font-semibold text-[2.5vw] text-dark-blue-new text-center">Setting</h1>
                 </div>
@@ -82,68 +82,96 @@
                                             <a href="#" name="Sentul" data-value="sentul" class="block px-[0.83vw] py-[0.42vw]2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sentul</a>
                                         </li>
                                         </ul>
-                                    </div>
-                                </div>
-
-                                <img class="h-[1vw] mx-[1vw] my-[0.8vw]" src="/assets/clickandsit/createTemplate/arrow.png">
-
-                                <div id="dropdown destination">
-                                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="w-[15vw] text-dark-blue-new text-lg font-medium bg-white border border-yellow-new hover:bg-yellow-new rounded-lg px-4 py-[0.5vw] text-center inline-flex items-center" type="button">To <svg class="w-4 h-4 ml-[11vw]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                                    <!-- Dropdown menu -->
-                                    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                        <ul class="py-[0.42vw] text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                                        <li>
-                                            <a href="#" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Alam Sutera</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kemanggisan</a>
-                                        </li>
-                                        </ul>
+                    <div class="flex flex-row">
+                        <form id="destination_from" class="space-y-[2vw]" action="">
+                            <div id="destination" class="mb-[2vw]">
+                                <label for="destination" class="block mb-2 text-green-new text-2xl font-semibold">Destination</label>
+                                <div class="flex">
+                                    <div id="dropdown destination">
+                                        <button id="dropdownDefaultButton" data-dropdown-toggle="destinationfrom_dropdown" class="w-[15vw] text-dark-blue-new text-lg font-medium bg-white border border-yellow-new hover:bg-yellow-new rounded-lg px-4 py-[0.5vw] text-center inline-flex items-center" type="button">From <svg class="w-4 h-4 ml-[10vw]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                                        <!-- Dropdown menu -->
+                                        <div id="destinationfrom_dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                            <ul class="py-[0.42vw] text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                            <li>
+                                                <a href="" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kebayoran</a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="block px-[0.83vw] py-[0.42vw]2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sentul</a>
+                                            </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
 
-                        <div id="departure time">
+                        <img class="h-[1vw] mx-[1vw] my-[0.8vw] mt-[2.75vw]" src="/assets/clickandsit/createTemplate/arrow.png">
+
+                        <form id="destination_to" class="space-y-[2vw]" action="">
+                            <div id="destination" class="mb-[2vw] mt-[2.1vw]">
+                                <div class="flex">
+                                    <div id="dropdown destination">
+                                        <button id="dropdownDefaultButton" data-dropdown-toggle="destinationto_dropdown" class="w-[15vw] text-dark-blue-new text-lg font-medium bg-white border border-yellow-new hover:bg-yellow-new rounded-lg px-4 py-[0.5vw] text-center inline-flex items-center" type="button">To <svg class="w-4 h-4 ml-[11vw]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                                        <!-- Dropdown menu -->
+                                        <div id="destinationto_dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                            <ul class="py-[0.42vw] text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                            <li>
+                                                <a href="#" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Alam Sutera</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kemanggisan</a>
+                                            </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <form id="departure time" class="space-y-[2vw]">
+                        <div id="departure time" class="mb-[2vw]">
                             <label for="departure time" class="block mb-2 text-green-new text-2xl font-semibold">Departure Time</label>
 
                             <div id="dropdown departure time">
-                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="w-[15vw] text-dark-blue-new text-lg font-medium bg-white border border-yellow-new hover:bg-yellow-new rounded-lg px-4 py-[0.5vw] text-center inline-flex items-center" type="button">Time <svg class="w-4 h-4 ml-[10vw]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                                <button id="timeDropdown" data-dropdown-toggle="time_dropdown" class="w-[15vw] text-dark-blue-new text-lg font-medium bg-white border border-yellow-new hover:bg-yellow-new rounded-lg px-4 py-[0.5vw] text-center inline-flex items-center" type="button">Time </button>
                                 <!-- Dropdown menu -->
-                                <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">09.00</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">10.00</a>
-                                    </li>
+                                <div id="time_dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+                                        <li>
+                                            <a href="" class="block px-4 py-2 hover:bg-gray-100 ">09.30</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="block px-4 py-2 hover:bg-gray-100 ">11.00</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                    </form>
 
+                    <form id="schedule" class="space-y-[2vw]" action="#">
                         <div id="schedule">
                             <label for="schedule" class="block mb-2 text-green-new text-2xl font-semibold">Schedule</label>
                             <div id="schedule button" class="flex justify-center rounded-lg bg-white" role="group">
-                                <button type="button" class="rounded-l-lg px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                Monday
-                                </button>
-                                <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                Tuesday
-                                </button>
-                                <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                Wednesday
-                                </button>
-                                <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                Thrusday
-                                </button>
-                                <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                Friday
-                                </button>
-                                <button type="button" class="rounded-r-md px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                Saturday
-                                </button>
+                                    <button type="button" class="rounded-l-lg px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
+                                    Monday
+                                    </button>
+                                    <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
+                                    Tuesday
+                                    </button>
+                                    <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
+                                    Wednesday
+                                    </button>
+                                    <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
+                                    Thrusday
+                                    </button>
+                                    <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
+                                    Friday
+                                    </button>
+                                    <button type="button" class="rounded-r-md px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
+                                    Saturday
+                                    </button>
                             </div>
                         </div>
                     </form>
