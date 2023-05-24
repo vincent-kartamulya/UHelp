@@ -65,7 +65,22 @@
                 </div>
 
                 <div id="destination, departure time, schedule" class="px-[0.83vw]">
-
+                    <form method="POST" class="space-y-[2vw]" action="#">
+                        <div id="destination">
+                            <label for="destination" class="block mb-2 text-green-new text-2xl font-semibold">Destination</label>
+                            <div class="flex">
+                                <div id="dropdown destination">
+                                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="w-[15vw] text-dark-blue-new text-lg font-medium bg-white border border-yellow-new hover:bg-yellow-new rounded-lg px-4 py-[0.5vw] text-center inline-flex items-center" type="button">From <svg class="w-4 h-4 ml-[10vw]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                                    <!-- Dropdown menu -->
+                                    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                        <ul class="py-[0.42vw] text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                        <li>
+                                            <a href="#" data-value="kebayoran" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kebayoran</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-value="sentul" class="block px-[0.83vw] py-[0.42vw]2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sentul</a>
+                                        </li>
+                                        </ul>
                     <div class="flex flex-row">
                         <form id="destination_from" class="space-y-[2vw]" action="">
                             <div id="destination" class="mb-[2vw]">
