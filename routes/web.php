@@ -37,24 +37,8 @@ Route::get('/profile/change', function () {
     return view('profile.profile-change');
 });
 
-Route::get('/addEvent', function () {
-    return view('sharetificate.addEvent');
-});
-
-Route::get('/createEvent', function () {
-    return view('sharetificate.createEvent');
-});
-
-Route::get('/generatedCertificate', function () {
-    return view('sharetificate.generatedCertificate');
-});
-
 Route::get('/seeCertificate', function () {
     return view('sharetificate.seeCertificate');
-});
-
-Route::get('/seeCertificate/download', function () {
-    return view('sharetificate.seeCertificate-download');
 });
 
 Route::get('/clickandsit/empty', function () {
@@ -71,13 +55,8 @@ Route::get('/history', function () {
 
 Route::post('//clickandsit/fill', [ShuttleController::class,"savedata"]);
 
-
-Route::get('/eventList', function () {
-    return view('sharetificate.eventList');
-});
-
 Route::get('/Sele',[ShuttleController::class,'routingawal']);
+Route::get('/Sele',[iniController::class,'routingawal']);
 
 Route::resource('/events', EventController::class);
-
 Route::get('/ajax', [EventController::class,'ajax']);

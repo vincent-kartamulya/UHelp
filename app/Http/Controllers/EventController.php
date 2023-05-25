@@ -25,6 +25,10 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
+        if(Event::all()->isEmpty()){
+            return view('sharetificate.addEvent');
+        }
+
         $filterOption = $request->query('filterOption');
 
         // Apply the filtering logic based on the selected option
@@ -50,7 +54,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view("sharetificate.createEvent");
     }
 
     /**
