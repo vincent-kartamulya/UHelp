@@ -46,4 +46,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Event::class);
     }
+
+    public function Shuttle(){
+        return $this -> hasMany(Shuttle::class);
+    }
 }

@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('shuttles', function (Blueprint $table) {
             $table->id();
+            $table->boolean("sumtanggal");
+            $table->date("departdate");
+            $table->string("keperluan");
+            $table->foreignId("user_id")->references("id")->on("users");
+            $table->string("hari");
+            $table->string("jamAnggrek")->nullable();
+            $table->string("turun")->nullable();
+            $table->string("jamAlsut")->nullable();
+            $table->string("naik")->nullable();
             $table->timestamps();
         });
     }
