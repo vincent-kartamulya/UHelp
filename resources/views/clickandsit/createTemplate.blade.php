@@ -66,7 +66,8 @@
 
                 <div id="destination, departure time, schedule" class="px-[0.83vw]">
                     <div class="flex flex-row">
-                        <form id="destination_from" class="space-y-[2vw]" action="">
+                        <form id="destination_from" class="space-y-[2vw]" action="/clickandsit/fill" method="POST">
+
                             @csrf
                             <div id="destination" class="mb-[2vw]">
                                 <label for="destination" class="block mb-2 text-green-new text-2xl font-semibold">Destination</label>
@@ -77,21 +78,21 @@
                                         <div id="destinationfrom_dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                                             <ul class="py-[0.42vw] text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                                             <li>
-                                                <a href="" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kebayoran</a>
+                                                <a href="" data-value="Kebayoran" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kebayoran</a>
                                             </li>
                                             <li>
-                                                <a href="" class="block px-[0.83vw] py-[0.42vw]2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sentul</a>
+                                                <a href="" data-value="Sentul" class="block px-[0.83vw] py-[0.42vw]2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sentul</a>
                                             </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
 
-                        <img class="h-[1vw] mx-[1vw] my-[0.8vw] mt-[2.75vw]" src="/assets/clickandsit/createTemplate/arrow.png">
 
-                        <form id="destination_to" class="space-y-[2vw]" action="">
+                            <img class="h-[1vw] mx-[1vw] my-[0.8vw] mt-[2.75vw]" src="/assets/clickandsit/createTemplate/arrow.png">
+
+
                             <div id="destination" class="mb-[2vw] mt-[2.1vw]">
                                 <div class="flex">
                                     <div id="dropdown destination">
@@ -100,41 +101,48 @@
                                         <div id="destinationto_dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                                             <ul class="py-[0.42vw] text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                                             <li>
-                                                <a href="#" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Alam Sutera</a>
+                                                <a href="#" data-value="Alam Sutera" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Alam Sutera</a>
                                             </li>
                                             <li>
-                                                <a href="#" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kemanggisan</a>
+                                                <a href="#" data-value="Kemanggisan" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kemanggisan</a>
                                             </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
 
-                    <form id="departure time" class="space-y-[2vw]">
-                        <div id="departure time" class="mb-[2vw]">
-                            <label for="departure time" class="block mb-2 text-green-new text-2xl font-semibold">Departure Time</label>
+                            <div id="departure time" class="mb-[2vw] space-y-[2vw]">
+                                <label for="departure time" class="block mb-2 text-green-new text-2xl font-semibold">Departure Time</label>
 
-                            <div id="dropdown departure time">
-                                <button id="timeDropdown" data-dropdown-toggle="time_dropdown" class="w-[15vw] text-dark-blue-new text-lg font-medium bg-white border border-yellow-new hover:bg-yellow-new rounded-lg px-4 py-[0.5vw] text-center inline-flex items-center" type="button">Time </button>
-                                <!-- Dropdown menu -->
-                                <div id="time_dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
-                                        <li>
-                                            <a href="" class="block px-4 py-2 hover:bg-gray-100 ">09.30</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="block px-4 py-2 hover:bg-gray-100 ">11.00</a>
-                                        </li>
-                                    </ul>
+                                <div id="dropdown departure time">
+                                    <button id="timeDropdown" data-dropdown-toggle="time_dropdown" class="w-[15vw] text-dark-blue-new text-lg font-medium bg-white border border-yellow-new hover:bg-yellow-new rounded-lg px-4 py-[0.5vw] text-center inline-flex items-center" type="button">Time </button>
+                                    <!-- Dropdown menu -->
+                                    <div id="time_dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+                                            <li>
+                                                <a href="" data-value="09.30" class="block px-4 py-2 hover:bg-gray-100 ">09.30</a>
+                                            </li>
+                                            <li>
+                                                <a href="" data-value="11.00" class="block px-4 py-2 hover:bg-gray-100 ">11.00</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
 
-                    <form id="schedule" class="space-y-[2vw]" action="#">
+                            <div id="save button" class="flex justify-center">
+                                    <button type="submit" class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-[12.5vw] py-[0.83vw] rounded-full m-auto mt-[3vw] shadow-md">
+                                        Save
+                                    </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                    {{-- <form id="schedule" class="space-y-[2vw]" action="#">
                         <div id="schedule">
                             <label for="schedule" class="block mb-2 text-green-new text-2xl font-semibold">Schedule</label>
                             <div id="schedule button" class="flex justify-center rounded-lg bg-white" role="group">
@@ -158,16 +166,16 @@
                                     </button>
                             </div>
                         </div>
-                    </form>
+                    </form> --}}
                 </div>
 
-                <div id="save button" class="flex justify-center">
+                {{-- <div id="save button" class="flex justify-center">
                     <a href="/clickandsit/fill">
                         <button class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-[12.5vw] py-[0.83vw] rounded-full m-auto mt-[3vw] shadow-md">
                             Save
                         </button>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </main>
