@@ -1,5 +1,4 @@
 @extends('master')
-
 @section('title', 'U-Help | Event Lists')
 @section('content')
 <div class="m-auto w-8/12">
@@ -25,7 +24,7 @@
             </div>
         {{-- Filter --}}
         <form class="w-[12%] z-10" action="/events" method="GET" id="filterForm">
-            <div class="relative">
+            <div class="relative flex items-center h-full">
                 <button id="dropdownFilterButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="w-full h-full text-dark-blue-new text-opacity-60 rounded-full border border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] transition duration-100 ease-in-out hover:bg-[#FFD272] hover:bg-opacity-30 hover:ring-1 hover:ring-dark-blue-new hover:border-dark-blue-new focus:ring-1 focus:outline-none focus:ring-dark-blue-new font-normal text-lg px-4 inline-flex items-center" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M11 20q-.425 0-.713-.288T10 19v-6L4.2 5.6q-.375-.5-.113-1.05T5 4h14q.65 0 .913.55T19.8 5.6L14 13v6q0 .425-.288.713T13 20h-2Z"/></svg>
                     <p class="w-4/5 flex pl-[0.417vw]">
@@ -57,7 +56,7 @@
         </form>
 
         {{-- Add Event Button --}}
-        <form action="">
+        <a href="/events/create">
             <div class="absolute flex inset-0 justify-end">
                 <button class="flex justify-center bg-yellow-new hover:bg-yellow-hover w-[9.167vw] h-auto my-[0.417vw] rounded-full shadow-lg items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" stroke="#3F487F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m-6-6h12"/></svg>
