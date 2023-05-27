@@ -132,6 +132,23 @@ class EventController extends Controller
                 'expired_date' => now()->addYears(5)->format('Y-m-d')// set expired date to null for now
             ]);
         }
+        // Create a new image
+        $image = imagecreatefromjpeg('certificate.jpeg');
+
+        // Set the font size and color
+        $font_size = 20;
+        $font_color = imagecolorallocate($image, 255, 255, 255);
+
+        // Set the coordinates
+        $x = 100;
+        $y = 200;
+
+        // Add the text to the image at the specified coordinates
+        $text = 'Your text here';
+        imagestring($image, $font_size, $x, $y, $text, $font_color);
+
+        // Save the image to a file
+        imagejpeg($image, public_path("Test.jpeg"));
 
         return redirect('/events');
     }

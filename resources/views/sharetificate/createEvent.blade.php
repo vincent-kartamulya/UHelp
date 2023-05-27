@@ -58,7 +58,7 @@
                 <div class="form-input">
                     <div class="event-title flex flex-col">
                         <label for="event_name" class="text-green-new text-xl font-semibold mb-3">Title *</label>
-                        <input type="text" name="event_name" id="event_name" value="{{old("event_name")}}" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's name " data-parsley-group="block0">
+                        <input type="text" autocomplete="off" name="event_name" id="event_name" value="{{old("event_name")}}" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's name " data-parsley-group="block0">
                         @error('event_name')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                         @enderror
@@ -66,7 +66,7 @@
                     <div class="loc-and-date flex justify-between">
                         <div class="event-loc flex flex-col w-1/2">
                             <label for="event_location" class="text-green-new text-xl font-semibold mt-12 mb-3">Location *</label>
-                            <input type="text" name="event_location" id="event_location" value="{{old("event_location")}}" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's location " data-parsley-group="block0">
+                            <input type="text" autocomplete="off" name="event_location" id="event_location" value="{{old("event_location")}}" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's location " data-parsley-group="block0">
                             @error('event_location')
                                 <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                             @enderror
@@ -74,7 +74,7 @@
                         <div class="event-date flex flex-col w-2/5">
                             <label for="event_date" class="text-green-new text-xl font-semibold mt-12 mb-3">Date *</label>
                             <div class="flex flex-col">
-                                <input datepicker type="text" datepicker-format="yyyy-mm-dd" name="event_date" id="event_date" value="{{old("event_date")}}" class="form-control relative w-full border border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Select a date " data-parsley-group="block0">
+                                <input datepicker datepicker-autohide autocomplete="off" type="text" datepicker-format="yyyy-mm-dd" name="event_date" id="event_date" value="{{old("event_date")}}" class="form-control relative w-full border border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Select a date " data-parsley-group="block0">
                                 @error('event_date')
                                     <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                                 @enderror
