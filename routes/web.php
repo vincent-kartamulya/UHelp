@@ -6,21 +6,6 @@ use App\Http\Controllers\iniController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ShuttleController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
     return view('home');
 });
@@ -45,9 +30,13 @@ Route::get('/clickandsit/empty', function () {
     return view('clickandsit.clickandsit-empty');
 });
 
-// Route::get('/clickandsit/fill', function () {
-//     return view('clickandsit.clickandsit-fill');
-// });
+Route::get('/clickandsit/fill', function () {
+    return view('clickandsit.clickandsit-fill');
+});
+
+Route::get('/createTemplate', function () {
+    return view('clickandsit.createTemplate');
+});
 
 Route::get('/history', function () {
     return view('clickandsit.history');
@@ -64,3 +53,4 @@ Route::get('/Sele',[iniController::class,'routingawal']);
 
 Route::resource('/events', EventController::class);
 Route::get('/ajax', [EventController::class,'ajax']);
+Route::get('/downloadAll', [EventController::class,'downloadAll']);

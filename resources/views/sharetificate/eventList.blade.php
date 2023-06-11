@@ -1,5 +1,5 @@
 @extends('master')
-@section('title', 'U-Help | Event Lists')
+@section('title', 'U-Help | Event List')
 @section('content')
 <div class="m-auto w-8/12">
     <div id="banner" class="pt-[7.813vw] pb-[3.646vw] flex flex-col">
@@ -24,6 +24,7 @@
             </div>
         {{-- Filter --}}
         <form class="w-[12%] z-10" action="/events" method="GET" id="filterForm">
+            @csrf
             <div class="relative flex items-center h-full">
                 <button id="dropdownFilterButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="w-full h-full text-dark-blue-new text-opacity-60 rounded-full border border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] transition duration-100 ease-in-out hover:bg-[#FFD272] hover:bg-opacity-30 hover:ring-1 hover:ring-dark-blue-new hover:border-dark-blue-new focus:ring-1 focus:outline-none focus:ring-dark-blue-new font-normal text-lg px-4 inline-flex items-center" type="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M11 20q-.425 0-.713-.288T10 19v-6L4.2 5.6q-.375-.5-.113-1.05T5 4h14q.65 0 .913.55T19.8 5.6L14 13v6q0 .425-.288.713T13 20h-2Z"/></svg>
@@ -95,6 +96,7 @@
 <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-[0.833vw] overflow-x-hidden overflow-y-auto h-[calc(100%-0.8333vw)] max-h-full">
     <div class="w-full max-w-[46.667vw] max-h-full">
         <form action="">
+            @csrf
             <div class="relative bg-white rounded-[0.833vw] shadow-2xl border-[0.208vw] border-yellow-new">
                 <button type="button" class="absolute top-[0.625vw] right-[0.521vw] text-gray-500 bg-transparent hover:bg-gray-200 hover:text-dark-blue-new rounded-[0.417vw] text-[0.729vw] p-[0.313vw] ml-auto inline-flex items-center" data-modal-hide="popup-modal">
                     <svg aria-hidden="true" class="w-[1.042vw] h-[1.042vw]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

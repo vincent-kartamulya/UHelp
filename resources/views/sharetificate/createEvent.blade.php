@@ -58,7 +58,7 @@
                 <div class="form-input">
                     <div class="event-title flex flex-col">
                         <label for="event_name" class="text-green-new text-xl font-semibold mb-3">Title *</label>
-                        <input type="text" name="event_name" id="event_name" value="{{old("event_name")}}" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's name " data-parsley-group="block0">
+                        <input type="text" autocomplete="off" name="event_name" id="event_name" value="{{old("event_name")}}" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's name " data-parsley-group="block0">
                         @error('event_name')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                         @enderror
@@ -66,7 +66,7 @@
                     <div class="loc-and-date flex justify-between">
                         <div class="event-loc flex flex-col w-1/2">
                             <label for="event_location" class="text-green-new text-xl font-semibold mt-12 mb-3">Location *</label>
-                            <input type="text" name="event_location" id="event_location" value="{{old("event_location")}}" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's location " data-parsley-group="block0">
+                            <input type="text" autocomplete="off" name="event_location" id="event_location" value="{{old("event_location")}}" class="form-control border px-3 border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Enter the event's location " data-parsley-group="block0">
                             @error('event_location')
                                 <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                             @enderror
@@ -74,7 +74,7 @@
                         <div class="event-date flex flex-col w-2/5">
                             <label for="event_date" class="text-green-new text-xl font-semibold mt-12 mb-3">Date *</label>
                             <div class="flex flex-col">
-                                <input datepicker type="text" datepicker-format="yyyy-mm-dd" name="event_date" id="event_date" value="{{old("event_date")}}" class="form-control relative w-full border border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Select a date " data-parsley-group="block0">
+                                <input datepicker datepicker-autohide autocomplete="off" type="text" datepicker-format="yyyy-mm-dd" name="event_date" id="event_date" value="{{old("event_date")}}" class="form-control relative w-full border border-yellow-new rounded-lg text-lg focus:ring-green-new focus:border-green-new mb-1" placeholder="Select a date " data-parsley-group="block0">
                                 @error('event_date')
                                     <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                                 @enderror
@@ -86,7 +86,7 @@
                     </div>
                     <div class="participants-data flex flex-col w-1/2">
                         <label for="event_participants" class="text-green-new text-xl font-semibold mt-12 mb-3">Upload Participant Data *</label>
-                        <input type="file" name="event_participants" id="event_participants" value="{{old("event_participants")}}" class="form-control text-lg bg-gray-50 rounded-lg text-gray-500 border mb-1" data-parsley-group="block0">
+                        <input type="file" name="event_participants" id="event_participants" value="{{old("event_participants")}}" class="form-control text-lg bg-gray-50 rounded-lg text-gray-500 border mb-1" data-parsley-group="block0" accept=".xlsx,.xls">
                         @error('event_participants')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                         @enderror
@@ -95,14 +95,13 @@
                 <div class="form-input">
                     <div class="certificate-template flex flex-col w-1/2">
                         <label for="event_certificate" class="text-green-new text-xl font-semibold mb-3">Upload Certificate Template *</label>
-                        <input type="file" name="event_certificate" id="event_certificate" value= "{{old("event_certficicate")}}" class="form-control text-lg rounded-lg text-gray-500 border mb-1" data-parsley-group="block1">
+                        <input type="file" name="event_certificate" id="event_certificate" value= "{{old("event_certficicate")}}" class="form-control text-lg rounded-lg text-gray-500 border mb-1" data-parsley-group="block1" accept="image/*">
                         @error('event_certificate')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
-
                         @enderror
                     </div>
-                    <div id="certificate-display" class="my-4">
-                        <img class="w-4/5 m-auto border-2" id="template" src = "public\assets\sharetificate\certificate-empty.png" alt="Certificate Image" draggable="false">
+                    <div id="certificate-display" class="my-4 hidden">
+                        <img class="w-4/5 m-auto border-2" id="template" src = "" alt="Certificate Image" draggable="false">
 
                         <!-- Add the name template -->
                         <div id="name-template" class="flex items-center justify-center">
@@ -127,6 +126,32 @@
             </form>
         </div>
     </div>
+    <script>
+        // Get the file input element
+        const fileInput = document.getElementById('event_certificate');
+        // Get the image element
+        const imageElement = document.getElementById('template');
+
+        // Listen for changes in the file input
+        fileInput.addEventListener('change', (event) => {
+            var displayCertif = document.getElementById('certificate-display');
+            displayCertif.style.display = 'block';
+            // Get the selected file
+            const file = event.target.files[0];
+
+            // Create a FileReader instance
+            const reader = new FileReader();
+
+            // When the file has been loaded
+            reader.onload = (e) => {
+                // Update the image source with the loaded file
+                imageElement.src = e.target.result;
+            };
+
+            // Read the file as a data URL
+            reader.readAsDataURL(file);
+        });
+    </script>
     <script>
         $(function() {
             var $sections = $('.form-input');

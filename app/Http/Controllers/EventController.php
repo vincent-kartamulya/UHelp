@@ -13,6 +13,9 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Ramsey\Uuid\Uuid;
+use Symfony\Component\HttpFoundation\Response;
+use ZipArchive;
+
 // use SimpleSoftwareIO\QrCode\Facades\QrCode;
 // use PhpOffice\PhpSpreadsheet\Calculation\TextData\Format;
 
@@ -91,10 +94,10 @@ class EventController extends Controller
         ]);
 
         // Store participant data file
-        $pathExcel = $request->file('event_participants')->store('participantData');
+        $pathExcel = 'storage/'.$request->file('event_participants')->store('participantData');
 
         // Store certificate template file
-        $pathTemplate = $request->file('event_certificate')->store('templateCertificate');
+        $pathTemplate = 'storage/'.$request->file('event_certificate')->store('templateCertificate');
 
         $limitedTitle = Str::limit(strip_tags($request->event_name), 20);
         $validatedData['slug'] = SlugService::createSlug(Event::class, 'slug', $limitedTitle);
@@ -116,25 +119,91 @@ class EventController extends Controller
         $recipientImport = new RecipientImport();
         $recipients = Excel::toCollection($recipientImport, $pathExcel)[0];
 
-        foreach ($recipients as $row) {
-            $recipient = Recipient::firstOrCreate([
-                'name' => $row['name'],
-                'position' => $row['position'],
-                'email' => $row['email']
-            ]);
+        $font_path = 'times new roman.ttf';
+        $template_extension = $request->file('event_certificate')->extension();
 
-            Certificate::create([
-                'user_id' => 2,
-                'event_id' => $event->id,
-                'recipient_id' => $recipient->id,
-                'uuid' => Uuid::uuid4()->toString(),
-                'issuing_date' => now()->format('Y-m-d'), // set issuing date to null for now
-                'expired_date' => now()->addYears(5)->format('Y-m-d')// set expired date to null for now
-            ]);
+        // Load the certificate template image based on the file extension
+        if ($template_extension === 'jpeg' || $template_extension === 'jpg') {
+            $image = imagecreatefromjpeg($pathTemplate);
+        } elseif ($template_extension === 'png') {
+            $image = imagecreatefrompng($pathTemplate);
+        } else {
+            // Handle unsupported file format
+            return back()->with('error', 'Unsupported certificate template format. Please upload a JPEG or PNG file.');
         }
 
+        // Set the font size
+        $font_size = 108;
+
+        // Set the font color to black
+        $font_color = imagecolorallocate($image, 0, 0, 0);
+
+        $certificatePath = 'app/public/certificates';
+
+        for ($i = 0; $i < count($recipients); $i++) {
+            $row = $recipients[$i];
+            // Create a new image resource from the certificate template
+            $certificate_image = imagecreatetruecolor(imagesx($image), imagesy($image));
+
+            if ($template_extension === 'png') {
+                imagealphablending($certificate_image, false);
+                imagesavealpha($certificate_image, true);
+                $transparent_color = imagecolorallocatealpha($certificate_image, 0, 0, 0, 127);
+                imagefill($certificate_image, 0, 0, $transparent_color);
+            }
+
+             // Copy the certificate template onto the new image
+            imagecopy($certificate_image, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
+
+            if (!empty($row['name'])) {
+                $recipient = Recipient::firstOrCreate([
+                    'name' => $row['name'],
+                    'position' => $row['position'],
+                    'email' => $row['email']
+                ]);
+
+                $certificate_width = imagesx($certificate_image);
+
+                // Get the text dimensions for the current row data
+                $text_box = imagettfbbox($font_size, 0, $font_path, $row['name']);
+                $text_width = $text_box[2] - $text_box[0];
+                $text_height = $text_box[1] - $text_box[7];
+                // Calculate the x-coordinate to center the text
+                $x = ($certificate_width - $text_width) / 2;
+
+                // Set the y-coordinate
+                $y = imagesy($certificate_image) - $request['nameY'] + $text_height + 50;
+
+                // Add the text to the image at the specified coordinates using TrueType font
+                imagettftext($certificate_image, $font_size, 0, $x, $y, $font_color, $font_path, $row['name']);
+
+                imagefilter($certificate_image, IMG_FILTER_SMOOTH, -1);
+
+                // Save the image to a file with a unique name for each recipient
+                $filename = 'certificate_' . $row['name'] . '.png';
+                imagepng($certificate_image, storage_path($certificatePath . '/' . $filename));
+
+                // Clean up memory
+                imagedestroy($certificate_image);
+
+                Certificate::create([
+                    'user_id' => 2,
+                    'event_id' => $event->id,
+                    'recipient_id' => $recipient->id,
+                    'uuid' => Uuid::uuid4()->toString(),
+                    'issuing_date' => now()->format('Y-m-d'),
+                    'expired_date' => now()->addYears(5)->format('Y-m-d'),
+                    'path' => 'storage/certificates/' . $filename
+                ]);
+            }
+        }
+        // Clean up memory
+        imagedestroy($image);
+
+        // Redirect to '/events'
         return redirect('/events');
     }
+
 
     /**
      * Display the specified resource.
@@ -167,6 +236,32 @@ class EventController extends Controller
         });
         return view('sharetificate.generatedCertificate', ['event' => $event, 'participants' => $participants]);
 
+    }
+
+    public function downloadAll(Request $request){
+        // Retrieve the event UUID from the query parameter
+        $eventUUID = $request->query('eventUUID');
+
+        // Retrieve the event details from the database based on the UUID
+        $event = Event::where('uuid', $eventUUID)->firstOrFail();
+
+        // Create a unique filename for the zip file
+        $zipFileName = 'certificates_' . $eventUUID . '.zip';
+
+        $zip = new ZipArchive;
+
+        if($zip->open($zipFileName, ZipArchive::CREATE | ZipArchive::OVERWRITE)){
+
+            foreach ($event->certificate as $certificate) {
+                $certificatePath = public_path($certificate->path);
+                $certificateName = $certificate->recipient->name . '.png';
+
+                // Add the certificate file to the zip
+                $zip->addFile($certificatePath, $certificateName);
+            }
+            $zip->close();
+        }
+        return response()->download($zipFileName)->deleteFileAfterSend(true);;
     }
 
     /**

@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
+
 return new class extends Migration
 {
     /**
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->string('uuid')->unique();
             $table->date('issuing_date');
             $table->date('expired_date');
+            $table->string('path');
             $table->timestamps();
         });
     }
