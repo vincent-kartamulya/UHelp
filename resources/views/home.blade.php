@@ -103,13 +103,13 @@
             <h5 class="self-center text-[1.5vw] font-semibold whitespace-nowrap text-yellow-new font-shadow mb-3 ">U-Help</h5>
             <div id="upper white line" class="md:flex md:justify-between">
                 <div id="left" class="mb-6 md:mb-0">
-                    <h5 class="w-[18vw] text-white text-[1vw]">Thoughful marketing for growing dental practices.</h5>
+                    <h5 class="w-[18vw] text-white text-[1vw]">Easy access for Binusian Lecturer activity.</h5>
                 </div>
 
                 <div id="center" class="grid gap-8 sm:gap-6 sm:grid-cols-2 ml-[4vw]">
                     <form method="POST" action="" enctype="multipart/form-data">
                         <div class="event-title flex flex-col">
-                            <h5 class="w-[28vw] text-[1vw] text-white mb-[1vw]">DENTAL MARKETING INSIGHTS FOR CLEVER DENTISTS DIRECT TO YOUR INBOX</h5>
+                            <h5 class="w-[28vw] text-[1vw] text-white mb-[1vw]">LECTURER INSIGHTS FOR BINUSIAN DIRECT TO YOUR INBOX</h5>
                             <div class="flex flex-row w-[28vw]">
                                 <input type="text" class="placeholder-white placeholder-opacity-75 border px-3 w-[18vw] border-white bg-transparent rounded-lg text-[0.8vw] focus:ring-yellow-new focus:border-yellow-new text-white" placeholder="YOUR EMAIL " required>
                                 <button class="px-5 ml-[1vw] bg-yellow-new rounded-lg text-white shadow-lg">SUBSCRIBE </button>
