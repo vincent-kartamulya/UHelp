@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('uuid')->unique();
             $table->date('issuing_date');
             $table->date('expired_date');
-            $table->date('path');
+            $table->string('path');
             $table->timestamps();
         });
     }

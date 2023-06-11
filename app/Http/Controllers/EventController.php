@@ -165,12 +165,12 @@ class EventController extends Controller
                 // Get the text dimensions for the current row data
                 $text_box = imagettfbbox($font_size, 0, $font_path, $row['name']);
                 $text_width = $text_box[2] - $text_box[0];
-
+                $text_height = $text_box[1] - $text_box[7];
                 // Calculate the x-coordinate to center the text
                 $x = ($certificate_width - $text_width) / 2;
 
                 // Set the y-coordinate
-                $y = 200;
+                $y = imagesy($certificate_image) - $request['nameY'] + $text_height + 50;
 
                 // Add the text to the image at the specified coordinates using TrueType font
                 imagettftext($certificate_image, $font_size, 0, $x, $y, $font_color, $font_path, $row['name']);
