@@ -13,6 +13,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Facades\Storage;
 // use SimpleSoftwareIO\QrCode\Facades\QrCode;
 // use PhpOffice\PhpSpreadsheet\Calculation\TextData\Format;
 
@@ -135,6 +136,8 @@ class EventController extends Controller
         // Set the font color to black
         $font_color = imagecolorallocate($image, 0, 0, 0);
 
+        $certificatePath = 'app/public/certificates';
+
         for ($i = 0; $i < count($recipients); $i++) {
             $row = $recipients[$i];
             // Create a new image resource from the certificate template
@@ -175,8 +178,8 @@ class EventController extends Controller
                 imagefilter($certificate_image, IMG_FILTER_SMOOTH, -1);
 
                 // Save the image to a file with a unique name for each recipient
-                $certificate_path = public_path("certificate_" . $row['name'] . ".jpeg");
-                imagepng($certificate_image, $certificate_path);
+                $filename = 'certificate_' . $row['name'] . '.png';
+                imagepng($certificate_image, storage_path($certificatePath . '/' . $filename));
 
                 // Clean up memory
                 imagedestroy($certificate_image);
@@ -188,7 +191,7 @@ class EventController extends Controller
                     'uuid' => Uuid::uuid4()->toString(),
                     'issuing_date' => now()->format('Y-m-d'),
                     'expired_date' => now()->addYears(5)->format('Y-m-d'),
-                    'path' => $certificate_path,
+                    'path' => 'storage/certificates/' . $filename
                 ]);
             }
         }
