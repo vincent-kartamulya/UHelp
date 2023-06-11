@@ -10,7 +10,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+    rel="stylesheet" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            fontFamily: {
+                sans: ["Roboto", "sans-serif"],
+                body: ["Roboto", "sans-serif"],
+                mono: ["ui-monospace", "monospace"],
+            },
+            },
+            corePlugins: {
+            preflight: false,
+            },
+        };
+    </script>
 </head>
+
 <body class="bg-slate-100 font-font-poppins">
     <header>
         <div id="navbar">
@@ -54,7 +78,7 @@
                     <img src="/assets/clickandsit/createTemplate/leftOrnament.png">
                 </div>
 
-                <div id="circle bottom ornament" class="absolute z-10 top-[40vw] left-[17vw]">
+                <div id="circle bottom ornament" class="absolute z-10 top-[33vw] left-[17vw]">
                     <img src="/assets/clickandsit/createTemplate/circleOrnament.png">
                 </div>
             </div>
@@ -64,98 +88,50 @@
                     <h1 class="mb-[2vw] font-semibold text-[2.5vw] text-dark-blue-new text-center">Setting</h1>
                 </div>
 
-                <div id="destination, departure time, schedule" class="px-[0.83vw]">
-                    <div class="flex flex-row">
-                        <form id="destination_from" class="space-y-[2vw]" action="">
-                            @csrf
-                            <div id="destination" class="mb-[2vw]">
-                                <label for="destination" class="block mb-2 text-green-new text-2xl font-semibold">Destination</label>
-                                <div class="flex">
-                                    <div id="dropdown destination">
-                                        <button id="dropdownDefaultButton" data-dropdown-toggle="destinationfrom_dropdown" class="w-[15vw] text-dark-blue-new text-lg font-medium bg-white border border-yellow-new hover:bg-yellow-new rounded-lg px-4 py-[0.5vw] text-center inline-flex items-center" type="button">From <svg class="w-4 h-4 ml-[10vw]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                                        <!-- Dropdown menu -->
-                                        <div id="destinationfrom_dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                            <ul class="py-[0.42vw] text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                                            <li>
-                                                <a href="" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kebayoran</a>
-                                            </li>
-                                            <li>
-                                                <a href="" class="block px-[0.83vw] py-[0.42vw]2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sentul</a>
-                                            </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                <div id="departure_return" class="px-[0.83vw]">
+                    <form id="departure_return" action="" method="">
+                        @csrf
+                        <label class="block text-green-new text-2xl font-semibold mb-[1vw]">Departure</label>
+                        <div class="flex flex-row">
+                            <div class="place_departure mr-[2vw]">
+                                <select name="place_departure" id="place_departure" data-te-select-init data-te-select-clear-button="true" data-te-class-form-outline="relative w-[15vw]">
+                                    <option value="" hidden selected></option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                                <label data-te-select-label-ref>Choose destination place</label>
                             </div>
-                        </form>
-
-                        <img class="h-[1vw] mx-[1vw] my-[0.8vw] mt-[2.75vw]" src="/assets/clickandsit/createTemplate/arrow.png">
-
-                        <form id="destination_to" class="space-y-[2vw]" action="">
-                            <div id="destination" class="mb-[2vw] mt-[2.1vw]">
-                                <div class="flex">
-                                    <div id="dropdown destination">
-                                        <button id="dropdownDefaultButton" data-dropdown-toggle="destinationto_dropdown" class="w-[15vw] text-dark-blue-new text-lg font-medium bg-white border border-yellow-new hover:bg-yellow-new rounded-lg px-4 py-[0.5vw] text-center inline-flex items-center" type="button">To <svg class="w-4 h-4 ml-[11vw]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                                        <!-- Dropdown menu -->
-                                        <div id="destinationto_dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                            <ul class="py-[0.42vw] text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                                            <li>
-                                                <a href="#" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Alam Sutera</a>
-                                            </li>
-                                            <li>
-                                                <a href="#" class="block px-[0.83vw] py-[0.42vw] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kemanggisan</a>
-                                            </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <form id="departure time" class="space-y-[2vw]">
-                        <div id="departure time" class="mb-[2vw]">
-                            <label for="departure time" class="block mb-2 text-green-new text-2xl font-semibold">Departure Time</label>
-
-                            <div id="dropdown departure time">
-                                <button id="timeDropdown" data-dropdown-toggle="time_dropdown" class="w-[15vw] text-dark-blue-new text-lg font-medium bg-white border border-yellow-new hover:bg-yellow-new rounded-lg px-4 py-[0.5vw] text-center inline-flex items-center" type="button">Time </button>
-                                <!-- Dropdown menu -->
-                                <div id="time_dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
-                                        <li>
-                                            <a href="" class="block px-4 py-2 hover:bg-gray-100 ">09.30</a>
-                                        </li>
-                                        <li>
-                                            <a href="" class="block px-4 py-2 hover:bg-gray-100 ">11.00</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="time_departure">
+                                <select name="time_departure" id="time_departure" data-te-select-init data-te-select-clear-button="true"  data-te-class-form-outline="relative w-[15vw]">
+                                    <option value="" hidden selected></option>
+                                    <option value="Teknik">07.00</option>
+                                    <option value="Sistem">08.00</option>
+                                    <option value="Sistem">09.00</option>
+                                </select>
+                                <label data-te-select-label-ref>Choose departure time</label>
                             </div>
                         </div>
-                    </form>
 
-                    <form id="schedule" class="space-y-[2vw]" action="#">
-                        <div id="schedule">
-                            <label for="schedule" class="block mb-2 text-green-new text-2xl font-semibold">Schedule</label>
-                            <div id="schedule button" class="flex justify-center rounded-lg bg-white" role="group">
-                                    <button type="button" class="rounded-l-lg px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                    Monday
-                                    </button>
-                                    <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                    Tuesday
-                                    </button>
-                                    <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                    Wednesday
-                                    </button>
-                                    <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                    Thrusday
-                                    </button>
-                                    <button type="button" class="px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                    Friday
-                                    </button>
-                                    <button type="button" class="rounded-r-md px-[1.3vw] py-[0.8vw] text-lg font-semibold text-dark-blue-new bg-transparent border border-[#F7C04B] hover:bg-[#F7C04B] hover:text-white">
-                                    Saturday
-                                    </button>
+                        <label class="block text-green-new text-2xl font-semibold mt-[2vw] mb-[1vw]">Return</label>
+                        <div class="flex flex-row">
+                            <div class="place_return mr-[2vw]">
+                                <select name="place_return" id="place_return" data-te-select-init data-te-select-clear-button="true" data-te-class-form-outline="relative w-[15vw]">
+                                    <option value="" hidden selected></option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                </select>
+                                <label data-te-select-label-ref>Choose return place</label>
+                            </div>
+                            <div class="time_return">
+                                <select name="time_return" id="time_return" data-te-select-init data-te-select-clear-button="true" data-te-class-form-outline="relative w-[15vw]">
+                                    <option value="" hidden selected></option>
+                                    <option value="Teknik">17.00</option>
+                                    <option value="Sistem">18.00</option>
+                                    <option value="Sistem">19.00</option>
+                                </select>
+                                <label data-te-select-label-ref>Choose return time</label>
                             </div>
                         </div>
                     </form>
@@ -257,6 +233,7 @@
 
     <script src="/node_modules/flowbite/dist/flowbite.js"></script>
     <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 </body>
 </html>
 

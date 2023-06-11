@@ -4,6 +4,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\iniController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ShuttleController;
 
 Route::get('/', function () {
     return view('home');
@@ -29,9 +30,13 @@ Route::get('/clickandsit/empty', function () {
     return view('clickandsit.clickandsit-empty');
 });
 
-// Route::get('/clickandsit/fill', function () {
-//     return view('clickandsit.clickandsit-fill');
-// });
+Route::get('/clickandsit/fill', function () {
+    return view('clickandsit.clickandsit-fill');
+});
+
+Route::get('/createTemplate', function () {
+    return view('clickandsit.createTemplate');
+});
 
 Route::get('/history', function () {
     return view('clickandsit.history');
