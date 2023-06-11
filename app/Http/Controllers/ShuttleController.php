@@ -14,9 +14,9 @@ use Facebook\WebDriver\WebDriverWait;
 class ShuttleController extends Controller
 {
     public function savedata(Request $request){
-        $destinationFrom = $request->input('destination_from');
-        $destinationTo = $request->input('destination_to');
-        $departureTime = $request->input('departure_time');
+        $destinationFrom = $request->input('place_departure');
+        $destinationTo = $request->input('place_return');
+        $departureTime = $request->input('time_departure');
 
 
         $model = new Shuttle();
