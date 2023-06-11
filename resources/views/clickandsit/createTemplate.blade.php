@@ -87,7 +87,7 @@
                 <div id="header setting">
                     <h1 class="mb-[2vw] font-semibold text-[2.5vw] text-dark-blue-new text-center">Setting</h1>
                 </div>
-
+                
                 <div id="departure_return" class="px-[0.83vw]">
                     <form id="departure_return" action="" method="">
                         @csrf
@@ -134,16 +134,16 @@
                                 <label data-te-select-label-ref>Choose return time</label>
                             </div>
                         </div>
-                    </form>
+                    </form> --}}
                 </div>
 
-                <div id="save button" class="flex justify-center">
+                {{-- <div id="save button" class="flex justify-center">
                     <a href="/clickandsit/fill">
                         <button class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-[12.5vw] py-[0.83vw] rounded-full m-auto mt-[3vw] shadow-md">
                             Save
                         </button>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </main>
