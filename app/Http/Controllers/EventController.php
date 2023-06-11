@@ -91,10 +91,10 @@ class EventController extends Controller
         ]);
 
         // Store participant data file
-        $pathExcel = $request->file('event_participants')->store('participantData');
+        $pathExcel = 'storage/'.$request->file('event_participants')->store('participantData');
 
         // Store certificate template file
-        $pathTemplate = $request->file('event_certificate')->store('templateCertificate');
+        $pathTemplate = 'storage/'.$request->file('event_certificate')->store('templateCertificate');
 
         $limitedTitle = Str::limit(strip_tags($request->event_name), 20);
         $validatedData['slug'] = SlugService::createSlug(Event::class, 'slug', $limitedTitle);
@@ -116,42 +116,89 @@ class EventController extends Controller
         $recipientImport = new RecipientImport();
         $recipients = Excel::toCollection($recipientImport, $pathExcel)[0];
 
-        foreach ($recipients as $row) {
-            $recipient = Recipient::firstOrCreate([
-                'name' => $row['name'],
-                'position' => $row['position'],
-                'email' => $row['email']
-            ]);
+        $font_path = 'times new roman.ttf';
+        $template_extension = $request->file('event_certificate')->extension();
 
-            Certificate::create([
-                'user_id' => 2,
-                'event_id' => $event->id,
-                'recipient_id' => $recipient->id,
-                'uuid' => Uuid::uuid4()->toString(),
-                'issuing_date' => now()->format('Y-m-d'), // set issuing date to null for now
-                'expired_date' => now()->addYears(5)->format('Y-m-d')// set expired date to null for now
-            ]);
+        // Load the certificate template image based on the file extension
+        if ($template_extension === 'jpeg' || $template_extension === 'jpg') {
+            $image = imagecreatefromjpeg($pathTemplate);
+        } elseif ($template_extension === 'png') {
+            $image = imagecreatefrompng($pathTemplate);
+        } else {
+            // Handle unsupported file format
+            return back()->with('error', 'Unsupported certificate template format. Please upload a JPEG or PNG file.');
         }
-        // Create a new image
-        $image = imagecreatefromjpeg('certificate.jpeg');
 
-        // Set the font size and color
-        $font_size = 20;
-        $font_color = imagecolorallocate($image, 255, 255, 255);
+        // Set the font size
+        $font_size = 108;
 
-        // Set the coordinates
-        $x = 100;
-        $y = 200;
+        // Set the font color to black
+        $font_color = imagecolorallocate($image, 0, 0, 0);
 
-        // Add the text to the image at the specified coordinates
-        $text = 'Your text here';
-        imagestring($image, $font_size, $x, $y, $text, $font_color);
+        for ($i = 0; $i < count($recipients); $i++) {
+            $row = $recipients[$i];
+            // Create a new image resource from the certificate template
+            $certificate_image = imagecreatetruecolor(imagesx($image), imagesy($image));
 
-        // Save the image to a file
-        imagejpeg($image, public_path("Test.jpeg"));
+            if ($template_extension === 'png') {
+                imagealphablending($certificate_image, false);
+                imagesavealpha($certificate_image, true);
+                $transparent_color = imagecolorallocatealpha($certificate_image, 0, 0, 0, 127);
+                imagefill($certificate_image, 0, 0, $transparent_color);
+            }
 
+             // Copy the certificate template onto the new image
+            imagecopy($certificate_image, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
+
+            if (!empty($row['name'])) {
+                $recipient = Recipient::firstOrCreate([
+                    'name' => $row['name'],
+                    'position' => $row['position'],
+                    'email' => $row['email']
+                ]);
+
+                $certificate_width = imagesx($certificate_image);
+
+                // Get the text dimensions for the current row data
+                $text_box = imagettfbbox($font_size, 0, $font_path, $row['name']);
+                $text_width = $text_box[2] - $text_box[0];
+
+                // Calculate the x-coordinate to center the text
+                $x = ($certificate_width - $text_width) / 2;
+
+                // Set the y-coordinate
+                $y = 200;
+
+                // Add the text to the image at the specified coordinates using TrueType font
+                imagettftext($certificate_image, $font_size, 0, $x, $y, $font_color, $font_path, $row['name']);
+
+                imagefilter($certificate_image, IMG_FILTER_SMOOTH, -1);
+
+                // Save the image to a file with a unique name for each recipient
+                $certificate_path = public_path("certificate_" . $row['name'] . ".jpeg");
+                imagepng($certificate_image, $certificate_path);
+
+                // Clean up memory
+                imagedestroy($certificate_image);
+
+                Certificate::create([
+                    'user_id' => 2,
+                    'event_id' => $event->id,
+                    'recipient_id' => $recipient->id,
+                    'uuid' => Uuid::uuid4()->toString(),
+                    'issuing_date' => now()->format('Y-m-d'),
+                    'expired_date' => now()->addYears(5)->format('Y-m-d'),
+                    'path' => $certificate_path,
+                ]);
+            }
+        }
+        // Clean up memory
+        imagedestroy($image);
+
+        // Redirect to '/events'
         return redirect('/events');
     }
+
 
     /**
      * Display the specified resource.

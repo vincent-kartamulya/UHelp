@@ -5,13 +5,13 @@
 {{-- Gambar dan informasi sertifikat --}}
 <div class="certificate-container pt-44 pb-24 flex flex-row justify-center">
     <div class="left-content mr-5 w-1/3">
-        <img class="certificate-image shadow-2xl w-4/5 m-auto" src="/assets/sharetificate/certificate.png" alt="Certificate Image">
+        <img class="certificate-image shadow-2xl w-4/5 m-auto" src="{{ asset($event->template) }}" alt="Certificate Image">
     </div>
     <div class="flex flex-col right-content w-1/2">
         <div class="certificate-info space-y-1">
-            <h1 class="seminar-title text-4xl font-bold text-dark-blue-new my-3 break-normal">Online Webinar for Business Workshop by Wardiere Inc.</h1>
-            <p class="seminar-date text-2xl font-semibold text-green-new">Wednesday, April 05th 2023</p>
-            <p class="seminar-location text-xl font-semibold text-yellow-new">BINUS University</p>
+            <h1 class="seminar-title text-4xl font-bold text-dark-blue-new my-3 break-normal">{{$event->title}}</h1>
+            <p class="seminar-date text-2xl font-semibold text-green-new">{{date('l, F d Y', strtotime($event->date))}}</p>
+            <p class="seminar-location text-xl font-semibold text-yellow-new">{{$event->location}}</p>
         </div>
         <div class="absolute mt-60">
             <button class="flex justify-around bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-xl font-bold w-60 px-6 py-4 rounded-full shadow-lg">
