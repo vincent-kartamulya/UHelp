@@ -86,7 +86,8 @@
                     </div>
                     <div class="participants-data flex flex-col w-1/2">
                         <label for="event_participants" class="text-green-new text-xl font-semibold mt-12 mb-3">Upload Participant Data *</label>
-                        <input type="file" name="event_participants" id="event_participants" value="{{old("event_participants")}}" class="form-control text-lg bg-gray-50 rounded-lg text-gray-500 border mb-1" data-parsley-group="block0">
+                        <input type="file" name="event_participants" id="event_participants" value="{{old("event_participants")}}" class="form-control text-lg bg-gray-50 rounded-lg text-gray-500 border mb-1" data-parsley-group="block0" accept=".xlsx,.xls">
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">XLS. (with column names: "name", "email", "position").</p>
                         @error('event_participants')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                         @enderror
@@ -95,14 +96,14 @@
                 <div class="form-input">
                     <div class="certificate-template flex flex-col w-1/2">
                         <label for="event_certificate" class="text-green-new text-xl font-semibold mb-3">Upload Certificate Template *</label>
-                        <input type="file" name="event_certificate" id="event_certificate" value= "{{old("event_certficicate")}}" class="form-control text-lg rounded-lg text-gray-500 border mb-1" data-parsley-group="block1">
+                        <input type="file" name="event_certificate" id="event_certificate" value= "{{old("event_certficicate")}}" class="form-control text-lg rounded-lg text-gray-500 border mb-1" data-parsley-group="block1" accept="image/*">
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG or JPG.</p>
                         @error('event_certificate')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
-
                         @enderror
                     </div>
-                    <div id="certificate-display" class="my-4">
-                        <img class="w-4/5 m-auto border-2" id="template" src = "public\assets\sharetificate\certificate-empty.png" alt="Certificate Image" draggable="false">
+                    <div id="certificate-display" class="my-4 hidden">
+                        <img class="w-4/5 m-auto border-2" id="template" src = "" alt="Certificate Image" draggable="false">
 
                         <!-- Add the name template -->
                         <div id="name-template" class="flex items-center justify-center">
@@ -127,6 +128,32 @@
             </form>
         </div>
     </div>
+    <script>
+        // Get the file input element
+        const fileInput = document.getElementById('event_certificate');
+        // Get the image element
+        const imageElement = document.getElementById('template');
+
+        // Listen for changes in the file input
+        fileInput.addEventListener('change', (event) => {
+            var displayCertif = document.getElementById('certificate-display');
+            displayCertif.style.display = 'block';
+            // Get the selected file
+            const file = event.target.files[0];
+
+            // Create a FileReader instance
+            const reader = new FileReader();
+
+            // When the file has been loaded
+            reader.onload = (e) => {
+                // Update the image source with the loaded file
+                imageElement.src = e.target.result;
+            };
+
+            // Read the file as a data URL
+            reader.readAsDataURL(file);
+        });
+    </script>
     <script>
         $(function() {
             var $sections = $('.form-input');
