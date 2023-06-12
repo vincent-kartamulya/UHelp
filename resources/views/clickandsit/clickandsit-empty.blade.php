@@ -20,7 +20,7 @@
         You don't have any schedule yet!
     </div>
 
-    <div id="button" class="m-auto my-10">
+    <div id="button" class="m-auto my-10 mb-[5vw]">
         <a href="/createTemplate">
             <button class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-60 py-4 rounded-full shadow-md">
                 + Add Schedule

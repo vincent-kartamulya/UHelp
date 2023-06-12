@@ -18,11 +18,11 @@ class ShuttleController extends Controller
         $destinationTo = $request->input('destination_to');
         $departureTime = $request->input('departure_time');
 
-
-        $model = new Shuttle();
-        $model->turun = $destinationFrom;
-        $model->naik = $destinationTo;
-        $model->jamAlsut = $departureTime;
+         // Create a new instance of your model and set the attributes
+        $model = new Shuttle(); // Replace 'YourModel' with the actual model name
+        $model->destination_from = $destinationFrom;
+        $model->destination_to = $destinationTo;
+        $model->departure_time = $departureTime;
 
     // Save the model to the database
         $model->save();

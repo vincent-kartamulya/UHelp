@@ -13,9 +13,6 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Ramsey\Uuid\Uuid;
-use Symfony\Component\HttpFoundation\Response;
-use ZipArchive;
-
 // use SimpleSoftwareIO\QrCode\Facades\QrCode;
 // use PhpOffice\PhpSpreadsheet\Calculation\TextData\Format;
 
@@ -94,10 +91,10 @@ class EventController extends Controller
         ]);
 
         // Store participant data file
-        $pathExcel = 'storage/'.$request->file('event_participants')->store('participantData');
+        $pathExcel = $request->file('event_participants')->store('participantData');
 
         // Store certificate template file
-        $pathTemplate = 'storage/'.$request->file('event_certificate')->store('templateCertificate');
+        $pathTemplate = $request->file('event_certificate')->store('templateCertificate');
 
         $limitedTitle = Str::limit(strip_tags($request->event_name), 20);
         $validatedData['slug'] = SlugService::createSlug(Event::class, 'slug', $limitedTitle);
@@ -178,7 +175,7 @@ class EventController extends Controller
                 imagettftext($certificate_image, $font_size, 0, $x, $y, $font_color, $font_path, $row['name']);
 
                 imagefilter($certificate_image, IMG_FILTER_SMOOTH, -1);
-                
+
                 // Save the image to a file with a unique name for each recipient
                 $filename = 'certificate_' . $row['name'] . '.png';
                 imagepng($certificate_image, storage_path($certificatePath . '/' . $filename));
@@ -200,10 +197,8 @@ class EventController extends Controller
         // Clean up memory
         imagedestroy($image);
 
-        // Redirect to '/events'
         return redirect('/events');
     }
-
 
     /**
      * Display the specified resource.
@@ -236,32 +231,6 @@ class EventController extends Controller
         });
         return view('sharetificate.generatedCertificate', ['event' => $event, 'participants' => $participants]);
 
-    }
-
-    public function downloadAll(Request $request){
-        // Retrieve the event UUID from the query parameter
-        $eventUUID = $request->query('eventUUID');
-
-        // Retrieve the event details from the database based on the UUID
-        $event = Event::where('uuid', $eventUUID)->firstOrFail();
-
-        // Create a unique filename for the zip file
-        $zipFileName = 'certificates_' . $eventUUID . '.zip';
-
-        $zip = new ZipArchive;
-
-        if($zip->open($zipFileName, ZipArchive::CREATE | ZipArchive::OVERWRITE)){
-
-            foreach ($event->certificate as $certificate) {
-                $certificatePath = public_path($certificate->path);
-                $certificateName = $certificate->recipient->name . '.png';
-
-                // Add the certificate file to the zip
-                $zip->addFile($certificatePath, $certificateName);
-            }
-            $zip->close();
-        }
-        return response()->download($zipFileName)->deleteFileAfterSend(true);;
     }
 
     /**

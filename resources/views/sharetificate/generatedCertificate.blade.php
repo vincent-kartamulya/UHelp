@@ -4,19 +4,19 @@
 {{-- Gambar dan informasi sertifikat --}}
 <div class="certificate-container pt-44 pb-24 flex flex-row justify-center">
     <div class="left-content mr-5 w-1/3">
-        <img class="certificate-image shadow-2xl w-4/5 m-auto" src="{{ asset($event->template) }}" alt="Certificate Image">
+        <img class="certificate-image shadow-2xl w-4/5 m-auto" src="/assets/sharetificate/certificate.png" alt="Certificate Image">
     </div>
     <div class="flex flex-col right-content w-1/2">
         <div class="certificate-info space-y-1">
-            <h1 class="seminar-title text-4xl font-bold text-dark-blue-new my-3 break-normal">{{$event->title}}</h1>
-            <p class="seminar-date text-2xl font-semibold text-green-new">{{date('l, F d Y', strtotime($event->date))}}</p>
-            <p class="seminar-location text-xl font-semibold text-yellow-new">{{$event->location}}</p>
+            <h1 class="seminar-title text-4xl font-bold text-dark-blue-new my-3 break-normal">Online Webinar for Business Workshop by Wardiere Inc.</h1>
+            <p class="seminar-date text-2xl font-semibold text-green-new">Wednesday, April 05th 2023</p>
+            <p class="seminar-location text-xl font-semibold text-yellow-new">BINUS University</p>
         </div>
         <div class="absolute mt-60">
-            <a href="/downloadAll?eventUUID={{ $event->uuid }}" class="flex justify-around bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-xl font-bold w-60 px-6 py-4 rounded-full shadow-lg">
+            <button class="flex justify-around bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-xl font-bold w-60 px-6 py-4 rounded-full shadow-lg">
                 Download All
                 <svg class="" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="currentColor" d="M12 15.575q-.2 0-.375-.062T11.3 15.3l-3.6-3.6q-.275-.275-.275-.7t.275-.7q.275-.275.713-.287t.712.262L11 12.15V5q0-.425.288-.713T12 4q.425 0 .713.288T13 5v7.15l1.875-1.875q.275-.275.713-.263t.712.288q.275.275.275.7t-.275.7l-3.6 3.6q-.15.15-.325.213t-.375.062ZM6 20q-.825 0-1.413-.588T4 18v-2q0-.425.288-.713T5 15q.425 0 .713.288T6 16v2h12v-2q0-.425.288-.713T19 15q.425 0 .713.288T20 16v2q0 .825-.588 1.413T18 20H6Z"/></svg>
-            </a>
+            </button>
         </div>
     </div>
 </div>

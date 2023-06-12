@@ -1,7 +1,7 @@
 @extends('master')
 @section('title', 'U-Help | Click and Sit')
 @section('content')
-<div id="content" class="pt-[5vw]">
+<div id="content" class="pt-[5vw] mb-[5vw]">
     <div id="ornament">
         <div id="right-ornament" class="absolute z-10 right-[0vw] top-[7vw]">
             <img src="/assets/clickandsit/clickandsit/fill/rightOrnament.png">
