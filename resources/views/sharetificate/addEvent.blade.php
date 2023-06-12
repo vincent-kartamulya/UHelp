@@ -1,4 +1,4 @@
-@extends("master")
+@extends('master')
 @section('title', 'U-Help | Add Event')
 @section('content')
     <div class="element-container">
