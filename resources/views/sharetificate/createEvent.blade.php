@@ -87,6 +87,7 @@
                     <div class="participants-data flex flex-col w-1/2">
                         <label for="event_participants" class="text-green-new text-xl font-semibold mt-12 mb-3">Upload Participant Data *</label>
                         <input type="file" name="event_participants" id="event_participants" value="{{old("event_participants")}}" class="form-control text-lg bg-gray-50 rounded-lg text-gray-500 border mb-1" data-parsley-group="block0" accept=".xlsx,.xls">
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">XLS. (with column names: "name", "email", "position").</p>
                         @error('event_participants')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                         @enderror
@@ -96,6 +97,7 @@
                     <div class="certificate-template flex flex-col w-1/2">
                         <label for="event_certificate" class="text-green-new text-xl font-semibold mb-3">Upload Certificate Template *</label>
                         <input type="file" name="event_certificate" id="event_certificate" value= "{{old("event_certficicate")}}" class="form-control text-lg rounded-lg text-gray-500 border mb-1" data-parsley-group="block1" accept="image/*">
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG or JPG.</p>
                         @error('event_certificate')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
                         @enderror

@@ -133,7 +133,7 @@ class EventController extends Controller
         }
 
         // Set the font size
-        $font_size = 108;
+        $font_size = 80;
 
         // Set the font color to black
         $font_color = imagecolorallocate($image, 0, 0, 0);
@@ -178,7 +178,7 @@ class EventController extends Controller
                 imagettftext($certificate_image, $font_size, 0, $x, $y, $font_color, $font_path, $row['name']);
 
                 imagefilter($certificate_image, IMG_FILTER_SMOOTH, -1);
-
+                
                 // Save the image to a file with a unique name for each recipient
                 $filename = 'certificate_' . $row['name'] . '.png';
                 imagepng($certificate_image, storage_path($certificatePath . '/' . $filename));
