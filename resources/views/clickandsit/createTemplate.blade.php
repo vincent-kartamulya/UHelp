@@ -1,5 +1,18 @@
 @extends('master')
 @section('title', 'U-Help | Create Template')
+@section('css')
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        corePlugins: {
+        preflight: false,
+        },
+    };
+</script>
+@endsection
 @section('content')
 <div id="content" class="flex pt-[5vw]">
     <div id="ornament">
