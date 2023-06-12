@@ -1,6 +1,7 @@
 @extends('master')
 @section('title', 'U-Help | Event List')
 @section('content')
+
 <div class="m-auto w-8/12">
     <div id="banner" class="pt-[7.813vw] pb-[3.646vw] flex flex-col">
         <img class="h-[16vw] opacity-80 rounded-t-[1.250vw]" src="/assets/sharetificate/seminar_pict.png" alt="Seminar Banner">
@@ -8,7 +9,7 @@
     </div>
 </div>
 
-    <div id="search-filter-add" class="flex relative m-auto py-[0.625vw] w-10/12 gap-[1.042vw]">
+<div id="search-filter-add" class="flex relative m-auto py-[0.625vw] w-10/12 gap-[1.042vw]">
         {{-- Search Bar --}}
             <div class="relative flex w-[20vw] items-center z-10">
                 <div class="absolute inset-3 px-1">

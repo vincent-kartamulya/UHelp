@@ -2,7 +2,7 @@
 @section('title','U-Help | Profile')
 @section('content')
 <div id="content" class="flex flex-row bg-slate-100">
-    <div id="left content" class="ml-[17vw] fixed ">
+    <div id="left content" class="ml-[15vw] ">
         <div id="profile" class="w-full max-w-[12vw] h-[13vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[8vw]">
             <div id="profile" class="flex flex-col items-center pb-10">
                 <img class="w-[6vw] h-[6vw] mb-3 rounded-full shadow-lg mt-[1vw] border-[0.2vw] border-slate-100" src="/assets/profile/profile.png" alt="Profile Picture"/>
@@ -16,7 +16,7 @@
             </div>
         </a>
     </div>
-    <div id="right content" class="bg-white rounded-[0.5vw] shadow mt-[8vw] w-[50vw] h-[64vw] ml-[31.5vw] px-[3.5vw] py-[3vw] mb-[5vw]">
+    <div id="right content" class="bg-white rounded-[0.5vw] shadow mt-[8vw] w-[50vw] h-[64vw] ml-[5vw] px-[3.5vw] py-[3vw] mb-[5vw]">
         <div id="connect section">
             <h5 class="text-[1.5vw] font-semibold mb-[1vw]">Connect</h5>
             <div id="connect button" class="flex flex-row mb-[5vw]">

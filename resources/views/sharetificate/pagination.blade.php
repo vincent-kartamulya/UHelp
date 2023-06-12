@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-<div class="relative flex">
+<div class="relative flex mb-[10vw]">
     <div id="pagination" class="absolute flex inset-0 mt-[3.542vw]">
         <ul class="inline-flex items-center m-auto shadow-xl rounded-lg">
             {{-- Previous Page Link --}}
