@@ -10,6 +10,7 @@ use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverWait;
+use Carbon\Carbon;
 
 class ShuttleController extends Controller
 {
@@ -17,15 +18,23 @@ class ShuttleController extends Controller
         $destinationFrom = $request->input('place_departure');
         $destinationTo = $request->input('place_return');
         $departureTime = $request->input('time_departure');
+        $returnTime = $request->input('time_return');
+        $keperluan = 'Ngajar';
+        $tomorrow = $tomorrow = Carbon::tomorrow()->format('l');
 
 
         $model = new Shuttle();
         $model->turun = $destinationFrom;
         $model->naik = $destinationTo;
         $model->jamAlsut = $departureTime;
+        $model->keperluan = $keperluan;
+        $model->hari = $tomorrow;
+        $model->jamAnggrek = $returnTime;
+
 
     // Save the model to the database
         $model->save();
+        return view('clickandsit.clickandsit-fill');
     }
 
 
