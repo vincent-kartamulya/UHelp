@@ -58,14 +58,12 @@
         </form>
 
         {{-- Add Event Button --}}
-        <a href="/events/create">
-            <div class="absolute flex inset-0 justify-end">
-                <button class="flex justify-center bg-yellow-new hover:bg-yellow-hover w-[9.167vw] h-auto my-[0.417vw] rounded-full shadow-lg items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" stroke="#3F487F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m-6-6h12"/></svg>
-                    <p class="text-dark-blue-new text-lg font-bold pl-[0.208vw]">Add Event</p>
-                </button>
-            </div>
-        </a>
+        <div class="absolute flex inset-0 justify-end">
+            <a href="/events/create" class="flex justify-center bg-yellow-new hover:bg-yellow-hover w-[9.167vw] h-auto my-[0.417vw] rounded-full shadow-lg items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" stroke="#3F487F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m-6-6h12"/></svg>
+                <p class="text-dark-blue-new text-lg font-bold pl-[0.208vw]">Add Event</p>
+            </a>
+        </div>
     </div>
 </div>
 
