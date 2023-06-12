@@ -50,7 +50,7 @@
         </div>
     @endif
 
-    <div class="form-container mt-10">
+    <div class="form-container mt-10 mb-[5vw]">
         <div class="event-form w-1/2 m-auto px-16 py-12 border-2 rounded-2xl shadow-2xl bg-white">
             <form method="POST" action="/events" enctype="multipart/form-data" class="user-form" data-parsley-validate="">
                 @csrf
