@@ -1,5 +1,4 @@
 @extends('master')
-
 @section('title', 'U-Help | See Certificate')
 @section('content')
 <div id="before-blue-line" class="flex flex-col pt-[7.813vw]">
@@ -32,15 +31,15 @@
             </div>
         </a>
     </div>
-    <div id="right-content" class="w-[30vw] h-[28vw] mt-[3vw] ml-[5vw] bg-white shadow-lg rounded-[0.5vw] px-[2.5vw] py-[2.5vw]">
-        <h3 class="text-[1.3vw] font-medium">This certificate was issued by</h3>
-        <h5 class="text-[1.3vw] font-light opacity-50">Bina Nusantara University</h5>
-        <h3 class="text-[1.3vw] font-medium mt-[2vw]">Name of Recipient</h3>
-        <h5 class="text-[1.3vw] font-light opacity-50">Anderies</h5>
-        <h3 class="text-[1.3vw] font-medium mt-[2vw]">Issue Date</h3>
-        <h5 class="text-[1.3vw] font-light opacity-50">09-04-2023</h5>
-        <h3 class="text-[1.3vw] font-medium mt-[2vw]">Certificate ID</h3>
-        <h5 class="text-[1.3vw] font-light opacity-50">BN-2502040524</h5>
+    <div id="right-content" class="w-[30vw] h-[28vw] mt-[3vw] ml-[5vw] bg-white shadow-lg rounded-[0.5vw] px-[2.5vw] py-[2.5vw] text-[1.3vw]">
+        <h3 class="font-medium">This certificate was issued by</h3>
+        <h5 class="font-light opacity-50">Bina Nusantara University</h5>
+        <h3 class="font-medium mt-[2vw]">Name of Recipient</h3>
+        <h5 class="font-light opacity-50">Anderies</h5>
+        <h3 class="font-medium mt-[2vw]">Issue Date</h3>
+        <h5 class="font-light opacity-50">09-04-2023</h5>
+        <h3 class="font-medium mt-[2vw]">Certificate ID</h3>
+        <h5 class="font-light opacity-50">BN-2502040524</h5>
     </div>
 </div>
 @endsection

@@ -1,21 +1,21 @@
 @extends('master')
-@section('title','U-Help | Create Template')
+@section('title', 'U-Help | Create Template')
 @section('content')
-<div id="content" class="flex pt-[5vw] bg-slate-100">
+<div id="content" class="flex pt-[5vw]">
     <div id="ornament">
-        <div id="circle top ornament " class="absolute z-10 right-[19vw]">
+        <div id="circle-top-ornament " class="absolute z-10 right-[19vw]">
             <img src="/assets/clickandsit/createTemplate/circleOrnament.png">
         </div>
 
-        <div id="right ornament" class="absolute z-10 right-[0vw]">
+        <div id="right-ornament" class="absolute z-10 right-[0vw]">
             <img src="/assets/clickandsit/createTemplate/rightOrnament.png">
         </div>
 
-        <div id="left ornament" class="absolute z-10">
+        <div id="left-ornament" class="absolute z-10">
             <img src="/assets/clickandsit/createTemplate/leftOrnament.png">
         </div>
 
-        <div id="circle bottom ornament" class="absolute z-10 top-[33vw] left-[17vw]">
+        <div id="circle-bottom-ornament" class="absolute z-10 top-[40vw] left-[17vw]">
             <img src="/assets/clickandsit/createTemplate/circleOrnament.png">
         </div>
     </div>
@@ -25,7 +25,7 @@
             <h1 class="mb-[2vw] font-semibold text-[2.5vw] text-dark-blue-new text-center">Setting</h1>
         </div>
 
-        <div id="departure_return" class="px-[0.83vw]">
+        <div id="departure-return-destination" class="px-[0.83vw]">
             <form id="departure_return" action="" method="">
                 @csrf
                 <label class="block text-green-new text-2xl font-semibold mb-[1vw]">Departure</label>
@@ -70,6 +70,11 @@
                         </select>
                         <label data-te-select-label-ref>Choose return time</label>
                     </div>
+                </div>
+
+                <label class="block text-green-new text-2xl font-semibold mt-[2vw] mb-[1vw]">Necessity</label>
+                <div>
+                    <input type="email" id="email" class="border w-[40vw] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-new focus:border-yellow-new block p-2.5" placeholder="Fill necessity for your shuttle" required>
                 </div>
             </form>
         </div>

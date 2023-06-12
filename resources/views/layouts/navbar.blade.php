@@ -10,7 +10,7 @@
                 <a href="/clickandsit/empty">Click and Sit</a>
             </li>
             <li class="hover:font-medium w-[10vw] hover:underline drop-shadow">
-                <a href="/addEvent">Sharetificate</a>
+                <a href="/events">Sharetificate</a>
             </li>
             <li class="hover:font-medium w-[10vw] hover:underline drop-shadow">
                 <a href="">WeSearch</a>

@@ -1,36 +1,36 @@
 @extends('master')
-@section('U-Help | Click and Sit')
+@section('title', 'U-Help | Click and Sit')
 @section('content')
 <div id="content" class="pt-[5vw] mb-[5vw]">
-    <div id="ornament" class="bg-slate-100">
-        <div id="right ornament" class="absolute z-10 right-[0vw] top-[7vw]">
+    <div id="ornament">
+        <div id="right-ornament" class="absolute z-10 right-[0vw] top-[7vw]">
             <img src="/assets/clickandsit/clickandsit/fill/rightOrnament.png">
         </div>
 
-        <div id="left ornament" class="absolute z-10 top-[5vw]">
+        <div id="left-ornament" class="absolute z-10 top-[5vw]">
             <img src="/assets/clickandsit/clickandsit/fill/leftOrnament.png">
         </div>
 
-        <div id="history button" class="absolute z-10 right-[0vw] top-[20vw]">
+        <div id="history-button" class="absolute z-10 right-[0vw] top-[20vw]">
             <a href="/history">
                 <img src="/assets/clickandsit/clickandsit/fill/historyButton.png">
             </a>
         </div>
     </div>
 
-    <div id="header available template" class="w-full m-auto sm:p-[1.25vw] md:p-[3vw]">
+    <div id="header-available-template" class="w-full m-auto sm:p-[1.25vw] md:p-[3vw]">
         <h1 class="font-semibold text-[2.5vw] text-dark-blue-new text-center">Available Template</h1>
     </div>
 
-    <div id="card template 1" class="flex flex-row w-1/2 m-auto bg-yellow-new rounded-[2vw] shadow sm:p-[1.25vw] md:p-[2.5vw] mb-[3vw]">
-        <div id="left (destination. time, day, icon)">
-            <div id="text and icon" class="flex flex-row">
+    <div id="card-template-1" class="flex flex-row w-1/2 m-auto bg-yellow-new rounded-[2vw] shadow sm:p-[1.25vw] md:p-[2.5vw] mb-[3vw]">
+        <div id="left-destinationTimeDayIcon">
+            <div id="text-and-icon" class="flex flex-row">
                 <div>
-                    <label for="destination title" class="block mb-[0.75vw] font-font-poppins font-bold text-[1.5vw] text-[#3F487F]">Anggrek - Grand Indonesia</label>
-                    <h5 class="mb-[1.5vw] font-font-poppins font-semibold text-[1vw] text-[#3F487F]">16:30 WIB - 18:15 WIB </h5>
+                    <label for="destination-title" class="block mb-[0.75vw] font-bold text-[1.5vw] text-[#3F487F]">Anggrek - Grand Indonesia</label>
+                    <h5 class="mb-[1.5vw] font-semibold text-[1vw] text-[#3F487F]">16:30 WIB - 18:15 WIB </h5>
                 </div>
 
-                <div id="edit icon" class="mt-[0.35vw] ml-[0.75vw]">
+                <div id="edit-icon" class="mt-[0.35vw] ml-[0.75vw]">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -54,11 +54,11 @@
             </div>
         </div>
 
-        <div id="right (toggle)">
+        <div id="right-toggle">
             <label for="themeSwitcherTwo" class="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center left-[12vw] top-[2.5vw]">
                 <input type="checkbox" name="themeSwitcherTwo" id="themeSwitcherTwo" class="sr-only">
                 <span class="label flex items-center text-[1.3vw] font-semibold text-dark-blue-new">
-                Off
+                    Off
                 </span>
                 <span class="slider mx-[0.83vw] flex h-[2.92vw] w-[5.47vw] items-center rounded-full bg-[#AFB1B6] p-[0.2vw] duration-200">
                 <span class="dot h-[2.1875vw] w-[2.1875vw] rounded-full bg-white duration-200"></span>
@@ -67,15 +67,15 @@
         </div>
     </div>
 
-    <div id="card template 2" class="flex flex-row w-1/2 m-auto bg-yellow-new rounded-[2vw] shadow sm:p-[1.25vw] md:p-[2.5vw] mb-[3vw]">
-        <div id="left (destination. time, day, icon)">
-            <div id="text and icon" class="flex flex-row">
+    <div id="card-template-2" class="flex flex-row w-1/2 m-auto bg-yellow-new rounded-[2vw] shadow sm:p-[1.25vw] md:p-[2.5vw] mb-[3vw]">
+        <div id="left-destinationTimeDayIcon">
+            <div id="text-and-icon" class="flex flex-row">
                 <div>
-                    <label for="destination title" class="block mb-[0.75vw] font-font-poppins font-bold text-[1.5vw] text-[#3F487F]">Madara - Uchiha</label>
-                    <h5 class="mb-[1.5vw] font-font-poppins font-semibold text-[1vw] text-[#3F487F]">15:30 WIB - 16:15 WIB </h5>
+                    <label for="destination-title" class="block mb-[0.75vw] font-bold text-[1.5vw] text-[#3F487F]">Madara - Uchiha</label>
+                    <h5 class="mb-[1.5vw] font-semibold text-[1vw] text-[#3F487F]">15:30 WIB - 16:15 WIB </h5>
                 </div>
 
-                <div id="edit icon" class="mt-[0.35vw] ml-[0.75vw]">
+                <div id="edit-icon" class="mt-[0.35vw] ml-[0.75vw]">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -99,11 +99,11 @@
             </div>
         </div>
 
-        <div id="right (toggle)">
+        <div id="right-toggle">
             <label for="themeSwitcherTwo" class="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center left-[12vw] top-[2.5vw]">
                 <input type="checkbox" name="themeSwitcherTwo" id="themeSwitcherTwo" class="sr-only">
                 <span class="label flex items-center text-[1.3vw] font-semibold text-dark-blue-new">
-                Off
+                    Off
                 </span>
                 <span class="slider mx-[0.83vw] flex h-[2.92vw] w-[5.47vw] items-center rounded-full bg-[#AFB1B6] p-[0.2vw] duration-200">
                 <span class="dot h-[2.1875vw] w-[2.1875vw] rounded-full bg-white duration-200"></span>
@@ -112,7 +112,7 @@
         </div>
     </div>
 
-    <div id="add schedule" class="flex justify-center">
+    <div id="add-schedule" class="flex justify-center">
         <a href="/createTemplate">
             <button class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-[15vw] py-[0.83vw] rounded-full m-auto shadow-md">
                 + Add Schedule

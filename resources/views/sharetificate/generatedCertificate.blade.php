@@ -1,5 +1,4 @@
 @extends('master')
-
 @section('title', 'U-Help | Certificates')
 @section('content')
 {{-- Gambar dan informasi sertifikat --}}
