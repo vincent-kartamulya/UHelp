@@ -34,9 +34,9 @@ Route::get('/clickandsit/empty', function () {
     return view('clickandsit.clickandsit-empty');
 });
 
-Route::get('/clickandsit/fill', function () {
-    return view('clickandsit.clickandsit-fill');
-});
+// Route::get('/clickandsit/fill', function () {
+//     return view('clickandsit.clickandsit-fill');
+// });
 
 Route::get('/createTemplate', function () {
     return view('clickandsit.createTemplate');

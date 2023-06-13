@@ -10,22 +10,30 @@ use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverWait;
+use Carbon\Carbon;
 
 class ShuttleController extends Controller
 {
     public function savedata(Request $request){
-        $destinationFrom = $request->input('destination_from');
-        $destinationTo = $request->input('destination_to');
-        $departureTime = $request->input('departure_time');
+        $destinationFrom = $request->input('place_departure');
+        $destinationTo = $request->input('place_return');
+        $departureTime = $request->input('time_departure');
+        $returnTime = $request->input('time_return');
+        $keperluan = 'Ngajar';
+        $tomorrow = $tomorrow = Carbon::tomorrow()->format('l');
 
-         // Create a new instance of your model and set the attributes
-        $model = new Shuttle(); // Replace 'YourModel' with the actual model name
-        $model->destination_from = $destinationFrom;
-        $model->destination_to = $destinationTo;
-        $model->departure_time = $departureTime;
+        $model = new Shuttle();
+        $model->turun = $destinationFrom;
+        $model->naik = $destinationTo;
+        $model->jamAlsut = $departureTime;
+        $model->keperluan = $keperluan;
+        $model->hari = $tomorrow;
+        $model->jamAnggrek = $returnTime;
+
 
     // Save the model to the database
         $model->save();
+        return view('clickandsit.clickandsit-fill');
     }
 
 
