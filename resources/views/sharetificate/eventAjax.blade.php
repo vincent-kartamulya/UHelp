@@ -1,5 +1,5 @@
 @foreach ($events as $event)
-        <a href="#">
+        <a href="/events/{{$event->uuid}}">
             <div class="relative h-[11.667vw] flex flex-row rounded-[1.25vw] bg-white shadow-2xl hover:scale-[1.02] transition duration-100 ease-in-out">
                 <img class="w-5/12 rounded-[1.25vw]" src="/assets/sharetificate/seminar_img_list.jpeg" alt="Seminar Image">
                 <div class="flex flex-col p-[1.250vw] gap-y-[0.625vw]">

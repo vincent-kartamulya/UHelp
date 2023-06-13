@@ -133,7 +133,7 @@ class EventController extends Controller
         }
 
         // Set the font size
-        $font_size = 108;
+        $font_size = 80;
 
         // Set the font color to black
         $font_color = imagecolorallocate($image, 0, 0, 0);
@@ -261,7 +261,7 @@ class EventController extends Controller
             }
             $zip->close();
         }
-        return response()->download($zipFileName)->deleteFileAfterSend(true);;
+        return response()->download($zipFileName)->deleteFileAfterSend(true);
     }
 
     /**

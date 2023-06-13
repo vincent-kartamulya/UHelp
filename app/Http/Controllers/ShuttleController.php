@@ -22,7 +22,6 @@ class ShuttleController extends Controller
         $keperluan = 'Ngajar';
         $tomorrow = $tomorrow = Carbon::tomorrow()->format('l');
 
-
         $model = new Shuttle();
         $model->turun = $destinationFrom;
         $model->naik = $destinationTo;

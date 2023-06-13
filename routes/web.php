@@ -10,6 +10,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/home', function () {
+    return view('home2');
+});
+
 Route::get('/profile', function () {
     return view('profile.profile');
 });
@@ -42,15 +46,11 @@ Route::get('/history', function () {
     return view('clickandsit.history');
 });
 
-Route::get('/createTemplate', function () {
-    return view('clickandsit.createTemplate');
-});
+Route::post('//clickandsit/fill', [ShuttleController::class,"savedata"]);
 
-Route::post('/clickandsit/fill', [ShuttleController::class,"savedata"]);
-
-Route::get('/Sele',[ShuttleController::class,'routingawal']);
-Route::get('/Sele',[iniController::class,'routingawal']);
+Route::get('/Sele', [ShuttleController::class,'routingawal']);
+Route::get('/Sele', [iniController::class,'routingawal']);
 
 Route::resource('/events', EventController::class);
 Route::get('/ajax', [EventController::class,'ajax']);
-Route::get('/downloadAll', [EventController::class,'downloadAll']);
+Route::get('/downloadAll', [EventController::class, 'downloadAll']);

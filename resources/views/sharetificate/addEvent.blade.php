@@ -1,4 +1,4 @@
-@extends("master")
+@extends('master')
 @section('title', 'U-Help | Add Event')
 @section('content')
     <div class="element-container">
@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="add-event-container flex flex-col pt-48">
+    <div class="add-event-container flex flex-col pt-48 mb-[5vw]">
         <div class="m-auto my-2">
             <img src="/assets/sharetificate/addEvent-icon.png" alt="Add Event Icon">
         </div>

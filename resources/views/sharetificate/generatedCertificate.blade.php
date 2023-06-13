@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'U-Help | Certificates')
+ection('title', 'U-Help | Certificates')
 @section('content')
 {{-- Gambar dan informasi sertifikat --}}
 <div class="certificate-container pt-44 pb-24 flex flex-row justify-center">
