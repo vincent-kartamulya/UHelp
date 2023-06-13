@@ -6,10 +6,10 @@
     </div>
     <div class="features-container w-[20vw] m-auto">
         <ul class="flex flex-row justify-around text-green-new text-2xl text-center">
-            <li class="hover:font-medium w-[10vw] hover:underline drop-shadow">
+            <li class="hover:font-medium w-[10vw] drop-shadow">
                 <a href="/clickandsit/empty">Click and Sit</a>
             </li>
-            <li class="hover:font-medium w-[10vw] hover:underline drop-shadow">
+            <li class="hover:font-medium w-[10vw] drop-shadow">
                 <a href="/events">Sharetificate</a>
             </li>
         </ul>

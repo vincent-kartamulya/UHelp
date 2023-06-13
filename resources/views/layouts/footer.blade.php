@@ -1,4 +1,4 @@
-<footer class="bg-[#92AA68] w-full px-[3.333vw] pb-[1.25vw] pt-[3vw] mt-[10vw] overflow-hidden">
+<footer class="bg-[#92AA68] w-full px-[3.333vw] pb-[1.25vw] pt-[3vw] overflow-hidden">
     <h5 class="self-center text-[1.5vw] font-semibold whitespace-nowrap text-yellow-new font-shadow mb-3">U-Help</h5>
     <div id="upper white line" class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
