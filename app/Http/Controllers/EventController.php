@@ -13,6 +13,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Ramsey\Uuid\Uuid;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Symfony\Component\HttpFoundation\Response;
 use ZipArchive;
 
@@ -179,13 +180,33 @@ class EventController extends Controller
 
                 imagefilter($certificate_image, IMG_FILTER_SMOOTH, -1);
 
+                 // Generate the QR code
+                $certificateUUID = Uuid::uuid4()->toString();
+                $qrCodeContent = 'https://uhelp/'. $certificateUUID . '/validate'; // Replace with your desired QR code content
+                $qrCode = QrCode::format('png')->size(100)->generate($qrCodeContent);
+
+                // Add the QR code to the certificate image
+                $qrCodeImage = imagecreatefromstring($qrCode);
+
+                // Resize the QR code image to the desired dimensions
+                $qrCodeWidth = 200; // Adjust the width as needed
+                $qrCodeHeight = 200; // Adjust the height as needed
+                $resizedQrCodeImage = imagescale($qrCodeImage, $qrCodeWidth, $qrCodeHeight);
+
+                // Determine the coordinates to place the QR code on the certificate image
+                $qrCodeX = 10;
+                $qrCodeY = imagesy($certificate_image) - $qrCodeHeight - 10;
+
+                // Copy the resized QR code image onto the certificate image
+                imagecopy($certificate_image, $resizedQrCodeImage, $qrCodeX, $qrCodeY, 0, 0, $qrCodeWidth, $qrCodeHeight);
+
                 // Save the image to a file with a unique name for each recipient
                 $filename = 'certificate_' . $row['name'] . '.png';
                 imagepng($certificate_image, storage_path($certificatePath . '/' . $filename));
 
                 // Clean up memory
                 imagedestroy($certificate_image);
-
+                imagedestroy($image);
                 Certificate::create([
                     'user_id' => 2,
                     'event_id' => $event->id,
@@ -250,8 +271,7 @@ class EventController extends Controller
 
         $zip = new ZipArchive;
 
-        if($zip->open($zipFileName, ZipArchive::CREATE | ZipArchive::OVERWRITE)){
-
+        if($zip->open($zipFileName, ZipArchive::CREATE)){
             foreach ($event->certificate as $certificate) {
                 $certificatePath = public_path($certificate->path);
                 $certificateName = $certificate->recipient->name . '.png';
@@ -261,6 +281,7 @@ class EventController extends Controller
             }
             $zip->close();
         }
+
         return response()->download($zipFileName)->deleteFileAfterSend(true);
     }
 

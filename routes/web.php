@@ -38,9 +38,9 @@ Route::get('/clickandsit/empty', function () {
     return view('clickandsit.clickandsit-empty');
 });
 
-Route::get('/clickandsit/fill', function () {
-    return view('clickandsit.clickandsit-fill');
-});
+// Route::get('/clickandsit/fill', function () {
+//     return view('clickandsit.clickandsit-fill');
+// });
 
 Route::get('/createTemplate', function () {
     return view('clickandsit.createTemplate');
@@ -50,7 +50,7 @@ Route::get('/history', function () {
     return view('clickandsit.history');
 });
 
-Route::post('//clickandsit/fill', [ShuttleController::class,"savedata"]);
+Route::post('/clickandsit/fill', [ShuttleController::class,"savedata"]);
 
 Route::get('/Sele', [ShuttleController::class,'routingawal']);
 Route::get('/Sele', [iniController::class,'routingawal']);

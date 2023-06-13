@@ -4,16 +4,13 @@
             <img class="w-[9.167vw]" src="/assets/logo.jpg" alt="U-Help Logo">
         </a>
     </div>
-    <div class="features-container w-[30vw] m-auto">
+    <div class="features-container w-[20vw] m-auto">
         <ul class="flex flex-row justify-around text-green-new text-2xl text-center">
             <li class="hover:font-medium w-[10vw] hover:underline drop-shadow">
                 <a href="/clickandsit/empty">Click and Sit</a>
             </li>
             <li class="hover:font-medium w-[10vw] hover:underline drop-shadow">
                 <a href="/events">Sharetificate</a>
-            </li>
-            <li class="hover:font-medium w-[10vw] hover:underline drop-shadow">
-                <a href="">WeSearch</a>
             </li>
         </ul>
     </div>

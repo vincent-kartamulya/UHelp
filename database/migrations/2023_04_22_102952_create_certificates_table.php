@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('issuing_date');
             $table->date('expired_date');
             $table->timestamps();
+            $table->string('path');
         });
     }
 
