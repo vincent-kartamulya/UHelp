@@ -19,7 +19,7 @@ class ShuttleController extends Controller
         $destinationTo = $request->input('place_return');
         $departureTime = $request->input('time_departure');
         $returnTime = $request->input('time_return');
-        $keperluan = 'Ngajar';
+        $keperluan = $request->input('kebutuhan');
         $tomorrow = $tomorrow = Carbon::tomorrow()->format('l');
 
         $model = new Shuttle();
