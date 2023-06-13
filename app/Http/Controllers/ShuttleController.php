@@ -20,7 +20,9 @@ class ShuttleController extends Controller
         $departureTime = $request->input('time_departure');
         $returnTime = $request->input('time_return');
         $keperluan = $request->input('kebutuhan');
-        $tomorrow = $tomorrow = Carbon::tomorrow()->format('l');
+        $tanggal = true;
+        $tomorrow = Carbon::tomorrow()->format('l');
+        $date =  Carbon::tomorrow();
 
         $model = new Shuttle();
         $model->turun = $destinationFrom;
@@ -29,6 +31,8 @@ class ShuttleController extends Controller
         $model->keperluan = $keperluan;
         $model->hari = $tomorrow;
         $model->jamAnggrek = $returnTime;
+        $model->departdate = $date;
+        $model->sumtanggal = $tanggal;
 
 
     // Save the model to the database

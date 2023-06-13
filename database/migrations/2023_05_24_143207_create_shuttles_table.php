@@ -18,7 +18,8 @@ return new class extends Migration
             $table->boolean("sumtanggal");
             $table->date("departdate");
             $table->string("keperluan");
-            $table->foreignId("user_id")->references("id")->on("users");
+            // $table->foreignId("user_id")->references("id")->on("users")->default(1);
+            $table->foreignId("user_id")->default(1);
             $table->string("hari");
             $table->string("jamAnggrek")->nullable();
             $table->string("turun")->nullable();
