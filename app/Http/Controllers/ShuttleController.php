@@ -37,7 +37,8 @@ class ShuttleController extends Controller
 
     // Save the model to the database
         $model->save();
-        return view('clickandsit.clickandsit-fill');
+        $datas = Shuttle::all();
+        return view('clickandsit.clickandsit-fill',compact('datas'));
     }
 
 
