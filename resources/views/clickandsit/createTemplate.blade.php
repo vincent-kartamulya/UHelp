@@ -39,7 +39,7 @@ href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
         </div>
 
         <div id="departure-return-destination" class="px-[0.83vw]">
-            <form id="departure_return" action="" method="">
+            <form id="departure_return" action="/clickandsit/fill" method="POST">
                 @csrf
                 <label class="block text-green-new text-2xl font-semibold mb-[1vw]">Departure</label>
                 <div class="flex flex-row">
@@ -87,18 +87,16 @@ href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
 
                 <label class="block text-green-new text-2xl font-semibold mt-[2vw] mb-[1vw]">Necessity</label>
                 <div>
-                    <input type="email" id="email" class="border w-[40vw] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-new focus:border-yellow-new block p-2.5" placeholder="Fill necessity for your shuttle" required>
+                    <input name='kebutuhan'  type="text" class="border w-[40vw] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-new focus:border-yellow-new block p-2.5" placeholder="Fill necessity for your shuttle" required>
+                </div>
+                <div id="save button" class="flex justify-center">
+                    <button type='submit' class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-[12.5vw] py-[0.83vw] rounded-full m-auto mt-[3vw] shadow-md">
+                        Save
+                    </button>
                 </div>
             </form>
         </div>
 
-        <div id="save button" class="flex justify-center">
-            <a href="/clickandsit/fill">
-                <button class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-[12.5vw] py-[0.83vw] rounded-full m-auto mt-[3vw] shadow-md">
-                    Save
-                </button>
-            </a>
-        </div>
     </div>
 </div>
 
