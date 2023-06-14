@@ -233,20 +233,31 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function ajax(Request $request){
-        $name = $request->name;
-        $result = Event::where('title', 'like', "%".$name."%")->get();
+     public function ajax(Request $request)
+     {
+         $name = $request->name;
+         $filterOption = $request->filterOption;
+         $query = Event::where('title', 'like', "%".$name."%");
 
-        if(count($result) > 0){
-            return view("sharetificate.eventAjax", [
-                "events" => $result
-            ])->render();
-        }else{
-                return response()->json([
-                'empty' => true
-            ]);
-        }
-    }
+         if ($filterOption == 'latest') {
+             $query->orderBy('date', 'desc');
+         } elseif ($filterOption == 'earliest') {
+             $query->orderBy('date', 'asc');
+         }
+
+         $result = $query->get();
+
+         if (count($result) > 0) {
+             return view("sharetificate.eventAjax", [
+                 "events" => $result
+             ])->render();
+         } else {
+             return response()->json([
+                 'empty' => true
+             ]);
+         }
+     }
+
 
 
     public function show($uuid)
