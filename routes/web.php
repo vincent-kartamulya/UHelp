@@ -53,8 +53,9 @@ Route::get('/history', function () {
 Route::post('/clickandsit/fill', [ShuttleController::class,"savedata"]);
 
 Route::get('/Sele', [ShuttleController::class,'routingawal']);
-Route::get('/Sele', [iniController::class,'routingawal']);
+// Route::get('/Sele', [iniController::class,'routingawal']);
 
 Route::resource('/events', EventController::class);
 Route::get('/ajax', [EventController::class,'ajax']);
 Route::get('/downloadAll', [EventController::class, 'downloadAll']);
+Route::get('/nyobapython',[ShuttleController::class,'cobapython']);
