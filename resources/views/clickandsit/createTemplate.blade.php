@@ -55,9 +55,9 @@ href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
                     <div class="time_departure">
                         <select name="time_departure" id="time_departure" data-te-select-init data-te-class-form-outline="relative w-[15vw]">
                             <option value="" selected></option>
-                            <option value="Teknik">07.00</option>
-                            <option value="Sistem">08.00</option>
-                            <option value="Sistem">09.00</option>
+                            <option value="07.00">07.00</option>
+                            <option value="08.00">08.00</option>
+                            <option value="09.00">09.00</option>
                         </select>
                         <label data-te-select-label-ref>Choose departure time</label>
                     </div>
@@ -77,9 +77,9 @@ href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
                     <div class="time_return">
                         <select name="time_return" id="time_return" data-te-select-init data-te-class-form-outline="relative w-[15vw]">
                             <option value="" selected></option>
-                            <option value="Teknik">17.00</option>
-                            <option value="Sistem">18.00</option>
-                            <option value="Sistem">19.00</option>
+                            <option value="17.00">17.00</option>
+                            <option value="18.00">18.00</option>
+                            <option value="19.00">19.00</option>
                         </select>
                         <label data-te-select-label-ref>Choose return time</label>
                     </div>

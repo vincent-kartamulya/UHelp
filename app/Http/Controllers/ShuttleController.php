@@ -11,6 +11,8 @@ use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverWait;
 use Carbon\Carbon;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class ShuttleController extends Controller
 {
@@ -41,10 +43,12 @@ class ShuttleController extends Controller
         return view('clickandsit.clickandsit-fill',compact('datas'));
     }
 
-
-
     public function routingawal()
     {
+        // $seleniumCommand = "java -jar /public/selenium-server-4.9.0.jar standalone";
+        // $process = new Process([$seleniumCommand]);
+        // $process->start();
+        // usleep(5000000);
         $host = 'http://localhost:4444/wd/hub'; // Selenium server URL
         $capabilities = DesiredCapabilities::chrome(); // or any other browser
         $driver = RemoteWebDriver::create($host, $capabilities);
