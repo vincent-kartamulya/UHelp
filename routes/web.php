@@ -10,7 +10,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/sign-in', function () {
+Route::get('/login', function () {
     return view('signIn');
 });
 
