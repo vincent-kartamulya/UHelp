@@ -45,14 +45,14 @@ class ShuttleController extends Controller
 
     public function cobapython()
     {
-    $pythonScriptPath = public_path('test.py');
+        $pythonScriptPath = public_path('test.py');
+        $command = "python \"{$pythonScriptPath}\"";
 
-    $command = "python {$pythonScriptPath}";
-    $output = array();
-    exec($command, $output);
+        $output = shell_exec($command);
 
+        // Process the output as needed
+        dd($output);
     // Process the output as needed
-    dd($output);
     }
 
     public function routingawal()
@@ -62,11 +62,12 @@ class ShuttleController extends Controller
         // $process->start();
         // usleep(5000000);
         $seleniumCommand = "java -jar " . public_path('selenium-server-4.9.0.jar') . " standalone";
-        $process = new Process([$seleniumCommand]);
+        exec($seleniumCommand);
+        // $process = new Process([$seleniumCommand]);
 
         try {
-            $process->start();
-            usleep(5000000);
+            // $process->start();
+            // usleep(5000000);
             $host = 'http://localhost:4444/wd/hub'; // Selenium server URL
             $capabilities = DesiredCapabilities::chrome(); // or any other browser
             $driver = RemoteWebDriver::create($host, $capabilities);
@@ -153,7 +154,7 @@ class ShuttleController extends Controller
                 WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Kirim')]"))
             );
             $Finish->click();
-            $process->stop();
+            // $process->stop();
         } catch (ProcessFailedException $exception) {
             // Handle the process exception if needed
         }
