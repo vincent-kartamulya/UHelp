@@ -72,10 +72,10 @@ ection('title', 'U-Help | Certificates')
             {{-- Data 1 --}}
             <?php $i=1; ?>
             @foreach ($participants as $participant)
-            <div id="row-data" class="w-full">
+            <div id="row-data{{$participant->id}}" class="w-full">
                 <div id="the-data" class="flex flex-row text-dark-blue-new text-opacity-70 font-normal text-[1.042vw] my-[0.521vw] items-center">
                     <div class="flex justify-center items-center w-[3.125vw]">
-                        <input id="default-checkbox" type="checkbox" value="" class="w-[1.042vw] h-[1.042vw] text-green-new border-green-new rounded focus:ring-green-new focus:ring-1 hover:bg-green-new transition duration-200 ease-in-out">
+                        <input id="default-checkbox" type="checkbox" value="{{$participant->id}}" class="w-[1.042vw] h-[1.042vw] text-green-new border-green-new rounded focus:ring-green-new focus:ring-1 hover:bg-green-new transition duration-200 ease-in-out">
                     </div>
                     <p class="w-[5.208vw]"> {{ str_pad($i++, 3, '0', STR_PAD_LEFT) }} </p>
                     <p class="w-[33.854vw]">{{$participant->name}}</p>
@@ -103,7 +103,7 @@ ection('title', 'U-Help | Certificates')
             </button>
             <div class="px-[1.25vw] py-[2.083vw] text-center">
                 <h3 class="mb-[1.458vw] mx-[1.042vw] text-[1.25vw] font-medium text-green-new">Are you sure you want to delete these?</h3>
-                <button data-modal-hide="popup-modal" type="button" class="text-white bg-yellow-new hover:bg-yellow-hover shadow-lg focus:ring-2 focus:outline-none focus:ring-yellow-hover font-medium rounded-[1.042vw] text-[0.938vw] inline-flex items-center px-[1.042vw] py-[0.521vw] text-center mr-[0.417vw]">
+                <button id="deleteSelected" value="{{ $event->id }}" data-modal-hide="popup-modal" type="button" class="text-white bg-yellow-new hover:bg-yellow-hover shadow-lg focus:ring-2 focus:outline-none focus:ring-yellow-hover font-medium rounded-[1.042vw] text-[0.938vw] inline-flex items-center px-[1.042vw] py-[0.521vw] text-center mr-[0.417vw]">
                     Yes, I'm sure
                 </button>
                 <button data-modal-hide="popup-modal" type="button" class="text-yellow-new bg-white shadow-lg hover:text-yellow-hover hover:bg-gray-50 focus:ring-2 focus:outline-none focus:ring-gray-50 rounded-[1.042vw] border border-gray-50 text-[0.938vw] font-medium px-[1.042vw] py-[0.521vw]">
@@ -267,4 +267,55 @@ ection('title', 'U-Help | Certificates')
 </div>
 
 <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const deleteOption = document.getElementById('delete-option');
+      const checkboxes = document.querySelectorAll('#default-checkbox');
+
+      // Hide the delete option initially
+      deleteOption.style.display = 'none';
+
+      // Add a click event listener to each checkbox
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('click', () => {
+          const checkedCheckboxes = document.querySelectorAll('#default-checkbox:checked');
+          deleteOption.style.display = checkedCheckboxes.length > 0 ? '' : 'none';
+        });
+      });
+    });
+</script>
+<script>
+    $(function() {
+        $("#deleteSelected").click(function(e) {
+            e.preventDefault();
+            var allId = [];
+            var eventId = document.getElementById('deleteSelected').value;
+            $('input:checkbox[id=default-checkbox]:checked').each(function() {
+                allId.push($(this).val());
+            });
+
+            $.ajax({
+                url: "/deleteCertificate",
+                type: "DELETE",
+                data: {
+                    id: allId,
+                    eventId: eventId,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    $.each(allId, function(key, val) {
+                        $('#row-data' + val).remove();
+                    });
+                    var checkedCount = $('input:checkbox[id=default-checkbox]:checked').length;
+                    if (checkedCount === 0) {
+                        $("#delete-option").hide(); // Hide the delete option
+                    }
+                }
+            });
+        });
+    });
+
+</script>
+
 @endsection

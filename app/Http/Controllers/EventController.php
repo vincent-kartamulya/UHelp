@@ -296,6 +296,15 @@ class EventController extends Controller
         return response()->download($zipFileName)->deleteFileAfterSend(true);
     }
 
+    public function deleteCertificate(Request $request)
+    {
+        $id = $request->id;
+        $eventId = $request->eventId;
+
+        Certificate::where('event_id', $eventId)->whereIn('recipient_id', $id)->delete();
+        return response()->json(["success" => "Certificate Deleted"]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
