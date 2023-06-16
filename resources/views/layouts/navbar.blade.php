@@ -4,8 +4,8 @@
             <img class="w-[9.167vw]" src="/assets/logo.jpg" alt="U-Help Logo">
         </a>
     </div>
-    <div class="features-container w-[20vw] m-auto">
-        <ul class="flex flex-row justify-around text-green-new text-2xl text-center">
+    <div class="features-container w-[25vw] m-auto">
+        <ul class="flex flex-row justify-around text-green-new text-[1.25vw] text-center items-center">
             <li class="hover:font-medium w-[10vw] drop-shadow">
                 <a href="/clickandsit/empty">Click and Sit</a>
             </li>
