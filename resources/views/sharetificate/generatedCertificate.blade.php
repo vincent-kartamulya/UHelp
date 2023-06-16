@@ -77,12 +77,12 @@ ection('title', 'U-Help | Certificates')
                     <div class="flex justify-center items-center w-[3.125vw]">
                         <input id="default-checkbox" type="checkbox" value="{{$participant->id}}" class="w-[1.042vw] h-[1.042vw] text-green-new border-green-new rounded focus:ring-green-new focus:ring-1 hover:bg-green-new transition duration-200 ease-in-out">
                     </div>
-                    <p class="w-[5.208vw]"> {{ str_pad($i++, 3, '0', STR_PAD_LEFT) }} </p>
+                    <p class="w-[5.208vw] participant-number"> {{ str_pad($i++, 3, '0', STR_PAD_LEFT) }} </p>
                     <p class="w-[33.854vw]">{{$participant->name}}</p>
                     <p class="w-[10.417vw]">{{$participant->position}}</p>
                     <p class="w-[29.167vw]">{{$participant->email}}</p>
                     <div class="flex justify-center items-center w-[3.125vw]">
-                        <button data-modal-target="popup-modal-update1" data-modal-toggle="popup-modal-update1" type="button" class="hover:bg-yellow-400 hover:bg-opacity-30 rounded-[0.417vw] p-[0.208vw] transition duration-200 ease-in-out">
+                        <button id="update-certificate" value="{{$participant}}" data-modal-target="popup-modal-update1" data-modal-toggle="popup-modal-update1" type="button" class="hover:bg-yellow-400 hover:bg-opacity-30 rounded-[0.417vw] p-[0.208vw] transition duration-200 ease-in-out">
                             <svg class="p-[0.104vw]" xmlns="http://www.w3.org/2000/svg" width="1.458vw" height="1.458vw" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M5 23.7q-.825 0-1.413-.587T3 21.7v-14q0-.825.588-1.413T5 5.7h8.925l-2 2H5v14h14v-6.95l2-2v8.95q0 .825-.588 1.413T19 23.7H5Zm7-9Zm4.175-8.425l1.425 1.4l-6.6 6.6V15.7h1.4l6.625-6.625l1.425 1.4l-6.625 6.625q-.275.275-.638.438t-.762.162H10q-.425 0-.713-.288T9 16.7v-2.425q0-.4.15-.763t.425-.637l6.6-6.6Zm4.275 4.2l-4.275-4.2l2.5-2.5q.6-.6 1.438-.6t1.412.6l1.4 1.425q.575.575.575 1.4T22.925 8l-2.475 2.475Z"/></svg>
                         </button>
                     </div>
@@ -152,120 +152,6 @@ ection('title', 'U-Help | Certificates')
     </div>
 </div>
 
-{{-- Pop Up data 2 --}}
-<div id="popup-modal-update2" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-[0.833vw] overflow-x-hidden overflow-y-auto h-[calc(100%-0.8333vw)] max-h-full">
-    <div class="w-full max-w-4xl max-h-full">
-        <form action="">
-            <div class="relative bg-white rounded-[1.042vw] shadow-2xl border-2 border-yellow-new">
-                <button type="button" class="absolute top-3 right-2.5 text-gray-500 bg-transparent hover:bg-gray-200 hover:text-dark-blue-new rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-hide="popup-modal-update2">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-                <div class="p-[2.083vw]">
-                    <h1 class="text-3xl text-dark-blue-new font-bold text-center mb-[2.083vw]">Update Certificate</h1>
-                    <div id="form-input">
-                        <div id="participant-id" class="flex flex-col mb-[0.8333vw]">
-                            <label for="participant_id" class="text-green-new text-[1.25vw] font-semibold">ID</label>
-                            <p class="text-[1.25vw] text-gray-600">0002</p>
-                        </div>
-                        <div id="participant-name" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_name" class="text-green-new text-[1.25vw] font-semibold">Name</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="Ni Putu Intan Paramitha Marchila Audy Dewi" data-parsley-group="block0" required>
-                        </div>
-                        <div id="participant-position" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_position" class="text-green-new text-[1.25vw] font-semibold">Position</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="Participant" data-parsley-group="block0" required>
-                        </div>
-                        <div id="participant-email" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_email" class="text-green-new text-[1.25vw] font-semibold">Email</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="intanparamitha33@gmail.com" data-parsley-group="block0" required>
-                        </div>
-                    </div>
-                    <button data-modal-hide="popup-modal-update2" type="submit" class="flex m-auto bg-yellow-new hover:bg-yellow-hover h-auto mt-[2.083vw] rounded-full shadow-lg items-center">
-                        <p class="text-dark-blue-new text-[1.042vw] font-bold px-[1.667vw] py-[0.625vw]">Save</p>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-{{-- Pop Up data 3 --}}
-<div id="popup-modal-update3" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-[0.833vw] overflow-x-hidden overflow-y-auto h-[calc(100%-0.8333vw)] max-h-full">
-    <div class="w-full max-w-4xl max-h-full">
-        <form action="">
-            <div class="relative bg-white rounded-[1.042vw] shadow-2xl border-2 border-yellow-new">
-                <button type="button" class="absolute top-3 right-2.5 text-gray-500 bg-transparent hover:bg-gray-200 hover:text-dark-blue-new rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-hide="popup-modal-update3">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-                <div class="p-[2.083vw]">
-                    <h1 class="text-3xl text-dark-blue-new font-bold text-center mb-[2.083vw]">Update Certificate</h1>
-                    <div id="form-input">
-                        <div id="participant-id" class="flex flex-col mb-[0.8333vw]">
-                            <label for="participant_id" class="text-green-new text-[1.25vw] font-semibold">ID</label>
-                            <p class="text-[1.25vw] text-gray-600">0003</p>
-                        </div>
-                        <div id="participant-name" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_name" class="text-green-new text-[1.25vw] font-semibold">Name</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="Vincent Kartamulya Santoso" data-parsley-group="block0" required>
-                        </div>
-                        <div id="participant-position" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_position" class="text-green-new text-[1.25vw] font-semibold">Position</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="Participant" data-parsley-group="block0" required>
-                        </div>
-                        <div id="participant-email" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_email" class="text-green-new text-[1.25vw] font-semibold">Email</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="vincent.santoso03@gmail.com" data-parsley-group="block0" required>
-                        </div>
-                    </div>
-                    <button data-modal-hide="popup-modal-update3" type="submit" class="flex m-auto bg-yellow-new hover:bg-yellow-hover h-auto mt-[2.083vw] rounded-full shadow-lg items-center">
-                        <p class="text-dark-blue-new text-[1.042vw] font-bold px-[1.667vw] py-[0.625vw]">Save</p>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-{{-- Pop Up data 4 --}}
-<div id="popup-modal-update4" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-[0.833vw] overflow-x-hidden overflow-y-auto h-[calc(100%-0.8333vw)] max-h-full">
-    <div class="w-full max-w-4xl max-h-full">
-        <form action="">
-            <div class="relative bg-white rounded-[1.042vw] shadow-2xl border-2 border-yellow-new">
-                <button type="button" class="absolute top-3 right-2.5 text-gray-500 bg-transparent hover:bg-gray-200 hover:text-dark-blue-new rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-hide="popup-modal-update4">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-                <div class="p-[2.083vw]">
-                    <h1 class="text-3xl text-dark-blue-new font-bold text-center mb-[2.083vw]">Update Certificate</h1>
-                    <div id="form-input">
-                        <div id="participant-id" class="flex flex-col mb-[0.8333vw]">
-                            <label for="participant_id" class="text-green-new text-[1.25vw] font-semibold">ID</label>
-                            <p class="text-[1.25vw] text-gray-600">0004</p>
-                        </div>
-                        <div id="participant-name" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_name" class="text-green-new text-[1.25vw] font-semibold">Name</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="Zakaria Berlam Pragusma" data-parsley-group="block0" required>
-                        </div>
-                        <div id="participant-position" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_position" class="text-green-new text-[1.25vw] font-semibold">Position</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="Participant" data-parsley-group="block0" required>
-                        </div>
-                        <div id="participant-email" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_email" class="text-green-new text-[1.25vw] font-semibold">Email</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="zberlam@gmail.com" data-parsley-group="block0" required>
-                        </div>
-                    </div>
-                    <button data-modal-hide="popup-modal-update4" type="submit" class="flex m-auto bg-yellow-new hover:bg-yellow-hover h-auto mt-[2.083vw] rounded-full shadow-lg items-center">
-                        <p class="text-dark-blue-new text-[1.042vw] font-bold px-[1.667vw] py-[0.625vw]">Save</p>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
 <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -307,10 +193,14 @@ ection('title', 'U-Help | Certificates')
                     $.each(allId, function(key, val) {
                         $('#row-data' + val).remove();
                     });
+                    $index = 0;
                     var checkedCount = $('input:checkbox[id=default-checkbox]:checked').length;
                     if (checkedCount === 0) {
                         $("#delete-option").hide(); // Hide the delete option
                     }
+                    $('.participant-number').each(function(index) {
+                        $(this).text(('000' + (index + 1)).slice(-3));
+                    });
                 }
             });
         });
