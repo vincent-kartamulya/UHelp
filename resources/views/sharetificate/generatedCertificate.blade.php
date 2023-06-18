@@ -1,6 +1,6 @@
 @extends('master')
 
-ection('title', 'U-Help | Certificates')
+@section('title', 'U-Help | Certificates')
 @section('content')
 {{-- Gambar dan informasi sertifikat --}}
 <div class="certificate-container pt-44 pb-24 flex flex-row justify-center">
@@ -71,18 +71,18 @@ ection('title', 'U-Help | Certificates')
 
             {{-- Data 1 --}}
             <?php $i=1; ?>
-            @foreach ($participants as $participant)
-            <div id="row-data{{$participant->id}}" class="w-full">
+            @foreach ($certificates as $certificate)
+            <div id="row-data{{$certificate->id}}" class="w-full">
                 <div id="the-data" class="flex flex-row text-dark-blue-new text-opacity-70 font-normal text-[1.042vw] my-[0.521vw] items-center">
                     <div class="flex justify-center items-center w-[3.125vw]">
-                        <input id="default-checkbox" type="checkbox" value="{{$participant->id}}" class="w-[1.042vw] h-[1.042vw] text-green-new border-green-new rounded focus:ring-green-new focus:ring-1 hover:bg-green-new transition duration-200 ease-in-out">
+                        <input id="default-checkbox" type="checkbox" value="{{$certificate->id}}" class="w-[1.042vw] h-[1.042vw] text-green-new border-green-new rounded focus:ring-green-new focus:ring-1 hover:bg-green-new transition duration-200 ease-in-out">
                     </div>
-                    <p class="w-[5.208vw] participant-number"> {{ str_pad($i++, 3, '0', STR_PAD_LEFT) }} </p>
-                    <p class="w-[33.854vw]">{{$participant->name}}</p>
-                    <p class="w-[10.417vw]">{{$participant->position}}</p>
-                    <p class="w-[29.167vw]">{{$participant->email}}</p>
+                    <p id='participant-number' class="w-[5.208vw] participant-number"> {{ str_pad($i++, 3, '0', STR_PAD_LEFT) }} </p>
+                    <p class="w-[33.854vw] participant-name">{{$certificate->recipient->name}}</p>
+                    <p class="w-[10.417vw] participant-position">{{$certificate->recipient->position}}</p>
+                    <p class="w-[29.167vw] participant-email">{{$certificate->recipient->email}}</p>
                     <div class="flex justify-center items-center w-[3.125vw]">
-                        <button id="update-certificate" value="{{$participant}}" data-modal-target="popup-modal-update1" data-modal-toggle="popup-modal-update1" type="button" class="hover:bg-yellow-400 hover:bg-opacity-30 rounded-[0.417vw] p-[0.208vw] transition duration-200 ease-in-out">
+                        <button id="update-certificate" value="{{$certificate}}" data-modal-target="popup-modal-update1" data-modal-toggle="popup-modal-update1" type="button" class="hover:bg-yellow-400 hover:bg-opacity-30 rounded-[0.417vw] p-[0.208vw] transition duration-200 ease-in-out">
                             <svg class="p-[0.104vw]" xmlns="http://www.w3.org/2000/svg" width="1.458vw" height="1.458vw" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M5 23.7q-.825 0-1.413-.587T3 21.7v-14q0-.825.588-1.413T5 5.7h8.925l-2 2H5v14h14v-6.95l2-2v8.95q0 .825-.588 1.413T19 23.7H5Zm7-9Zm4.175-8.425l1.425 1.4l-6.6 6.6V15.7h1.4l6.625-6.625l1.425 1.4l-6.625 6.625q-.275.275-.638.438t-.762.162H10q-.425 0-.713-.288T9 16.7v-2.425q0-.4.15-.763t.425-.637l6.6-6.6Zm4.275 4.2l-4.275-4.2l2.5-2.5q.6-.6 1.438-.6t1.412.6l1.4 1.425q.575.575.575 1.4T22.925 8l-2.475 2.475Z"/></svg>
                         </button>
                     </div>
@@ -103,7 +103,7 @@ ection('title', 'U-Help | Certificates')
             </button>
             <div class="px-[1.25vw] py-[2.083vw] text-center">
                 <h3 class="mb-[1.458vw] mx-[1.042vw] text-[1.25vw] font-medium text-green-new">Are you sure you want to delete these?</h3>
-                <button id="deleteSelected" value="{{ $event->id }}" data-modal-hide="popup-modal" type="button" class="text-white bg-yellow-new hover:bg-yellow-hover shadow-lg focus:ring-2 focus:outline-none focus:ring-yellow-hover font-medium rounded-[1.042vw] text-[0.938vw] inline-flex items-center px-[1.042vw] py-[0.521vw] text-center mr-[0.417vw]">
+                <button id="deleteSelected" data-modal-hide="popup-modal" type="button" class="text-white bg-yellow-new hover:bg-yellow-hover shadow-lg focus:ring-2 focus:outline-none focus:ring-yellow-hover font-medium rounded-[1.042vw] text-[0.938vw] inline-flex items-center px-[1.042vw] py-[0.521vw] text-center mr-[0.417vw]">
                     Yes, I'm sure
                 </button>
                 <button data-modal-hide="popup-modal" type="button" class="text-yellow-new bg-white shadow-lg hover:text-yellow-hover hover:bg-gray-50 focus:ring-2 focus:outline-none focus:ring-gray-50 rounded-[1.042vw] border border-gray-50 text-[0.938vw] font-medium px-[1.042vw] py-[0.521vw]">
@@ -128,22 +128,23 @@ ection('title', 'U-Help | Certificates')
                     <div id="form-input">
                         <div id="participant-id" class="flex flex-col mb-[0.8333vw]">
                             <label for="participant_id" class="text-green-new text-[1.25vw] font-semibold">ID</label>
-                            <p class="text-[1.25vw] text-gray-600">0001</p>
+                            <p id="participant_id" class="text-[1.25vw] text-gray-600">0001</p>
+
                         </div>
                         <div id="participant-name" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_name" class="text-green-new text-[1.25vw] font-semibold">Name</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="Nandatama Bagus Adisaka" data-parsley-group="block0" required>
+                            <label for="participant_name_input" class="text-green-new text-[1.25vw] font-semibold">Name</label>
+                            <input type="text" name="participant_name_input" id="participant_name_input" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="Nandatama Bagus Adisaka" data-parsley-group="block0">
                         </div>
                         <div id="participant-position" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_position" class="text-green-new text-[1.25vw] font-semibold">Position</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="Participant" data-parsley-group="block0" required>
+                            <label for="participant_position_input" class="text-green-new text-[1.25vw] font-semibold">Position</label>
+                            <input type="text" name="participant_position_input" id="participant_position_input" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="Participant" data-parsley-group="block0">
                         </div>
                         <div id="participant-email" class="flex flex-col mb-[1.042vw]">
-                            <label for="participant_email" class="text-green-new text-[1.25vw] font-semibold">Email</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="bagusadisaka.lec@gmail.com" data-parsley-group="block0" required>
+                            <label for="participant_email_input" class="text-green-new text-[1.25vw] font-semibold">Email</label>
+                            <input type="text" name="participant_email_input" id="participant_email_input" class="form-control border px-3 border-yellow-new rounded-lg text-[1.042vw] focus:ring-green-new focus:border-green-new" placeholder="bagusadisaka.lec@gmail.com" data-parsley-group="block0">
                         </div>
                     </div>
-                    <button data-modal-hide="popup-modal-update1" type="submit" class="flex m-auto bg-yellow-new hover:bg-yellow-hover h-auto mt-[2.083vw] rounded-full shadow-lg items-center">
+                    <button id="save" data-modal-hide="popup-modal-update1" type="submit" class="flex m-auto bg-yellow-new hover:bg-yellow-hover h-auto mt-[2.083vw] rounded-full shadow-lg items-center">
                         <p class="text-dark-blue-new text-[1.042vw] font-bold px-[1.667vw] py-[0.625vw]">Save</p>
                     </button>
                 </div>
@@ -176,7 +177,6 @@ ection('title', 'U-Help | Certificates')
         $("#deleteSelected").click(function(e) {
             e.preventDefault();
             var allId = [];
-            var eventId = document.getElementById('deleteSelected').value;
             $('input:checkbox[id=default-checkbox]:checked').each(function() {
                 allId.push($(this).val());
             });
@@ -186,7 +186,6 @@ ection('title', 'U-Help | Certificates')
                 type: "DELETE",
                 data: {
                     id: allId,
-                    eventId: eventId,
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {
@@ -205,7 +204,75 @@ ection('title', 'U-Help | Certificates')
             });
         });
     });
+</script>
+<script>
+    // const updateButton = document.getElementById("update-certificate");
+    const updateButtons = document.querySelectorAll("#update-certificate");
+    const saveButton = document.getElementById("save")
+    let certificate, nameInput, positionInput, emailInput;
+
+    updateButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            certificate = JSON.parse(this.value);
+            // Get the participant number from the row
+
+            participantNumber = this.parentNode.parentNode.querySelector(".participant-number").textContent.trim();
+
+            // Update the participant ID field in the modal
+            const participantId = document.getElementById("participant_id");
+            participantId.textContent = participantNumber;
+
+            nameInput = document.getElementById('participant_name_input');
+            nameInput.placeholder = certificate.recipient.name;
+
+            positionInput = document.getElementById('participant_position_input');
+            positionInput.placeholder = certificate.recipient.position;
+
+            emailInput = document.getElementById('participant_email_input');
+            emailInput.placeholder = certificate.recipient.email;
+        });
+    });
+
+    saveButton.addEventListener('click', function(){
+        // event.preventDefault(); // Prevent the default form submission
+        let updatedEmail = emailInput.value;
+        let updatedName = nameInput.value;
+        let updatedPosition = positionInput.value;
+        if(updatedEmail === ""){
+            updatedEmail = certificate.recipient.email;
+        }
+        if(updatedName === ""){
+            updatedName = certificate.recipient.name;
+        }
+        if(updatedPosition === ""){
+            updatedPosition = certificate.recipient.position;
+        }
+
+        $.ajax({
+            url: "/updateCertificate",
+            type: "PUT",
+            data: {
+                _token: '{{ csrf_token() }}',
+                certificateId: certificate.id,
+                email: updatedEmail,
+                name: updatedName,
+                position: updatedPosition
+            },
+            success: function(response) {
+                // Update the name field
+                const nameElement = $('#row-data' + val).find('.participant-name');
+                nameElement.text(updatedName);
+
+                // Update the position field
+                const positionElement = $('#row-data' + val).find('.participant-position');
+                positionElement.text(updatedPosition);
+
+                // Update the email field
+                const emailElement = $('#row-data' + val).find('.participant-email');
+                emailElement.text(updatedEmail);
+            }
+        });
+    })
 
 </script>
-
 @endsection

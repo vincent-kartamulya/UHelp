@@ -263,10 +263,8 @@ class EventController extends Controller
     public function show($uuid)
     {
         $event = Event::where('uuid', $uuid)->firstOrFail();
-        $participants = Certificate::where('event_id', $event->id)->get()->map(function ($certificate) {
-            return $certificate->Recipient;
-        });
-        return view('sharetificate.generatedCertificate', ['event' => $event, 'participants' => $participants]);
+        $certificates = Certificate::where('event_id', $event->id)->get();
+        return view('sharetificate.generatedCertificate', ['event' => $event, 'certificates' => $certificates]);
 
     }
 
@@ -299,12 +297,60 @@ class EventController extends Controller
     public function deleteCertificate(Request $request)
     {
         $id = $request->id;
-        $eventId = $request->eventId;
+        $certificates = Certificate::whereIn('id', $id)->get();
 
-        Certificate::where('event_id', $eventId)->whereIn('recipient_id', $id)->delete();
-        return response()->json(["success" => "Certificate Deleted"]);
+        foreach ($certificates as $certificate) {
+            $recipient = $certificate->recipient;
+            if ($recipient && $recipient->certificate->count() === 1) {
+                $recipient->delete();
+            }
+            $certificate->delete();
+        }
+        return response()->json(['success' => 'Certificate Deleted']);
     }
 
+
+
+    public function updateCertificate(Request $request)
+    {
+        $newRecipientName = $request->name;
+        $newRecipientEmail = $request->email;
+        $newRecipientPosition = $request->position;
+        $certificateId = $request->certificateId;
+        $certificate = Certificate::with('recipient')->find($certificateId);
+        $recipient = $certificate->recipient;
+
+        // Check if the recipient with the same name, email, and position already exists in the recipient table
+        $recipientExist = Recipient::where('name', $newRecipientName)
+            ->where('email', $newRecipientEmail)
+            ->where('position', $newRecipientPosition)
+            ->first();
+
+        if ($recipientExist === $recipient){
+            return redirect()->back()->with('success', 'Certificate recipient updated successfully');
+
+        }elseif ($recipient->certificate->count() !== 1) {
+            $newRecipient = new Recipient();
+            $newRecipient->name = $newRecipientName;
+            $newRecipient->email = $newRecipientEmail;
+            $newRecipient->position = $newRecipientPosition;
+            $newRecipient->save();
+            $certificate->recipient_id = $newRecipient->id;
+            $certificate->save();
+
+        }elseif ($recipientExist !== null){
+            $certificate->recipient_id = $recipient->id;
+            $certificate->save();
+
+        }else{
+            $recipient->name = $newRecipientName;
+            $recipient->email = $newRecipientEmail;
+            $recipient->position = $newRecipientPosition;
+            $recipient->save();
+        }
+
+        return redirect()->back()->with('success', 'Certificate recipient updated successfully');
+    }
     /**
      * Show the form for editing the specified resource.
      *
