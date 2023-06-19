@@ -165,7 +165,6 @@
             $("#input").keyup(function(){
                 var strcari = $(this).val();
                 var filterOption = getFilterOption(); // Get the selected filter option
-                console.log(filterOption);
                 if(strcari != ""){
                     $('#allData').hide();
                     $('#read').show();
@@ -177,7 +176,6 @@
                             filterOption: filterOption // Pass the filter option in the AJAX request
                         },
                         success: function(data){
-                            console.log(data);
                             if (data.empty) {
                                 $("#search-query").text(strcari);
                                 $("#empty-search").show();

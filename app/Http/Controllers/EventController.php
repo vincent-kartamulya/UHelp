@@ -357,6 +357,30 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
+    public function certificateAjax(Request $request){
+        $name = $request->name;
+        // ddd($name);9
+        $eventId = $request->eventId;
+        if ($name == "") {
+            $query = Certificate::where('event_id', $eventId)->paginate(20);
+        }else{
+            $query = Certificate::where('event_id', $eventId)
+            ->whereHas('recipient', function ($query) use ($name) {
+                $query->where('name', 'like', '%' . $name . '%')
+                    ->orWhere('email', 'like', '%' . $name . '%');
+            })->get();
+        }
+
+        if (count($query) > 0) {
+            return view("sharetificate.certificateAjax", [
+                "certificate" => $query
+            ])->render();
+        } else {
+             return response()->json([
+                 'empty' => true
+             ]);
+        }
+    }
     public function edit(Event $event)
     {
         //
