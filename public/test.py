@@ -12,6 +12,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
+import sys
 
 # Set up the Chrome WebDriver
 service = Service(ChromeDriverManager().install())
@@ -21,9 +22,10 @@ driver = webdriver.Chrome(service=service)
 driver.get("https://forms.gle/dKcynjUvbwggiQdx5")
 
 # Find the input element and send keys
+parameter = sys.argv[1]
 wait = WebDriverWait(driver, 10)
 input_element = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'whsOnd')))
-input_element.send_keys("Alogha@gmail.com")
+input_element.send_keys("zberlam@gmail.com")
 
 # Find and click the next button
 next_button = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'NPEfkd')))
@@ -39,7 +41,7 @@ next_button2.click()
 
 # Find the tanggalan element and send keys
 tanggalan = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[type="date"].whsOnd.zHQkBf')))
-tanggalan.send_keys('10-05-2022')
+tanggalan.send_keys(parameter)
 
 # Find and click the third next button
 next_button3 = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[contains(text(),'Berikutnya')]")))
@@ -87,5 +89,7 @@ Finish.click()
 
 # Quit the driver
 driver.quit()
-print("LMAOOO")
+# parameter = sys.argv[1]
+# print(parameter)
+# print("LMAOOO")
 
