@@ -43,10 +43,20 @@ class ShuttleController extends Controller
         return view('clickandsit.clickandsit-fill',compact('datas'));
     }
 
-    public function cobapython()
+    public function cobapython($idShuttle)
     {
+        $anjay = Shuttle::find($idShuttle);
         $pythonScriptPath = public_path('test.py');
-        $command = "python \"{$pythonScriptPath}\"";
+        $departdate = date('d-m-Y', strtotime($anjay->departdate));
+        // Escape the parameter value
+        $parameter =[
+        'email'=>'zberlam@gmail.com',
+        'tanggal'=>escapeshellarg($departdate),
+        'BinusianID'=>'2502040612',
+        'nama'=>'Zaka Keren',
+        
+        ];
+        $command = "python \"{$pythonScriptPath}\" {$parameter}";
 
         $output = shell_exec($command);
 

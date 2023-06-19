@@ -39,7 +39,7 @@
                 <button class="w-[7vw] h[3vw] mr-[1vw] bg-slate-100 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">
                     Edit
                 </button>
-                <a href="/nyobapython">
+                <a href="/nyobapython/{{$data->id}}">
                     <button class="w-[7vw] h[3vw] ml-[1vw] bg-slate-100 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">
                         Submit
                     </button>

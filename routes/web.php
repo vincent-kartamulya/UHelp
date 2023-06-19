@@ -59,6 +59,6 @@ Route::resource('/events', EventController::class);
 Route::get('/ajax', [EventController::class,'ajax']);
 Route::get('/certificateAjax', [EventController::class,'certificateAjax']);
 Route::get('/downloadAll', [EventController::class, 'downloadAll']);
-Route::get('/nyobapython', [ShuttleController::class,'cobapython']);
+Route::get('/nyobapython/{id}',[ShuttleController::class,'cobapython']);
 Route::delete('/deleteCertificate', [EventController::class, 'deleteCertificate']);
 Route::put('/updateCertificate', [EventController::class, 'updateCertificate']);
