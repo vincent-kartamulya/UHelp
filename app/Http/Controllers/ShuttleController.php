@@ -47,16 +47,27 @@ class ShuttleController extends Controller
     {
         $anjay = Shuttle::find($idShuttle);
         $pythonScriptPath = public_path('test.py');
+        $berangkat = $anjay->jamAnggrek;
+        $jamberangkat = $anjay->turun;
+        $balik = $anjay->jamAlsut;
+        $jambalik = $anjay->naik;
         $departdate = date('d-m-Y', strtotime($anjay->departdate));
         // Escape the parameter value
-        $parameter =[
-        'email'=>'zberlam@gmail.com',
-        'tanggal'=>escapeshellarg($departdate),
-        'BinusianID'=>'2502040612',
-        'nama'=>'Zaka Keren',
-        
+        $parameter = [
+            escapeshellarg('zberlam@gmail.com'),
+            escapeshellarg($departdate),
+            escapeshellarg('2502040612'),
+            escapeshellarg('Zaka Keren'),
+            escapeshellarg('Dosen'),
+            escapeshellarg('082147279041'),
+            escapeshellarg($berangkat),
+            escapeshellarg($jamberangkat),
+            escapeshellarg($balik),
+            escapeshellarg($jambalik)
         ];
-        $command = "python \"{$pythonScriptPath}\" {$parameter}";
+        $parameterString = implode(' ', $parameter);
+
+        $command = "python \"{$pythonScriptPath}\" {$parameterString}";
 
         $output = shell_exec($command);
 

@@ -22,10 +22,19 @@ driver = webdriver.Chrome(service=service)
 driver.get("https://forms.gle/dKcynjUvbwggiQdx5")
 
 # Find the input element and send keys
-parameter = sys.argv[1]
+email = sys.argv[1]
+tanggal = sys.argv[2]
+BinusianID = sys.argv[3]
+nama = sys.argv[4]
+divisi = sys.argv[5]
+Phone = sys.argv[6]
+berangkat = sys.argv[7]
+jamberangkat = sys.argv[8]
+balik = sys.argv[9]
+jambalik = sys.argv[10]
 wait = WebDriverWait(driver, 10)
 input_element = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'whsOnd')))
-input_element.send_keys("zberlam@gmail.com")
+input_element.send_keys(email)
 
 # Find and click the next button
 next_button = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'NPEfkd')))
@@ -41,7 +50,7 @@ next_button2.click()
 
 # Find the tanggalan element and send keys
 tanggalan = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input[type="date"].whsOnd.zHQkBf')))
-tanggalan.send_keys(parameter)
+tanggalan.send_keys(tanggal)
 
 # Find and click the third next button
 next_button3 = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[contains(text(),'Berikutnya')]")))
@@ -49,15 +58,15 @@ next_button3.click()
 
 # Find the BinusianId element and send keys
 BinusianId = wait.until(EC.element_to_be_clickable((By.XPATH, '(//input[@type="text"])[1]')))
-BinusianId.send_keys("Aloha America")
+BinusianId.send_keys(BinusianID)
 
 # Find the Namaku element and send keys
 Namaku = wait.until(EC.element_to_be_clickable((By.XPATH, '(//input[@type="text"])[2]')))
-Namaku.send_keys("Kaneki ken")
+Namaku.send_keys(nama)
 
 # Find the Unit element and send keys
 Unit = wait.until(EC.element_to_be_clickable((By.XPATH, '(//input[@type="text"])[3]')))
-Unit.send_keys("Beban Binus")
+Unit.send_keys(divisi)
 
 # Find and click option1 element
 option1 = wait.until(EC.element_to_be_clickable((By.XPATH, '//div[@aria-label="W gabut"]')))
@@ -65,7 +74,7 @@ option1.click()
 
 # Find the telpon element and send keys
 telpon = wait.until(EC.element_to_be_clickable((By.XPATH, '(//input[@type="text"])[5]')))
-telpon.send_keys("088888888")
+telpon.send_keys(Phone)
 
 # Find and click the harinya element
 harinya = wait.until(EC.element_to_be_clickable((By.XPATH, '//div[@aria-label="Senin"]')))
