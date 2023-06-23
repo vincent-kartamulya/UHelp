@@ -9,26 +9,32 @@
     </div>
 </div>
 
-<div id="search-filter-add" class="flex relative m-auto py-[0.625vw] w-10/12 gap-[1.042vw]">
+<div id="search-filter-add" class="flex relative m-auto w-10/12 gap-[1.042vw]">
         {{-- Search Bar --}}
-            <div class="relative flex w-[20vw] items-center z-10">
-                <div class="absolute inset-3 px-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg>
-                </div>
-                    <input
-                        type="search"
-                        class="relative block flex-auto rounded-full border border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] outline-none pl-12 text-lg text-dark-blue-new font-normal transition duration-100 ease-in-out focus:z-[3] focus:bg-opacity-30 focus:ring-dark-blue-new focus:outline-none focus:border-dark-blue-new focus:text-dark-blue-new placeholder:text-dark-blue-new placeholder:text-opacity-[0.6]"
-                        placeholder="Search event..."
-                        aria-label="Search"
-                        aria-describedby="button-search"
-                        id="input"/>
+        <div class="relative flex w-[20vw] items-center z-10">
+            <div class="absolute ml-[1vw]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.25vw" viewBox="0 0 24 24">
+                    <rect x="0" y="0" width="24" height="24" fill="none" stroke="none"/>
+                    <path fill="#3F487F" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/>
+                </svg>
             </div>
+            <input
+                type="search"
+                class="relative block h-[2.5vw] flex-auto rounded-full border border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] outline-none pl-[2.5vw] text-[0.938vw] text-dark-blue-new font-normal transition duration-100 ease-in-out focus:z-[3] focus:bg-opacity-30 focus:ring-dark-blue-new focus:outline-none focus:border-dark-blue-new focus:text-dark-blue-new placeholder:text-dark-blue-new placeholder:text-opacity-[0.6]"
+                placeholder="Search event..."
+                aria-label="Search"
+                aria-describedby="button-search"
+                id="input"/>
+        </div>
         {{-- Filter --}}
-        <form class="w-[12%] z-10" action="/events" method="GET" id="filterForm">
+        <form class="w-[13%] z-10" action="/events" method="GET" id="filterForm">
             @csrf
             <div class="relative flex items-center h-full">
-                <button id="dropdownFilterButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="w-full h-full text-dark-blue-new text-opacity-60 rounded-full border border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] transition duration-100 ease-in-out hover:bg-[#FFD272] hover:bg-opacity-30 hover:ring-1 hover:ring-dark-blue-new hover:border-dark-blue-new focus:ring-1 focus:outline-none focus:ring-dark-blue-new font-normal text-lg px-4 inline-flex items-center" type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" d="M11 20q-.425 0-.713-.288T10 19v-6L4.2 5.6q-.375-.5-.113-1.05T5 4h14q.65 0 .913.55T19.8 5.6L14 13v6q0 .425-.288.713T13 20h-2Z"/></svg>
+                <button id="dropdownFilterButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="w-full h-full text-dark-blue-new text-opacity-60 rounded-full border border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] transition duration-100 ease-in-out hover:bg-[#FFD272] hover:bg-opacity-30 hover:ring-1 hover:ring-dark-blue-new hover:border-dark-blue-new focus:ring-1 focus:outline-none focus:ring-dark-blue-new text-[0.938vw] px-[0.833vw] inline-flex items-center" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.25vw" viewBox="0 0 24 24">
+                        <rect x="0" y="0" width="24" height="24" fill="none" stroke="none"/>
+                        <path fill="#3F487F" d="M11 20q-.425 0-.713-.288T10 19v-6L4.2 5.6q-.375-.5-.113-1.05T5 4h14q.65 0 .913.55T19.8 5.6L14 13v6q0 .425-.288.713T13 20h-2Z"/>
+                    </svg>
                     <p class="w-4/5 flex pl-[0.417vw]">
                         @if($filterOption == 'latest')
                             Latest
@@ -38,19 +44,21 @@
                             None
                         @endif
                     </p>
-                    <svg class="w-[0.833vw] h-[0.833vw]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="w-[0.833vw] h-[0.833vw]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                 </button>
                 <!-- Dropdown Menu -->
-                <div id="dropdownHover" class="z-10 hidden bg-[#FFD272] rounded-lg shadow w-[9.167vw] absolute mt-1">
-                    <ul class="py-1 text-lg text-gray-700" aria-labelledby="dropdownHoverButton">
+                <div id="dropdownHover" class="z-10 hidden bg-[#FFD272] rounded-[0.417vw] shadow w-[9.167vw] absolute mt-[0.208vw]">
+                    <ul class="py-[0.208vw] text-[0.938vw] text-gray-700" aria-labelledby="dropdownHoverButton">
                         <li>
-                            <a href="/events" class="block px-4 py-2 hover:bg-yellow-new hover:text-white">None</a>
+                            <a href="/events" class="block px-[0.833vw] py-[0.417vw] hover:bg-yellow-new hover:text-white">None</a>
                         </li>
                         <li>
-                            <a href="/events?filterOption=latest" class="block px-4 py-2 hover:bg-yellow-new hover:text-white">Latest</a>
+                            <a href="/events?filterOption=latest" class="block px-[0.833vw] py-[0.417vw] hover:bg-yellow-new hover:text-white">Latest</a>
                         </li>
                         <li>
-                            <a href="/events?filterOption=earliest" class="block px-4 py-2 hover:bg-yellow-new hover:text-white">Earliest</a>
+                            <a href="/events?filterOption=earliest" class="block px-[0.833vw] py-[0.417vw] hover:bg-yellow-new hover:text-white">Earliest</a>
                         </li>
                     </ul>
                 </div>
@@ -58,10 +66,13 @@
         </form>
 
         {{-- Add Event Button --}}
-        <div class="absolute flex inset-0 justify-end">
-            <a href="/events/create" class="flex justify-center bg-yellow-new hover:bg-yellow-hover w-[9.167vw] h-auto my-[0.417vw] rounded-full shadow-lg items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="0" y="0" width="24" height="24" fill="none" stroke="none" /><path fill="#3F487F" stroke="#3F487F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m-6-6h12"/></svg>
-                <p class="text-dark-blue-new text-lg font-bold pl-[0.208vw]">Add Event</p>
+        <div class="absolute flex inset-0 justify-end text-center items-center text-[0.938vw]">
+            <a href="/events/create" class="flex justify-center bg-yellow-new hover:bg-yellow-hover h-full p-[1.4vw] rounded-full shadow-lg items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.25vw" viewBox="0 0 24 24">
+                    <rect x="0" y="0" width="24" height="24" fill="none" stroke="none"/>
+                    <path fill="#3F487F" stroke="#3F487F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m-6-6h12"/>
+                </svg>
+                <p class="text-dark-blue-new text-[1.25vw] font-semibold pl-[0.208vw]">Add Event</p>
             </a>
         </div>
     </div>

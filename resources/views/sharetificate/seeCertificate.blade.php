@@ -12,7 +12,7 @@
         <img class="w-4/5 m-auto" src="/assets/sharetificate/divider-blue.svg" alt="Divider Blue">
     </div>
 </div>
-<div id="after-blue-line" class="flex flex-row">
+<div id="after-blue-line" class="flex flex-row mb-[5vw]">
     <div id="left-content" class="justify-center items-center flex flex-col">
         <img class="shadow-xl ml-[14.5vw] mt-[3vw] w-[35vw]" src="/assets/sharetificate/certificate.png" alt="certificate">
         <a href="/seeCertificate/download">
