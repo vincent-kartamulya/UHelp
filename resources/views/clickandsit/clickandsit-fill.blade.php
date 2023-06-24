@@ -38,9 +38,12 @@
                 <h5 class="font-semibold text-[1vw] text-[#3F487F]">{{$data->keperluan}}</h5>
             </div>
             <div class="flex items-center justify-center pt-[2vw]">
-                <button class="w-[7vw] h[3vw] mr-[1vw] bg-slate-100 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">
-                    Edit
-                </button>
+                <a href="/edit/{{$data->id}}">
+                    <button class="w-[7vw] h[3vw] mr-[1vw] bg-slate-100 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">
+                        Edit
+                    </button>
+                </a>
+
                 <a href="/nyobapython/{{$data->id}}">
                     <button class="w-[7vw] h[3vw] ml-[1vw] bg-slate-100 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">
                         Submit

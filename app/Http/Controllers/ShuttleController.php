@@ -75,7 +75,7 @@ class ShuttleController extends Controller
         $departdate = date('d-m-Y', strtotime($anjay->departdate));
         // Escape the parameter value
         $parameter = [
-            escapeshellarg('zberlam@gmail.com'),
+            escapeshellarg('kaneki@gmail.com'),
             escapeshellarg($departdate),
             escapeshellarg('2502040612'),
             escapeshellarg('Zaka Keren'),
@@ -97,6 +97,12 @@ class ShuttleController extends Controller
         return view('clickandsit.clickandsit-fill',compact('datas'));
     // Process the output as needed
     }
+
+    public function ngedit($idShuttle){
+        $anjay = Shuttle::find($idShuttle);
+        return view('clickandsit.clickandsit-edit',compact('anjay'));
+    }
+
 
     public function routingawal()
     {
