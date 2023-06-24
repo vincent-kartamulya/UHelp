@@ -14,8 +14,29 @@ use Carbon\Carbon;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
+use function PHPUnit\Framework\isEmpty;
+
 class ShuttleController extends Controller
 {
+
+    public function starting(){
+        $datas = Shuttle::all();
+        if($datas->isEmpty()){
+            return view('clickandsit.clickandsit-empty');
+        }
+        return view('clickandsit.clickandsit-fill',compact('datas'));
+    }
+
+    public function delete($idShuttle){
+        $anjay = Shuttle::find($idShuttle);
+        $anjay->delete();
+        $datas = Shuttle::all();
+        if($datas->isEmpty()){
+            return view('clickandsit.clickandsit-empty');
+        }
+        return view('clickandsit.clickandsit-fill',compact('datas'));
+    }
+
     public function savedata(Request $request){
         $destinationFrom = $request->input('place_departure');
         $destinationTo = $request->input('place_return');
@@ -54,7 +75,7 @@ class ShuttleController extends Controller
         $departdate = date('d-m-Y', strtotime($anjay->departdate));
         // Escape the parameter value
         $parameter = [
-            escapeshellarg('zberlam@gmail.com'),
+            escapeshellarg('kaneki@gmail.com'),
             escapeshellarg($departdate),
             escapeshellarg('2502040612'),
             escapeshellarg('Zaka Keren'),
@@ -72,9 +93,16 @@ class ShuttleController extends Controller
         $output = shell_exec($command);
 
         // Process the output as needed
-        dd($output);
+        $datas = Shuttle::all();
+        return view('clickandsit.clickandsit-fill',compact('datas'));
     // Process the output as needed
     }
+
+    public function ngedit($idShuttle){
+        $anjay = Shuttle::find($idShuttle);
+        return view('clickandsit.clickandsit-edit',compact('anjay'));
+    }
+
 
     public function routingawal()
     {

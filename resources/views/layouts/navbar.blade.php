@@ -7,7 +7,7 @@
     <div class="features-container w-[25vw] m-auto">
         <ul class="flex flex-row justify-around text-green-new text-[1.25vw] text-center items-center">
             <li class="hover:font-medium w-[10vw] drop-shadow">
-                <a href="/clickandsit/empty">Click and Sit</a>
+                <a href="/clickandsit">Click and Sit</a>
             </li>
             <li class="hover:font-medium w-[10vw] drop-shadow">
                 <a href="/events">Sharetificate</a>
