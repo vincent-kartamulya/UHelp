@@ -34,9 +34,7 @@ Route::get('/seeCertificate', function () {
     return view('sharetificate.seeCertificate');
 });
 
-Route::get('/clickandsit/empty', function () {
-    return view('clickandsit.clickandsit-empty');
-});
+
 
 // Route::get('/clickandsit/fill', function () {
 //     return view('clickandsit.clickandsit-fill');
@@ -59,6 +57,9 @@ Route::resource('/events', EventController::class);
 Route::get('/ajax', [EventController::class,'ajax']);
 Route::get('/certificateAjax', [EventController::class,'certificateAjax']);
 Route::get('/downloadAll', [EventController::class, 'downloadAll']);
+Route::get('/clickandsit',[ShuttleController::class,'starting']);
+Route::get('/edit/{id}',[ShuttleController::class,'ngedit']);
 Route::get('/nyobapython/{id}',[ShuttleController::class,'cobapython']);
+Route::get('/clickandsit/delete/{id}',[ShuttleController::class,'delete']);
 Route::delete('/deleteCertificate', [EventController::class, 'deleteCertificate']);
 Route::put('/updateCertificate', [EventController::class, 'updateCertificate']);

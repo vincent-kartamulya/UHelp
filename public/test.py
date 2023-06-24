@@ -1,22 +1,13 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.chrome import ChromeDriverManager
 import sys
 
 # Set up the Chrome WebDriver
-service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service)
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 # Navigate to the website
 driver.get("https://forms.gle/dKcynjUvbwggiQdx5")
@@ -97,7 +88,9 @@ Finish = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[contains(text(
 Finish.click()
 
 # Quit the driver
+driver.close()
 driver.quit()
+
 # parameter = sys.argv[1]
 # print(parameter)
 # print("LMAOOO")
