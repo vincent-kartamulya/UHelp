@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\iniController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ShuttleController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('home');
@@ -67,3 +68,5 @@ Route::get('/nyobapython/{id}',[ShuttleController::class,'cobapython']);
 Route::get('/clickandsit/delete/{id}',[ShuttleController::class,'delete']);
 Route::delete('/deleteCertificate', [EventController::class, 'deleteCertificate']);
 Route::put('/updateCertificate', [EventController::class, 'updateCertificate']);
+Route::post('/SignUp/Verif', [UserController::class,'SignUp']);
+
