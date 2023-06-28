@@ -10,7 +10,7 @@
         </div>
         {{-- Muncul saat user belum login --}}
         <div class="flex">
-            <a href="#" class="flex bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-[1.25vw] font-bold w-fit h-fit rounded-[1.042vw] shadow-lg items-center">
+            <a href="#" class="flex bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-[1.25vw] font-bold w-fit h-fit rounded-[1.458vw] shadow-lg items-center">
                 <p class="px-[1.667vw] py-[0.625vw]">Start</p>
             </a>
         </div>
@@ -37,7 +37,7 @@
             <p class="italic">- Say goodbye to manual data entry and save time! Try it now! -</p>
         </div>
         <div class="flex">
-            <a href="#" class="flex bg-yellow-new hover:bg-yellow-hover text-green-new text-[1.25vw] font-bold w-fit h-fit rounded-[1.042vw] shadow-lg items-center">
+            <a href="#" class="flex bg-yellow-new hover:bg-yellow-hover text-green-new text-[1.25vw] font-bold w-fit h-fit rounded-[1.458vw] shadow-lg items-center">
                 <p class="px-[1.667vw] py-[0.625vw]">Start</p>
             </a>
         </div>
@@ -51,7 +51,7 @@
             <p class="italic">- Save time and stay organized! -</p>
         </div>
         <div class="flex justify-end">
-            <a href="#" class="flex bg-yellow-new hover:bg-yellow-hover text-green-new text-[1.25vw] font-bold w-fit h-fit rounded-[1.042vw] shadow-lg items-center">
+            <a href="#" class="flex bg-yellow-new hover:bg-yellow-hover text-green-new text-[1.25vw] font-bold w-fit h-fit rounded-[1.458vw] shadow-lg items-center">
                 <p class="px-[1.667vw] py-[0.625vw]">Start</p>
             </a>
         </div>

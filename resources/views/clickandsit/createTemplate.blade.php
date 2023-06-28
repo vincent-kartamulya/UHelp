@@ -85,13 +85,13 @@ href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
                     </div>
                 </div>
 
-                <label class="block text-green-new text-2xl font-semibold mt-[2vw] mb-[1vw]">Necessity</label>
+                <label class="block text-green-new text-2xl font-semibold mt-[2vw] mb-[1vw]">Goals</label>
                 <div>
                     <input name='kebutuhan'  type="text" class="border w-[40vw] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-new focus:border-yellow-new block p-2.5" placeholder="Fill necessity for your shuttle" required>
                 </div>
-                <div id="save button" class="flex justify-center">
-                    <button type='submit' class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-[12.5vw] py-[0.83vw] rounded-full m-auto mt-[3vw] shadow-md">
-                        Save
+                <div id="save-button" class="flex justify-center">
+                    <button id="save-button" type="submit" class="flex m-auto bg-yellow-new hover:bg-yellow-hover h-auto mt-[2.083vw] rounded-full shadow-lg items-center">
+                        <p class="text-dark-blue-new text-[1.042vw] font-bold px-[1.667vw] py-[0.625vw]">Save</p>
                     </button>
                 </div>
             </form>

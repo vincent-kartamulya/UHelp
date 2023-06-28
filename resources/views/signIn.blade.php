@@ -12,7 +12,7 @@
                 <form action="#">
                     <div class="flex items-center justify-between mb-[2vw]">
                         <h2 class="text-dark-blue-new font-semibold text-[1.458vw]">Login</h2>
-                        <a class="text-green-new text-[1.042vw] hover:underline" href="#">Register</a>
+                        <a href="/register" class="text-green-new text-[1.042vw] hover:underline">Register</a>
                     </div>
                     <div class="mb-[1vw]">
                         <label for="default-input" class="block font-medium text-[1.042vw] text-dark-blue-new mb-[0.5vw]">Email Address</label>
