@@ -14,9 +14,12 @@
             </li>
         </ul>
     </div>
-    <div id="profile-container" class="flex absolute right-[1.667vw] items-center">
-        <a href="/login" class="flex justify-center bg-yellow-new hover:bg-yellow-hover h-[2.8vw] rounded-[1.458vw] px-[1.5vw] shadow-shadow-custom items-center text-dark-blue-new text-[1.042vw] font-bold">
+    <div id="profile-container" class="flex absolute gap-[0.2vw] right-[1.667vw] items-center">
+        <a href="/register" class="flex justify-center bg-white hover:bg-gray-100 h-[2.8vw] rounded-[1.458vw] px-[1.5vw] border-[0.2vw] border-yellow-new items-center text-yellow-new text-[1.042vw] font-bold">
             LOGIN
+        </a>
+        <a href="/register" class="flex justify-center bg-yellow-new hover:bg-yellow-hover h-[2.8vw] rounded-[1.458vw] px-[1.5vw] items-center text-white text-[1.042vw] font-bold">
+            REGISTER
         </a>
         <a href="/profile">
             <img class="logo-pict w-[3.33vw] rounded-full" src="/assets/profil.jpg" alt="Profile Picture">

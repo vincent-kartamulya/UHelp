@@ -13,7 +13,7 @@
             <p id="seminar-date" class="text-[1.25vw] font-semibold text-green-new">{{date('l, F d Y', strtotime($event->date))}}</p>
             <p id="seminar-location" class="text-[1.042vw] font-semibold text-yellow-new">{{$event->location}}</p>
         </div>
-        <div class="absolute flex gap-[0.833vw] mt-[12.5vw] text-center text-[0.833vw]">
+        <div class="flex gap-[0.833vw] mt-[2.5vw] text-center text-[0.833vw]">
             {{-- Edit --}}
             {{-- <a href="/downloadAll?eventUUID={{ $event->uuid }}" class="group relative flex justify-around bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-[1.042vw] font-semibold w-[3vw] h-[2.5vw] rounded-[0.625vw] shadow-lg items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1.563vw" height="1.563vw" viewBox="0 0 24 24">
@@ -172,7 +172,7 @@
                             </div>
                         </div>
                     </div>
-                    <button id="update" data-modal-hide="popup-modal-edit" type="submit" class="flex m-auto bg-yellow-new hover:bg-yellow-hover h-auto mt-[2.083vw] rounded-full shadow-lg items-center">
+                    <button id="update" data-modal-hide="popup-modal-edit" type="submit" class="flex m-auto bg-yellow-new hover:bg-yellow-hover h-auto mt-[3vw] rounded-full shadow-lg items-center">
                         <p class="text-dark-blue-new text-[1.042vw] font-bold px-[1.667vw] py-[0.625vw]">Update</p>
                     </button>
                 </div>
@@ -193,11 +193,11 @@
             </button>
             <div class="px-[1.25vw] py-[2.083vw] text-center">
                 <h3 class="mb-[1.458vw] mx-[1.042vw] text-[1.25vw] font-medium text-green-new">Are you sure you want to delete these?</h3>
-                <button id="deleteSelected" data-modal-hide="popup-modal" type="button" class="text-white bg-yellow-new hover:bg-yellow-hover shadow-lg focus:ring-2 focus:outline-none focus:ring-yellow-hover font-medium rounded-[1.042vw] text-[0.938vw] inline-flex items-center px-[1.042vw] py-[0.521vw] text-center mr-[0.417vw]">
-                    Yes, I'm sure
-                </button>
-                <button data-modal-hide="popup-modal" type="button" class="text-yellow-new bg-white shadow-lg hover:text-yellow-hover hover:bg-gray-50 focus:ring-2 focus:outline-none focus:ring-gray-50 rounded-[1.042vw] border border-gray-50 text-[0.938vw] font-medium px-[1.042vw] py-[0.521vw]">
+                <button data-modal-hide="popup-modal" type="button" class="text-yellow-new bg-white border border-yellow-new shadow-lg hover:text-yellow-hover hover:bg-gray-100 rounded-[1.25vw] text-[0.938vw] font-medium px-[1.042vw] py-[0.521vw]">
                     No, cancel
+                </button>
+                <button id="deleteSelected" data-modal-hide="popup-modal" type="button" class="text-white bg-yellow-new hover:bg-yellow-hover shadow-lg font-medium rounded-[1.25vw] text-[0.938vw] inline-flex items-center px-[1.042vw] py-[0.521vw] text-center mr-[0.417vw]">
+                    Yes, I'm sure
                 </button>
             </div>
         </div>
