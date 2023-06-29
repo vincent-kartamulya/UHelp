@@ -72,7 +72,7 @@
                     <rect x="0" y="0" width="24" height="24" fill="none" stroke="none"/>
                     <path fill="#3F487F" stroke="#3F487F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m-6-6h12"/>
                 </svg>
-                <p class="text-dark-blue-new text-[1.25vw] font-semibold pl-[0.208vw]">Add Event</p>
+                <p class="text-dark-blue-new text-[1.25vw] font-bold pl-[0.208vw]">Add Event</p>
             </a>
         </div>
     </div>
