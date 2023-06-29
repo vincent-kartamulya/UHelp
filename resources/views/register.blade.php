@@ -6,29 +6,30 @@
         <img class="m-auto mt-5 w-[10vw] animate-bounce" src="/assets/logo-full.svg" alt="U-Help Logo">
         <div class="flex justify-center my-[2vw]">
             <div class=" w-7/12 h-auto bg-white rounded-2xl shadow-2xl px-[2vw] py-[1.5vw]">
-                <form action="#">
+                <form action="/SignUp/Verif" method="POST">
+                    @csrf
                     <div class="flex items-center justify-between mb-[2vw]">
                         <h2 class="text-dark-blue-new font-semibold text-[1.458vw]">Register</h2>
-                        <a class="text-green-new text-[1.042vw] hover:underline" href="#">Login</a>
+                        <a class="text-green-new text-[1.042vw] hover:underline" href="/LogIn">Login</a>
                     </div>
                     <div class="mb-[1vw]">
                         <label for="default-input" class="block font-medium text-[1.042vw] text-dark-blue-new mb-[0.5vw]">Email Address</label>
-                        <input type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-dark-blue-new text-[0.938vw] rounded-lg focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]">
+                        <input name="EmailAddress" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-dark-blue-new text-[0.938vw] rounded-lg focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]">
                         <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">Email is already registered.</p>
                     </div>
                     <div class="mb-[1vw]">
                         <label for="password" class="block font-medium text-[1.042vw] text-dark-blue-new mb-[0.5vw]">Password</label>
-                        <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-dark-blue-new text-[0.938vw] rounded-lg focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]">
+                        <input name="Password" type="password" id="password" class="bg-gray-50 border border-gray-300 text-dark-blue-new text-[0.938vw] rounded-lg focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]">
                         <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">Password is too easy to guess!</p>
                     </div>
                     <div class="mb-[0.5vw]">
                         <label for="password" class="block font-medium text-[1.042vw] text-dark-blue-new mb-[0.5vw]">Confirm Password</label>
-                        <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-dark-blue-new text-[0.938vw] rounded-lg focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]">
+                        <input name="VerifyPassword" type="password" id="password" class="bg-gray-50 border border-gray-300 text-dark-blue-new text-[0.938vw] rounded-lg focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]">
                         <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">Password doesn't match!</p>
                     </div>
-                    <a href="#" class="flex justify-center bg-yellow-new hover:bg-yellow-hover h-[2.083vw] mt-[2vw] mb-[1vw] rounded-[0.625vw] shadow-shadow-custom items-center text-dark-blue-new text-[0.938vw] font-semibold">
+                    <button type="submit" class="flex justify-center bg-yellow-new hover:bg-yellow-hover h-[2.083vw] mt-[2vw] mb-[1vw] rounded-[0.625vw] shadow-shadow-custom items-center text-dark-blue-new text-[0.938vw] font-semibold">
                         Register
-                    </a>
+                    </button>
                     <div class="w-full flex justify-between items-center text-center mb-[1vw]">
                         <div class="w-1/3 bg-dark-blue-new bg-opacity-60 h-[0.052vw]"></div>
                         <p class="text-dark-blue-new text-[0.833vw]">or register with</p>
