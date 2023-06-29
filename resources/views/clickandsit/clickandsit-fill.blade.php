@@ -54,11 +54,13 @@
     @endforeach
 
 
-    <div id="add-schedule" class="flex justify-center mb-[5vw]">
-        <a href="/createTemplate">
-            <button class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-[15vw] py-[0.83vw] rounded-full m-auto shadow-md">
-                + Add Schedule
-            </button>
+    <div id="button" class="m-auto my-10 mb-[5vw] text-[0.938vw]">
+        <a href="/createTemplate" class="flex justify-center bg-yellow-new hover:bg-yellow-hover h-full px-[1.4vw] py-[0.8vw] rounded-full shadow-lg items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.25vw" viewBox="0 0 24 24">
+                <rect x="0" y="0" width="24" height="24" fill="none" stroke="none"/>
+                <path fill="#3F487F" stroke="#3F487F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m-6-6h12"/>
+            </svg>
+            <p class="text-dark-blue-new text-[1.25vw] font-bold pl-[0.208vw]">Add Schedule</p>
         </a>
     </div>
 </div>
