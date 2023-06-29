@@ -103,6 +103,7 @@
 <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
 <script src="/node_modules/flowbite/dist/datepicker.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var dropdownButton = document.getElementById('dropdownFilterButton');

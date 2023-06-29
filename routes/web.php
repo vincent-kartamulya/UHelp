@@ -4,6 +4,7 @@ use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\iniController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ShuttleController;
 use App\Http\Controllers\UserController;
 
@@ -69,4 +70,4 @@ Route::get('/clickandsit/delete/{id}',[ShuttleController::class,'delete']);
 Route::delete('/deleteCertificate', [EventController::class, 'deleteCertificate']);
 Route::put('/updateCertificate', [EventController::class, 'updateCertificate']);
 Route::post('/SignUp/Verif', [UserController::class,'SignUp']);
-
+Route::get('/sendEmail', [MailController::class, 'sendMail']);
