@@ -60,21 +60,26 @@
 {{-- Kontainer list sertifikat --}}
 <div id="list-certificates-container" class="relative mx-auto my-[4.167vw] w-[90%] py-[2.5vw] bg-white border border-white shadow-2xl rounded-[0.833vw]">
     {{-- Search bar --}}
-    <div id="eventId" data-value="{{$event->id}}" class="relative flex float-right items-center mr-[5vw] w-[20%] h-[2.5vw]">
-        <input
+
+    <form action="/events/{{$event->uuid}}">
+    <div id="eventId" class="relative flex float-right items-center mr-[5vw] w-[20%] h-[2.5vw]">
+            <input
             id="input"
             type="search"
+            name="search"
             class="relative block h-full flex-auto rounded-l-full border border-r-0 border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] outline-none text-[0.938vw] text-dark-blue-new transition duration-100 ease-in-out focus:z-[3] focus:bg-opacity-30 focus:ring-0 focus:border-dark-blue-new focus:text-dark-blue-new placeholder:text-dark-blue-new placeholder:text-opacity-[0.6]"
             placeholder="Search certificate..."
             aria-label="Search"
             aria-describedby="button-search"/>
-        <button class="h-full w-2/12 flex justify-center items-center rounded-r-full border border-l-0 border-dark-blue-new border-opacity-80 bg-yellow-new hover:bg-yellow-hover">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.25vw" viewBox="0 0 24 24">
-                <rect x="0" y="0" width="24" height="24" fill="none" stroke="none"/>
-                <path fill="#3F487F" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/>
-            </svg>
-        </button>
-    </div>
+
+            <button type="submit" class="h-full w-2/12 flex justify-center items-center rounded-r-full border border-l-0 border-dark-blue-new border-opacity-80 bg-yellow-new hover:bg-yellow-hover">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.25vw" viewBox="0 0 24 24">
+                    <rect x="0" y="0" width="24" height="24" fill="none" stroke="none"/>
+                    <path fill="#3F487F" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/>
+                </svg>
+            </button>
+        </div>
+    </form>
 
     {{-- Delete Button ketika select data --}}
     <div id="delete-option" class="absolute flex items-center left-[2.917vw] top-[4.583vw] gap-[0.417vw]">
@@ -104,6 +109,11 @@
         {{-- Data --}}
         <?php $i=1; ?>
         <div id="allData">
+            @if ($certificates->isEmpty())
+                <div id="empty-search" class="flex justify-center my-[5vw]">
+                    <p class="text-[1.458vw] font-semibold text-dark-blue-new text-opacity-60">Your search for "{{$searchQuery}}" is not found.</p>
+                </div>
+            @else
             @foreach ($certificates as $certificate)
                 <div id="row-data{{$certificate->id}}" class="w-full">
                     <div id="the-data" class="flex flex-row text-dark-blue-new text-opacity-70 font-normal text-[1.042vw] my-[0.521vw] items-center">
@@ -126,11 +136,8 @@
                     <div class="border-[0.052vw] border-yellow-new"></div>
                 </div>
             @endforeach
-            <div id="empty-search" class="flex justify-center my-[8vw]">
-                <p class="text-[1.458vw] font-semibold text-dark-blue-new text-opacity-60">Your search for "<span id="search-query"></span>" is not found.</p>
-            </div>
+            @endif
         </div>
-        <div id="read"></div>
     </div>
 </div>
 
@@ -281,17 +288,9 @@
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {
-                    $.each(allId, function(key, val) {
-                        $('#row-data' + val).remove();
-                    });
-                    $index = 0;
-                    var checkedCount = $('input:checkbox[id=default-checkbox]:checked').length;
-                    if (checkedCount === 0) {
-                        $("#delete-option").hide(); // Hide the delete option
-                    }
-                    $('.participant-number').each(function(index) {
-                        $(this).text(('000' + (index + 1)).slice(-3));
-                    });
+                    var currentURL = window.location.href; // Get the current URL
+                    var baseURL = currentURL.split('?')[0];
+                    window.location.href = baseURL;
                 }
             });
         });
@@ -326,7 +325,7 @@
     });
 
     saveButton.addEventListener('click', function(){
-        // event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
         let updatedEmail = emailInput.value;
         let updatedName = nameInput.value;
         let updatedPosition = positionInput.value;
@@ -351,53 +350,13 @@
                 position: updatedPosition
             },
             success: function(response) {
-                // Update the name field
-                const nameElement = $('#row-data' + val).find('.participant-name');
-                nameElement.text(updatedName);
+                // Reload the page
+                var baseURL = window.location.origin + window.location.pathname;
 
-                // Update the position field
-                const positionElement = $('#row-data' + val).find('.participant-position');
-                positionElement.text(updatedPosition);
-
-                // Update the email field
-                const emailElement = $('#row-data' + val).find('.participant-email');
-                emailElement.text(updatedEmail);
+                window.location.href = baseURL;
             }
-        });
+        })
     })
 </script>
-<script>
-    var eventId = document.getElementById('eventId').getAttribute('data-value');
-    $(document).ready(function(){
-            $("#empty-search").hide();
-            $("#input").keyup(function(){
-                var strcari = $(this).val();
-                if(strcari != ""){
-                    $.ajax({
-                        url: "{{ url('certificateAjax') }}",
-                        type: "GET",
-                        data: {
-                            name: strcari,
-                            eventId: eventId
-                        },
-                        success: function(data){
-                            $("#read").html(data);
-                            if (data.empty) {
-                                $("#search-query").text(strcari);
-                                $("#empty-search").show();
-                                $("#read").html("");
-                            } else {
-                                $("#empty-search").hide();
-                                $("#read").html(data);
-                            }
-                        }
-                    });
-                }else {
-                    $('#allData').show();
-                    $('#read').hide();
-                    $("#empty-search").hide();
-                }
-            });
-        });
-</script>
+
 @endsection

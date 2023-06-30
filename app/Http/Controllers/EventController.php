@@ -260,11 +260,16 @@ class EventController extends Controller
 
 
 
-    public function show($uuid)
+    public function show($uuid, Request $request)
     {
         $event = Event::where('uuid', $uuid)->firstOrFail();
-        $certificates = Certificate::where('event_id', $event->id)->get();
-        return view('sharetificate.generatedCertificate', ['event' => $event, 'certificates' => $certificates]);
+        if($request->has('search')){
+            $recipientIds = Recipient::where('name', 'LIKE', '%'.$request->search.'%')->pluck('id');
+            $certificates = Certificate::where('event_id', $event->id)->whereIn('recipient_id', $recipientIds)->get();
+        }else{
+            $certificates = Certificate::where('event_id', $event->id)->get();
+        }
+        return view('sharetificate.generatedCertificate', ['event' => $event, 'certificates' => $certificates, 'searchQuery' => $request->search]);
 
     }
 
@@ -327,8 +332,7 @@ class EventController extends Controller
             ->first();
 
         if ($recipientExist === $recipient){
-            return redirect()->back()->with('success', 'Certificate recipient updated successfully');
-
+            return response()->json(['success' => 'Certificate recipient updated successfully']);
         }elseif ($recipient->certificate->count() !== 1) {
             $newRecipient = new Recipient();
             $newRecipient->name = $newRecipientName;
@@ -348,8 +352,7 @@ class EventController extends Controller
             $recipient->position = $newRecipientPosition;
             $recipient->save();
         }
-
-        return redirect()->back()->with('success', 'Certificate recipient updated successfully');
+        return response()->json(['success' => 'Certificate recipient updated successfully']);
     }
     /**
      * Show the form for editing the specified resource.
@@ -359,7 +362,6 @@ class EventController extends Controller
      */
     public function certificateAjax(Request $request){
         $name = $request->name;
-        // ddd($name);9
         $eventId = $request->eventId;
         if ($name == "") {
             $query = Certificate::where('event_id', $eventId)->paginate(20);

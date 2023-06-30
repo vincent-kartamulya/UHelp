@@ -92,7 +92,7 @@
         </a>
         @endforeach
     </div>
-    {{$events->links("sharetificate.pagination")}}
+    {{$events->appends(['filterOption' => $filterOption])->links("sharetificate.pagination")}}
 </div>
 <div id="read" class="grid grid-cols-2 gap-[4.167vw] p-[0.833vw] m-auto mt-[2.083vw] w-10/12 text-[1.458vw] font-semibold text-dark-blue-new text-opacity-60"></div>
 
