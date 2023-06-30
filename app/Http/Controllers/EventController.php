@@ -395,9 +395,26 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update($uuid, Request $request)
     {
-        //
+        $event = Event::where('uuid', $uuid)->firstOrFail();
+        $newEventName = $request->event_name;
+        $newEventLocation = $request->event_location;
+        $newEventDate = $request->event_date;
+        if($newEventName === null){
+            $newEventName = $event->title;
+        }
+        if($newEventLocation === null){
+            $newEventLocation = $event->location;
+        }
+        if($newEventDate === null){
+            $newEventDate = $event->date;
+        }
+        $event->title = $newEventName;
+        $event->location = $newEventLocation;
+        $event->date = $newEventDate;
+        $event->save();
+        return redirect()->back()->with('success', 'Event Updated');
     }
 
     /**

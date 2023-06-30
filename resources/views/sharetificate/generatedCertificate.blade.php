@@ -144,7 +144,8 @@
 {{-- Pop Up untuk Edit --}}
 <div id="popup-modal-edit" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-[0.833vw] overflow-x-hidden overflow-y-auto h-[calc(100%-0.8333vw)] max-h-full">
     <div class="w-full max-w-[46vw] max-h-full">
-        <form action="#">
+        <form action="/events/{{$event->uuid}}" method="POST">
+            @method('PUT')
             @csrf
             <div class="relative bg-white rounded-[0.833vw] shadow-2xl border-[0.208vw] border-yellow-new">
                 <button type="button" class="absolute top-[0.625vw] right-[0.625vw] text-gray-500 bg-transparent hover:bg-gray-200 hover:text-dark-blue-new rounded-[0.417vw] text-[0.729vw] p-[0.313vw] ml-auto inline-flex items-center" data-modal-hide="popup-modal-edit">
@@ -158,17 +159,18 @@
                     <div id="form-input" class="text-[1.25vw]">
                         <div class="event-title flex flex-col">
                             <label for="event_name" class="text-green-new text-[1.25vw] font-semibold mb-[0.625vw]">Title</label>
-                            <input type="text" name="event_name" id="event_name" class="form-control border px-[0.625vw] border-yellow-new rounded-[0.417vw] text-[0.938vw] focus:ring-green-new focus:border-green-new mb-[0.208vw]" placeholder="Enter the event's name " data-parsley-group="block0" required>
+                            <input type="text" name="event_name" id="event_name" class="form-control border px-[0.625vw] border-yellow-new rounded-[0.417vw] text-[0.938vw] focus:ring-green-new focus:border-green-new mb-[0.208vw]" placeholder="{{$event->title}}" data-parsley-group="block0">
                         </div>
                         <div id="loc-and-date" class="flex justify-between">
                             <div class="event-loc flex flex-col w-1/2">
                                 <label for="event_location" class="text-green-new text-[1.25vw] font-semibold mt-[2.5vw] mb-[0.625vw]">Location</label>
-                                <input type="text" name="event_location" id="event_location" class="form-control border px-[0.625vw] border-yellow-new rounded-[0.417vw] text-[0.938vw] focus:ring-green-new focus:border-green-new mb-[0.208vw]" placeholder="Enter the event's location " data-parsley-group="block0" required>
+                                <input type="text" name="event_location" id="event_location" class="form-control border px-[0.625vw] border-yellow-new rounded-[0.417vw] text-[0.938vw] focus:ring-green-new focus:border-green-new mb-[0.208vw]" placeholder="{{$event->location}}" data-parsley-group="block0">
                             </div>
                             <div class="event-date flex flex-col w-2/5">
                                 <label for="event_date" class="text-green-new text-[1.25vw] font-semibold mt-[2.5vw] mb-[0.625vw]">Date</label>
                                 <div class="flex flex-col">
-                                    <input datepicker type="text" name="event_date" id="event_date" class="form-control relative w-full border border-yellow-new rounded-[0.417vw] text-[0.938vw] focus:ring-green-new focus:border-green-new mb-[0.208vw]" placeholder="Select a date " data-parsley-group="block0" required>
+                                    <input datepicker type="text" name="event_date" id="event_date" class="form-control relative w-full border border-yellow-new rounded-[0.417vw] text-[0.938vw] focus:ring-green-new focus:border-green-new mb-[0.208vw]" placeholder="{{$event->date->format('m/d/Y')}}
+                                    " data-parsley-group="block0">
                                     <div class="absolute ml-[15vw] mt-[0.625vw] items-center">
                                         <svg class="text-gray-500" xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.25vw" viewBox="0 0 24 24">
                                             <rect x="0" y="0" width="1.25vw" height="1.25vw" fill="none" stroke="none" />
