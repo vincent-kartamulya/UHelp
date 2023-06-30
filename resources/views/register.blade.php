@@ -15,17 +15,24 @@
                     <div class="mb-[1vw]">
                         <label for="default-input" class="block font-medium text-[1.042vw] text-dark-blue-new mb-[0.5vw]">Email Address</label>
                         <input name="EmailAddress" type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-dark-blue-new text-[0.938vw] rounded-lg focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]">
-                        <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">Email is already registered.</p>
+                        @error('EmailAddress')
+                            <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">{{$message}}</p>
+                        @enderror
+
                     </div>
                     <div class="mb-[1vw]">
                         <label for="password" class="block font-medium text-[1.042vw] text-dark-blue-new mb-[0.5vw]">Password</label>
                         <input name="Password" type="password" id="password" class="bg-gray-50 border border-gray-300 text-dark-blue-new text-[0.938vw] rounded-lg focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]">
-                        <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">Password is too easy to guess!</p>
+                        @error('Password')
+                        <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">{{$message}}</p>
+                    @enderror
                     </div>
                     <div class="mb-[0.5vw]">
                         <label for="password" class="block font-medium text-[1.042vw] text-dark-blue-new mb-[0.5vw]">Confirm Password</label>
                         <input name="VerifyPassword" type="password" id="password" class="bg-gray-50 border border-gray-300 text-dark-blue-new text-[0.938vw] rounded-lg focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]">
-                        <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">Password doesn't match!</p>
+                        @error('VerifyPassword')
+                            <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">{{$message}}</p>
+                        @enderror
                     </div>
                     <button type="submit" class="flex justify-center bg-yellow-new hover:bg-yellow-hover h-[2.083vw] mt-[2vw] mb-[1vw] rounded-[0.625vw] shadow-shadow-custom items-center text-dark-blue-new text-[0.938vw] font-semibold">
                         Register

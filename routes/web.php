@@ -14,11 +14,11 @@ Route::get('/', function () {
 
 Route::get('/register', function () {
     return view('register');
-});
+})->middleware('guest');
 
 Route::get('/login', function () {
     return view('signIn');
-});
+})->middleware('guest');
 
 Route::get('/home', function () {
     return view('home2');
@@ -71,3 +71,4 @@ Route::delete('/deleteCertificate', [EventController::class, 'deleteCertificate'
 Route::put('/updateCertificate', [EventController::class, 'updateCertificate']);
 Route::post('/SignUp/Verif', [UserController::class,'SignUp']);
 Route::get('/sendEmail', [MailController::class, 'sendMail']);
+Route::post('/LogIn/verif', [UserController::class,'authentication']);

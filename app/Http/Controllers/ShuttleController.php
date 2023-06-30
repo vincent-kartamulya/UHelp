@@ -42,7 +42,7 @@ class ShuttleController extends Controller
         $destinationTo = $request->input('place_return');
         $departureTime = $request->input('time_departure');
         $returnTime = $request->input('time_return');
-        $keperluan = $request->input('kebutuhan');
+        $keperluan = $request->input('needs');
         $tanggal = true;
         $tomorrow = Carbon::tomorrow()->format('l');
         $date =  Carbon::tomorrow();
