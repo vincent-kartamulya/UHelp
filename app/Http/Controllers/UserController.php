@@ -20,7 +20,7 @@ class UserController extends Controller
         ]);
         $user = new User();
         $user->email = $validasi['EmailAddress'];
-        $user->password = $validasi['Password'];
+        $user->password = bcrypt($validasi['Password']);
         $user->save();
         return redirect('/login');
     }
@@ -31,9 +31,9 @@ class UserController extends Controller
             'password' => 'required|min:8'
         ]);
         if(Auth::attempt($validate)){
-            dd($validate);
+            // dd($validate);
             $request->session()->regenerate();
-            return redirect()->intended('/home');
+            return redirect()->intended('/');
         }
         else{
             dd($validate);
@@ -42,26 +42,10 @@ class UserController extends Controller
         // return redirect('/');
     }
 
-    // public function authentication(Request $request)
-    // {
-    // $credentials = $request->validate([
-    //     'email' => 'required|email',
-    //     'password' => 'required|min:8'
-    // ]);
-
-    // // Retrieve the user based on the email
-    // $user = User::where('email', $credentials['email'])->first();
-
-    // if ($user && Hash::check($credentials['password'], $user->password)) {
-    //     // Credentials are valid, log in the user
-    //     Auth::login($user);
-
-    //     $request->session()->regenerate();
-    //     return redirect()->intended('/home');
-    // } else {
-    //     // Credentials are invalid
-    //     return back()->with('LogInError', "Login error!");
-    // }
-    // }
-
+    public function Loggingout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 }
