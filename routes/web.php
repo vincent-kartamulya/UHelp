@@ -14,11 +14,11 @@ Route::get('/', function () {
 
 Route::get('/register', function () {
     return view('register');
-});
+})->middleware('guest');
 
 Route::get('/login', function () {
     return view('signIn');
-});
+})->middleware('guest')->name('login');
 
 Route::get('/home', function () {
     return view('home2');
@@ -59,11 +59,11 @@ Route::post('/clickandsit/fill', [ShuttleController::class,"savedata"]);
 Route::get('/Sele', [ShuttleController::class,'routingawal']);
 // Route::get('/Sele', [iniController::class,'routingawal']);
 
-Route::resource('/events', EventController::class);
+Route::resource('/events', EventController::class)->middleware('auth');
 Route::get('/ajax', [EventController::class,'ajax']);
 Route::get('/certificateAjax', [EventController::class,'certificateAjax']);
 Route::get('/downloadAll', [EventController::class, 'downloadAll']);
-Route::get('/clickandsit',[ShuttleController::class,'starting']);
+Route::get('/clickandsit',[ShuttleController::class,'starting'])->middleware('auth');
 Route::get('/edit/{id}',[ShuttleController::class,'ngedit']);
 Route::get('/nyobapython/{id}',[ShuttleController::class,'cobapython']);
 Route::get('/clickandsit/delete/{id}',[ShuttleController::class,'delete']);
@@ -71,3 +71,5 @@ Route::delete('/deleteCertificate', [EventController::class, 'deleteCertificate'
 Route::put('/updateCertificate', [EventController::class, 'updateCertificate']);
 Route::post('/SignUp/Verif', [UserController::class,'SignUp']);
 Route::get('/sendEmail', [MailController::class, 'sendMail']);
+Route::post('/LogIn/verif', [UserController::class,'authentication']);
+Route::post('/LogOut', [UserController::class,'Loggingout']);

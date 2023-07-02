@@ -5,29 +5,47 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function SignUp(Request $request){
         // $email = $request->input('EmailAddress');
         // $Password = $request->input('Password');
-        $verif = $request->input('VerifyPassword');
+        // $verif = $request->input('VerifyPassword');
         $validasi = $request->validate([
             'EmailAddress' => 'required|email',
-            'Password' => 'required|min:8'
+            'Password' => 'required|min:8',
+            'VerifyPassword'=>'required|same:Password'
         ]);
         $user = new User();
         $user->email = $validasi['EmailAddress'];
-        $user->password = $validasi['Password'];
+        $user->password = bcrypt($validasi['Password']);
         $user->save();
-        return view('home');
+        return redirect('/login');
     }
 
     public function authentication(Request $request){
-        $validasi = $request->validate([
-            'EmailAddress' => 'required|email',
-            'Password' => 'required|min:8'
+        $validate = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8'
         ]);
-        
+        if(Auth::attempt($validate)){
+            // dd($validate);
+            $request->session()->regenerate();
+            return redirect()->intended('/');
+        }
+        else{
+            dd($validate);
+            // return back()->with('LogInError',"Login error!");
+        }
+        // return redirect('/');
+    }
+
+    public function Loggingout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }
