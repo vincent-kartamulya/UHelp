@@ -73,3 +73,4 @@ Route::post('/SignUp/Verif', [UserController::class,'SignUp']);
 Route::get('/sendEmail', [MailController::class, 'sendMail']);
 Route::post('/LogIn/verif', [UserController::class,'authentication']);
 Route::post('/LogOut', [UserController::class,'Loggingout']);
+Route::post('/update/profile', [UserController::class,'profileedit']);

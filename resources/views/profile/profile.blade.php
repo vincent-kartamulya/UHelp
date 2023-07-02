@@ -32,21 +32,37 @@
                 </a>
             </div>
         </div>
-        <div id="account data">
-            <h5 class="text-[1.5vw] font-semibold mb-[1.5vw]">Account Data</h5>
-            <div id="username" class="w-[28vw] mb-[2vw]">
-                <h5 class="absolute ml-[0.75vw] top-[25.4vw] bg-white text-[#3F487F] w-[4.75vw] flex justify-center">Username</h5>
-                <input type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="anderies_notanto" required>
+        <form action="/update/profile" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div id="account data">
+                <h5 class="text-[1.5vw] font-semibold mb-[1.5vw]">Account Data</h5>
+                <div id="username" class="w-[28vw] mb-[2vw]">
+                    <h5 class="absolute ml-[0.75vw] top-[25.4vw] bg-white text-[#3F487F] w-[4.75vw] flex justify-center">Username</h5>
+                    <input name="name" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="anderies_notanto" required>
+                </div>
+                <div id="username" class="w-[28vw] mb-[2vw]">
+                    <h5 class="absolute ml-[0.75vw] top-[30.4vw] bg-white text-[#3F487F] w-[2.75vw] flex justify-center">Email</h5>
+                    <input name="BINUSId" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="anderies_senpai@gmail.com" required>
+                </div>
+                <div id="real name" class="w-[28vw] mb-[5vw]">
+                    <h5 class="absolute ml-[0.75vw] top-[35.4vw] bg-white text-[#3F487F] w-[5vw] flex justify-center">Real Name</h5>
+                    <input name="Position" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="Anderies Notanto" required>
+                </div>
+                <H1>Upload Photo</H1>
+                <div class="flex items-center space-x-6">
+                    <label class="block">
+                      <span class="sr-only">Choose profile photo</span>
+                      <input name="imageprofile" type="file" class="block w-full text-sm text-slate-500
+                        file:mr-4 file:py-2 file:px-4
+                        file:rounded-full file:border-0
+                        file:text-sm file:font-semibold
+                        file:bg-violet-50 file:text-violet-700
+                        hover:file:bg-violet-100"/>
+                    </label>
+                </div>
             </div>
-            <div id="username" class="w-[28vw] mb-[2vw]">
-                <h5 class="absolute ml-[0.75vw] top-[30.4vw] bg-white text-[#3F487F] w-[2.75vw] flex justify-center">Email</h5>
-                <input type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="anderies_senpai@gmail.com" required>
-            </div>
-            <div id="real name" class="w-[28vw] mb-[5vw]">
-                <h5 class="absolute ml-[0.75vw] top-[35.4vw] bg-white text-[#3F487F] w-[5vw] flex justify-center">Real Name</h5>
-                <input type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="Anderies Notanto" required>
-            </div>
-        </div>
+
+
         <div id="notification">
             <h5 class="text-[1.5vw] font-semibold mb-[1vw]">Notification</h5>
             <div id="card" class="mb-[3vw]">
@@ -76,12 +92,13 @@
                     Cancel
                 </div>
             </a>
-            <a href="/profile/change">
-                <div id="facebook" class="bg-[#3F487F] w-[9vw] h-[2.75vw] rounded-[0.25vw] shadow text-white flex items-center justify-center ml-[1vw] border border-[#CFD9E0]">
+            <button type="submit">
+                <div  class="bg-[#3F487F] w-[9vw] h-[2.75vw] rounded-[0.25vw] shadow text-white flex items-center justify-center ml-[1vw] border border-[#CFD9E0]">
                     Save Changes
                 </div>
-            </a>
+            </button>
         </div>
+        </form>
     </div>
 </div>
 @endsection
