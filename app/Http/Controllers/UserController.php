@@ -51,11 +51,32 @@ class UserController extends Controller
 
 
     public function profileedit(Request $request) {
-        $verif=$request->input([
-            'name','BINUSId','Position','imageprofile'
-        ]);
-        
+        $verif = [
+            'name' => $request->input('name'),
+            'BINUSId' => $request->input('BINUSId'),
+            'Position' => $request->input('Position'),
+            'imageprofile' => null
+        ];
+
+        if ($request->file('imageprofile')) {
+            $path = $request->file('imageprofile')->store('profile-picture', 'public');
+            $verif['imageprofile'] = $path;
+        }
+
+        $punya = User::find(auth()->user()->id);
+        $punya->name = $verif['name'];
+        $punya->BINUSId = $verif['BINUSId'];
+        $punya->Position = $verif['Position'];
+        $punya->imageprofile = $verif['imageprofile'];
+        $punya->save();
+        return view('profile.profile',compact('punya'));
         // return $request->file('imageupload')->store('profile-picture');
         // dd($request);
     }
+
+    public function openprofile(){
+        $punya = User::find(auth()->user()->id);
+        return view('profile.profile',compact('punya'));
+    }
+
 }
