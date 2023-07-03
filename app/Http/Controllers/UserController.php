@@ -48,4 +48,14 @@ class UserController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
+
+
+    public function profileedit(Request $request) {
+        $verif=$request->input([
+            'name','BINUSId','Position','imageprofile'
+        ]);
+        
+        // return $request->file('imageupload')->store('profile-picture');
+        // dd($request);
+    }
 }

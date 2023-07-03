@@ -11,6 +11,7 @@ use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverWait;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
@@ -20,7 +21,7 @@ class ShuttleController extends Controller
 {
 
     public function starting(){
-        $datas = Shuttle::all();
+        $datas = Shuttle::where('user_id',auth()->user()->id)->get();
         if($datas->isEmpty()){
             return view('clickandsit.clickandsit-empty');
         }
@@ -30,7 +31,7 @@ class ShuttleController extends Controller
     public function delete($idShuttle){
         $anjay = Shuttle::find($idShuttle);
         $anjay->delete();
-        $datas = Shuttle::all();
+        $datas = Shuttle::where('user_id',auth()->user()->id)->get();
         if($datas->isEmpty()){
             return view('clickandsit.clickandsit-empty');
         }
@@ -52,6 +53,7 @@ class ShuttleController extends Controller
         $model->naik = $destinationTo;
         $model->jamAlsut = $departureTime;
         $model->keperluan = $keperluan;
+        $model->user_id = auth()->user()->id;
         $model->hari = $tomorrow;
         $model->jamAnggrek = $returnTime;
         $model->departdate = $date;
