@@ -54,8 +54,8 @@
     @endforeach
 
 
-    <div id="button" class="m-auto my-10 mb-[5vw] text-[0.938vw]">
-        <a href="/createTemplate" class="flex justify-center bg-yellow-new hover:bg-yellow-hover h-full px-[1.4vw] py-[0.8vw] rounded-full shadow-lg items-center">
+    <div id="button" class="m-auto my-10 mb-[5vw] text-[0.938vw] flex items-center justify-center">
+        <a href="/createTemplate" class="flex justify-center bg-yellow-new hover:bg-yellow-hover w-[15vw] h-full px-[1.4vw] py-[0.8vw] rounded-full shadow-lg items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.25vw" viewBox="0 0 24 24">
                 <rect x="0" y="0" width="24" height="24" fill="none" stroke="none"/>
                 <path fill="#3F487F" stroke="#3F487F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v12m-6-6h12"/>

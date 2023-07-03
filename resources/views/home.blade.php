@@ -1,66 +1,157 @@
 @extends('master')
 @section('title', 'U-Help | Home')
+@section('css')
+    {{-- box icons --}}
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    {{-- custom css --}}
+    <link rel="stylesheet" href="css/style.css">
+@endsection
 @section('content')
-<div id="section-1" class="flex flex-row justify-between bg-slate-100 h-[40vw] w-full absolute z-20 top-[0vw]">
-    <div id="left1" class="text-dark-blue-new ml-[8vw]">
-        <h1 class="font-bold text-[3vw] mt-[10vw] w-[30vw]">Make Your Daily Activity Easier</h1>
-        <div class="text-green-new text-[1.25vw] my-[1.5vw] font-medium">
-            <p class="w-[35vw]">Streamline your form filling and certificate generation with our website's innovative features</p>
-            <p class="italic">- Save time, stay secure! -</p>
+<div class="main">
+    {{-- home section design --}}
+    <section class="home" id="home">
+        <div class="home-top">
+            <div class="home-content">
+                <h3><span class="multiple-text"></span></h3>
+                <h1>MAKE YOUR DAILY<br>ACTIVITY EASIER</h1>
+                <p>Streamline your form filling and certificate generation<br>with our website's innovative features<br><em>- Save time, stay secure! -</em></p>
+                <a href="#services" class="btn">See Feature</a>
+            </div>
+
+            <div class="design">
+                <div class="ornament1-img">
+                    <img src="assets/bagus/ornament1.png" alt="">
+                </div>
+                <div class="home-img">
+                    <img src="assets/bagus/binus.png" alt="">
+                </div>
+            </div>
         </div>
-        {{-- Muncul saat user belum login --}}
-        <div class="flex">
-            <a href="#" class="flex bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-[1.25vw] font-bold w-fit h-fit rounded-[1.458vw] shadow-lg items-center">
-                <p class="px-[1.667vw] py-[0.625vw]">Start</p>
-            </a>
+
+        <div class="ornament2-img">
+            <img src="assets/bagus/ornament2.png" alt="">
         </div>
-    </div>
-    <div id="right1" class="absolute right-[2vw] z-10 flex flex-col m-auto">
-        <img class="mt-[5vw]" src="/assets/home/section1/rightOrnament.png" alt="Right Ornament">
-        <img class="absolute top-[22vw]" src="/assets/home/section1/binus.png" alt="Binus">
-    </div>
+    </section>
+
+
+    {{-- services section design --}}
+    <section class="services" id="services">
+        <h2 class="heading">Our <span>Services</span></h2>
+
+        <div class="services-container">
+            <div class="services-box">
+                <img class="cas1" src="assets/bagus/cas1.png" alt="">
+                <img class="cas2" src="assets/bagus/cas2.png" alt="">
+                <h3>Click and Sit</h3>
+                <p>Easily fill out shuttle booking forms in seconds with our automated feature
+                <br><em>- Say goodbye to manual data entry and save time! Try it now! -</em></p>
+                <a href="/clickandsit" class="btn">Start</a>
+            </div>
+
+            <div class="services-box">
+                <img class="sharetificate1" src="assets/bagus/sharetificate1.png" alt="">
+                <img class="sharetificate2" src="assets/bagus/sharetificate2.png" alt="">
+                <h3>Sharetificate</h3>
+                <p>Create and manage secure certificates with ease using our QR validation feature
+                <br><em>- Save time and stay organized! -</em></p>
+                <a href="/events" class="btn">Start</a>
+            </div>
+        </div>
+    </section>
+
+
+    {{-- portfolio section design --}}
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Our <span>Activity</span></h2>
+
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="assets/bagus/portfolio1.png" alt="">
+                <div class="portfolio-layer">
+                    <h4>Click and Sit</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil doloremque est suscipit nostrum delectus vitae quidem provident, totam odit praesentium ex officia aut dolorum at, ratione quibusdam amet dignissimos veritatis?</p>
+                    {{-- <a href="#"><i class='bx bx-link-external' ></i></a> --}}
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="assets/bagus/portfolio2.png" alt="">
+                <div class="portfolio-layer">
+                    <h4>Click and Sit</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil doloremque est suscipit nostrum delectus vitae quidem provident, totam odit praesentium ex officia aut dolorum at, ratione quibusdam amet dignissimos veritatis?</p>
+                    {{-- <a href="#"><i class='bx bx-link-external' ></i></a> --}}
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="assets/bagus/portfolio3.png" alt="">
+                <div class="portfolio-layer">
+                    <h4>Click and Sit</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil doloremque est suscipit nostrum delectus vitae quidem provident, totam odit praesentium ex officia aut dolorum at, ratione quibusdam amet dignissimos veritatis?</p>
+                    {{-- <a href="#"><i class='bx bx-link-external' ></i></a> --}}
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="assets/bagus/portfolio4.png" alt="">
+                <div class="portfolio-layer">
+                    <h4>Sharetificate</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil doloremque est suscipit nostrum delectus vitae quidem provident, totam odit praesentium ex officia aut dolorum at, ratione quibusdam amet dignissimos veritatis?</p>
+                    {{-- <a href="#"><i class='bx bx-link-external' ></i></a> --}}
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="assets/bagus/portfolio5.png" alt="">
+                <div class="portfolio-layer">
+                    <h4>Sharetificate</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil doloremque est suscipit nostrum delectus vitae quidem provident, totam odit praesentium ex officia aut dolorum at, ratione quibusdam amet dignissimos veritatis?</p>
+                    {{-- <a href="#"><i class='bx bx-link-external' ></i></a> --}}
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="assets/bagus/portfolio6.png" alt="">
+                <div class="portfolio-layer">
+                    <h4>Sharetificate</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil doloremque est suscipit nostrum delectus vitae quidem provident, totam odit praesentium ex officia aut dolorum at, ratione quibusdam amet dignissimos veritatis?</p>
+                    {{-- <a href="#"><i class='bx bx-link-external' ></i></a> --}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    {{-- contact section design --}}
+    <section class="contact" id="contact">
+        <div class="contact-me">
+            <h2 class="heading">Contact <span>Us</span></h2>
+
+            <form action="#">
+                <div class="input-box">
+                    <input class="input-type" type="text" placeholder="Full Name">
+                    <input type="email" placeholder="Email Address">
+                </div>
+                <div class="input-box">
+                    <input type="number" placeholder="Mobile Number">
+                    <input type="text" placeholder="Email Subject">
+                </div>
+                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+                <input type="submit" value="Send Message" class="btn">
+            </form>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt' ></i></a>
+        </div>
+    </section>
+
+    {{-- <div id="section-5" class="z-10 w-full">
+        <img class="w-full" src="/assets/home/section5/frameFooter.png" alt="">
+    </div> --}}
 </div>
-<img class="w-full absolute top-[30vw] z-10" src="/assets/home/section1/bottomOrnament.png" alt="">
-<div id="section-2">
-    <div>
-        <img class="absolute z-10 top-[58vw] w-screen" src="/assets/home/section2/background.png" alt="">
-    </div>
-</div>
-<div id="section-3" class="w-full mt-[95vw] flex flex-row justify-center gap-[6vw]">
-    <div id="left3">
-        <img src="/assets/home/section3/clickandsitImage.png" alt="">
-    </div>
-    <div id="right3" class="flex flex-col my-auto text-green-new w-2/5">
-        <h1 class="font-bold text-[3vw]">Click and Sit</h1>
-        <div class="text-dark-blue-new text-[1.25vw] my-[1.5vw] font-medium">
-            <p>Easily fill out shuttle booking forms in seconds with our automated feature</p>
-            <p class="italic">- Say goodbye to manual data entry and save time! Try it now! -</p>
-        </div>
-        <div class="flex">
-            <a href="#" class="flex bg-yellow-new hover:bg-yellow-hover text-green-new text-[1.25vw] font-bold w-fit h-fit rounded-[1.458vw] shadow-lg items-center">
-                <p class="px-[1.667vw] py-[0.625vw]">Start</p>
-            </a>
-        </div>
-    </div>
-</div>
-<div id="section-4" class="w-full mt-[10vw] flex flex-row justify-center gap-[6vw]">
-    <div id="left4" class="flex flex-col my-auto text-green-new w-2/5 text-right">
-        <h1 class="font-bold text-[3vw]">Sharetificate</h5>
-        <div class="text-dark-blue-new text-[1.25vw] my-[1.5vw] font-medium">
-            <p>Create and manage secure certificates with ease using our QR validation feature</p>
-            <p class="italic">- Save time and stay organized! -</p>
-        </div>
-        <div class="flex justify-end">
-            <a href="#" class="flex bg-yellow-new hover:bg-yellow-hover text-green-new text-[1.25vw] font-bold w-fit h-fit rounded-[1.458vw] shadow-lg items-center">
-                <p class="px-[1.667vw] py-[0.625vw]">Start</p>
-            </a>
-        </div>
-    </div>
-    <div id="right4">
-        <img class="h-[18vw]" src="/assets/home/section4/sharetificateImage.png" alt="">
-    </div>
-</div>
-<div id="section-5" class="z-10 w-full">
-    <img class="w-full" src="/assets/home/section5/frameFooter.png" alt="">
-</div>
+    {{-- scroll reveal --}}
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    {{-- typed js --}}
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    {{-- custom js --}}
+    <script src="js/script.js"></script>
 @endsection

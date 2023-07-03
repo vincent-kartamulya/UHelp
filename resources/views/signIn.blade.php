@@ -35,7 +35,7 @@
                     <div class="flex justify-end">
                         <a class="text-green-new text-[0.938vw] hover:underline" href="#">Forgot password?</a>
                     </div>
-                    <button type="submit" class="flex justify-center bg-yellow-new hover:bg-yellow-hover h-[2.083vw] mt-[2vw] mb-[1vw] rounded-[0.625vw] shadow-shadow-custom items-center text-dark-blue-new text-[0.938vw] font-semibold">
+                    <button type="submit" class="flex justify-center w-full bg-yellow-new hover:bg-yellow-hover h-[2.083vw] mt-[2vw] mb-[1vw] rounded-[0.625vw] shadow-shadow-custom items-center text-dark-blue-new text-[0.938vw] font-semibold">
                         Login
                     </button>
                     <div class="w-full flex justify-between items-center text-center">

@@ -26,9 +26,7 @@ Route::get('/home', function () {
     return view('home2');
 });
 
-Route::get('/profile', function () {
-    return view('profile.profile');
-});
+Route::get('/profile', [UserController::class,'openprofile']);
 
 Route::get('/profile/delete', function () {
     return view('profile.profile-delete');
