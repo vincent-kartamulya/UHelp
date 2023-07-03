@@ -1,18 +1,5 @@
 @extends('master')
 @section('title', 'U-Help | Create Template')
-@section('css')
-<link
-rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-<script>
-    tailwind.config = {
-        darkMode: "class",
-        corePlugins: {
-        preflight: false,
-        },
-    };
-</script>
-@endsection
 @section('content')
 <div id="content" class="flex pt-[5vw]">
     <div id="ornament">
@@ -43,51 +30,60 @@ href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
                 @csrf
                 <label class="block text-green-new text-[1.25vw] font-semibold mb-[1vw]">Departure</label>
                 <div class="flex flex-row justify-between items-center">
-                    <div class="place_departure">
-                        <select name="place_departure" id="place_departure" data-te-select-init data-te-class-form-outline="relative w-[20vw]">
-                            <option value="" selected></option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
+                    <div class="relative">
+                        <select name="place_departure" id="place_departure" class="block px-2.5 pb-1.5 pt-3 w-[20vw] text-sm bg-transparent rounded-lg border-1 border-yellow-new appearance-none focus:outline-none focus:ring-0 focus:border-green-new peer" placeholder=" "">
+                            <option value="" selected> </option>
+                            <option value="Binus Main Campus Alam Sutera">Binus Main Campus Alam Sutera</option>
+                            <option value="Binus ASO Alam Sutera">Binus ASO Alam Sutera</option>
                         </select>
-                        <label data-te-select-label-ref>Choose destination place</label>
+                        <label for="place_departure" class="absolute text-sm text-dark-blue-new duration-300 transform -translate-y-3 scale-80 top-1 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3 left-1">Choose destination place</label>
                     </div>
-                    <div class="time_departure">
-                        <select name="time_departure" id="time_departure" data-te-select-init data-te-class-form-outline="relative w-[20vw]">
-                            <option value="" selected></option>
-                            <option value="07.00">07.00</option>
-                            <option value="08.00">08.00</option>
-                            <option value="09.00">09.00</option>
+
+                    <div class="relative">
+                        <select name="time_departure" id="time_departure" class="block px-2.5 pb-1.5 pt-3 w-[20vw] text-sm bg-transparent rounded-lg border-1 border-yellow-new appearance-none focus:outline-none focus:ring-0 focus:border-green-new peer" placeholder=" "">
+                            <option value="" selected> </option>
+                            <option value="Jam 06:05">Jam 06:05</option>
+                            <option value="Jam 07:30">Jam 07:30</option>
+                            <option value="Jam 10:10">Jam 10:10</option>
+                            <option value="Jam 12:10 (Khusus hari Jum'at Jam 12:40)">Jam 12:10 (Khusus hari Jum'at Jam 12:40)</option>
+                            <option value="Jam 14:10">Jam 14:10</option>
+                            <option value="Jam 15:30">Jam 15:30</option>
+                            <option value="Jam 17:30">Jam 17:30</option>
                         </select>
-                        <label data-te-select-label-ref>Choose departure time</label>
+                        <label for="time_departure" class="absolute text-sm text-dark-blue-new duration-300 transform -translate-y-3 scale-80 top-1 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3 left-1">Choose departure time</label>
                     </div>
                 </div>
 
                 <label class="block text-green-new text-[1.25vw] font-semibold mt-[2vw] mb-[1vw]">Return</label>
                 <div class="flex flex-row justify-between items-center">
-                    <div class="place_return">
-                        <select name="place_return" id="place_return" data-te-select-init data-te-class-form-outline="relative w-[20vw]">
-                            <option value="" selected></option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                            <option value="F">F</option>
+                    <div class="relative">
+                        <select name="place_return" id="place_return" class="block px-2.5 pb-1.5 pt-3 w-[20vw] text-sm bg-transparent rounded-lg border-1 border-yellow-new appearance-none focus:outline-none focus:ring-0 focus:border-green-new peer" placeholder=" "">
+                            <option value="" selected> </option>
+                            <option value="Binus Main Campus Alam Sutera">Binus Main Campus Alam Sutera</option>
+                            <option value="Binus ASO Alam Sutera">Binus ASO Alam Sutera</option>
                         </select>
-                        <label data-te-select-label-ref>Choose return place</label>
+                        <label for="place_return" class="absolute text-sm text-dark-blue-new duration-300 transform -translate-y-3 scale-80 top-1 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3 left-1">Choose return place</label>
                     </div>
-                    <div class="time_return">
-                        <select name="time_return" id="time_return" data-te-select-init data-te-class-form-outline="relative w-[20vw]">
-                            <option value="" selected></option>
-                            <option value="17.00">17.00</option>
-                            <option value="18.00">18.00</option>
-                            <option value="19.00">19.00</option>
+
+                    <div class="relative">
+                        <select name="time_return" id="time_return" class="block px-2.5 pb-1.5 pt-3 w-[20vw] text-sm bg-transparent rounded-lg border-1 border-yellow-new appearance-none focus:outline-none focus:ring-0 focus:border-green-new peer" placeholder=" "">
+                            <option value="" selected> </option>
+                            <option value="Jam 07:30">Jam 07:30</option>
+                            <option value="Jam 09:30">Jam 09:30</option>
+                            <option value="Jam 11:30 (Khusus hari Jum'at Jam 11:10)">Jam 11:30 (Khusus hari Jum'at Jam 11:10)</option>
+                            <option value="Jam 13:30">Jam 13:30</option>
+                            <option value="Jam 15:30">Jam 15:30</option>
+                            <option value="Jam 17:30">Jam 17:30</option>
+                            <option value="Jam 19:10">Jam 19:10</option>
                         </select>
-                        <label data-te-select-label-ref>Choose return time</label>
+                        <label for="time_return" class="absolute text-sm text-dark-blue-new duration-300 transform -translate-y-3 scale-80 top-1 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3 left-1">Choose return time</label>
                     </div>
                 </div>
 
                 <label class="block text-green-new text-[1.25vw] font-semibold mt-[2vw] mb-[1vw]">Needs</label>
-                <div>
-                    <input name="needs"  type="text" class="border w-full border-yellow-new text-[1.042vw] rounded-[0.417vw] focus:ring-green-new focus:border-green-new block p-[0.521vw]" placeholder="Fill the need for your shuttle" required>
+                <div class="relative">
+                    <input name="needs"  type="text" class="block px-2.5 pb-1.5 pt-3 text-sm bg-transparent border w-full border-yellow-new text-[1.042vw] rounded-[0.417vw] focus:ring-green-new focus:border-green-new p-[0.521vw]" placeholder=" " required>
+                    <label for="needs" class="absolute text-sm text-dark-blue-new duration-300 transform -translate-y-3 scale-80 top-1 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3 left-1">Fill the need for your shuttle</label>
                 </div>
                 <div class="flex justify-center">
                     <button id="save-button" type="submit" class="flex m-auto bg-yellow-new hover:bg-yellow-hover h-auto mt-[2.083vw] rounded-full shadow-lg items-center">
@@ -96,7 +92,6 @@ href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
                 </div>
             </form>
         </div>
-
     </div>
 </div>
 
