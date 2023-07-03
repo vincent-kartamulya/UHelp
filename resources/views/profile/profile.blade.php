@@ -5,7 +5,7 @@
     <div id="left content" class="ml-[15vw] ">
         <div id="profile" class="w-full max-w-[12vw] h-[13vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[8vw]">
             <div id="profile" class="flex flex-col items-center pb-10">
-                <img class="w-[6vw] h-[6vw] mb-3 rounded-full shadow-lg mt-[1vw] border-[0.2vw] border-slate-100" src="/assets/profile/profile.png" alt="Profile Picture"/>
+                <img class="w-[6vw] h-[6vw] mb-3 rounded-full shadow-lg mt-[1vw] border-[0.2vw] border-slate-100" src="{{$punya->imageprofile}}" alt="Profile Picture"/>
                 <h5 class="mb-1 text-[0.75vw] font-medium text-gray-900">@anderies_senpai</h5>
                 <hr class="w-[11.5vw] h-[0.2vw] mx-auto my-4 bg-slate-100 border-0 rounded shadow-inner">
             </div>
@@ -38,15 +38,15 @@
                 <h5 class="text-[1.5vw] font-semibold mb-[1.5vw]">Account Data</h5>
                 <div id="username" class="w-[28vw] mb-[2vw]">
                     <h5 class="absolute ml-[0.75vw] top-[25.4vw] bg-white text-[#3F487F] w-[4.75vw] flex justify-center">Username</h5>
-                    <input name="name" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="anderies_notanto" required>
+                    <input name="name" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="{{$punya->name}}" required>
                 </div>
                 <div id="username" class="w-[28vw] mb-[2vw]">
                     <h5 class="absolute ml-[0.75vw] top-[30.4vw] bg-white text-[#3F487F] w-[2.75vw] flex justify-center">Email</h5>
-                    <input name="BINUSId" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="anderies_senpai@gmail.com" required>
+                    <input name="BINUSId" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="{{$punya->BINUSId}}" required>
                 </div>
                 <div id="real name" class="w-[28vw] mb-[5vw]">
                     <h5 class="absolute ml-[0.75vw] top-[35.4vw] bg-white text-[#3F487F] w-[5vw] flex justify-center">Real Name</h5>
-                    <input name="Position" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="Anderies Notanto" required>
+                    <input name="Position" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="{{$punya->Position}}" required>
                 </div>
                 <H1>Upload Photo</H1>
                 <div class="flex items-center space-x-6">
