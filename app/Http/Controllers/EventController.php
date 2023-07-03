@@ -258,8 +258,6 @@ class EventController extends Controller
          }
      }
 
-
-
     public function show($uuid, Request $request)
     {
         $event = Event::where('uuid', $uuid)->firstOrFail();

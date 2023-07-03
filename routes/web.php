@@ -4,9 +4,11 @@ use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\iniController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ShuttleController;
 use App\Http\Controllers\UserController;
+use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', function () {
     return view('home');
@@ -74,3 +76,6 @@ Route::get('/sendEmail', [MailController::class, 'sendMail']);
 Route::post('/LogIn/verif', [UserController::class,'authentication']);
 Route::post('/LogOut', [UserController::class,'Loggingout']);
 Route::post('/update/profile', [UserController::class,'profileedit']);
+
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
