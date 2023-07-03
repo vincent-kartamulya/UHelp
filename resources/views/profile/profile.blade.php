@@ -5,8 +5,8 @@
     <div id="left content" class="ml-[15vw] ">
         <div id="profile" class="w-full max-w-[12vw] h-[13vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[8vw]">
             <div id="profile" class="flex flex-col items-center pb-10">
-                <img class="w-[6vw] h-[6vw] mb-3 rounded-full shadow-lg mt-[1vw] border-[0.2vw] border-slate-100" src="{{$punya->imageprofile}}" alt="Profile Picture"/>
-                <h5 class="mb-1 text-[0.75vw] font-medium text-gray-900">@anderies_senpai</h5>
+                <img class="w-[6vw] h-[6vw] mb-3 rounded-full shadow-lg mt-[1vw] border-[0.2vw] border-slate-100" src="{{asset('storage/'. $punya->imageprofile)}}" alt="Profile Picture"/>
+                <h5 class="mb-1 text-[0.75vw] font-medium text-gray-900">{{$punya->name}}</h5>
                 <hr class="w-[11.5vw] h-[0.2vw] mx-auto my-4 bg-slate-100 border-0 rounded shadow-inner">
             </div>
         </div>
