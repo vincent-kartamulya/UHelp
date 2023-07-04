@@ -1,91 +1,106 @@
 @extends('master')
 @section('title','U-Help | Profile')
+@section('css')
+<link rel="stylesheet" href="css/profile.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+@endsection
 @section('content')
 <div id="content" class="flex flex-row bg-slate-100">
     <div id="left content" class="ml-[15vw] ">
-        <div id="profile" class="w-full max-w-[12vw] h-[13vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[8vw]">
+        <div id="profile" class="w-full max-w-[12vw] h-[12vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[8vw]">
             <div id="profile" class="flex flex-col items-center pb-10">
-                <img class="w-[6vw] h-[6vw] mb-3 rounded-full shadow-lg mt-[1vw] border-[0.2vw] border-slate-100" src="{{asset('storage/'. $punya->imageprofile)}}" alt="Profile Picture"/>
-                <h5 class="mb-1 text-[0.75vw] font-medium text-gray-900">{{$punya->name}}</h5>
-                <hr class="w-[11.5vw] h-[0.2vw] mx-auto my-4 bg-slate-100 border-0 rounded shadow-inner">
+                <div class="profile-pic">
+                    <label class="-label" for="file">
+                        <i class='bx bx-camera'></i>
+                    </label>
+                    <input id="file" type="file" onchange="loadFile(event)"/>
+                    <img src="assets/profil.jpg" id="output" width="200" />
+                </div>
+                <h5 class="mb-1 text-[0.8vw] font-medium text-gray-900">@anderies_senpai</h5>
+                <hr class="w-[11.5vw] h-[0.2vw] mx-auto mt-[0.6vw] bg-slate-100 border-0 rounded shadow-inner">
+                <a href="">
+                    <div class="flex justify-center items-center w-[11.7vw] h-[2.65vw] bg-white rounded">
+                        <h5 class="font-semibold text-green-new text-[0.9vw]">Change Password</h5>
+                    </div>
+                </a>
             </div>
         </div>
-        <a href="/profile/delete">
+
+        <a href="">
             <div id="delete account" class="flex justify-center items-center w-[12vw] h-[2.5vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[1vw]">
                 <h5 class="text-[1vw] font-semibold text-red-600">Delete Account</h5>
             </div>
         </a>
     </div>
-    <div id="right content" class="bg-white rounded-[0.5vw] shadow mt-[8vw] w-[50vw] h-[64vw] ml-[5vw] px-[3.5vw] py-[3vw] mb-[5vw]">
-        <div id="connect section">
-            <h5 class="text-[1.5vw] font-semibold mb-[1vw]">Connect</h5>
-            <div id="connect button" class="flex flex-row mb-[5vw]">
-                <a href="">
-                    <div id="facebook" class="bg-[#3F487F] w-[21vw] h-[3vw] rounded-[0.25vw] shadow uppercase text-white flex items-center justify-center">
-                        CONNECT WITH FACEBOOK
-                    </div>
-                </a>
-                <a href="">
-                    <div id="facebook" class="bg-[#DAA55A] w-[21vw] h-[3vw] rounded-[0.25vw] shadow uppercase text-black flex items-center justify-center ml-[1vw]">
-                        REGISTERED WITH GOOGLE
-                    </div>
-                </a>
-            </div>
-        </div>
+    <div id="right content" class="bg-white rounded-[0.5vw] shadow mt-[8vw] w-[50vw] h-auto ml-[5vw] px-[3.5vw] py-[3vw] mb-[5vw]">
         <form action="/update/profile" method="POST" enctype="multipart/form-data">
             @csrf
-            <div id="account data">
-                <h5 class="text-[1.5vw] font-semibold mb-[1.5vw]">Account Data</h5>
-                <div id="username" class="w-[28vw] mb-[2vw]">
-                    <h5 class="absolute ml-[0.75vw] top-[25.4vw] bg-white text-[#3F487F] w-[4.75vw] flex justify-center">Username</h5>
-                    <input name="name" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="{{$punya->name}}" required>
+            <div id="account data" class="mb-[2vw]">
+                <div id="accountData" class="flex justify-center items-center">
+                    <h5 class="text-[2vw] font-bold mb-[3vw] text-dark-blue-new">Account Data</h5>
                 </div>
-                <div id="username" class="w-[28vw] mb-[2vw]">
-                    <h5 class="absolute ml-[0.75vw] top-[30.4vw] bg-white text-[#3F487F] w-[2.75vw] flex justify-center">Email</h5>
-                    <input name="BINUSId" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="{{$punya->BINUSId}}" required>
-                </div>
-                <div id="real name" class="w-[28vw] mb-[5vw]">
-                    <h5 class="absolute ml-[0.75vw] top-[35.4vw] bg-white text-[#3F487F] w-[5vw] flex justify-center">Real Name</h5>
-                    <input name="Position" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[21vw] h-[3vw] border-[#B8BBBA] bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-[#3F487F] focus:border-[#3F487F] text-black" placeholder="{{$punya->Position}}" required>
-                </div>
-                <H1>Upload Photo</H1>
-                <div class="flex items-center space-x-6">
-                    <label class="block">
-                      <span class="sr-only">Choose profile photo</span>
-                      <input name="imageprofile" type="file" class="block w-full text-sm text-slate-500
-                        file:mr-4 file:py-2 file:px-4
-                        file:rounded-full file:border-0
-                        file:text-sm file:font-semibold
-                        file:bg-violet-50 file:text-violet-700
-                        hover:file:bg-violet-100"/>
-                    </label>
-                </div>
-            </div>
-
-
-        <div id="notification">
-            <h5 class="text-[1.5vw] font-semibold mb-[1vw]">Notification</h5>
-            <div id="card" class="mb-[3vw]">
-                <div id="notification" class="bg-white w-[43vw] h-[3vw] rounded-[0.25vw] shadow text-black flex items-center border border-[#B8BBBA]">
-                    <p class="ml-[0.75vw]">Receive newsletters, promotions, and news from U-Help Comapny</p>
-                    <div id="right (toggle)">
-                        <label for="themeSwitcherTwo" class="themeSwitcherTwo relative inline-flex cursor-pointer select-none items-center left-[9.5vw] top-[0.1vw]">
-                            <input type="checkbox" name="themeSwitcherTwo" id="themeSwitcherTwo" class="sr-only">
-                            <span class="slider mx-[0.83vw] flex h-[1.46vw] w-[2.73vw] items-center rounded-full bg-[#AFB1B6] p-[0.2vw] duration-200">
-                                <span class="dot h-[1.093vw] w-[1.093vw] rounded-full bg-white duration-200"></span>
-                            </span>
-                        </label>
+                <div class=" flex justify-center items-center">
+                    <div id="left" class="mx-[1vw]">
+                        <div id="username" class="relative mb-[2vw] flex items-center">
+                            <label for="username" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Username</label>
+                            <input name="username" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[2.5vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->name}}" required>
+                            <div class="absolute right-[1vw]">
+                                <a href="">
+                                    <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="email" class="relative mb-[2vw] flex items-center">
+                            <label for="email" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Email</label>
+                            <input name="email" type="email" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="fredysantoso@binus.ac.id" required>
+                            <div class="absolute right-[1vw]">
+                                <a href="">
+                                    <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="realName" class="relative mb-[2vw] flex items-center">
+                            <input name="realName" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="Fredy Santoso" required>
+                            <label for="realName" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Real Name</label>
+                            <div class="absolute right-[1vw]">
+                                <a href="">
+                                    <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="right" class="mx-[1vw]">
+                        <div id="binusianID" class="relative mb-[2vw] flex items-center">
+                            <input name="binusianID" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="2502040524" required>
+                            <label for="binusianID" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Binusian ID</label>
+                            <div class="absolute right-[1vw]">
+                                <a href="">
+                                    <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="division" class="relative mb-[2vw] flex items-center">
+                            <input name="division" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="Dean of SOCS" required>
+                            <label for="division" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Unit / Division</label>
+                            <div class="absolute right-[1vw]">
+                                <a href="">
+                                    <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="phoneNumber" class="relative mb-[2vw] flex items-center">
+                            <input name="phoneNumber" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="081231623030" required>
+                            <label for="phoneNumber" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Phone Number</label>
+                            <div class="absolute right-[1vw]">
+                                <a href="">
+                                    <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="text" class="text-justify mb-[5vw]">
-            <span class=" text-black sm:text-center">U-Help will process your data to send you information about our products and services, promotions, surveys, rafffles, based on our legitimate interest, and updates from the creators you follow, if you have consented to this. Your data will not be disclosed to third parties. They will be communicated outside the EU under the terms of the
-                <a href="" class="text-[#3F487F] font-semibold hover:underline">Privacy policy.</a>
-                You can opt out of our notifications with the first slider.
-                <a href="" class="text-[#3F487F] font-semibold hover:underline">More information</a>
-            </span>
-        </div>
+
         <div id="cancel and save button" class="flex flex-row ml-[26vw]">
             <a href="">
                 <div id="facebook" class="bg-white w-[7vw] h-[2.75vw] rounded-[0.25vw] shadow text-black flex items-center justify-center border-[0.2vw] border-[#CFD9E0]">
@@ -101,4 +116,91 @@
         </form>
     </div>
 </div>
+<script src="js/profile.js"></script>
+@endsection
+
+@section('content')
+<div id="content" class="flex flex-row bg-slate-100">
+    <div id="left content" class="ml-[15vw] ">
+        <div id="profile" class="w-full max-w-[12vw] h-[12vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[8vw]">
+            <div id="profile" class="flex flex-col items-center pb-10">
+                <div class="profile-pic">
+                    <label class="-label" for="file">
+                        {{-- <span class="glyphicon glyphicon-camera"></span> --}}
+                        <i class='bx bx-camera'></i>
+                    </label>
+                    <input id="file" type="file" onchange="loadFile(event)"/>
+                    <img src="assets/profil.jpg" id="output" width="200" />
+                </div>
+                <h5 class="mb-1 text-[0.8vw] font-medium text-gray-900">@anderies_senpai</h5>
+                <hr class="w-[11.5vw] h-[0.2vw] mx-auto mt-[0.6vw] bg-slate-100 border-0 rounded shadow-inner">
+                <a href="">
+                    <div class="flex justify-center items-center w-[11.7vw] h-[2.65vw] bg-white rounded">
+                        <h5 class="font-semibold text-green-new text-[0.95vw]">Change Profile</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <a href="">
+            <div id="delete account" class="flex justify-center items-center w-[12vw] h-[2.5vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[1vw]">
+                <h5 class="text-[1vw] font-semibold text-red-600">Delete Account</h5>
+            </div>
+        </a>
+    </div>
+    <div id="right content" class="bg-white rounded-[0.5vw] shadow mt-[8vw] w-[50vw] h-auto ml-[5vw] px-[3.5vw] py-[3vw] mb-[5vw]">
+        <form action="/update/profile" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div id="account data" class="mb-[2vw]">
+                <div id="accountData" class="flex justify-center items-center">
+                    <h5 class="text-[2vw] font-bold mb-[3vw] text-dark-blue-new">Change Password</h5>
+                </div>
+                <div class=" flex justify-center items-center">
+                    <div id="left" class="mx-[1vw]">
+                        <div id="oldPassword" class="relative mb-[2vw] flex items-center">
+                            <input name="oldPassword" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[2.5vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="" required>
+                            <label for="oldPassword" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Old Password</label>
+                            <div class="absolute right-[1vw]">
+                                <a href="">
+                                    <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="newPassword" class="relative mb-[2vw] flex items-center">
+                            <input name="newPassword" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[2.5vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="" required>
+                            <label for="newPassword" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">New Password</label>
+                            <div class="absolute right-[1vw]">
+                                <a href="">
+                                    <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="confirmNewPass" class="relative mb-[2vw] flex items-center">
+                            <input name="confirmNewPass" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[2.5vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="" required>
+                            <label for="confirmNewPass" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Confirm New Password</label>
+                            <div class="absolute right-[1vw]">
+                                <a href="">
+                                    <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div id="cancel and save button" class="flex flex-row ml-[26vw]">
+            <a href="">
+                <div id="facebook" class="bg-white w-[7vw] h-[2.75vw] rounded-[0.25vw] shadow text-black flex items-center justify-center border-[0.2vw] border-[#CFD9E0]">
+                    Cancel
+                </div>
+            </a>
+            <button type="submit">
+                <div  class="bg-[#3F487F] w-[9vw] h-[2.75vw] rounded-[0.25vw] shadow text-white flex items-center justify-center ml-[1vw] border border-[#CFD9E0]">
+                    Save Changes
+                </div>
+            </button>
+        </div>
+        </form>
+    </div>
+</div>
+<script src="js/profile.js"></script>
 @endsection
