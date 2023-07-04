@@ -1,7 +1,7 @@
 @if ($paginator->hasPages())
 <div class="relative flex mb-[10vw]">
     <div id="pagination" class="absolute flex inset-0 mt-[3.542vw]">
-        <ul class="inline-flex items-center m-auto shadow-xl rounded-[0.417vw]">
+        <ul class="inline-flex items-center m-auto shadow-xl">
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
                 <li class="disabled" aria-disabled="true">
@@ -9,7 +9,7 @@
                 </li>
             @else
                 <li>
-                    <a href="{{ $paginator->previousPageUrl() }}" class="block px-[0.625vw] py-[0.417vw] text-[0.938vw] font-medium text-gray-400 bg-white rounded-l-[0.417vw] hover:bg-green-new hover:bg-opacity-5 hover:text-green-new">
+                    <a href="{{ $paginator->previousPageUrl() }}" class="block px-[0.625vw] py-[0.417vw] text-[0.938vw] font-medium text-gray-400 bg-white hover:bg-green-new hover:bg-opacity-5 hover:text-green-new transition duration-100 ease-in-out">
                         <span class="sr-only">Previous</span>
                         <svg class="w-[1.25vw] h-[1.25vw] p-[0.104vw]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
                     </a>
@@ -20,16 +20,16 @@
             @foreach ($elements as $element)
                 {{-- "Three Dots" Separator --}}
                 @if (is_string($element))
-                    <li class="disabled px-[0.625vw] py-[0.417vw] text-[0.938vw] font-medium text-gray-400 bg-white rounded-l-[0.417vw] hover:bg-green-new hover:bg-opacity-5 hover:text-green-new" aria-disabled="true"><span>{{ $element }}</span></li>
+                    <li class="disabled px-[0.625vw] py-[0.417vw] text-[0.938vw] font-medium text-gray-400 bg-white hover:bg-green-new hover:bg-opacity-5 hover:text-green-new transition duration-100 ease-in-out" aria-disabled="true"><span>{{ $element }}</span></li>
                 @endif
 
                 {{-- Array Of Links --}}
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
-                            <li class="active z-10 px-[0.625vw] py-[0.417vw] font-medium bg-green-new bg-opacity-5 text-green-new hover:bg-green-new hover:bg-opacity-5 hover:text-green-new" aria-current="page"><span>{{ $page }}</span></li>
+                            <li class="active z-10 px-[0.625vw] py-[0.417vw] font-medium bg-green-new bg-opacity-5 text-green-new hover:bg-green-new hover:bg-opacity-5 hover:text-green-new transition duration-100 ease-in-out" aria-current="page"><span>{{ $page }}</span></li>
                         @else
-                            <li><a href="{{ $url }}" class="px-[0.625vw] py-[0.417vw] font-medium text-gray-400 bg-white hover:bg-green-new hover:bg-opacity-5 hover:text-green-new">{{ $page }}</a></li>
+                            <li><a href="{{ $url }}" class="px-[0.625vw] py-[0.417vw] font-medium text-gray-400 bg-white hover:bg-green-new hover:bg-opacity-5 hover:text-green-new transition duration-100 ease-in-out">{{ $page }}</a></li>
                         @endif
                     @endforeach
                 @endif
@@ -38,7 +38,7 @@
             {{-- Next Page Link --}}
             @if ($paginator->hasMorePages())
                 <li>
-                    <a href="{{ $paginator->nextPageUrl() }}" rel="next" class="block px-[0.625vw] py-[0.417vw] text-[0.938vw] font-medium text-gray-400 bg-white rounded-r-lg hover:bg-green-new hover:bg-opacity-5 hover:text-green-new">
+                    <a href="{{ $paginator->nextPageUrl() }}" rel="next" class="block px-[0.625vw] py-[0.417vw] text-[0.938vw] font-medium text-gray-400 bg-white hover:bg-green-new hover:bg-opacity-5 hover:text-green-new transition duration-100 ease-in-out">
                         <svg aria-hidden="true" class="w-[1.25vw] h-[1.25vw] p-[0.104vw]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                         <span class="sr-only">Next</span>
                     </a>

@@ -67,7 +67,7 @@
             id="input"
             type="search"
             name="search"
-            class="relative block h-full flex-auto rounded-l-full border border-r-0 border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] outline-none text-[0.938vw] text-dark-blue-new transition duration-100 ease-in-out focus:z-[3] focus:bg-opacity-30 focus:ring-0 focus:border-dark-blue-new focus:text-dark-blue-new placeholder:text-dark-blue-new placeholder:text-opacity-[0.6]"
+            class="relative block h-full flex-auto rounded-l-full border border-r-0 border-dark-blue-new border-opacity-80 bg-[#FFD272] bg-opacity-[0.15] outline-none pl-[1.25vw] text-[0.938vw] text-dark-blue-new transition duration-100 ease-in-out focus:z-[3] focus:bg-opacity-30 focus:ring-0 focus:border-dark-blue-new focus:text-dark-blue-new placeholder:text-dark-blue-new placeholder:text-opacity-[0.6]"
             placeholder="Search certificate..."
             aria-label="Search"
             aria-describedby="button-search"/>
@@ -168,10 +168,9 @@
                             </div>
                             <div class="event-date flex flex-col w-2/5">
                                 <label for="event_date" class="text-green-new text-[1.25vw] font-semibold mt-[2.5vw] mb-[0.625vw]">Date</label>
-                                <div class="flex flex-col">
-                                    <input datepicker type="text" name="event_date" id="event_date" class="form-control relative w-full border border-yellow-new rounded-[0.417vw] text-[0.938vw] focus:ring-green-new focus:border-green-new mb-[0.208vw]" placeholder="{{$event->date->format('m/d/Y')}}
-                                    " data-parsley-group="block0">
-                                    <div class="absolute ml-[15vw] mt-[0.625vw] items-center">
+                                <div class="relative flex flex-col">
+                                    <input datepicker type="text" name="event_date" id="event_date" class="form-control relative w-full border border-yellow-new rounded-[0.417vw] text-[0.938vw] focus:ring-green-new focus:border-green-new mb-[0.208vw]" placeholder="{{$event->date->format('m/d/Y')}}" data-parsley-group="block0">
+                                    <div class="absolute right-[0.6vw] top-[0.5vw] flex items-center">
                                         <svg class="text-gray-500" xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.25vw" viewBox="0 0 24 24">
                                             <rect x="0" y="0" width="1.25vw" height="1.25vw" fill="none" stroke="none" />
                                             <path fill="currentColor" d="M12 14q-.425 0-.713-.288T11 13q0-.425.288-.713T12 12q.425 0 .713.288T13 13q0 .425-.288.713T12 14Zm-4 0q-.425 0-.713-.288T7 13q0-.425.288-.713T8 12q.425 0 .713.288T9 13q0 .425-.288.713T8 14Zm8 0q-.425 0-.713-.288T15 13q0-.425.288-.713T16 12q.425 0 .713.288T17 13q0 .425-.288.713T16 14Zm-4 4q-.425 0-.713-.288T11 17q0-.425.288-.713T12 16q.425 0 .713.288T13 17q0 .425-.288.713T12 18Zm-4 0q-.425 0-.713-.288T7 17q0-.425.288-.713T8 16q.425 0 .713.288T9 17q0 .425-.288.713T8 18Zm8 0q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16q.425 0 .713.288T17 17q0 .425-.288.713T16 18ZM5 22q-.825 0-1.413-.588T3 20V6q0-.825.588-1.413T5 4h1V3q0-.425.288-.713T7 2q.425 0 .713.288T8 3v1h8V3q0-.425.288-.713T17 2q.425 0 .713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.588 1.413T19 22H5Zm0-2h14V10H5v10Z"/>
