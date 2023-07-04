@@ -24,7 +24,7 @@
             </button>
         </form>
         <a href="/profile">
-            <img class="logo-pict w-[3.33vw] rounded-full" src="/assets/profil.jpg" alt="Profile Picture">
+            <img class="logo-pict w-[3.33vw] rounded-full" src="{{asset('storage/'. auth()->user()->imageprofile)}}" alt="Profile Picture">
         </a>
         @else
         <a href="/login" class="flex justify-center bg-white hover:bg-gray-100 h-[2.8vw] rounded-[1.458vw] px-[1.5vw] border-[0.2vw] border-yellow-new items-center text-yellow-new text-[1.042vw] font-bold">
