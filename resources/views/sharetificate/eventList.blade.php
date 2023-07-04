@@ -79,7 +79,7 @@
 </div>
 
 <div id="allData">
-    <div class="grid grid-cols-2 gap-[4.167vw] p-[0.833vw] m-auto mt-[2.083vw] w-10/12">
+    <div class="grid grid-cols-2 gap-[4.167vw] p-[0.833vw] mb-[5vw] m-auto mt-[2.083vw] w-10/12">
         @foreach ($events as $event)
         <a href="/events/{{$event->uuid}}">
             <div class="relative h-[11.667vw] flex flex-row rounded-[1.25vw] bg-white shadow-2xl hover:scale-[1.02] transition duration-100 ease-in-out">
@@ -94,7 +94,7 @@
     </div>
     {{$events->appends(['filterOption' => $filterOption])->links("sharetificate.pagination")}}
 </div>
-<div id="read" class="grid grid-cols-2 gap-[4.167vw] p-[0.833vw] m-auto mt-[2.083vw] w-10/12 text-[1.458vw] font-semibold text-dark-blue-new text-opacity-60"></div>
+<div id="read" class="grid grid-cols-2 gap-[4.167vw] p-[0.833vw] mb-[5vw] m-auto mt-[2.083vw] w-10/12 text-[1.458vw] font-semibold text-dark-blue-new text-opacity-60"></div>
 
 <div id="empty-search" class="flex justify-center my-[8vw]">
     <p class="text-[1.458vw] font-semibold text-dark-blue-new text-opacity-60">Your search for "<span id="search-query"></span>" is not found.</p>
@@ -124,6 +124,7 @@
     </script>
     <script>
         $(document).ready(function(){
+            $('#read').hide();
             $("#empty-search").hide();
             $("#input").keyup(function(){
                 var strcari = $(this).val();
