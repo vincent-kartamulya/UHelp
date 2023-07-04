@@ -29,7 +29,7 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-        if(Event::all()->isEmpty()){
+        if(Event::where('user_id', auth()->user()->id)->get()->isEmpty()){
             return view('sharetificate.addEvent');
         }
 
@@ -257,8 +257,6 @@ class EventController extends Controller
              ]);
          }
      }
-
-
 
     public function show($uuid, Request $request)
     {

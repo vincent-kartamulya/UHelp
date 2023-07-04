@@ -17,7 +17,7 @@
     <div id="profile-container" class="flex absolute gap-[0.3vw] right-[1.667vw] items-center">
 
         @auth
-        <img id="avatarButton" class="w-[3.33vw] h-[3.33vw] rounded-full cursor-pointer" src="/assets/profil.jpg" alt="Profile Picture" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start">
+        <img id="avatarButton" class="w-[3.33vw] h-[3.33vw] rounded-full cursor-pointer" src="{{asset('storage/'. auth()->user()->imageprofile)}}" alt="Profile Picture" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start">
         {{-- Menu Avatar Dropdown --}}
         <div id="userDropdown" class="z-10 hidden border border-gray-200 bg-white rounded-[0.417vw] shadow mt-[0.208vw] w-[9.896vw]">
             <ul class="py-[0.417vw] text-[0.938vw] text-dark-blue-new font-medium" aria-labelledby="dropdownDefaultButton">
