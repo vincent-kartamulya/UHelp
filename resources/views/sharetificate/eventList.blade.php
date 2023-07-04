@@ -52,13 +52,13 @@
                 <div id="dropdownHover" class="z-10 hidden bg-[#FFD272] rounded-[0.417vw] shadow w-[9.167vw] absolute mt-[0.208vw]">
                     <ul class="py-[0.208vw] text-[0.938vw] text-gray-700" aria-labelledby="dropdownHoverButton">
                         <li>
-                            <a href="/events" class="block px-[0.833vw] py-[0.417vw] hover:bg-yellow-new hover:text-white">None</a>
+                            <a href="/events" class="block px-[0.833vw] py-[0.417vw] hover:bg-yellow-new hover:text-white transition duration-100 ease-in-out">None</a>
                         </li>
                         <li>
-                            <a href="/events?filterOption=latest" class="block px-[0.833vw] py-[0.417vw] hover:bg-yellow-new hover:text-white">Latest</a>
+                            <a href="/events?filterOption=latest" class="block px-[0.833vw] py-[0.417vw] hover:bg-yellow-new hover:text-white transition duration-100 ease-in-out">Latest</a>
                         </li>
                         <li>
-                            <a href="/events?filterOption=earliest" class="block px-[0.833vw] py-[0.417vw] hover:bg-yellow-new hover:text-white">Earliest</a>
+                            <a href="/events?filterOption=earliest" class="block px-[0.833vw] py-[0.417vw] hover:bg-yellow-new hover:text-white transition duration-100 ease-in-out">Earliest</a>
                         </li>
                     </ul>
                 </div>

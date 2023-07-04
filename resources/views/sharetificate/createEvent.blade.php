@@ -56,52 +56,52 @@
                 @csrf
                 <div class="form-input">
                     <div class="event-title flex flex-col">
-                        <label for="event_name" class="text-green-new text-[1.146vw] font-semibold mb-[0.625vw]">Title *</label>
-                        <input type="text" autocomplete="off" name="event_name" id="event_name" value="{{old("event_name")}}" class="form-control border px-[0.625vw] border-yellow-new rounded-[0.417vw] text-[1.042vw] focus:ring-green-new focus:border-green-new mb-[0.208vw]" placeholder="Enter the event's name " data-parsley-group="block0">
+                        <label for="event_name" class="text-green-new text-[1.146vw] font-semibold mb-[0.625vw]">Title</label>
+                        <input type="text" autocomplete="off" name="event_name" id="event_name" value="{{old("event_name")}}" class="form-control h-[2.5vw] border px-[0.625vw] border-yellow-new rounded-[0.417vw] text-[1.042vw] focus:ring-green-new focus:border-green-new mb-[0.208vw] transition duration-100 ease-in-out" placeholder="Enter the event's name " data-parsley-group="block0">
                         @error('event_name')
-                            <p class="mt-[0.417vw] text-[0.938vw] text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+                            <p class="mt-[0.417vw] text-[0.938vw] text-red-600 dark:text-red-500"><span>{{ $message }}</span></p>
                         @enderror
                     </div>
                     <div class="loc-and-date flex justify-between">
                         <div class="event-loc flex flex-col w-1/2">
-                            <label for="event_location" class="text-green-new text-[1.146vw] font-semibold mt-[2.5vw] mb-[0.625vw]">Location *</label>
-                            <input type="text" autocomplete="off" name="event_location" id="event_location" value="{{old("event_location")}}" class="form-control border px-[0.625vw] border-yellow-new rounded-[0.417vw] text-[1.042vw] focus:ring-green-new focus:border-green-new mb-[0.208vw]" placeholder="Enter the event's location " data-parsley-group="block0">
+                            <label for="event_location" class="text-green-new text-[1.146vw] font-semibold mt-[2.5vw] mb-[0.625vw]">Location</label>
+                            <input type="text" autocomplete="off" name="event_location" id="event_location" value="{{old("event_location")}}" class="form-control h-[2.5vw] border px-[0.625vw] border-yellow-new rounded-[0.417vw] text-[1.042vw] focus:ring-green-new focus:border-green-new mb-[0.208vw] transition duration-100 ease-in-out" placeholder="Enter the event's location " data-parsley-group="block0">
                             @error('event_location')
-                                <p class="mt-[0.417vw] text-[0.938vw] text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+                                <p class="mt-[0.417vw] text-[0.938vw] text-red-600 dark:text-red-500"><span>{{ $message }}</span></p>
                             @enderror
                         </div>
                         <div class="event-date flex flex-col w-2/5">
-                            <label for="event_date" class="text-green-new text-[1.146vw] font-semibold mt-[2.5vw] mb-[0.625vw]">Date *</label>
+                            <label for="event_date" class="text-green-new text-[1.146vw] font-semibold mt-[2.5vw] mb-[0.625vw]">Date</label>
                             <div class="relative flex flex-col">
-                                <input datepicker datepicker-autohide autocomplete="off" type="text" datepicker-format="yyyy-mm-dd" name="event_date" id="event_date" value="{{old("event_date")}}" class="form-control relative w-full border border-yellow-new rounded-[0.417vw] text-[1.042vw] focus:ring-green-new focus:border-green-new mb-[0.208vw]" placeholder="Select a date " data-parsley-group="block0">
-                                @error('event_date')
-                                    <p class="mt-[0.417vw] text-[0.938vw] text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
-                                @enderror
-                                <div class="absolute right-[1vw] top-1/2 transform -translate-y-1/2">
+                                <input datepicker datepicker-autohide autocomplete="off" type="text" datepicker-format="yyyy-mm-dd" name="event_date" id="event_date" value="{{old("event_date")}}" class="form-control h-[2.5vw] relative w-full border px-[0.625vw] border-yellow-new rounded-[0.417vw] text-[1.042vw] focus:ring-green-new focus:border-green-new mb-[0.208vw] transition duration-100 ease-in-out" placeholder="Select a date " data-parsley-group="block0">
+                                <div class="absolute right-[1vw] top-[0.6vw] flex items-center">
                                     <svg class="text-gray-500" xmlns="http://www.w3.org/2000/svg" width="1.25vw" height="1.25vw" viewBox="0 0 24 24">
                                         <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
                                         <path fill="currentColor" d="M12 14q-.425 0-.713-.288T11 13q0-.425.288-.713T12 12q.425 0 .713.288T13 13q0 .425-.288.713T12 14Zm-4 0q-.425 0-.713-.288T7 13q0-.425.288-.713T8 12q.425 0 .713.288T9 13q0 .425-.288.713T8 14Zm8 0q-.425 0-.713-.288T15 13q0-.425.288-.713T16 12q.425 0 .713.288T17 13q0 .425-.288.713T16 14Zm-4 4q-.425 0-.713-.288T11 17q0-.425.288-.713T12 16q.425 0 .713.288T13 17q0 .425-.288.713T12 18Zm-4 0q-.425 0-.713-.288T7 17q0-.425.288-.713T8 16q.425 0 .713.288T9 17q0 .425-.288.713T8 18Zm8 0q-.425 0-.713-.288T15 17q0-.425.288-.713T16 16q.425 0 .713.288T17 17q0 .425-.288.713T16 18ZM5 22q-.825 0-1.413-.588T3 20V6q0-.825.588-1.413T5 4h1V3q0-.425.288-.713T7 2q.425 0 .713.288T8 3v1h8V3q0-.425.288-.713T17 2q.425 0 .713.288T18 3v1h1q.825 0 1.413.588T21 6v14q0 .825-.588 1.413T19 22H5Zm0-2h14V10H5v10Z"/>
                                     </svg>
                                 </div>
+                                @error('event_date')
+                                    <p class="mt-[0.417vw] text-[0.938vw] text-red-600 dark:text-red-500"><span>{{ $message }}</span></p>
+                                @enderror
                             </div>
                         </div>
                     </div>
                     <div class="participants-data flex flex-col w-1/2">
-                        <label for="event_participants" class="text-green-new text-[1.146vw] font-semibold mt-[2.5vw] mb-[0.625vw]">Upload Participant Data *</label>
-                        <input type="file" name="event_participants" id="event_participants" value="{{old("event_participants")}}" class="form-control text-[1.042vw] bg-gray-50 rounded-[0.417vw] text-gray-500 border mb-[0.208vw]" data-parsley-group="block0" accept=".xlsx,.xls">
+                        <label for="event_participants" class="text-green-new text-[1.146vw] font-semibold mt-[2.5vw] mb-[0.625vw]">Upload Participant Data</label>
+                        <input type="file" name="event_participants" id="event_participants" value="{{old("event_participants")}}" class="form-control text-[1.042vw] bg-gray-50 rounded-[0.417vw] text-gray-500 border mb-[0.208vw] transition duration-100 ease-in-out" data-parsley-group="block0" accept=".xlsx,.xls">
                         <p class="mt-[0.208vw] text-[0.938vw] text-gray-500 dark:text-gray-300" id="file_input_help">XLS. (with column names: "name", "email", "position").</p>
                         @error('event_participants')
-                            <p class="mt-[0.417vw] text-[0.938vw] text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+                            <p class="mt-[0.417vw] text-[0.938vw] text-red-600 dark:text-red-500"><span>{{ $message }}</span></p>
                         @enderror
                     </div>
                 </div>
                 <div class="form-input">
                     <div class="certificate-template flex flex-col w-1/2">
-                        <label for="event_certificate" class="text-green-new text-[1.146vw] font-semibold mb-[0.625vw]">Upload Certificate Template *</label>
-                        <input type="file" name="event_certificate" id="event_certificate" value= "{{old("event_certficicate")}}" class="form-control text-[1.042vw] rounded-[0.417vw] text-gray-500 border mb-[0.208vw]" data-parsley-group="block1" accept="image/*">
+                        <label for="event_certificate" class="text-green-new text-[1.146vw] font-semibold mb-[0.625vw]">Upload Certificate Template</label>
+                        <input type="file" name="event_certificate" id="event_certificate" value= "{{old("event_certificate")}}" class="form-control text-[1.042vw] rounded-[0.417vw] text-gray-500 border mb-[0.208vw] transition duration-100 ease-in-out" data-parsley-group="block1" accept="image/*">
                         <p class="mt-[0.208vw] text-[0.938vw] text-gray-500 dark:text-gray-300" id="file_input_help">PNG or JPG.</p>
                         @error('event_certificate')
-                            <p class="mt-[0.417vw] text-[0.938vw] text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+                            <p class="mt-[0.417vw] text-[0.938vw] text-red-600 dark:text-red-500"><span>{{ $message }}</span></p>
                         @enderror
                     </div>
                     <div id="certificate-display" class="my-[0.833vw] hidden">
