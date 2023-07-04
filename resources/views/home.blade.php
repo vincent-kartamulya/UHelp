@@ -40,19 +40,19 @@
         <h2 class="heading">Our <span>Services</span></h2>
 
         <div class="services-container">
-            <div class="services-box">
+            <div class="services-box transition duration-100 ease-in-out">
                 <img class="cas1" src="assets/bagus/cas1.png" alt="">
                 <img class="cas2" src="assets/bagus/cas2.png" alt="">
-                <h3>Click and Sit</h3>
+                <h3 class="font-medium">Click and Sit</h3>
                 <p>Easily fill out shuttle booking forms in seconds with our automated feature
                 <br><em>- Say goodbye to manual data entry and save time! Try it now! -</em></p>
                 <a href="/clickandsit" class="btn">Start</a>
             </div>
 
-            <div class="services-box">
+            <div class="services-box transition duration-100 ease-in-out">
                 <img class="sharetificate1" src="assets/bagus/sharetificate1.png" alt="">
                 <img class="sharetificate2" src="assets/bagus/sharetificate2.png" alt="">
-                <h3>Sharetificate</h3>
+                <h3 class="font-medium">Sharetificate</h3>
                 <p>Create and manage secure certificates with ease using our QR validation feature
                 <br><em>- Save time and stay organized! -</em></p>
                 <a href="/events" class="btn">Start</a>
