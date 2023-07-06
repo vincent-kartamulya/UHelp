@@ -16,7 +16,33 @@
                         <label for="default-input" class="block font-medium text-[1.042vw] text-dark-blue-new mb-[0.5vw]">Email Address</label>
                         <input name="EmailAddress" type="text" value= "{{old("EmailAddress")}}" id="default-input" class="bg-gray-50 border border-yellow-new text-dark-blue-new text-[0.938vw] rounded-[0.417vw] focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]" placeholder="Email address">
                         @error('EmailAddress')
-                            <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">{{$message}}</p>
+                            @if ($message == 'The email address has already been taken.')
+                                <script>
+                                    toastr.options = {
+                                         "closeButton": true,
+                                         "debug": false,
+                                         "newestOnTop": false,
+                                         "progressBar": true,
+                                         "positionClass": "toast-top-center",
+                                         "preventDuplicates": false,
+                                         "onclick": null,
+                                         "showDuration": "300",
+                                         "hideDuration": "1000",
+                                         "timeOut": "5000",
+                                         "extendedTimeOut": "1000",
+                                         "showEasing": "swing",
+                                         "hideEasing": "linear",
+                                         "showMethod": "fadeIn",
+                                         "hideMethod": "fadeOut"
+                                    }
+                                    toastr.error("{{$message}}");
+                                </script>
+                            @else
+                            {{-- @php
+                                dd($message)
+                            @endphp --}}
+                                <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">{{$message}}</p>
+                            @endif
                         @enderror
 
                     </div>
@@ -55,7 +81,8 @@
     </div>
 </div>
 
-<script>
+
+{{-- <script>
     toastr.options = {
         "closeButton": true,
         "debug": false,
@@ -73,6 +100,11 @@
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    toastr.error("Email is already registered!")
-</script>
+    @foreach ($errors->all() as $error)
+        toastr.error('{{ $error }}');
+    @endforeach
+    // toastr.error("{{Session::get('message')}}");
+</script> --}}
+
+
 @endsection

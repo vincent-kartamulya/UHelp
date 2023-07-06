@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
+use App\Http\Controllers\Toastr;
 
 class UserController extends Controller
 {
@@ -16,7 +18,10 @@ class UserController extends Controller
         $validasi = $request->validate([
             'EmailAddress' => 'required|email',
             'Password' => 'required|min:8',
-            'VerifyPassword'=>'required|same:Password'
+            'VerifyPassword'=>'required|same:Password',
+        ]);
+        $validasi = $request->validate([
+            'EmailAddress' => 'unique:users,email',
         ]);
         $user = new User();
         $user->email = $validasi['EmailAddress'];
