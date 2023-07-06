@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProcessEmail;
 use App\Models\Event;
 use App\Mail\SendEmail;
 use App\Models\Certificate;
@@ -19,7 +20,8 @@ class MailController extends Controller
         foreach($certificates as $certificate){
             $name = $certificate->recipient->name;
             $certificateUrl = $certificate->path;
-            Mail::to($certificate->recipient->email)->send(new SendEmail($name, $eventName, $eventDate, $certificateUrl));
+            $email = $certificate->recipient->email;
+            ProcessEmail::dispatch($email, $name, $eventName, $eventDate, $certificateUrl);
         }
         return redirect()->back()->with('success', 'Email Sent!');
     }

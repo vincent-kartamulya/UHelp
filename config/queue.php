@@ -33,7 +33,7 @@ return [
         'sync' => [
             'driver' => 'sync',
         ],
-
+        
         'database' => [
             'driver' => 'database',
             'table' => 'jobs',
