@@ -2,15 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Mail\SendEmail;
+use App\Models\Certificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\SendEmail;
 
 class MailController extends Controller
 {
-    public function sendMail() {
-        $name = 'bob';
-
-        Mail::to("fake@mail.com")->send(new SendEmail($name));
+    public function sendMail(Request $request) {
+        $uuid = $request->id;
+        $event = Event::where('uuid', $uuid)->firstOrFail();
+        $certificates = Certificate::where('event_id', $event->id)->get();
+        $eventName = $event->title;
+        $eventDate = $event->date;
+        foreach($certificates as $certificate){
+            $name = $certificate->recipient->name;
+            $certificateUrl = $certificate->path;
+            Mail::to($certificate->recipient->email)->send(new SendEmail($name, $eventName, $eventDate, $certificateUrl));
+        }
+        return redirect()->back()->with('success', 'Email Sent!');
     }
 }

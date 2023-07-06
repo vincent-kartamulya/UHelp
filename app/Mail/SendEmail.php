@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use DateTime;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Attachment;
 use Illuminate\Mail\Mailable;
@@ -20,13 +21,19 @@ class SendEmail extends Mailable
     use Queueable, SerializesModels;
 
     private string $name;
+    private string $eventName;
+    private string $certificateUrl;
+    private DateTime $eventDate;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(string $name)
+    public function __construct(string $name, string $eventName, DateTime $eventDate, string $certificateUrl)
     {
         $this->name = $name;
+        $this->eventName = $eventName;
+        $this->eventDate = $eventDate;
+        $this->certificateUrl = $certificateUrl;
     }
 
     /**
@@ -35,15 +42,14 @@ class SendEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: new Address('uhelp@uhelp.anderies.com', 'UHelp'),
-            subject: 'Certificate Generated',
-            using: [
-                      function (Email $email) {
-                          // Headers
-                          $email->getHeaders()
-                              ->addTextHeader('X-Message-Source', 'example.com')
-                              ->add(new UnstructuredHeader('X-Mailer', 'Mailtrap PHP Client'))
-                          ;
+            subject: 'E-Certificate '.$this->eventName,
+            // using: [
+            //           function (Email $email) {
+            //               // Headers
+            //               $email->getHeaders()
+            //                   ->addTextHeader('X-Message-Source', 'example.com')
+            //                   ->add(new UnstructuredHeader('X-Mailer', 'Mailtrap PHP Client'))
+            //               ;
 
                         //   // Custom Variables
                         //   $email->getHeaders()
@@ -55,8 +61,8 @@ class SendEmail extends Mailable
                         //   $email->getHeaders()
                         //       ->add(new CategoryHeader('Integration Test'))
                         //   ;
-                      },
-                  ]
+                    //   },
+                //   ]
         );
     }
 
@@ -67,7 +73,7 @@ class SendEmail extends Mailable
     {
         return new Content(
             view: 'sharetificate.email',
-            with: ['name' => $this->name],
+            with: ['name' => $this->name, 'eventName' => $this->eventName, 'eventDate' => $this->eventDate],
         );
     }
 
@@ -79,23 +85,21 @@ class SendEmail extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromPath('https://mailtrap.io/wp-content/uploads/2021/04/mailtrap-new-logo.svg')
-                ->as('logo.svg')
-                ->withMime('image/svg+xml'),
+            Attachment::fromPath(public_path($this->certificateUrl))
         ];
     }
 
     /**
      * Get the message headers.
      */
-    public function headers(): Headers
-    {
-        return new Headers(
-            'custom-message-id@example.com',
-            ['previous-message@example.com'],
-            [
-                'X-Custom-Header' => 'Custom Value',
-            ],
-        );
-    }
+    // public function headers(): Headers
+    // {
+    //     return new Headers(
+    //         'custom-message-id@example.com',
+    //         ['previous-message@example.com'],
+    //         [
+    //             'X-Custom-Header' => 'Custom Value',
+    //         ],
+    //     );
+    // }
 }

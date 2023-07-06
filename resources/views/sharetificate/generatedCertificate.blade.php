@@ -38,13 +38,15 @@
                 <span class="hidden group-hover:block w-[10vw] absolute mt-[5vw]">Download All</span>
             </a>
             {{-- Email --}}
-            <a href="#" class="group relative flex justify-around bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-[1.042vw] font-semibold w-[3vw] h-[2.5vw] rounded-[0.625vw] shadow-lg items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1.563vw" height="1.563vw" viewBox="0 0 24 24">
-                    <rect x="0" y="0" width="24" height="24" fill="none" stroke="none"/>
-                    <path fill="currentColor" d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5l-8-5h16zm0 12H4V8l8 5l8-5v10z"/>
-                </svg>
-                <span class="hidden group-hover:block absolute mt-[5vw]">Email</span>
-            </a>
+            <form action="/sendEmail/{{$event->uuid}}">
+                <button type="submit" class="group relative flex justify-around bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-[1.042vw] font-semibold w-[3vw] h-[2.5vw] rounded-[0.625vw] shadow-lg items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.563vw" height="1.563vw" viewBox="0 0 24 24">
+                        <rect x="0" y="0" width="24" height="24" fill="none" stroke="none"/>
+                        <path fill="currentColor" d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5l-8-5h16zm0 12H4V8l8 5l8-5v10z"/>
+                    </svg>
+                    <span class="hidden group-hover:block absolute mt-[5vw]">Email</span>
+                </button>
+            </form>
         </div>
     </div>
 </div>
