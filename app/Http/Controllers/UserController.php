@@ -15,7 +15,7 @@ class UserController extends Controller
         // $email = $request->input('EmailAddress');
         // $Password = $request->input('Password');
         // $verif = $request->input('VerifyPassword');
-        $validasi = $request->validate([
+        $validasi1 = $request->validate([
             'EmailAddress' => 'required|email',
             'Password' => 'required|min:8',
             'VerifyPassword'=>'required|same:Password',
@@ -25,7 +25,7 @@ class UserController extends Controller
         ]);
         $user = new User();
         $user->email = $validasi['EmailAddress'];
-        $user->password = bcrypt($validasi['Password']);
+        $user->password = bcrypt($validasi1['Password']);
         $user->save();
         return redirect('/login');
     }
@@ -58,8 +58,11 @@ class UserController extends Controller
     public function profileedit(Request $request) {
         $verif = [
             'name' => $request->input('name'),
-            'BINUSId' => $request->input('BINUSId'),
-            'Position' => $request->input('Position'),
+            'BINUSId' => $request->input('binusianID'),
+            'Position' => $request->input('division'),
+            'email' => $request->input('email'),
+            'realname' => $request ->input('realName'),
+            'phoneNumber'=> $request -> input('phoneNumber'),
             'imageprofile' => null
         ];
 
@@ -69,15 +72,39 @@ class UserController extends Controller
         }
 
         $punya = User::find(auth()->user()->id);
-        $punya->name = $verif['name'];
+        $punya->username = $verif['name'];
         $punya->BINUSId = $verif['BINUSId'];
         $punya->Position = $verif['Position'];
+        $punya->email = $verif['email'];
+        $punya->name = $verif['realname'];
+        $punya->PhoneNumber = $verif['phoneNumber'];
         $punya->imageprofile = $verif['imageprofile'];
         $punya->save();
         return view('profile.profile',compact('punya'));
         // return $request->file('imageupload')->store('profile-picture');
         // dd($request);
     }
+
+    // public function saveProfile(Request $request)
+    // {
+    //     if ($request->hasFile('imageprofile')) {
+    //         $file = $request->file('imageprofile');
+    //         // Perform any necessary validation or processing on the file
+    //         // For example: check file size, file type, or generate a unique filename
+
+    //         // Save the file to the desired location
+    //         $path = $file->store('profile-pictures', 'public');
+
+    //         // Save the file path to the database or associate it with a user
+    //         $user = User::find(auth()->user()->id);
+    //         $user->imageprofile = $path;
+    //         $user->save();
+
+    //         return response()->json(['message' => 'File uploaded successfully.']);
+    //     }
+
+    //     return response()->json(['message' => 'No file uploaded.'], 400);
+    // }
 
     public function openprofile(){
         $punya = User::find(auth()->user()->id);

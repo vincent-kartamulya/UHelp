@@ -8,15 +8,19 @@
 <div id="content" class="flex flex-row bg-slate-100">
     <div id="left content" class="ml-[15vw] ">
         <div id="profile" class="w-full max-w-[12vw] h-[12vw] bg-white border border-gray-200 rounded-[0.5vw] shadow mt-[8vw]">
+            <form action="/update/profile" method="POST" enctype="multipart/form-data">
+                @csrf
             <div id="profile" class="flex flex-col items-center pb-10">
                 <div class="profile-pic">
                     <label class="-label" for="file">
-                        <i class='bx bx-camera'></i>
+                        <i class="bx bx-camera"></i>
                     </label>
-                    <input id="file" type="file" onchange="loadFile(event)"/>
-                    <img src="assets/profil.jpg" id="output" width="200" />
+                    <input name="imageprofile" id="file" type="file" onchange="loadFile(event)"/>
+                    <img src="{{asset('storage/'. auth()->user()->imageprofile)}}" id="output" width="200" />
                 </div>
-                <h5 class="mb-1 text-[0.8vw] font-medium text-gray-900">@anderies_senpai</h5>
+
+
+                <h5 class="mb-1 text-[0.8vw] font-medium text-gray-900">{{auth()->user()->name}}</h5>
                 <hr class="w-[11.5vw] h-[0.2vw] mx-auto mt-[0.6vw] bg-slate-100 border-0 rounded shadow-inner">
                 <a href="">
                     <div class="flex justify-center items-center w-[11.7vw] h-[2.65vw] bg-white rounded">
@@ -33,8 +37,8 @@
         </a>
     </div>
     <div id="right content" class="bg-white rounded-[0.5vw] shadow mt-[8vw] w-[50vw] h-auto ml-[5vw] px-[3.5vw] py-[3vw] mb-[5vw]">
-        <form action="/update/profile" method="POST" enctype="multipart/form-data">
-            @csrf
+        {{-- <form action="/update/profile" method="POST" enctype="multipart/form-data">
+            @csrf --}}
             <div id="account data" class="mb-[2vw]">
                 <div id="accountData" class="flex justify-center items-center">
                     <h5 class="text-[2vw] font-bold mb-[3vw] text-dark-blue-new">Account Data</h5>
@@ -52,7 +56,7 @@
                         </div>
                         <div id="email" class="relative mb-[2vw] flex items-center">
                             <label for="email" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Email</label>
-                            <input name="email" type="email" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="fredysantoso@binus.ac.id" required>
+                            <input name="email" type="email" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->email}}" required>
                             <div class="absolute right-[1vw]">
                                 <a href="">
                                     <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
@@ -132,7 +136,7 @@
                     <input id="file" type="file" onchange="loadFile(event)"/>
                     <img src="assets/profil.jpg" id="output" width="200" />
                 </div>
-                <h5 class="mb-1 text-[0.8vw] font-medium text-gray-900">@anderies_senpai</h5>
+                <h5 class="mb-1 text-[0.8vw] font-medium text-gray-900">{{auth()->user()->name}}</h5>
                 <hr class="w-[11.5vw] h-[0.2vw] mx-auto mt-[0.6vw] bg-slate-100 border-0 rounded shadow-inner">
                 <a href="">
                     <div class="flex justify-center items-center w-[11.7vw] h-[2.65vw] bg-white rounded">
