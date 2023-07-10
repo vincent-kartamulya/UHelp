@@ -8,6 +8,7 @@ use Illuminate\Support\Facades;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\Toastr;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -47,6 +48,21 @@ class UserController extends Controller
         // return redirect('/');
     }
 
+    public function DeleteAcc(Request $request){
+        $user = User::find(auth()->user()->id);
+
+        // Delete the user record from the database
+        $user->delete();
+
+        // Perform any additional cleanup or logout operations
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        // Redirect to the desired page
+        return redirect('/');
+    }
+
     public function Loggingout(Request $request){
         Auth::logout();
         $request->session()->invalidate();
@@ -57,7 +73,7 @@ class UserController extends Controller
 
     public function profileedit(Request $request) {
         $verif = [
-            'name' => $request->input('name'),
+            'name' => $request->input('username'),
             'BINUSId' => $request->input('binusianID'),
             'Position' => $request->input('division'),
             'email' => $request->input('email'),
@@ -80,7 +96,7 @@ class UserController extends Controller
         $punya->PhoneNumber = $verif['phoneNumber'];
         $punya->imageprofile = $verif['imageprofile'];
         $punya->save();
-        return view('profile.profile',compact('punya'));
+        return redirect('/profile');
         // return $request->file('imageupload')->store('profile-picture');
         // dd($request);
     }
@@ -105,6 +121,23 @@ class UserController extends Controller
 
     //     return response()->json(['message' => 'No file uploaded.'], 400);
     // }
+
+    public function ChangePassword(Request $request){
+        $punya = User::find(auth()->user()->id);
+        $Oldpass = $request->input('oldPassword');
+        if(Hash::check($Oldpass,$punya->password)){
+            $validasi1 = $request->validate([
+                'newPassword' => 'required|min:8',
+                'confirmNewPass'=>'required|same:newPassword',
+            ]);
+            $punya->password = bcrypt($validasi1['newPassword']);
+            $punya->save();
+            return redirect('/profile');
+        }
+        else{
+            return back();
+        }
+    }
 
     public function openprofile(){
         $punya = User::find(auth()->user()->id);
