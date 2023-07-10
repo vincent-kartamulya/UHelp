@@ -74,6 +74,9 @@ Route::get('/sendEmail/{id}', [MailController::class, 'sendMail']);
 Route::post('/LogIn/verif', [UserController::class,'authentication']);
 Route::post('/LogOut', [UserController::class,'Loggingout']);
 Route::post('/update/profile', [UserController::class,'profileedit']);
-
+// Route::post('/save-image', [UserController::class,]);
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::get('/delete-account',[UserController::class,'DeleteAcc']);
+Route::post('/update/password', [UserController::class,'ChangePassword']);
+
