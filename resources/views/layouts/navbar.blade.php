@@ -22,7 +22,7 @@
         <div id="userDropdown" class="z-10 hidden border border-gray-200 bg-white rounded-[0.417vw] shadow mt-[0.208vw] w-[9.896vw]">
             <ul class="py-[0.417vw] text-[0.938vw] text-dark-blue-new font-medium" aria-labelledby="dropdownDefaultButton">
                 <div class="px-[0.833vw] py-[0.625vw] border-b border-b-yellow-new">
-                    <div class="font-semibold truncate text-green-new">Username</div>
+                    <div class="font-semibold truncate text-green-new">{{auth()->user()->name}}</div>
                 </div>
                 <li>
                     <a href="/profile" class="block px-[0.833vw] py-[0.417vw] hover:bg-[#FFD272] transition duration-100 ease-in-out">Profile</a>
