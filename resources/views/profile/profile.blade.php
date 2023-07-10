@@ -48,7 +48,7 @@
                         <div id="left" class="mx-[1vw]">
                             <div id="username" class="relative mb-[2vw] flex items-center">
                                 <label for="username" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Username</label>
-                                <input name="username" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[2.5vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->username}}" required>
+                                <input name="username" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[2.5vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->username}}">
                                 <div class="absolute right-[1vw]">
                                     <a href="">
                                         <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
@@ -57,7 +57,7 @@
                             </div>
                             <div id="email" class="relative mb-[2vw] flex items-center">
                                 <label for="email" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Email</label>
-                                <input name="email" type="email" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->email}}" required>
+                                <input name="email" type="email" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->email}}">
                                 <div class="absolute right-[1vw]">
                                     <a href="">
                                         <i class='bx bxs-edit text-[1vw] text-dark-blue-new' ></i>
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                             <div id="realName" class="relative mb-[2vw] flex items-center">
-                                <input name="realName" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->name}}" required>
+                                <input name="realName" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->name}}">
                                 <label for="realName" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Real Name</label>
                                 <div class="absolute right-[1vw]">
                                     <a href="">
@@ -76,7 +76,7 @@
                         </div>
                         <div id="right" class="mx-[1vw]">
                             <div id="binusianID" class="relative mb-[2vw] flex items-center">
-                                <input name="binusianID" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->BINUSId}}" required>
+                                <input name="binusianID" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->BINUSId}}">
                                 <label for="binusianID" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Binusian ID</label>
                                 <div class="absolute right-[1vw]">
                                     <a href="">
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div id="division" class="relative mb-[2vw] flex items-center">
-                                <input name="division" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->Position}}" required>
+                                <input name="division" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->Position}}">
                                 <label for="division" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Unit / Division</label>
                                 <div class="absolute right-[1vw]">
                                     <a href="">
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <div id="phoneNumber" class="relative mb-[2vw] flex items-center">
-                                <input name="phoneNumber" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->PhoneNumber}}" required>
+                                <input name="phoneNumber" type="text" class="placeholder-[#B8BBBA] placeholder-opacity-75 border px-3 w-[20vw] h-[3vw] border-yellow-new bg-transparent rounded-[0.25vw] text-[0.8vw] focus:ring-green-new focus:border-green-new text-black block pb-1.5 pt-3 p-[0.521vw]" placeholder="{{$punya->PhoneNumber}}">
                                 <label for="phoneNumber" class="absolute text-[0.85vw] text-dark-blue-new transform -translate-y-3 top-0 z-10 left-[0.8vw] bg-white px-[0.25vw] peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3">Phone Number</label>
                                 <div class="absolute right-[1vw]">
                                     <a href="">

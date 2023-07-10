@@ -88,14 +88,35 @@ class UserController extends Controller
         }
 
         $punya = User::find(auth()->user()->id);
-        $punya->username = $verif['name'];
-        $punya->BINUSId = $verif['BINUSId'];
-        $punya->Position = $verif['Position'];
-        $punya->email = $verif['email'];
-        $punya->name = $verif['realname'];
-        $punya->PhoneNumber = $verif['phoneNumber'];
-        $punya->imageprofile = $verif['imageprofile'];
-        $punya->save();
+        if($verif['name']){
+            $punya->username = $verif['name']; 
+            $punya->save();  
+        }
+        if($verif['BINUSId']){
+            $punya->BINUSId = $verif['BINUSId'];
+            $punya->save();
+        }
+        if($verif['Position']){
+            $punya->Position = $verif['Position'];
+            $punya->save();
+        }
+        if($verif['email']){
+            $punya->email = $verif['email'];
+            $punya->save();
+        }
+        if($verif['realname']){
+            $punya->name = $verif['realname'];
+            $punya->save();
+        }
+        if($verif['phoneNumber']){
+            $punya->PhoneNumber = $verif['phoneNumber'];
+            $punya->save();
+        }
+        if($verif['imageprofile']){
+            $punya->imageprofile = $verif['imageprofile'];
+            $punya->save();
+        }
+        // $punya->save();
         return redirect('/profile');
         // return $request->file('imageupload')->store('profile-picture');
         // dd($request);
