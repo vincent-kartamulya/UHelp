@@ -1,0 +1,19 @@
+name: Deploy website on push
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  FTP-DEPLOY-ACTION:
+    name: FTP-DEPLOY-ACTION
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: FTP-DEPLOY-ACTION
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
