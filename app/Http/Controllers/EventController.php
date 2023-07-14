@@ -103,7 +103,7 @@ class EventController extends Controller
         $recipientImport = new RecipientImport();
         $recipients = Excel::toCollection($recipientImport, $pathExcel)[0];
 
-        $font_path = 'times new roman.ttf';
+        $font_path = public_path('times new roman.ttf');
         $template_extension = $request->file('event_certificate')->extension();
 
         // Load the certificate template image based on the file extension
