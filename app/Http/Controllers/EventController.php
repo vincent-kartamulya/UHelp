@@ -127,6 +127,7 @@ class EventController extends Controller
         // Create new event
         $event = Event::create([
             'title' => $validatedData['event_name'],
+            'user_id' => auth()->user()->id,
             'location' => $validatedData['event_location'],
             'date' => $validatedData['event_date'],
             'participant' => $pathExcel,
@@ -203,7 +204,7 @@ class EventController extends Controller
                 imagedestroy($certificate_image);
                 imagedestroy($image);
                 Certificate::create([
-                    'user_id' => 2,
+                    'user_id' => auth()->user()->id,
                     'event_id' => $event->id,
                     'recipient_id' => $recipient->id,
                     'uuid' => Uuid::uuid4()->toString(),
