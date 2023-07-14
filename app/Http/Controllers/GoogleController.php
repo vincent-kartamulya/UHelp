@@ -26,7 +26,7 @@ class GoogleController extends Controller
             $olduser->save();
             Auth::login($olduser);
             return redirect()->intended('/');
-            
+
         }else{
             $newuser = User::create([
                 'name' => $user->getName(),

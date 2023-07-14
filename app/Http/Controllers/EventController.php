@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Illuminate\Support\Str;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Ramsey\Uuid\Uuid;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Symfony\Component\HttpFoundation\Response;
@@ -100,22 +99,6 @@ class EventController extends Controller
         // Store certificate template file
         $pathTemplate = 'storage/'.$request->file('event_certificate')->store('templateCertificate');
 
-        $limitedTitle = Str::limit(strip_tags($request->event_name), 20);
-        $validatedData['slug'] = SlugService::createSlug(Event::class, 'slug', $limitedTitle);
-
-        // Create new event
-        $event = Event::create([
-            'title' => $validatedData['event_name'],
-            'location' => $validatedData['event_location'],
-            'date' => $validatedData['event_date'],
-            'participant' => $pathExcel,
-            'template' => $pathTemplate,
-            'uuid' => Uuid::uuid4()->toString(),
-            'slug' => $validatedData['slug'],
-            'nameX' => $request['nameX'],
-            'nameY' => $request['nameY']
-        ]);
-
         // Import recipient data
         $recipientImport = new RecipientImport();
         $recipients = Excel::toCollection($recipientImport, $pathExcel)[0];
@@ -140,6 +123,18 @@ class EventController extends Controller
         $font_color = imagecolorallocate($image, 0, 0, 0);
 
         $certificatePath = 'app/public/certificates';
+
+        // Create new event
+        $event = Event::create([
+            'title' => $validatedData['event_name'],
+            'location' => $validatedData['event_location'],
+            'date' => $validatedData['event_date'],
+            'participant' => $pathExcel,
+            'template' => $pathTemplate,
+            'uuid' => Uuid::uuid4()->toString(),
+            'nameX' => $request['nameX'],
+            'nameY' => $request['nameY']
+        ]);
 
         for ($i = 0; $i < count($recipients); $i++) {
             $row = $recipients[$i];
@@ -182,7 +177,7 @@ class EventController extends Controller
 
                  // Generate the QR code
                 $certificateUUID = Uuid::uuid4()->toString();
-                $qrCodeContent = 'https://uhelp/'. $certificateUUID . '/validate'; // Replace with your desired QR code content
+                $qrCodeContent = 'https://uhelp.anderies.com/'. $certificateUUID . '/validate'; // Replace with your desired QR code content
                 $qrCode = QrCode::format('png')->size(100)->generate($qrCodeContent);
 
                 // Add the QR code to the certificate image

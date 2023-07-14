@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->default(1);
-            $table->string('slug')->unique();
             $table->string('title');
             $table->string('location');
             $table->date('date');

@@ -9,7 +9,6 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Event extends Model
 {
     use HasFactory;
-    use Sluggable;
     protected $guarded = ['id'];
     protected $dates = ['date'];
     public function user()
@@ -19,13 +18,5 @@ class Event extends Model
     public function certificate()
     {
         return $this->hasMany(Certificate::class);
-    }
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
     }
 }
