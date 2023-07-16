@@ -1,18 +1,5 @@
 @extends('master')
-@section('title', 'U-Help | Create Template')
-@section('css')
-<link
-rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-<script>
-    tailwind.config = {
-        darkMode: "class",
-        corePlugins: {
-        preflight: false,
-        },
-    };
-</script>
-@endsection
+@section('title', 'U-Help | Edit Template')
 @section('content')
 <div id="content" class="flex pt-[5vw]">
     <div id="ornament">
@@ -34,69 +21,85 @@ href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
     </div>
 
     <div id="formBox" class="w-1/2 m-auto border-[0.15vw] bg-white border-yellow-new rounded-[0.85vw] shadow sm:p-[1.25vw] md:p-[3vw] mt-[4vw] mb-[10vw]">
-        <div id="header setting">
-            <h1 class="mb-[2vw] font-semibold text-[2.5vw] text-dark-blue-new text-center">Setting</h1>
+        <div id="header-setting" class="">
+            <h1 class="mt-[1vw] mb-[2vw] font-semibold text-[2.5vw] text-dark-blue-new text-center">Setting</h1>
         </div>
 
         <div id="departure-return-destination" class="px-[0.83vw]">
-            <form id="departure_return" action="/clickandsit/fill" method="POST">
+            <form id="departure_return" action="/clickandsit/edit/{{$anjay->id}}" method="POST">
                 @csrf
-                <label class="block text-green-new text-2xl font-semibold mb-[1vw]">Departure</label>
-                <div class="flex flex-row">
-                    <div class="place_departure mr-[2vw]">
-                        <select name="place_departure" id="place_departure" data-te-select-init data-te-class-form-outline="relative w-[15vw]">
-                            <option value="" {{ $anjay->naik == "" ? 'selected' : '' }}></option>
-                            <option value="A" {{ $anjay->naik == "A" ? 'selected' : '' }}>A</option>
-                            <option value="B" {{ $anjay->naik == "B" ? 'selected' : '' }}>B</option>
-                            <option value="C" {{ $anjay->naik == "C" ? 'selected' : '' }}>C</option>
+                <label class="block text-green-new text-[1.25vw] font-semibold mb-[1vw]">Departure</label>
+                <div class="flex flex-row justify-between items-center">
+                    <div class="relative">
+                        <select name="place_departure" id="place_departure" class="block px-2.5 pb-1.5 pt-3 w-[20vw] text-sm bg-transparent rounded-lg border-1 border-yellow-new appearance-none focus:outline-none focus:ring-0 focus:border-green-new peer" placeholder="">
+                            @if ($anjay->naik=="Binus Main Campus Alam Sutera")
+                                <option value="{{$anjay->naik}}" selected>{{$anjay->naik}} </option>
+                                <option value="Binus ASO Alam Sutera">Binus ASO Alam Sutera</option>
+                            @else
+                                <option value="{{$anjay->naik}}" selected>{{$anjay->naik}} </option>
+                                <option value="Binus Main Campus Alam Sutera">Binus Main Campus Alam Sutera</option>
+                            @endif
                         </select>
-                        <label data-te-select-label-ref>Choose destination place</label>
+                        <label for="place_departure" class="absolute text-sm text-dark-blue-new duration-300 transform -translate-y-3 scale-80 top-1 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3 left-1">Choose destination place</label>
                     </div>
-                    <div class="time_departure">
-                        <select name="time_departure" id="time_departure" data-te-select-init data-te-class-form-outline="relative w-[15vw]">
-                            <option value="" {{ $anjay->jamAnggrek == '' ? 'selected' : '' }}></option>
-                            <option value="07.00" {{ $anjay->jamAnggrek == '07.00' ? 'selected' : '' }}>07.00</option>
-                            <option value="08.00" {{ $anjay->jamAnggrek == '08.00' ? 'selected' : '' }}>08.00</option>
-                            <option value="09.00" {{ $anjay->jamAnggrek == '09.00' ? 'selected' : '' }}>09.00</option>
+
+                    <div class="relative">
+                        <select name="time_departure" id="time_departure" class="block px-2.5 pb-1.5 pt-3 w-[20vw] text-sm bg-transparent rounded-lg border-1 border-yellow-new appearance-none focus:outline-none focus:ring-0 focus:border-green-new peer" placeholder=" ">
+                            <option value="{{$anjay->jamAlsut}}"selected>{{$anjay->jamAlsut}}</option>
+                            <option value="Jam 06:05">Jam 06:05</option>
+                            <option value="Jam 07:30">Jam 07:30</option>
+                            <option value="Jam 10:10">Jam 10:10</option>
+                            <option value="Jam 12:10 (Khusus hari Jum'at Jam 12:40)">Jam 12:10 (Khusus hari Jum'at Jam 12:40)</option>
+                            <option value="Jam 14:10">Jam 14:10</option>
+                            <option value="Jam 15:30">Jam 15:30</option>
+                            <option value="Jam 17:30">Jam 17:30</option>
                         </select>
-                        <label data-te-select-label-ref>Choose departure time</label>
+                        <label for="time_departure" class="absolute text-sm text-dark-blue-new duration-300 transform -translate-y-3 scale-80 top-1 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3 left-1">Choose departure time</label>
                     </div>
                 </div>
 
-                <label class="block text-green-new text-2xl font-semibold mt-[2vw] mb-[1vw]">Return</label>
-                <div class="flex flex-row">
-                    <div class="place_return mr-[2vw]">
-                        <select name="place_return" id="place_return" data-te-select-init data-te-class-form-outline="relative w-[15vw]">
-                            <option value="" {{ $anjay->turun == '' ? 'selected' : '' }}></option>
-                            <option value="D" {{ $anjay->turun == 'D' ? 'selected' : '' }}>D</option>
-                            <option value="E" {{ $anjay->turun == 'E' ? 'selected' : '' }}>E</option>
-                            <option value="F" {{ $anjay->turun == 'F' ? 'selected' : '' }}>F</option>
+                <label class="block text-green-new text-[1.25vw] font-semibold mt-[2vw] mb-[1vw]">Return</label>
+                <div class="flex flex-row justify-between items-center">
+                    <div class="relative">
+                        <select name="place_return" id="place_return" class="block px-2.5 pb-1.5 pt-3 w-[20vw] text-sm bg-transparent rounded-lg border-1 border-yellow-new appearance-none focus:outline-none focus:ring-0 focus:border-green-new peer" placeholder=" "">
+                            @if ($anjay->turun =="Binus Main Campus Alam Sutera")
+                                <option value="{{$anjay->turun}}" selected>{{$anjay->turun}} </option>
+                                <option value="Binus ASO Alam Sutera">Binus ASO Alam Sutera</option>
+                            @else
+                                <option value="{{$anjay->turun}}" selected>{{$anjay->turun}} </option>
+                                <option value="Binus Main Campus Alam Sutera">Binus Main Campus Alam Sutera</option>
+                            @endif
                         </select>
-                        <label data-te-select-label-ref>Choose return place</label>
+                        <label for="place_return" class="absolute text-sm text-dark-blue-new duration-300 transform -translate-y-3 scale-80 top-1 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3 left-1">Choose return place</label>
                     </div>
-                    <div class="time_return">
-                        <select name="time_return" id="time_return" data-te-select-init data-te-class-form-outline="relative w-[15vw]">
-                            <option value="" {{ $anjay->jamAlsut == '' ? 'selected' : '' }}></option>
-                            <option value="17.00" {{ $anjay->jamAlsut == '17.00' ? 'selected' : '' }}>17.00</option>
-                            <option value="18.00" {{ $anjay->jamAlsut == '18.00' ? 'selected' : '' }}>18.00</option>
-                            <option value="19.00" {{ $anjay->jamAlsut == '19.00' ? 'selected' : '' }}>19.00</option>
+
+                    <div class="relative">
+                        <select name="time_return" id="time_return" class="block px-2.5 pb-1.5 pt-3 w-[20vw] text-sm bg-transparent rounded-lg border-1 border-yellow-new appearance-none focus:outline-none focus:ring-0 focus:border-green-new peer" placeholder=" ">
+                            <option value="{{$anjay->jamAnggrek}}" selected>{{$anjay->jamAnggrek}}</option>
+                            <option value="Jam 07:30">Jam 07:30</option>
+                            <option value="Jam 09:30">Jam 09:30</option>
+                            <option value="Jam 11:30 (Khusus hari Jum'at Jam 11:10)">Jam 11:30 (Khusus hari Jum'at Jam 11:10)</option>
+                            <option value="Jam 13:30">Jam 13:30</option>
+                            <option value="Jam 15:30">Jam 15:30</option>
+                            <option value="Jam 17:30">Jam 17:30</option>
+                            <option value="Jam 19:10">Jam 19:10</option>
                         </select>
-                        <label data-te-select-label-ref>Choose return time</label>
+                        <label for="time_return" class="absolute text-sm text-dark-blue-new duration-300 transform -translate-y-3 scale-80 top-1 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3 left-1">Choose return time</label>
                     </div>
                 </div>
 
-                <label class="block text-green-new text-2xl font-semibold mt-[2vw] mb-[1vw]">Necessity</label>
-                <div>
-                    <input name='kebutuhan'  type="text" class="border w-[40vw] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-new focus:border-yellow-new block p-2.5" placeholder="Fill necessity for your shuttle" required>
+                <label class="block text-green-new text-[1.25vw] font-semibold mt-[2vw] mb-[1vw]">Needs</label>
+                <div class="relative">
+                    <input name="needs"  type="text" class="block px-2.5 pb-1.5 pt-3 text-sm bg-transparent border w-full border-yellow-new text-[1.042vw] rounded-[0.417vw] focus:ring-green-new focus:border-green-new p-[0.521vw]" placeholder="{{$anjay->keperluan}}">
+                    <label for="needs" class="absolute text-sm text-dark-blue-new duration-300 transform -translate-y-3 scale-80 top-1 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-dark-blue-new peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-1 peer-focus:scale-80 peer-focus:-translate-y-3 left-1">Fill the need for your shuttle</label>
                 </div>
-                <div id="save button" class="flex justify-center">
-                    <button type='submit' class="bg-yellow-new hover:bg-yellow-hover text-dark-blue-new text-2xl font-bold w-[12.5vw] py-[0.83vw] rounded-full m-auto mt-[3vw] shadow-md">
-                        Save
+                <div class="flex justify-center">
+                    <button id="save-button" type="submit" class="flex m-auto bg-yellow-new hover:bg-yellow-hover h-auto mt-[2.083vw] rounded-full shadow-lg items-center">
+                        <p class="text-dark-blue-new text-[1.042vw] font-bold px-[1.667vw] py-[0.625vw]">Save</p>
                     </button>
                 </div>
             </form>
         </div>
-
     </div>
 </div>
 

@@ -55,7 +55,7 @@ Route::get('/history', function () {
 });
 
 Route::post('/clickandsit/fill', [ShuttleController::class,"savedata"]);
-
+Route::post('/clickandsit/edit/{id}', [ShuttleController::class,"savechange"]);
 Route::get('/Sele', [ShuttleController::class,'routingawal']);
 // Route::get('/Sele', [iniController::class,'routingawal']);
 
