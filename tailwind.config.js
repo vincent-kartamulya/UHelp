@@ -19,6 +19,11 @@ export const theme = {
         boxShadow: {
             'shadow-custom': '0px 4px 4px rgba(0, 0, 0, 0.25)',
         },
+        screens: {
+            'mobile': '16.667vw',
+            'tablet': '33.333vw',
+            'laptop': '53.333vw',
+        },
     },
 };
 export const plugins = [

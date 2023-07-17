@@ -20,14 +20,14 @@
                     @endif
                     <div class="mb-[1vw]">
                         <label for="default-input" class="block font-medium text-[1.042vw] text-dark-blue-new mb-[0.5vw]">Email Address</label>
-                        <input name="email" type="text" value= "{{old("email")}}" id="default-input" class="bg-gray-50 border border-yellow-new text-dark-blue-new text-[0.938vw] rounded-[0.417vw] focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]">
+                        <input name="email" type="text" value= "{{old("email")}}" id="default-input" class="bg-gray-50 border border-yellow-new text-dark-blue-new text-[0.938vw] rounded-[0.417vw] focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]" placeholder="Email address">
                         @error('email')
                             <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">{{$message}}</p>
                         @enderror
                     </div>
                     <div class="mb-[0.5vw]">
                         <label for="password" class="block font-medium text-[1.042vw] text-dark-blue-new mb-[0.5vw]">Password</label>
-                        <input name="password"  type="password" id="password" class="bg-gray-50 border border-yellow-new text-dark-blue-new text-[0.938vw] rounded-[0.417vw] focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]">
+                        <input name="password"  type="password" id="password" class="bg-gray-50 border border-yellow-new text-dark-blue-new text-[0.938vw] rounded-[0.417vw] focus:ring-yellow-new focus:border-yellow-new block w-full p-[0.521vw] h-[2.5vw]" placeholder="Password">
                         @error('password')
                         <p class="text-red-500 text-[0.938vw] mt-[0.2vw]">The password is incorrect!</p>
                     @enderror
