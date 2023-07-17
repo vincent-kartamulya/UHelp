@@ -2,6 +2,31 @@
 
 @section('title', 'U-Help | Certificates')
 @section('content')
+
+@if(session('success'))
+    <script>
+        console.log('Hai');
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr.success('{{ session('success') }}');
+    </script>
+@endif
+
 {{-- Gambar dan informasi sertifikat --}}
 <div class="certificate-container pt-[9.167vw] pb-[4vw] flex flex-row justify-center">
     <div class="left-content mr-[1.042vw] w-1/3">

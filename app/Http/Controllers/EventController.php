@@ -40,7 +40,7 @@ class EventController extends Controller
         } elseif ($filterOption == 'earliest') {
             $events = Event::orderBy('date', 'asc')->paginate(10);
         } else {
-            $events = Event::paginate(10);
+            $events = Event::where('user_id', auth()->user()->id)->paginate(10);
         }
 
         // Pass the filtered results to the view
@@ -178,7 +178,7 @@ class EventController extends Controller
 
                  // Generate the QR code
                 $certificateUUID = Uuid::uuid4()->toString();
-                $qrCodeContent = 'https://uhelp.anderies.com/'. $certificateUUID . '/validate'; // Replace with your desired QR code content
+                $qrCodeContent = 'https://uhelp.anderies.com/'. 'validate/' . $certificateUUID; // Replace with your desired QR code content
                 $qrCode = QrCode::format('png')->size(100)->generate($qrCodeContent);
 
                 // Add the QR code to the certificate image
@@ -207,7 +207,7 @@ class EventController extends Controller
                     'user_id' => auth()->user()->id,
                     'event_id' => $event->id,
                     'recipient_id' => $recipient->id,
-                    'uuid' => Uuid::uuid4()->toString(),
+                    'uuid' => $certificateUUID,
                     'issuing_date' => now()->format('Y-m-d'),
                     'expired_date' => now()->addYears(5)->format('Y-m-d'),
                     'path' => 'storage/certificates/' . $filename
@@ -218,7 +218,7 @@ class EventController extends Controller
         imagedestroy($image);
 
         // Redirect to '/events'
-        return redirect('/events');
+        return redirect('/events')->with('success', 'Event Updated');
     }
 
 
@@ -253,7 +253,10 @@ class EventController extends Controller
              ]);
          }
      }
-
+     public function validates($uuid){
+        $certificate = Certificate::where('uuid', $uuid)->first();
+        return view('sharetificate.seeCertificate', ['certificate' => $certificate]);
+     }
     public function show($uuid, Request $request)
     {
         $event = Event::where('uuid', $uuid)->firstOrFail();

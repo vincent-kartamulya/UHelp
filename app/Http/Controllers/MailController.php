@@ -21,7 +21,7 @@ class MailController extends Controller
             $name = $certificate->recipient->name;
             $certificateUrl = $certificate->path;
             $email = $certificate->recipient->email;
-            ProcessEmail::dispatch($email, $name, $eventName, $eventDate, $certificateUrl);
+            Mail::to($email)->send(new SendEmail($name, $eventName, $eventDate, $certificateUrl));
         }
         return redirect()->back()->with('success', 'Email Sent!');
     }

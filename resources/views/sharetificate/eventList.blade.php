@@ -1,6 +1,29 @@
 @extends('master')
 @section('title', 'U-Help | Event List')
 @section('content')
+<!-- Display toaster notification -->
+@if(session('success'))
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr.success('{{ session('success') }}');
+    </script> 
+@endif
 
 <div class="m-auto w-8/12">
     <div id="banner" class="pt-[7.813vw] pb-[3.646vw] flex flex-col">

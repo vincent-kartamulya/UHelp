@@ -57,8 +57,6 @@ Route::get('/history', function () {
 Route::post('/clickandsit/fill', [ShuttleController::class,"savedata"]);
 
 Route::get('/Sele', [ShuttleController::class,'routingawal']);
-// Route::get('/Sele', [iniController::class,'routingawal']);
-
 Route::resource('/events', EventController::class)->middleware('auth');
 Route::get('/ajax', [EventController::class,'ajax']);
 Route::get('/certificateAjax', [EventController::class,'certificateAjax']);
@@ -74,9 +72,9 @@ Route::get('/sendEmail/{id}', [MailController::class, 'sendMail']);
 Route::post('/LogIn/verif', [UserController::class,'authentication']);
 Route::post('/LogOut', [UserController::class,'Loggingout']);
 Route::post('/update/profile', [UserController::class,'profileedit']);
-// Route::post('/save-image', [UserController::class,]);
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
 Route::get('/delete-account',[UserController::class,'DeleteAcc']);
 Route::post('/update/password', [UserController::class,'ChangePassword']);
+Route::get('/validate/{id}', [EventController::class, 'validates']);
 
