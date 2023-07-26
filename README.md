@@ -1,6 +1,6 @@
 <p align="center"><a href="https://uhelp.anderies.com" target="_blank"><img src="public/assets/Logo.png" width="100" alt="Laravel Logo"></a></p>
 
-<h1 align="center">UHELP (Web Development Project)</h1>
+<h1 align="center">U-HELP (A Web Development Project)</h1>
 <p align="center">U-Help is a web application built using Laravel Framework and Tailwind CSS. It offers two main features: simple yet interesting and helpful for everyday life. As a lecturer at BINUS University, you may find these features especially useful. The first feature is Click-and-Sit, and the second is Sharetificate. </p>  
 
 <br />
