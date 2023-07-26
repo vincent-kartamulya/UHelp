@@ -62,7 +62,7 @@ class ShuttleController extends Controller
 
     // Save the model to the database
         $model->save();
-        $datas = Shuttle::all();
+        $datas = Shuttle::where('user_id',auth()->user()->id)->get();
         return view('clickandsit.clickandsit-fill',compact('datas'));
     }
 
@@ -75,7 +75,6 @@ class ShuttleController extends Controller
         $balik = $anjay->jamAlsut;
         $jambalik = $anjay->naik;
         $departdate = date('d-m-Y', strtotime($anjay->departdate));
-        // Escape the parameter value
         $parameter = [
             escapeshellarg('kaneki@gmail.com'),
             escapeshellarg($departdate),
@@ -94,10 +93,23 @@ class ShuttleController extends Controller
 
         $output = shell_exec($command);
 
+        // $pythonScriptPath = public_path('cobain.py');
+        // $command = 'python ' . $pythonScriptPath;
+        // $output = [];
+        // $exitCode = 0;
+
+        // exec($command, $output, $exitCode);
+
+        // if ($exitCode === 0) {
+        //     // Command executed successfully
+        //     return response()->json(['output' => $output]);
+        // } else {
+        //     // There was an error executing the command
+        //     return response()->json(['error' => 'Failed to execute Python script']);
+        // }
         // Process the output as needed
-        $datas = Shuttle::all();
+        $datas = Shuttle::where('user_id',auth()->user()->id)->get();
         return view('clickandsit.clickandsit-fill',compact('datas'));
-    // Process the output as needed
     }
 
     public function ngedit($idShuttle){
@@ -105,6 +117,32 @@ class ShuttleController extends Controller
         return view('clickandsit.clickandsit-edit',compact('anjay'));
     }
 
+    public function savechange($idShuttle, Request $request){
+        $anjay = Shuttle::find($idShuttle);
+        $destinationFrom = $request->input('place_departure');
+        $destinationTo = $request->input('place_return');
+        $departureTime = $request->input('time_departure');
+        $returnTime = $request->input('time_return');
+        $keperluan = $request->input('needs');
+        if($destinationFrom){
+            $anjay->turun = $destinationFrom;
+        }
+        if($destinationTo){
+            $anjay->naik = $destinationTo;
+        }
+        if($departureTime){
+            $anjay->jamAlsut = $departureTime;
+        }
+        if($returnTime){
+            $anjay->jamAnggrek = $returnTime;
+        }
+        if($keperluan){
+            $anjay->keperluan = $keperluan;
+        }
+        $anjay->save();
+        $datas = Shuttle::where('user_id',auth()->user()->id)->get();
+        return view('clickandsit.clickandsit-fill',compact('datas'));
+    }
 
     public function routingawal()
     {
@@ -112,191 +150,102 @@ class ShuttleController extends Controller
         // $process = new Process([$seleniumCommand]);
         // $process->start();
         // usleep(5000000);
-        $seleniumCommand = "java -jar " . public_path('selenium-server-4.9.0.jar') . " standalone";
-        exec($seleniumCommand);
-        // $process = new Process([$seleniumCommand]);
+        // $seleniumCommand = "java -jar " . public_path('selenium-server-4.9.0.jar') . " standalone";
+        // exec($seleniumCommand);
+        // // $process = new Process([$seleniumCommand]);
 
-        try {
-            // $process->start();
-            // usleep(5000000);
-            $host = 'http://localhost:4444/wd/hub'; // Selenium server URL
-            $capabilities = DesiredCapabilities::chrome(); // or any other browser
-            $driver = RemoteWebDriver::create($host, $capabilities);
+        // try {
+        //     // $process->start();
+        //     // usleep(5000000);
+        //     $host = 'http://localhost:4444/wd/hub'; // Selenium server URL
+        //     $capabilities = DesiredCapabilities::chrome(); // or any other browser
+        //     $driver = RemoteWebDriver::create($host, $capabilities);
 
-            $driver->get('https://forms.gle/dKcynjUvbwggiQdx5');
-            $wait = new WebDriverWait($driver, 60);
+        //     $driver->get('https://forms.gle/dKcynjUvbwggiQdx5');
+        //     $wait = new WebDriverWait($driver, 60);
 
-            $inputElement = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('whsOnd'))
-            );
-            $inputElement->sendKeys("Alogha@gmail.com");
+        //     $inputElement = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('whsOnd'))
+        //     );
+        //     $inputElement->sendKeys("Alogha@gmail.com");
 
-            $nextButton = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('NPEfkd'))
-            );
-            $nextButton->click();
+        //     $nextButton = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('NPEfkd'))
+        //     );
+        //     $nextButton->click();
 
-            $woke = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('AB7Lab'))
-            );
-            $woke->click();
+        //     $woke = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('AB7Lab'))
+        //     );
+        //     $woke->click();
 
-            $nextButton2 = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
-            );
-            $nextButton2->click();
+        //     $nextButton2 = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
+        //     );
+        //     $nextButton2->click();
 
-            $tanggalan = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('input[type="date"].whsOnd.zHQkBf'))
-            );
-            $tanggalan->sendKeys('10-05-2022');
+        //     $tanggalan = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('input[type="date"].whsOnd.zHQkBf'))
+        //     );
+        //     $tanggalan->sendKeys('10-05-2022');
 
-            $nextButton3 = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
-            );
-            $nextButton3->click();
+        //     $nextButton3 = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
+        //     );
+        //     $nextButton3->click();
 
-            $BinusianId = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[1]'))
-            );
-            $BinusianId->sendKeys("Aloha America");
+        //     $BinusianId = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[1]'))
+        //     );
+        //     $BinusianId->sendKeys("Aloha America");
 
-            $Namaku = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[2]'))
-            );
-            $Namaku->sendKeys("Kaneki ken");
+        //     $Namaku = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[2]'))
+        //     );
+        //     $Namaku->sendKeys("Kaneki ken");
 
-            $Unit = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[3]'))
-            );
-            $Unit->sendKeys("Beban Binus");
+        //     $Unit = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[3]'))
+        //     );
+        //     $Unit->sendKeys("Beban Binus");
 
-            $option1 = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="W gabut"]'))
-            );
-            $option1->click();
+        //     $option1 = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="W gabut"]'))
+        //     );
+        //     $option1->click();
 
-            $telpon = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[5]'))
-            );
-            $telpon->sendKeys("088888888");
+        //     $telpon = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[5]'))
+        //     );
+        //     $telpon->sendKeys("088888888");
 
-            $harinya = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Senin"]'))
-            );
-            $harinya->click();
+        //     $harinya = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Senin"]'))
+        //     );
+        //     $harinya->click();
 
-            $nextButton4 = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
-            );
-            $nextButton4->click();
+        //     $nextButton4 = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
+        //     );
+        //     $nextButton4->click();
 
-            $jam1 = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Jam 2"]'))
-            );
-            $jam1->click();
+        //     $jam1 = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Jam 2"]'))
+        //     );
+        //     $jam1->click();
 
-            $turundi = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Binus Alsut"]'))
-            );
-            $turundi->click();
+        //     $turundi = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Binus Alsut"]'))
+        //     );
+        //     $turundi->click();
 
-            $Finish = $wait->until(
-                WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Kirim')]"))
-            );
-            $Finish->click();
-            // $process->stop();
-        } catch (ProcessFailedException $exception) {
-            // Handle the process exception if needed
-        }
-        // $host = 'http://localhost:4444/wd/hub'; // Selenium server URL
-        // $capabilities = DesiredCapabilities::chrome(); // or any other browser
-        // $driver = RemoteWebDriver::create($host, $capabilities);
-
-        // $driver->get('https://forms.gle/dKcynjUvbwggiQdx5');
-        // $wait = new WebDriverWait($driver, 60);
-
-        // $inputElement = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('whsOnd'))
-        // );
-        // $inputElement->sendKeys("Alogha@gmail.com");
-
-        // $nextButton = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('NPEfkd'))
-        // );
-        // $nextButton->click();
-
-        // $woke = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::className('AB7Lab'))
-        // );
-        // $woke->click();
-
-        // $nextButton2 = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
-        // );
-        // $nextButton2->click();
-
-        // $tanggalan = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::cssSelector('input[type="date"].whsOnd.zHQkBf'))
-        // );
-        // $tanggalan->sendKeys('10-05-2022');
-
-        // $nextButton3 = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
-        // );
-        // $nextButton3->click();
-
-        // $BinusianId = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[1]'))
-        // );
-        // $BinusianId->sendKeys("Aloha America");
-
-        // $Namaku = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[2]'))
-        // );
-        // $Namaku->sendKeys("Kaneki ken");
-
-        // $Unit = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[3]'))
-        // );
-        // $Unit->sendKeys("Beban Binus");
-
-        // $option1 = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="W gabut"]'))
-        // );
-        // $option1->click();
-
-        // $telpon = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('(//input[@type="text"])[5]'))
-        // );
-        // $telpon->sendKeys("088888888");
-
-        // $harinya = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Senin"]'))
-        // );
-        // $harinya->click();
-
-        // $nextButton4 = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Berikutnya')]"))
-        // );
-        // $nextButton4->click();
-
-        // $jam1 = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Jam 2"]'))
-        // );
-        // $jam1->click();
-
-        // $turundi = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath('//div[@aria-label="Binus Alsut"]'))
-        // );
-        // $turundi->click();
-
-        // $Finish = $wait->until(
-        //     WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Kirim')]"))
-        // );
-        // $Finish->click();
-
-        // $driver->quit();
+        //     $Finish = $wait->until(
+        //         WebDriverExpectedCondition::elementToBeClickable(WebDriverBy::xpath("//span[contains(text(),'Kirim')]"))
+        //     );
+        //     $Finish->click();
+        //     // $process->stop();
+        // } catch (ProcessFailedException $exception) {
+        //     // Handle the process exception if needed
+        // }
     }
 }
-
