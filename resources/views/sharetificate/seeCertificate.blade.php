@@ -14,8 +14,7 @@
     <div id="left-content" class="items-center flex flex-col">
         <img class="shadow-xl w-[35vw] mobile:w-4/5" src="{{ asset($certificate->path) }}" alt="certificate">
     </div>
-    <div id="right-content" class="flex flex-col justify-center w-[30vw] h-[28vw] bg-white border border-yellow-new shadow-shadow-custom rounded-[0.5vw] px-[2.5vw] py-[2.5vw] text-[1.3vw] text-dark-blue-new mobile:w-[40%] mobile:h-auto mobile:rounded-[1vw] mobile:text-[2vw]">
-        <div>
+    <div id="right-content" class="flex flex-col justify-center w-[30vw] h-[28vw] bg-white border border-yellow-new shadow-shadow-custom rounded-[0.5vw] px-[2.5vw] py-[2.5vw] text-[1.3vw] text-dark-blue-new mobile:w-[65%] mobile:h-auto mobile:rounded-[1.4vw] mobile:text-[2.5vw]">        <div>
             <h3 class="font-medium">This certificate was issued for the event</h3>
             <h5 class="font-normal opacity-50">{{$certificate->event->title}}</h5>
         </div>
