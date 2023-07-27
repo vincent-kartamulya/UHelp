@@ -66,7 +66,7 @@ Old user or every user who have registered before can login to their account usi
 
 ### Sharetificate
 - After login, user can also access the Sharatificte feature. If the user don't have any event yet, first add a new event. Input the required data such as title, location, date, and the participant data with excel type file. The excel file must include the column name "name", "email", "position". 
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Upload%20Excell.gif)
 - Next, upload the template with file type .png or .jpg. After the uploaded template is shown, drag the "Drag_Me_This_Is_A_Example_Name" box to where the name will be placed in the certificate. After that, click the create button and wait until finished. 
 
 - After that, user can see the event page with all the events that have been created. User can search any event live and filter the event from latest or earliest.
