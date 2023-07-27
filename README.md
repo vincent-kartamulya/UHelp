@@ -80,7 +80,7 @@ Old user or every user who have registered before can login to their account usi
 
 ### Profile
 - When clicking the profile photo at the top right corner, user will be directed into profile page, where they can upload profile photo, and update any data. Don't forget to click save changes!
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Update%20Profile.gif)
 
 - User can also change password by clicking "Change Password" button and input old and new password. Don't forget to click save changes!
 ![](https://github.com/ZakariaBerlam/UHelp/blob/main/Change%20Password.gif)
