@@ -72,7 +72,7 @@ Old user or every user who have registered before can login to their account usi
 - After that, user can see the event page with all the events that have been created. User can search any event live and filter the event from latest or earliest.
 
 - When clicking any event, the user will be directed to detail page of the event which the list of generated certificate will be shown. User can search the generated certificate, edit any certificate, also select and delete certificates. 
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Edit%20certificate.gif)
 
 - User can also update event information by clicking the pencil button, and if the user want to download the certificate, user can click the download button and all certificate will be downloaded in a .zip file. Besides that, user can also send email to each corresponding recipients by clicking the email button, just wait until the process is done. 
 ![](https://github.com/ZakariaBerlam/UHelp/blob/main/Edit%20event%20and%20download.gif)
