@@ -53,7 +53,7 @@ Old user or every user who have registered before can login to their account usi
 
 ### Click and Sit
 - After login, user can now access the Click and Sit feature. If the user don't have any schedule yet, first add schedule. Input the required data such as destination place and items, return place and time, and also needs, then click save.
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Studio_Project_V3.gif)
 - After created, user can edit the template by clicking the edit button, and fill in the new data and click save
 
 - User can also delete the template if not wanted anymore by clicking the garbage can button.
