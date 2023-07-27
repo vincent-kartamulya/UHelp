@@ -88,6 +88,7 @@ Old user or every user who have registered before can login to their account usi
 
 ### Log Out
 To logout, just click the profile photo at the top right corner and click Logout button. You are logged out!
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Log%20Out.gif)
 <br />
 <br />
 
