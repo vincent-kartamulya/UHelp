@@ -61,8 +61,6 @@ Old user or every user who have registered before can login to their account usi
 - If user want to submit the form, click the submit button. Wait until a new browser windows pop up and the form automation process completed. Yeay! your form has been submitted with just one click!
 
 
-https://github.com/ZakariaBerlam/UHelp/assets/129251229/b4ac9e43-8fa0-4f76-9b43-d2601a501e1d
-
 
 <br />
 
