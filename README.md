@@ -57,7 +57,7 @@ Old user or every user who have registered before can login to their account usi
 - After created, user can edit the template by clicking the edit button, and fill in the new data and click save
 
 - User can also delete the template if not wanted anymore by clicking the garbage can button.
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Studio_Project_V4.gif)
 - If user want to submit the form, click the submit button. Wait until a new browser windows pop up and the form automation process completed. Yeay! your form has been submitted with just one click!
 
 <br />
