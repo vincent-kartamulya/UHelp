@@ -70,7 +70,7 @@ Old user or every user who have registered before can login to their account usi
 - Next, upload the template with file type .png or .jpg. After the uploaded template is shown, drag the "Drag_Me_This_Is_A_Example_Name" box to where the name will be placed in the certificate. After that, click the create button and wait until finished. 
 ![](https://github.com/ZakariaBerlam/UHelp/blob/main/Add%20template.gif)
 - After that, user can see the event page with all the events that have been created. User can search any event live and filter the event from latest or earliest.
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/See%20all%20event.gif)
 - When clicking any event, the user will be directed to detail page of the event which the list of generated certificate will be shown. User can search the generated certificate, edit any certificate, also select and delete certificates. 
 ![](https://github.com/ZakariaBerlam/UHelp/blob/main/Edit%20certificate.gif)
 
