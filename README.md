@@ -48,7 +48,7 @@ New user must first register to access the features in UHelp. After clicking the
 
 ### Login
 Old user or every user who have registered before can login to their account using email address and password. Similar to register, user can login with Google too.
-![](https://github.com/ZakariaBerlam/UHelp/blob/main/Studio_Project_V2.gif)
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/login.gif)
 <br />
 
 ### Click and Sit
