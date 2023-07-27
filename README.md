@@ -43,7 +43,7 @@ FILESYSTEM_DISK = public
 ### Register
 
 New user must first register to access the features in UHelp. After clicking the register button, fill in the email address, password, and confirm the inputted password. After successful, the page will be redirected into the login page. Alternaltively, user can just register using Google.
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Studio_Project_V1.gif)
 <br />
 
 ### Login
