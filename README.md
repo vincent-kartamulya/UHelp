@@ -75,7 +75,7 @@ Old user or every user who have registered before can login to their account usi
 
 
 - User can also update event information by clicking the pencil button, and if the user want to download the certificate, user can click the download button and all certificate will be downloaded in a .zip file. Besides that, user can also send email to each corresponding recipients by clicking the email button, just wait until the process is done. 
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Edit%20event%20and%20download.gif)
 <br />
 
 ### Profile
