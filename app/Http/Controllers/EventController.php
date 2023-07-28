@@ -123,7 +123,9 @@ class EventController extends Controller
         $font_color = imagecolorallocate($image, 0, 0, 0);
 
         $certificatePath = 'app/public/certificates';
-
+        if (!file_exists(storage_path($certificatePath))) {
+            mkdir(storage_path($certificatePath), 0777, true);
+        }
         // Create new event
         $event = Event::create([
             'title' => $validatedData['event_name'],

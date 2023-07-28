@@ -6,35 +6,57 @@
 <br />
 
 
-## 🚀 Top 5 Technology Used
+## 🚀 Top 6 Technology Used
 - Laravel
 - Tailwind CSS
 - MySQL
 - Mailtrap
 - Selenium
+- Socialite
 
 <br />
 
 ## ⚙ First Installation
 Here are the steps need to install and get the project working
 1. First, make sure you already have [XAMPP](https://www.apachefriends.org/download.html), [Laravel](https://laravel.com/docs/7.x/installation), and [Python](https://www.python.org/downloads/) installed on your device
+2. This website has google login using Socialite, and it required a [Google Client](https://console.cloud.google.com/apis/dashboard) Account ID and Secret. After you get it, copy the required to the .env
+```bash
+GOOGLE_CLIENT_ID = fill_with_your_client_id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET = fill_with_your_client_secret
+GOOGLE_CLIENT_REDIRECT = http://127.0.0.1:8000/auth/google/callback
+```
+2. This website also has email sending using MailTrap, and it required a [MailTrap Sending Domain](https://mailtrap.io/sending/domains) API Key. After you get it, copy the required below to the .env
+```bash
+MAIL_MAILER="mailtrap"
+MAILTRAP_HOST="send.api.mailtrap.io"
+MAILTRAP_API_KEY="your_mailtrap_api_key"
+```
 2. After that, copy the project's url for cloning
-[App Screenshot](public/assets/readme/clone.jpg)
+![](public/assets/readme/clone.jpg)
 3. Open your command prompt, and change your directory into wherever you want the project to be. After that type the command `git clone https://github.com/vincent-kartamulya/UHelp.git`
+![](public/assets/readme/gitclone.jpg)
 4. Change directory into the project using `cd UHelp`
 5. Install the required package using the command `composer install`
+![](public/assets/readme/composerinstall.jpg)
 6. Make a new environment (.env file) using `copy .env.example .env`
 7. Generate the application key with `php artisan key:genarate`
+![](public/assets/readme/keygenerate.jpg)
 8. To install the node package dependencies type `npm install`. 
+![](public/assets/readme/npminstall.jpg)
 9. To make sure we can access the storage, we have to add this attribute into the .env
 ```bash
 FILESYSTEM_DRIVER = public
 FILESYSTEM_DISK = public
 ```
+![](public/assets/readme/filesystem.jpg)
 10. After that connect laravel storage with public directory using `php artisan storage:link`
+![](public/assets/readme/storagelink.jpg)
 20. Make sure the phpMyAdmin is already on in the XAMPP. Create and configure the database using `php artisan migrate`
+![](public/assets/readme/migrate.jpg)
 21. Create the tailwind live server using `npm run dev`
+![](public/assets/readme/rundev.jpg)
 22. Open up other terminal, and run the server with `php artisan serve`
+![](public/assets/readme/serve.jpg)
 23. Access the website by the shown link
 
 <br />
