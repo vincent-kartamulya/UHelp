@@ -43,49 +43,52 @@ FILESYSTEM_DISK = public
 ### Register
 
 New user must first register to access the features in UHelp. After clicking the register button, fill in the email address, password, and confirm the inputted password. After successful, the page will be redirected into the login page. Alternaltively, user can just register using Google.
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/0727.gif)
 <br />
 
 ### Login
 Old user or every user who have registered before can login to their account using email address and password. Similar to register, user can login with Google too.
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/login.gif)
 <br />
 
 ### Click and Sit
 - After login, user can now access the Click and Sit feature. If the user don't have any schedule yet, first add schedule. Input the required data such as destination place and items, return place and time, and also needs, then click save.
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Bikin%20template.gif)
 - After created, user can edit the template by clicking the edit button, and fill in the new data and click save
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Edit%20template.gif)
 - User can also delete the template if not wanted anymore by clicking the garbage can button.
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Delete.gif)
 - If user want to submit the form, click the submit button. Wait until a new browser windows pop up and the form automation process completed. Yeay! your form has been submitted with just one click!
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Submit.gif)
+
 
 <br />
 
 ### Sharetificate
 - After login, user can also access the Sharatificte feature. If the user don't have any event yet, first add a new event. Input the required data such as title, location, date, and the participant data with excel type file. The excel file must include the column name "name", "email", "position". 
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Upload%20Excell.gif)
 - Next, upload the template with file type .png or .jpg. After the uploaded template is shown, drag the "Drag_Me_This_Is_A_Example_Name" box to where the name will be placed in the certificate. After that, click the create button and wait until finished. 
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Add%20template.gif)
 - After that, user can see the event page with all the events that have been created. User can search any event live and filter the event from latest or earliest.
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/See%20all%20event.gif)
 - When clicking any event, the user will be directed to detail page of the event which the list of generated certificate will be shown. User can search the generated certificate, edit any certificate, also select and delete certificates. 
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Edit%20certificate.gif)
 
 - User can also update event information by clicking the pencil button, and if the user want to download the certificate, user can click the download button and all certificate will be downloaded in a .zip file. Besides that, user can also send email to each corresponding recipients by clicking the email button, just wait until the process is done. 
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Edit%20event%20and%20download.gif)
 <br />
 
 ### Profile
 - When clicking the profile photo at the top right corner, user will be directed into profile page, where they can upload profile photo, and update any data. Don't forget to click save changes!
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Update%20Profile.gif)
 
 - User can also change password by clicking "Change Password" button and input old and new password. Don't forget to click save changes!
-
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Change%20Password.gif)
 <br />
 
 ### Log Out
 To logout, just click the profile photo at the top right corner and click Logout button. You are logged out!
+![](https://github.com/ZakariaBerlam/UHelp/blob/main/Log%20Out.gif)
 <br />
 <br />
 
